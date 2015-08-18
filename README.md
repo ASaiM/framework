@@ -1,7 +1,7 @@
 Integration of ASaiM tools into Galaxy and Docker
 =================================================
 
-# Use
+# Usage
 
 galaxy directory must be in `../galaxy`
 
@@ -16,7 +16,7 @@ For Mac User, before launching `prepare_galaxy_tools.sh`, launch:
 boot2docker init
 boot2docker start
 eval "$(boot2docker shellinit)"
-``
+```
 
 # Tool integration
 
