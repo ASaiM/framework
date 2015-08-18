@@ -22,7 +22,7 @@ eval "$(boot2docker shellinit)"
 
 To integrate a tool:
 
-1. Create a directory in `tools 
+1. Create a directory in `tools`
 2. Add the sources
 3. Create a Dockerfile in this directory
 4. Create a configuration file in this directory
