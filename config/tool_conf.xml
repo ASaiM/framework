@@ -3,9 +3,6 @@
     <section id="getext" name="Get Data">
         <tool file="data_source/upload.xml" />
     </section>
-    <section id="rna_sorting" name="Sort RNA">
-        <tool file="sortmerna/sortmerna.xml" />
-    </section>
     <section id="extraction" name="Extract data">
         <tool file="docker/extract_similarity_search_report.xml" />
     </section>

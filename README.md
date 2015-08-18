@@ -1,16 +1,15 @@
-Integration of ASaiM tools into Galaxy and Docker
-=================================================
+ASaiM Galaxy
+============
+
+Clone galaxy code, config galaxy, add tools and launch galaxy
 
 # Usage
 
-galaxy directory must be in `../galaxy`
-
-To build Docker images and copy the configuration files:
 ```
-./prepare_galaxy_tools.sh
+./src/prepare_galaxy.sh
 ```
 
-For Mac User, before launching `prepare_galaxy_tools.sh`, launch:
+For Mac User, launch before:
 
 ```
 boot2docker init
@@ -23,7 +22,7 @@ eval "$(boot2docker shellinit)"
 To integrate a tool:
 
 1. Create a directory in `tools`
-2. Add the sources
+2. Add the sources (if they are not in a remote repository)
 3. Create a Dockerfile in this directory
 4. Create a configuration file in this directory
 5. Integrate information about this tool in `tool_conf.xml` and `prepare_galaxy_tools.sh`
