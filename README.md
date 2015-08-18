@@ -26,4 +26,4 @@ To integrate a tool:
 2. Add the sources
 3. Create a Dockerfile in this directory
 4. Create a configuration file in this directory
-5. Integrate information about this tool in `tool_conf.xml` and `prepare_galaxy_tools.sh
+5. Integrate information about this tool in `tool_conf.xml` and `prepare_galaxy_tools.sh`
