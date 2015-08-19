@@ -64,7 +64,6 @@ class SimilarityInformation:
             self.information[info] = -1
 
     def get(self,category):
-        test_category(category)
         return self.information[category]
 
     def set(self,category,new_value):
@@ -149,14 +148,14 @@ def test_extraction(to_extract, file_format):
 		if info not in sequence_similarity_report_format[file_format]:
 			string = os.path.basename(__file__) + ': ' 
 			string += info + ' is not a correct information to extract from ' 
-			string += file_format + 'file'
+			string += file_format + ' file'
 			raise ValueError(string)
 
 def format_constraints(constraints):
     formatted_constraints = {}
     if constraints != None:
         for constr in constraints:
-            split_constraint = constr.split(':')
+            split_constraint = constr.split(': ')
             constrained_information = split_constraint[0]
             constraint = Constraint(split_constraint[1], split_constraint[2], 
                 constrained_information)
@@ -193,6 +192,7 @@ def extract_similarity_search_report(args):
     input_filepath = args.input
     format = args.format
     to_extract = args.to_extract
+    to_extract = to_extract[1:-1].split(',')
     constraints = args.constraint
     report_filepath = args.report
     output_filepath = args.output
@@ -245,7 +245,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('--input', required=True)
     parser.add_argument('--format', required=True)
-    parser.add_argument('--to_extract', action='append', required=True)
+    parser.add_argument('--to_extract', required=True)
     parser.add_argument('--constraint', action='append')
     parser.add_argument('--report', required=True)
     parser.add_argument('--output', required=True)
