@@ -138,7 +138,7 @@ def test_format(filepath, file_format):
             if observed_info_nb != expected_info_nb:
             	string = os.path.basename(__file__) + ': ' 
             	string += file_format + ' format is not respected '
-            	string += '(wrong column number with ' + observed_info_nb
+            	string += '(wrong column number with ' + str(observed_info_nb)
             	string += 'columns for ' + row + ')'
                 raise ValueError(string) 
     return True
