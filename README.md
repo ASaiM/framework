@@ -3,15 +3,9 @@ ASaiM Galaxy
 
 Clone galaxy code, config galaxy, add tools and launch galaxy
 
-# Usage
+# Requirements
 
-For Mac User, launch before:
-
-```
-boot2docker init
-boot2docker start
-eval "$(boot2docker shellinit)"
-```
+## Linux
 
 Configure Docker for Galaxy (`${user}` corresponds to your user id on your computer)
 ```
@@ -20,12 +14,31 @@ sudo gpasswd -a ${user} docker
 sudo service docker restart
 ```
 
+# Mac
+
+First time, configure Docker
+```
+sudo dscl . -create /groups/docker
+sudo dscl . -append /groups/docker GroupMembership cidam
+```
+
+After turn on the computer, launch boot2docker
+```
+boot2docker init
+```
+
+Regularly, 
+``
+boot2docker start
+eval "$(boot2docker shellinit)"
+```
+
+# Usage
+
 Launch script:
 ```
 ./src/prepare_galaxy.sh
 ```
-
-
 
 # Tool integration
 
