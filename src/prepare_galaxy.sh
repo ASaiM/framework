@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 galaxy_dir="../galaxy"
 current_dir=$PWD
@@ -13,7 +13,7 @@ else
 fi
 
 # Prepare galaxy tools
-sh src/prepare_galaxy_tools.sh $galaxy_dir
+./src/prepare_galaxy_tools.sh $galaxy_dir
 
 # Prepare galaxy config
 cp config/* $galaxy_dir/config/
