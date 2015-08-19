@@ -6,6 +6,9 @@
     <section id="extraction" name="Extract data">
         <tool file="docker/extract_similarity_search_report.xml" />
     </section>
+    <section id="extraction" name="Extract data">
+        <tool file="docker/extract_similarity_search_report_2/extract_similarity_search_report.xml" />
+    </section>
     <section id="catDocker" name="Test docker">
         <tool file="docker/catDocker.xml" />
     </section>
