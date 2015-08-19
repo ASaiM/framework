@@ -5,10 +5,6 @@ Clone galaxy code, config galaxy, add tools and launch galaxy
 
 # Usage
 
-```
-./src/prepare_galaxy.sh
-```
-
 For Mac User, launch before:
 
 ```
@@ -16,6 +12,20 @@ boot2docker init
 boot2docker start
 eval "$(boot2docker shellinit)"
 ```
+
+Configure Docker for Galaxy (`${user}` corresponds to your user id on your computer)
+```
+sudo groupadd -f docker
+sudo gpasswd -a ${user} docker
+sudo service docker restart
+```
+
+Launch script:
+```
+./src/prepare_galaxy.sh
+```
+
+
 
 # Tool integration
 
