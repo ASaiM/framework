@@ -12,12 +12,6 @@ else
     git clone https://github.com/galaxyproject/galaxy.git $galaxy_dir
 fi
 
-#
-user="bebatut-galaxy"
-sudo groupadd docker
-sudo gpasswd -a $user docker
-sudo service docker restart
-
 # Prepare galaxy tools
 sh src/prepare_galaxy_tools.sh $galaxy_dir
 
