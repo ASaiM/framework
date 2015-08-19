@@ -9,7 +9,7 @@ mkdir -p $galaxy_tool_dir
 
 # Extraction of similarity search report
 extract_similarity_search_report_dir=$tool_dir/extract/extract_similarity_search_report
-docker build -t asaim/extract-similarity-search-report $extract_similarity_search_report_dir
+sudo docker build -t asaim/extract-similarity-search-report $extract_similarity_search_report_dir
 cp $extract_similarity_search_report_dir/extract_similarity_search_report.xml $galaxy_tool_dir/extract_similarity_search_report.xml
 
 mkdir $galaxy_tool_dir/extract_similarity_search_report_2
