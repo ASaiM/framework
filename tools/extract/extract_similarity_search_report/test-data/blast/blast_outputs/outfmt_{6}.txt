@@ -1,0 +1,548 @@
+BLASTX 2.2.30+
+
+
+Reference: Stephen F. Altschul, Thomas L. Madden, Alejandro A.
+Schaffer, Jinghui Zhang, Zheng Zhang, Webb Miller, and David J.
+Lipman (1997), "Gapped BLAST and PSI-BLAST: a new generation of
+protein database search programs", Nucleic Acids Res. 25:3389-3402.
+
+
+
+Database: test-data/db/db.fasta
+           15 sequences; 6,211 total letters
+
+
+
+Query= HWI-M00234:263:000000000-ADM55:1:1101:20964:2264 1:N:0:CAGATC
+
+Length=282
+                                                                      Score     E
+Sequences producing significant alignments:                          (Bits)  Value
+
+  gi|297571028|ref|YP_003696802.1| formate acetyltransferase [Arc...  99.8    2e-28
+  gi|53803709|ref|YP_114441.1| phosphoribosylglycinamide formyltr...  17.7    1.5  
+  gi|294661363|ref|YP_003573239.1| hypothetical protein Aasi_1879...  16.5    4.1  
+
+
+> gi|297571028|ref|YP_003696802.1| formate acetyltransferase [Arcanobacterium 
+haemolyticum DSM 20595]
+Length=695
+
+ Score = 99.8 bits (247),  Expect = 2e-28, Method: Compositional matrix adjust.
+ Identities = 52/94 (55%), Positives = 64/94 (68%), Gaps = 1/94 (1%)
+ Frame = +2
+
+Query  2    RSFRSLGFLTGLPDNYARGRIIGDYRRLALYGIDRLIEAKMEDLHNLTG-PMTYDRIRLR  178
+            R+ RS   +TGLPD Y RGRIIGDYRR+ALYG+D LI  K++D       P T D  R R
+Sbjct  159  RAARSSHIITGLPDAYGRGRIIGDYRRVALYGVDHLIAEKLKDKDLFADQPFTQDWARDR  218
+
+Query  179  EDVAEQIKALKDIKIMGEYYGSDLRRPATSEQEA  280
+            E+++EQIKALK +K M   YG D+ RPA + QEA
+Sbjct  219  EEISEQIKALKKLKNMAASYGFDISRPAQTAQEA  252
+
+
+> gi|53803709|ref|YP_114441.1| phosphoribosylglycinamide formyltransferase 
+2 [Methylococcus capsulatus str. Bath]
+Length=400
+
+ Score = 17.7 bits (34),  Expect = 1.5, Method: Composition-based stats.
+ Identities = 8/16 (50%), Positives = 9/16 (56%), Gaps = 0/16 (0%)
+ Frame = +2
+
+Query  221  IMGEYYGSDLRRPATS  268
+            I+G    S LRRP  S
+Sbjct  312  ILGLPVDSSLRRPGAS  327
+
+
+> gi|294661363|ref|YP_003573239.1| hypothetical protein Aasi_1879 
+[Candidatus Amoebophilus asiaticus 5a2]
+Length=339
+
+ Score = 16.5 bits (31),  Expect = 4.1, Method: Composition-based stats.
+ Identities = 8/17 (47%), Positives = 9/17 (53%), Gaps = 0/17 (0%)
+ Frame = +3
+
+Query  219  R*WANITEAISGVRLLP  269
+            R W +I E    V LLP
+Sbjct  172  RQWISILETSYLVYLLP  188
+
+
+
+Lambda      K        H        a         alpha
+   0.318    0.134    0.401    0.792     4.96 
+
+Gapped
+Lambda      K        H        a         alpha    sigma
+   0.267   0.0410    0.140     1.90     42.6     43.6 
+
+Effective search space used: 322392
+
+
+Query= HWI-M00234:263:000000000-ADM55:1:1101:19623:2265 1:N:0:CAGATC
+
+Length=281
+                                                                      Score     E
+Sequences producing significant alignments:                          (Bits)  Value
+
+  gi|146299502|ref|YP_001194093.1| phosphoribosylglycinamide form...    133   2e-41
+  gi|427737176|ref|YP_007056720.1| formate-dependent phosphoribos...    117   1e-35
+  gi|152991751|ref|YP_001357472.1| phosphoribosylglycinamide form...    111   2e-33
+  gi|53803709|ref|YP_114441.1| phosphoribosylglycinamide formyltr...  84.7    1e-23
+  gi|222479135|ref|YP_002565372.1| phosphoribosylaminoimidazole c...  60.1    6e-15
+  gi|326800572|ref|YP_004318391.1| phosphoribosylaminoimidazole c...  40.4    3e-08
+  gi|397690887|ref|YP_006528141.1| (p)ppGpp synthetase I, SpoT/Re...  17.7    1.5  
+  gi|375011025|ref|YP_004988013.1| RelA/SpoT family (p)ppGpp synt...  17.3    2.2  
+  gi|430763000|ref|YP_007218857.1| Fructokinase [Thioalkalivibrio...  16.2    6.2  
+  gi|294661363|ref|YP_003573239.1| hypothetical protein Aasi_1879...  16.2    6.3  
+
+
+> gi|146299502|ref|YP_001194093.1| phosphoribosylglycinamide formyltransferase 
+2 [Flavobacterium johnsoniae UW101]
+Length=385
+
+ Score =   133 bits (334),  Expect = 2e-41, Method: Compositional matrix adjust.
+ Identities = 64/93 (69%), Positives = 75/93 (81%), Gaps = 1/93 (1%)
+ Frame = +2
+
+Query  2    EEFIKFDSEITLLTVTQKNGPTLFCPPIGHVQKGGDYRESFQPAHIHPAHLKEAQEMAEK  181
+            E F+ F SEITLLT+TQ + PTLFC PIGH Q+ GDY+ES+QPA +    L EAQ+MAEK
+Sbjct  183  EAFVDFHSEITLLTITQNDNPTLFCAPIGHRQERGDYQESWQPALVSEKDLYEAQDMAEK  242
+
+Query  182  VTRALTGAGLWGVEFFLSHENGVYFSELSPRPH  280
+            +T AL GAGL+GVEFFL+ E GVYFSELSPRPH
+Sbjct  243  ITEALGGAGLFGVEFFLTKE-GVYFSELSPRPH  274
+
+
+> gi|427737176|ref|YP_007056720.1| formate-dependent phosphoribosylglycinamide 
+formyltransferase [Rivularia sp. PCC 7116]
+Length=389
+
+ Score =   117 bits (293),  Expect = 1e-35, Method: Composition-based stats.
+ Identities = 56/93 (60%), Positives = 72/93 (77%), Gaps = 1/93 (1%)
+ Frame = +2
+
+Query  2    EEFIKFDSEITLLTVTQKNGPTLFCPPIGHVQKGGDYRESFQPAHIHPAHLKEAQEMAEK  181
+            EEFI F+ EITLLT+ Q + PT+FC PIGH Q+ GDY+ES+QPA I      +AQE+A++
+Sbjct  191  EEFIDFEIEITLLTIKQWDAPTIFCSPIGHRQERGDYQESWQPAGISQEMTLKAQEIAKQ  250
+
+Query  182  VTRALTGAGLWGVEFFLSHENGVYFSELSPRPH  280
+            VT AL GAG++GVEFF++ +  V FSELSPRPH
+Sbjct  251  VTDALGGAGIFGVEFFITKDE-VIFSELSPRPH  282
+
+
+> gi|152991751|ref|YP_001357472.1| phosphoribosylglycinamide formyltransferase 
+2 [Sulfurovum sp. NBC37-1]
+Length=387
+
+ Score =   111 bits (278),  Expect = 2e-33, Method: Compositional matrix adjust.
+ Identities = 57/93 (61%), Positives = 68/93 (73%), Gaps = 2/93 (2%)
+ Frame = +2
+
+Query  2    EEFIKFDSEITLLTVTQKNGPTLFCPPIGHVQKGGDYRESFQPAHIHPAHLKEAQEMAEK  181
+            EEF+ FD EITLLTV  + G T FC PIGHVQK GD+  S+QP  + P  LK+AQE+A+ 
+Sbjct  193  EEFVPFDYEITLLTVRNETGTT-FCEPIGHVQKDGDFILSWQPMQMSPEALKKAQEIAKA  251
+
+Query  182  VTRALTGAGLWGVEFFLSHENGVYFSELSPRPH  280
+            VT  L G G++GVEFF+  E  VYFSELSPRPH
+Sbjct  252  VTDGLGGRGIFGVEFFVKDEE-VYFSELSPRPH  283
+
+
+> gi|53803709|ref|YP_114441.1| phosphoribosylglycinamide formyltransferase 
+2 [Methylococcus capsulatus str. Bath]
+Length=400
+
+ Score = 84.7 bits (208),  Expect = 1e-23, Method: Composition-based stats.
+ Identities = 46/97 (47%), Positives = 61/97 (63%), Gaps = 5/97 (5%)
+ Frame = +2
+
+Query  2    EEFIKFDSEITLLTV----TQKNGPTLFCPPIGHVQKGGDYRESFQPAHIHPAHLKEAQE  169
+            E  I FD EITLLTV    +  +    FC P+GH Q+ GDY ES+QP  ++P   + A+ 
+Sbjct  195  EGRIDFDFEITLLTVRAPVSGGDAGIAFCEPVGHRQQAGDYVESWQPQSLNPKARERAEA  254
+
+Query  170  MAEKVTRALTGAGLWGVEFFLSHENGVYFSELSPRPH  280
+            +A  V  AL G GL+GVE F+  +  V+FSE+SPRPH
+Sbjct  255  IARTVVDALGGRGLFGVELFVRGDE-VWFSEVSPRPH  290
+
+
+> gi|222479135|ref|YP_002565372.1| phosphoribosylaminoimidazole 
+carboxylase, ATPase subunit [Halorubrum lacusprofundi ATCC 
+49239]
+Length=387
+
+ Score = 60.1 bits (144),  Expect = 6e-15, Method: Composition-based stats.
+ Identities = 31/93 (33%), Positives = 50/93 (54%), Gaps = 0/93 (0%)
+ Frame = +2
+
+Query  2    EEFIKFDSEITLLTVTQKNGPTLFCPPIGHVQKGGDYRESFQPAHIHPAHLKEAQEMAEK  181
+            EEF+ F+ EI ++ +   +G T   P    + +    RES  PA    A + EA+ +A  
+Sbjct  181  EEFLDFEREIAVMGLKGADGETRTYPVTETIHREEILRESVAPARTDDAVVAEAESVARD  240
+
+Query  182  VTRALTGAGLWGVEFFLSHENGVYFSELSPRPH  280
+            V   L G G++G+E F + +  V  +E++PRPH
+Sbjct  241  VLDVLDGRGVFGIELFETRDGEVLVNEIAPRPH  273
+
+
+> gi|326800572|ref|YP_004318391.1| phosphoribosylaminoimidazole 
+carboxylase ATPase subunit [Sphingobacterium sp. 21]
+Length=380
+
+ Score = 40.4 bits (93),  Expect = 3e-08, Method: Composition-based stats.
+ Identities = 26/95 (27%), Positives = 45/95 (47%), Gaps = 2/95 (2%)
+ Frame = +2
+
+Query  2    EEFIKFDSEITLLTVTQKNGPTLFCPPIG-HVQKGGDYRESFQPAHIHPAHLKE-AQEMA  175
+            E+++ F+ EI ++      G     P +        +  E      I P  ++E A+++A
+Sbjct  177  EQWVAFEKEIAVIVARNDKGDVSTFPMVEMEFNAEVNLVEFLISPSILPFEVQERAEQLA  236
+
+Query  176  EKVTRALTGAGLWGVEFFLSHENGVYFSELSPRPH  280
+             K+   L   GL  VE FL+ +  +  +EL+PRPH
+Sbjct  237  IKIAEDLQIVGLLAVEMFLTPDGNILVNELAPRPH  271
+
+
+> gi|397690887|ref|YP_006528141.1| (p)ppGpp synthetase I, SpoT/RelA 
+[Melioribacter roseus P3M-2]
+Length=729
+
+ Score = 17.7 bits (34),  Expect = 1.5, Method: Composition-based stats.
+ Identities = 6/13 (46%), Positives = 8/13 (62%), Gaps = 0/13 (0%)
+ Frame = +2
+
+Query  107  DYRESFQPAHIHP  145
+            D+R S +P   HP
+Sbjct  46   DFRASGEPYFNHP  58
+
+
+ Score = 17.3 bits (33),  Expect = 2.4, Method: Composition-based stats.
+ Identities = 10/35 (29%), Positives = 12/35 (34%), Gaps = 0/35 (0%)
+ Frame = -2
+
+Query  277  WTRRKFREIHPIFMTQEKFNSPKTGTRQSACYFFS  173
+            W R  F        T+E   S K    Q   Y F+
+Sbjct  369  WVRDIFENASKDEATKEILASFKLNLYQDEIYVFT  403
+
+
+ Score = 15.4 bits (28),  Expect = 9.0, Method: Composition-based stats.
+ Identities = 6/22 (27%), Positives = 9/22 (41%), Gaps = 0/22 (0%)
+ Frame = +2
+
+Query  80   PIGHVQKGGDYRESFQPAHIHP  145
+            P+  +   GD  E     + HP
+Sbjct  443  PLNTILHSGDQVEIITSKNQHP  464
+
+
+> gi|375011025|ref|YP_004988013.1| RelA/SpoT family (p)ppGpp synthetase 
+[Owenweeksia hongkongensis DSM 17368]
+Length=735
+
+ Score = 17.3 bits (33),  Expect = 2.2, Method: Composition-based stats.
+ Identities = 9/21 (43%), Positives = 13/21 (62%), Gaps = 1/21 (5%)
+ Frame = -1
+
+Query  149  EQDECEPAGNFRDSLLLSVHD  87
+            +QD    A NFR  +LL++ D
+Sbjct  123  DQDISMQAENFR-KMLLTISD  142
+
+
+> gi|430763000|ref|YP_007218857.1| Fructokinase [Thioalkalivibrio 
+nitratireducens DSM 14787]
+Length=298
+
+ Score = 16.2 bits (30),  Expect = 6.2, Method: Composition-based stats.
+ Identities = 5/9 (56%), Positives = 6/9 (67%), Gaps = 0/9 (0%)
+ Frame = -1
+
+Query  185  LLFQPFPVL  159
+             L QP P+L
+Sbjct  115  FLTQPLPML  123
+
+
+> gi|294661363|ref|YP_003573239.1| hypothetical protein Aasi_1879 
+[Candidatus Amoebophilus asiaticus 5a2]
+Length=339
+
+ Score = 16.2 bits (30),  Expect = 6.3, Method: Composition-based stats.
+ Identities = 5/16 (31%), Positives = 10/16 (63%), Gaps = 0/16 (0%)
+ Frame = +1
+
+Query  37   AYCNAEEWPYIILSSY  84
+            ++  A +W  I+ +SY
+Sbjct  167  SHVTARQWISILETSY  182
+
+
+
+Lambda      K        H        a         alpha
+   0.318    0.134    0.401    0.792     4.96 
+
+Gapped
+Lambda      K        H        a         alpha    sigma
+   0.267   0.0410    0.140     1.90     42.6     43.6 
+
+Effective search space used: 316736
+
+
+Query= HWI-M00234:263:000000000-ADM55:1:1101:12211:2302 1:N:0:CAGATC
+
+Length=309
+                                                                      Score     E
+Sequences producing significant alignments:                          (Bits)  Value
+
+  gi|375011025|ref|YP_004988013.1| RelA/SpoT family (p)ppGpp synt...  67.4    5e-17
+  gi|397690887|ref|YP_006528141.1| (p)ppGpp synthetase I, SpoT/Re...  57.8    8e-14
+  gi|294661363|ref|YP_003573239.1| hypothetical protein Aasi_1879...  19.2    0.66 
+  gi|78486137|ref|YP_392062.1| PfkB protein [Thiomicrospira cruno...  17.7    2.0  
+  gi|297571028|ref|YP_003696802.1| formate acetyltransferase [Arc...  15.8    9.2  
+
+
+> gi|375011025|ref|YP_004988013.1| RelA/SpoT family (p)ppGpp synthetase 
+[Owenweeksia hongkongensis DSM 17368]
+Length=735
+
+ Score = 67.4 bits (163),  Expect = 5e-17, Method: Compositional matrix adjust.
+ Identities = 26/56 (46%), Positives = 40/56 (71%), Gaps = 0/56 (0%)
+ Frame = -2
+
+Query  179  RSKEDVLVIDQDLKGLDFKLARCCNPIYGDDVFGFVSVTGGIKIHRSDCPNATQLR  12
+            ++++ +LV   +   LD+KL +CC+PI GDDVFG+++   GIK+HR  CPNA  L+
+Sbjct  585  KTEKKILVFGNEETELDYKLGKCCSPIPGDDVFGYITSNEGIKVHRHTCPNAIYLQ  640
+
+
+> gi|397690887|ref|YP_006528141.1| (p)ppGpp synthetase I, SpoT/RelA 
+[Melioribacter roseus P3M-2]
+Length=729
+
+ Score = 57.8 bits (138),  Expect = 8e-14, Method: Composition-based stats.
+ Identities = 30/94 (32%), Positives = 51/94 (54%), Gaps = 9/94 (10%)
+ Frame = -2
+
+Query  308  LDVNEIIDKYLEQQRRENDTHDDIIYRSAEGYNLQQTQNDEITRSKEDVLVIDQDLKGLD  129
+            +D++ I++  L  Q +E+           E   L+  +  +I R     ++++ + KGL 
+Sbjct  540  VDLDRILNPALNVQAQES---------QKESGELEFDRFVDIARHTAGGVIVEGEQKGLS  590
+
+Query  128  FKLARCCNPIYGDDVFGFVSVTGGIKIHRSDCPN  27
+               A+CCNPI GD + G+V++  GIK+HR DC N
+Sbjct  591  ISYAKCCNPIPGDPIIGYVTIGEGIKVHRKDCKN  624
+
+
+> gi|294661363|ref|YP_003573239.1| hypothetical protein Aasi_1879 
+[Candidatus Amoebophilus asiaticus 5a2]
+Length=339
+
+ Score = 19.2 bits (38),  Expect = 0.66, Method: Compositional matrix adjust.
+ Identities = 4/12 (33%), Positives = 11/12 (92%), Gaps = 0/12 (0%)
+ Frame = -3
+
+Query  118  HVAVTRFMEMMY  83
+            H+++T FM++++
+Sbjct  321  HISITNFMDLIH  332
+
+
+> gi|78486137|ref|YP_392062.1| PfkB protein [Thiomicrospira crunogena 
+XCL-2]
+Length=293
+
+ Score = 17.7 bits (34),  Expect = 2.0, Method: Compositional matrix adjust.
+ Identities = 12/45 (27%), Positives = 21/45 (47%), Gaps = 3/45 (7%)
+ Frame = -2
+
+Query  185  ITRSKEDVLVIDQDLKGLDFK---LARCCNPIYGDDVFGFVSVTG  60
+            +TR  +  +V+ Q+ +    K   LAR  + +   D F  V + G
+Sbjct  207  VTRGAQGTIVLTQENQFHSKKPEALARFVDTVGAGDAFTAVYIHG  251
+
+
+> gi|297571028|ref|YP_003696802.1| formate acetyltransferase [Arcanobacterium 
+haemolyticum DSM 20595]
+Length=695
+
+ Score = 15.8 bits (29),  Expect = 9.2, Method: Composition-based stats.
+ Identities = 9/40 (23%), Positives = 17/40 (43%), Gaps = 4/40 (10%)
+ Frame = -2
+
+Query  293  IIDKYLEQQRRENDTHDDIIYRSAEGYNLQQTQNDEITRS  174
+            ++  Y+E     + +HD   Y + E        + EI R+
+Sbjct  484  VVGTYVEALNIIHYSHDKYAYEAME----MALHDSEIVRT  519
+
+
+
+Lambda      K        H        a         alpha
+   0.318    0.134    0.401    0.792     4.96 
+
+Gapped
+Lambda      K        H        a         alpha    sigma
+   0.267   0.0410    0.140     1.90     42.6     43.6 
+
+Effective search space used: 366665
+
+
+Query= HWI-M00234:263:000000000-ADM55:1:1101:12269:2318 1:N:0:CAGATC
+
+Length=279
+                                                                      Score     E
+Sequences producing significant alignments:                          (Bits)  Value
+
+  gi|397690887|ref|YP_006528141.1| (p)ppGpp synthetase I, SpoT/Re...  18.1    1.4  
+  gi|427737176|ref|YP_007056720.1| formate-dependent phosphoribos...  16.5    4.0  
+  gi|152991751|ref|YP_001357472.1| phosphoribosylglycinamide form...  16.5    4.7  
+  gi|294661363|ref|YP_003573239.1| hypothetical protein Aasi_1879...  16.5    4.7  
+
+
+> gi|397690887|ref|YP_006528141.1| (p)ppGpp synthetase I, SpoT/RelA 
+[Melioribacter roseus P3M-2]
+Length=729
+
+ Score = 18.1 bits (35),  Expect = 1.4, Method: Composition-based stats.
+ Identities = 6/12 (50%), Positives = 8/12 (67%), Gaps = 0/12 (0%)
+ Frame = +1
+
+Query  40   EYHLRTETDSRP  75
+            EY+L+ E   RP
+Sbjct  235  EYNLKFEISGRP  246
+
+
+> gi|427737176|ref|YP_007056720.1| formate-dependent phosphoribosylglycinamide 
+formyltransferase [Rivularia sp. PCC 7116]
+Length=389
+
+ Score = 16.5 bits (31),  Expect = 4.0, Method: Composition-based stats.
+ Identities = 10/40 (25%), Positives = 18/40 (45%), Gaps = 6/40 (15%)
+ Frame = +2
+
+Query  32   GVPNII----SEQKQTQDLTGYRPRKAHTYDYA--QTKGD  133
+            G PN++    S   + Q +   +      +DYA   ++GD
+Sbjct  145  GFPNVVKPVMSSSGKGQSIVKSKEDVEKAWDYACSGSRGD  184
+
+
+> gi|152991751|ref|YP_001357472.1| phosphoribosylglycinamide formyltransferase 
+2 [Sulfurovum sp. NBC37-1]
+Length=387
+
+ Score = 16.5 bits (31),  Expect = 4.7, Method: Compositional matrix adjust.
+ Identities = 5/9 (56%), Positives = 7/9 (78%), Gaps = 0/9 (0%)
+ Frame = -1
+
+Query  45   IFGTPKSSV  19
+            +FG P+S V
+Sbjct  349  VFGKPESHV  357
+
+
+> gi|294661363|ref|YP_003573239.1| hypothetical protein Aasi_1879 
+[Candidatus Amoebophilus asiaticus 5a2]
+Length=339
+
+ Score = 16.5 bits (31),  Expect = 4.7, Method: Compositional matrix adjust.
+ Identities = 6/18 (33%), Positives = 10/18 (56%), Gaps = 0/18 (0%)
+ Frame = +1
+
+Query  28  FRSSEYHLRTETDSRPYR  81
+            ++SEY    +TD   +R
+Sbjct  81  LQASEYSTTLDTDKLIFR  98
+
+
+
+Lambda      K        H        a         alpha
+   0.318    0.134    0.401    0.792     4.96 
+
+Gapped
+Lambda      K        H        a         alpha    sigma
+   0.267   0.0410    0.140     1.90     42.6     43.6 
+
+Effective search space used: 316736
+
+
+Query= HWI-M00234:263:000000000-ADM55:1:1101:9107:2335 1:N:0:CAGATC
+
+Length=240
+                                                                      Score     E
+Sequences producing significant alignments:                          (Bits)  Value
+
+  gi|255036227|ref|YP_003086848.1| hypothetical protein Dfer_2465...  95.5    5e-28
+  gi|383789080|ref|YP_005473649.1| hypothetical protein CSE_14200...  77.0    2e-22
+  gi|294661363|ref|YP_003573239.1| hypothetical protein Aasi_1879...  55.8    1e-13
+  gi|375011025|ref|YP_004988013.1| RelA/SpoT family (p)ppGpp synt...  22.3    0.028
+
+
+> gi|255036227|ref|YP_003086848.1| hypothetical protein Dfer_2465 
+[Dyadobacter fermentans DSM 18053]
+Length=379
+
+ Score = 95.5 bits (236),  Expect = 5e-28, Method: Compositional matrix adjust.
+ Identities = 44/79 (56%), Positives = 55/79 (70%), Gaps = 0/79 (0%)
+ Frame = -2
+
+Query  239  VTKAGKWYFYDNGIRNAIIGAFSPLAIRQDVGALWENYIIGERRKANFNEGLHREFYFWR  60
+            VTK+ KWYF DNG+RNA+I  FSPL  R D GALWENY++ ER K N         YFWR
+Sbjct  260  VTKSSKWYFLDNGVRNALINNFSPLGQRTDTGALWENYLVAERIKYNSYTRKTPHTYFWR  319
+
+Query  59   TYDKQEIDLIEESADSLTA  3
+            TYD+QE+D +E + + L+A
+Sbjct  320  TYDQQELDWLEVADEQLSA  338
+
+
+> gi|383789080|ref|YP_005473649.1| hypothetical protein CSE_14200 
+[Caldisericum exile AZM16c01]
+Length=125
+
+ Score = 77.0 bits (188),  Expect = 2e-22, Method: Compositional matrix adjust.
+ Identities = 39/79 (49%), Positives = 48/79 (61%), Gaps = 0/79 (0%)
+ Frame = -2
+
+Query  239  VTKAGKWYFYDNGIRNAIIGAFSPLAIRQDVGALWENYIIGERRKANFNEGLHREFYFWR  60
+            +    K+YFYD GIRN II  F+ L  R DVGAL+EN++I ER K +         YFWR
+Sbjct  10   INVKNKYYFYDTGIRNGIINNFNKLDSRDDVGALFENFVIAERLKKHKYLRTFTNLYFWR  69
+
+Query  59   TYDKQEIDLIEESADSLTA  3
+            TY   EIDLIEES   + +
+Sbjct  70   TYSNGEIDLIEESQGEILS  88
+
+
+> gi|294661363|ref|YP_003573239.1| hypothetical protein Aasi_1879 
+[Candidatus Amoebophilus asiaticus 5a2]
+Length=339
+
+ Score = 55.8 bits (133),  Expect = 1e-13, Method: Composition-based stats.
+ Identities = 31/79 (39%), Positives = 41/79 (52%), Gaps = 2/79 (3%)
+ Frame = -2
+
+Query  239  VTKAGKWYFYDNGIRNAIIGAFSPLAIRQDV--GALWENYIIGERRKANFNEGLHREFYF  66
+            + K  K YFYD G+  A++G  S   +      G+L+EN +I E  K  FN+G     YF
+Sbjct  198  IIKMPKLYFYDTGLACALLGLESEQQVETHYLRGSLFENLVINELLKFRFNQGRPSNLYF  257
+
+Query  65   WRTYDKQEIDLIEESADSL  9
+            WR     EID I E +D L
+Sbjct  258  WRDKTGHEIDCIYELSDRL  276
+
+
+> gi|375011025|ref|YP_004988013.1| RelA/SpoT family (p)ppGpp synthetase 
+[Owenweeksia hongkongensis DSM 17368]
+Length=735
+
+ Score = 22.3 bits (46),  Expect = 0.028, Method: Compositional matrix adjust.
+ Identities = 8/30 (27%), Positives = 15/30 (50%), Gaps = 0/30 (0%)
+ Frame = -2
+
+Query  164  AIRQDVGALWENYIIGERRKANFNEGLHRE  75
+            +++Q     W NY++  + K+N    L  E
+Sbjct  464  SLKQKPKEDWLNYVVSAKAKSNIKSALKSE  493
+
+
+
+Lambda      K        H        a         alpha
+   0.318    0.134    0.401    0.792     4.96 
+
+Gapped
+Lambda      K        H        a         alpha    sigma
+   0.267   0.0410    0.140     1.90     42.6     43.6 
+
+Effective search space used: 255870
+
+
+  Database: test-data/db/db.fasta
+    Posted date:  Aug 20, 2015  5:11 PM
+  Number of letters in database: 6,211
+  Number of sequences in database:  15
+
+
+
+Matrix: BLOSUM62
+Gap Penalties: Existence: 11, Extension: 1
+Neighboring words threshold: 12
+Window for multiple hits: 40
