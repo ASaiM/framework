@@ -7,7 +7,8 @@ Clone galaxy code, config galaxy, add tools and launch galaxy
 
 ## Linux
 
-Configure Docker for Galaxy (`${user}` corresponds to your user id on your computer)
+Configure Docker for Galaxy (`${user}` corresponds to your user id on your 
+computer)
 ```
 sudo groupadd -f docker
 sudo gpasswd -a ${user} docker
