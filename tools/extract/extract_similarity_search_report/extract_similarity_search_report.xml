@@ -3,28 +3,29 @@
 	<description>from similarity search report</description>
 
     <macros>
-        <xml name="BLAST_6_options">
-            <option value="query">Query id</option>
-            <option value="target">Target id</option>
-            <option value="identity_percentage">Identity percentage</option>
-            <option value="alignment_length">Alignment length</option>
-            <option value="mismatch_number">Mismatch number</option>
-            <option value="open_gap_number">Open gap number</option>
-            <option value="query_start_pos">Starting position of alignment on query sequence</option>
-            <option value="query_end_pos">Ending position of alignment on query sequence</option>
-            <option value="target_start_pos">Starting position of alignment on target sequence</option>
-            <option value="target_end_pos">Ending position of alignment on target sequence</option>
-            <option value="e_value">E-value</option>
-            <option value="bit_score">Bit score</option>
+        <xml name="blast_6_7_10_default_options">
+            <option value="qseqid">Query Seq-id (qseqid)</option>
+            <option value="sseqid">Subject Seq-id (sseqid)</option>
+            <option value="pident">Percentage of identical matches (pident)</option>
+            <option value="length">Alignment length (length)</option>
+            <option value="mismatch">Number of mismatches (mismatch)</option>
+            <option value="gapopen">Number of gap openings (gapopen)</option>
+            <option value="qstart">Start of alignment in query (qstart)</option>
+            <option value="qend">End of alignment in query (qend)</option>
+            <option value="sstart">Start of alignment in subject (sstart)</option>
+            <option value="send">End of alignment in subject (send)</option>
+            <option value="evalue">Expect value (evalue)</option>
+            <option value="bitscore">Bit score (bitscore)</option>
         </xml>
-        <xml name="BLAST_6_CIGAR_options">
-            <expand macro="BLAST_6_options" />
-            <option value="cigar_string">Cigar string</option>
+        <xml name="blast_6_7_10_default_options_cigar">
+            <expand macro="blast_6_7_10_default_options" />
+            <option value="cigar">CIGAR string</option>
         </xml>
-        <xml name="BLAST_6_CIGAR_Coverage_options">
-            <expand macro="BLAST_6_CIGAR_options" />
+        <xml name="blast_6_7_10_default_options_cigar_coverage">
+            <expand macro="blast_6_7_10_default_options_cigar" />
             <option value="coverage">Coverage percentage</option>
         </xml>
+
         <xml name="test_constrain_extraction">
             <param name="constrained_extraction" type="select" label="Constrain extraction?" display="radio">
                 <option value="no">No</option>
@@ -62,17 +63,17 @@
             </conditional>
         </xml>
         <xml name="constrain_query">
-            <when value="query">
+            <when value="qseqid">
                 <expand macro="constrain_string" />
             </when>
         </xml>
         <xml name="constrain_target">
-            <when value="target">
+            <when value="sseqid">
                 <expand macro="constrain_string" />
             </when>
         </xml>
         <xml name="constrain_identity_percentage">
-            <when value="identity_percentage">
+            <when value="pident">
                 <repeat name="constraint_definition" title="Constraint on identity percentage" min="1">
                     <expand macro="constrain_number" />
                     <param name="value" type="float" label="Value" min="0" max="100" value="97"/>
@@ -80,7 +81,7 @@
             </when>
         </xml>
         <xml name="constrain_alignment_length">
-            <when value="alignment_length">
+            <when value="length">
                 <repeat name="constraint_definition" title="Constraint on alignment length" min="1">
                     <expand macro="constrain_number" />
                     <param name="value" type="integer" label="Value" min="0" max="1000" value="10"/>
@@ -88,7 +89,7 @@
             </when>
         </xml>
         <xml name="constrain_mismatch_number">
-            <when value="mismatch_number">
+            <when value="mismatch">
                 <repeat name="constraint_definition" title="Constraint on mismatch number" min="1">
                     <expand macro="constrain_number" />
                     <param name="value" type="integer" label="Value" min="0" max="1000" value="10"/>
@@ -96,7 +97,7 @@
             </when>
         </xml>
         <xml name="constrain_open_gap_number">
-            <when value="open_gap_number">
+            <when value="gapopen">
                 <repeat name="constraint_definition" title="Constraint on open gap number" min="1">
                     <expand macro="constrain_number" />
                     <param name="value" type="integer" label="Value" min="0" max="1000" value="10"/>
@@ -104,7 +105,7 @@
             </when>
         </xml>
         <xml name="constrain_query_start_pos">
-            <when value="query_start_pos">
+            <when value="qstart">
                 <repeat name="constraint_definition" title="Constraint on starting position of alignment on query" min="1">
                     <expand macro="constrain_number" />
                     <param name="value" type="integer" label="Value" min="0" max="1000" value="10"/>
@@ -112,7 +113,7 @@
             </when>
         </xml>
         <xml name="constrain_query_end_pos">
-            <when value="query_end_pos">
+            <when value="qend">
                 <repeat name="constraint_definition" title="Constraint on ending position of alignment on query" min="1">
                     <expand macro="constrain_number" />
                     <param name="value" type="integer" label="Value" min="0" max="1000" value="10"/>
@@ -120,7 +121,7 @@
             </when>
         </xml>
         <xml name="constrain_target_start_pos">
-            <when value="target_start_pos">
+            <when value="sstart">
                 <repeat name="constraint_definition" title="Constraint on starting position of alignment on target" min="1">
                     <expand macro="constrain_number" />
                     <param name="value" type="integer" label="Value" min="0" max="1000" value="10"/>
@@ -128,7 +129,7 @@
             </when>
         </xml>
         <xml name="constrain_target_end_pos">
-            <when value="target_end_pos">
+            <when value="send">
                 <repeat name="constraint_definition" title="Constraint on ending position position of alignment on target" min="1">
                     <expand macro="constrain_number" />
                     <param name="value" type="integer" label="Value" min="0" max="1000" value="10"/>
@@ -136,7 +137,7 @@
             </when>
         </xml>
         <xml name="constrain_e_value">
-            <when value="e_value">
+            <when value="evalue">
                 <repeat name="constraint_definition" title="Constraint on e-value" min="1">
                     <expand macro="constrain_number" />
                     <param name="value" type="float" label="Value" min="0" max="1000" value="10"/>
@@ -144,7 +145,7 @@
             </when>
         </xml>
         <xml name="constrain_bit_score">
-            <when value="bit_score">
+            <when value="bitscore">
                 <repeat name="constraint_definition" title="Bit score" min="1">
                     <expand macro="constrain_number" />
                     <param name="value" type="integer" label="Value" min="0" max="1000" value="10"/>
@@ -152,7 +153,7 @@
             </when>
         </xml>
         <xml name="constrain_cigar_string">
-            <when value="cigar_string">
+            <when value="cigar">
                 <expand macro="constrain_string" />
             </when>
         </xml>
@@ -164,7 +165,7 @@
                 </repeat>
             </when>
         </xml>
-        <xml name="BLAST_6_constraints">
+        <xml name="blast_6_7_10_default_constraints">
             <expand macro="constrain_query" />
             <expand macro="constrain_target" />
             <expand macro="constrain_identity_percentage" />
@@ -178,13 +179,134 @@
             <expand macro="constrain_e_value" />
             <expand macro="constrain_bit_score" />
         </xml>
-        <xml name="BLAST_6_CIGAR_constraints">
-            <expand macro="BLAST_6_constraints" />
+        <xml name="blast_6_7_10_default_cigar_constraints">
+            <expand macro="blast_6_7_10_default_constraints" />
             <expand macro="constrain_cigar_string" />
         </xml>
-        <xml name="BLAST_6_CIGAR_Coverage_constraints">
-            <expand macro="BLAST_6_CIGAR_constraints" />
+        <xml name="blast_6_7_10_default_cigar_coverage_constraints">
+            <expand macro="blast_6_7_10_default_cigar_constraints" />
             <expand macro="constrain_coverage_percentage" />
+        </xml>
+        <xml name="blast_6_7_10">
+            <conditional name="report_specifiers">
+                <param name="use_default_specifiers" type="select" display="radio" label="Specifiers?" 
+                    help="Default specifiers are (in order) ">
+                    <option value="default">Default ('qseid sseqid piden length mismatch gapopen qstart qend sstart send evalue bitscore')</option>
+                    <option value="cigar">Default + CIGAR string</option>
+                    <option value="cigar_coverage">Default + CIGAR string + Coverage percentage</option>
+                </param>
+                <when value="default">
+                    <!--<repeat name="specifiers" min="1" title="Format specifiers" help="Add the format specifiers in the order given to Blast">
+                        <param name="specifier_selection" type="select" label="Specifier" help="">
+                            <option value="qseqid">Query Seq-id (qseqid)</option>
+                            <option value="qgi">Query GI (qgi)</option>
+                            <option value="qacc">Query accesion (qacc)</option>
+                            <option value="qaccver">Query accesion.version (qaccver)</option>
+                            <option value="qlen">Query sequence length (qlen)</option>
+                            <option value="sseqid">Subject Seq-id (sseqid)</option>
+                            <option value="sallseqid">All subject Seq-id(s) (sallseqid)</option>
+                            <option value="sgi">Subject GI (sgi)</option>
+                            <option value="sallgi">All subject GIs (sallgi)</option>
+                            <option value="sacc">Subject accession (sacc)</option>
+                            <option value="saccver">Subject accession.version (saccver)</option>
+                            <option value="sallacc">All subject accessions (sallacc)</option>
+                            <option value="slen">Subject sequence length (slen)</option>
+                            <option value="qstart">Start of alignment in query (qstart)</option>
+                            <option value="qend">End of alignment in query (qend)</option>
+                            <option value="sstart">Start of alignment in subject (sstart)</option>
+                            <option value="send">End of alignment in subject (send)</option>
+                            <option value="qseq">Aligned part of query sequence (qseq)</option>
+                            <option value="sseq">Aligned part of subject sequence (sseq)</option>
+                            <option value="evalue">Expect value (evalue)</option>
+                            <option value="bitscore">Bit score (bitscore)</option>
+                            <option value="score">Raw score (score)</option>
+                            <option value="length">Alignment length (length)</option>
+                            <option value="pident">Percentage of identical matches (pident)</option>
+                            <option value="nident">Number of identical matches (nident)</option>
+                            <option value="mismatch">Number of mismatches (mismatch)</option>
+                            <option value="positive">Number of positive-scoring matches (positive)</option>
+                            <option value="gapopen">Number of gap openings (gapopen)</option>
+                            <option value="gaps">Total number of gaps (gaps)</option>
+                            <option value="ppos">Percentage of positive-scoring matches (ppos)</option>
+                            <option value="frames">Query and subject frames (frames)</option>
+                            <option value="qframe">Query frame (qframe)</option>
+                            <option value="sframe">Subject frame (sframe)</option>
+                            <option value="btop">Blast traceback operations (BTOP, btop)</option>
+                            <option value="staxids">Unique Subject Taxonomy ID(s) (staxids)</option>
+                            <option value="sscinames">Unique Subject Scientific Name(s) (sscinames)</option>
+                            <option value="scomnames">unique Subject Common Name(s) (scomnames)</option>
+                            <option value="sblastnames">unique Subject Blast Name(s) (sblastnames)</option>
+                            <option value="sskingdoms">unique Subject Super Kingdom(s) (sskingdoms)</option>
+                            <option value="stitle">Subject Title (stitle)</option>
+                            <option value="salltitles">All Subject Title(s) (salltitles)</option>
+                            <option value="sstrand">Subject Strand (sstrand)</option>
+                            <option value="qcovs">Query Coverage Per Subject (qcovs)</option>
+                            <option value="qcovhsp">Query Coverage Per HSP (qcovhsp)</option>
+                            <option value="cigar">CIGAR string</option>
+                            <option value="coverage">Coverage percentage</option>
+                        </param>
+                    </repeat>-->
+                    <param name="info_to_extract" type="select" label="Information to extract" multiple="true" display="checkboxes" help="Which columns will be in the output file">
+                        <!--<options from_parameter="tool.app" >
+                            <column name="value" index="0"/>
+                            <column name="name" index="0"/>
+                        </options>-->
+                        <expand macro="blast_6_7_10_default_options" />
+                        <validator type="no_options" message="Select at least one information to extract"/>
+                    </param>
+                    <conditional name="extraction_constraints">
+                        <expand macro="test_constrain_extraction" />
+                        <when value="yes">
+                            <repeat name="constraint_definition" title="Constraints on similarity" min="1">
+                                <conditional name="constrained_information">
+                                    <param name="info_to_constrain" type="select" label="Information to constrain">
+                                        <expand macro="blast_6_7_10_default_options" />
+                                    </param>
+                                    <expand macro="blast_6_7_10_default_constraints" />
+                                </conditional>
+                            </repeat>
+                         </when>
+                    </conditional>
+                </when>
+                <when value="cigar">
+                    <param name="info_to_extract" type="select" label="Information to extract" multiple="true" display="checkboxes" help="Which columns will be in the output file">
+                        <expand macro="blast_6_7_10_default_options_cigar" />
+                        <validator type="no_options" message="Select at least one information to extract"/>
+                    </param>
+                    <conditional name="extraction_constraints">
+                        <expand macro="test_constrain_extraction" />
+                        <when value="yes">
+                            <repeat name="constraint_definition" title="Constraints on similarity" min="1">
+                                <conditional name="constrained_information">
+                                    <param name="info_to_constrain" type="select" label="Information to constrain">
+                                        <expand macro="blast_6_7_10_default_options_cigar" />
+                                    </param>
+                                    <expand macro="blast_6_7_10_default_cigar_constraints" />
+                                </conditional>
+                            </repeat>
+                         </when>
+                    </conditional>
+                </when>
+                <when value="cigar_coverage">
+                    <param name="info_to_extract" type="select" label="Information to extract" multiple="true" display="checkboxes" help="Which columns will be in the output file">
+                        <expand macro="blast_6_7_10_default_options_cigar_coverage" />
+                        <validator type="no_options" message="Select at least one information to extract"/>
+                    </param>
+                    <conditional name="extraction_constraints">
+                        <expand macro="test_constrain_extraction" />
+                        <when value="yes">
+                            <repeat name="constraint_definition" title="Constraints on similarity" min="1">
+                                <conditional name="constrained_information">
+                                    <param name="info_to_constrain" type="select" label="Information to constrain">
+                                        <expand macro="blast_6_7_10_default_options_cigar_coverage" />
+                                    </param>
+                                    <expand macro="blast_6_7_10_default_cigar_coverage_constraints" />
+                                </conditional>
+                            </repeat>
+                         </when>
+                    </conditional>
+                </when>
+            </conditional>
         </xml>
     </macros>
 
@@ -202,11 +324,17 @@
     <command interpreter="python">
   		extract_similarity_search_report.py 
   		--input=$similarity_report
-  		--format=$extracted_information.format
-
-  		--to_extract="{$extracted_information.info_to_extract}"
-		#if $extracted_information.extraction_constraints.constrained_extraction=="yes":
-            #for $i, $constrain in enumerate( $extracted_information.extraction_constraints.constraint_definition )
+        --tool=$search_tool.tool
+  		
+        #set format=$search_tool.report_format.format
+        --format=$format
+        #if $format in ('6','7','8'):
+            --use_default_specifiers=$search_tool.report_format.report_specifiers.use_default_specifiers
+        #end if
+        #set $extraction_constraint=$search_tool.report_format.report_specifiers
+		--to_extract="{$extraction_constraint.info_to_extract}"
+		#if $extraction_constraint.extraction_constraints.constrained_extraction=="yes":
+            #for $i, $constrain in enumerate( $extraction_constraint.extraction_constraints.constraint_definition )
             	#set info_to_constrain=$constrain.constrained_information['info_to_constrain']             
                 #if $info_to_constrain in ("query", "target", "constrain_cigar_string"):
                 	--constraint="$info_to_constrain:
@@ -227,68 +355,46 @@
   	</command>
 
   	<inputs>
-  		<param format="txt" name="similarity_report" type="data" label="Similarity search report" help=""/>
+  		<param name="similarity_report" type="data" format="txt" label="Similarity search report" help="Text file containing the similarity search report"/>
 
-        <conditional name="extracted_information">
-        	<param name="format" type="select" label="Format of the similarity search report" display="radio">
-	            <option value="BLAST_6">BLAST 6</option>
-	            <option value="BLAST_6_CIGAR">BLAST 6 + CIGAR</option>
-	            <option value="BLAST_6_CIGAR_Coverage">BLAST 6 + CIGAR + Coverage</option>
+        <conditional name="search_tool">
+        	<param name="tool" type="select" display="radio" label="Tool used to generate the similarity search report" help="">
+	            <option value="blast">Blast</option>
 	        </param>
-		    <when value="BLAST_6">
-		    	<param name="info_to_extract" type="select" label="Information to extract" multiple="true" display="checkboxes">
-		    		<expand macro="BLAST_6_options" />
-		    		<validator type="no_options" message="Select at least one information to extract"/>
-				</param>
-				<conditional name="extraction_constraints">
-					<expand macro="test_constrain_extraction" />
-					<when value="yes">
-                        <repeat name="constraint_definition" title="Constraints on similarity" min="1">
-                        	<conditional name="constrained_information">
-                        		<param name="info_to_constrain" type="select" label="Information to constrain">
-                      				<expand macro="BLAST_6_options" />
-                      			</param>
-                      			<expand macro="BLAST_6_constraints" />
-                        	</conditional>
-                        </repeat>
-                     </when>
-				</conditional>
+		    <when value="blast">
+                <conditional name="report_format">
+                    <param name="format" type="select" display="radio" label="Format" help="Alignment view options (-outfmt option)">
+                        <option value="0">Pairwise (-outfmt 0, default value in Blast)</option>
+                        <option value="1">Query-anchored showing identities (-outfmt 1)</option>
+                        <option value="2">Query-anchored no identities (-outfmt 2)</option>
+                        <option value="3">Flat query-anchored, show identities (-outfmt 3)</option>
+                        <option value="4">Flat query-anchored, no identities (-outfmt 4)</option>
+                        <option value="5">XML Blast output (-outfmt 5)</option>
+                        <option value="6">Tabular (-outfmt 6)</option>
+                        <option value="7">Tabular with comment lines (-outfmt 7)</option>
+                        <option value="8">Text ASN.1 (-outfmt 8)</option>
+                        <option value="9">Binary ASN.1 (-outfmt 9)</option>
+                        <option value="10">Comma-separated values (-outfmt 10)</option>
+                        <option value="11">BLAST archive format (ASN.1) (-outfmt 11)</option>
+                        <option value="12">JSON Seqalign output (-outfmt 12)</option>
+                    </param>
+                    <when value="6">
+                        <expand macro="blast_6_7_10" />
+                    </when>
+                    <when value="7">
+                        <expand macro="blast_6_7_10" />
+                    </when>
+                    <when value="10">
+                        <expand macro="blast_6_7_10" />
+                    </when>
+                </conditional>
 		    </when>
-		    <when value="BLAST_6_CIGAR">
-		    	<param name="info_to_extract" type="select" label="Information to extract" multiple="true" display="checkboxes">
-		    		<expand macro="BLAST_6_CIGAR_options" />
-		    		<validator type="no_options" message="Select at least one information to extract"/>
-				</param>
-				<conditional name="extraction_constraints">
-					<expand macro="test_constrain_extraction" />
-					<when value="yes">
-                        <repeat name="constraint_definition" title="Constraints on similarity" min="1">
-                        	<expand macro="BLAST_6_CIGAR_constraints" />
-                        </repeat>
-                     </when>
-				</conditional>
-		    </when>
-		    <when value="BLAST_6_CIGAR_Coverage">
-		    	<param name="info_to_extract" type="select" label="Information to extract" multiple="true" display="checkboxes">
-		    		<expand macro="BLAST_6_CIGAR_Coverage_options" />
-		    		<validator type="no_options" message="Select at least one information to extract"/>
-				</param>
-				<conditional name="extraction_constraints">
-					<expand macro="test_constrain_extraction" />
-					<when value="yes">
-                        <repeat name="constraint_definition" title="Constraints on similarity" min="1">
-                        	<expand macro="BLAST_6_CIGAR_Coverage_constraints" />
-                        </repeat>
-                     </when>
-				</conditional>
-		    </when>
-		</conditional>
-
+        </conditional>
   	</inputs>
 
   	<outputs>
-  		<data format="txt" name="report_filepath" />
-  		<data format="txt" name="output_filepath" />
+  		<data format="txt" name="report_filepath" label="${similarity_report}_report" />
+  		<data format="txt" name="output_filepath" label="${similarity_report}_report" />
   	</outputs>
 
   	<tests>
