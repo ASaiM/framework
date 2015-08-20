@@ -28,7 +28,7 @@ boot2docker init
 ```
 
 Regularly, 
-``
+```
 boot2docker start
 eval "$(boot2docker shellinit)"
 ```
@@ -39,6 +39,27 @@ Launch script:
 ```
 ./src/prepare_galaxy.sh
 ```
+
+## Possible errors
+
+### Address already in use
+
+Error:
+```
+socket.error: [Errno 48] Address already in use
+```
+
+A processus is already bound to the default port (8000):
+```
+ps -fA | grep python
+  501 28440 28435   0  3:58   ttys000   80:38.61 python ./scripts/paster.py serve config/galaxy.ini
+  501 31145 23036   0  8:48   ttys001    0:00.00 grep python
+```
+
+The second number is the process number; stop the server by sending it a signal:
+```
+kill 28440
+``` 
 
 # Tool integration
 
