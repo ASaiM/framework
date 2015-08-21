@@ -1,0 +1,16 @@
+Input filepath: test-data/blast//blast_outputs/outfmt_6.txt
+Information to extract:
+	qseqid
+	sseqid
+	pident
+	evalue
+Constraints on extraction:
+	Info to constraint: pident
+		Type of constraint: greater
+		Values:
+			40.0
+		Type of constraint: lower
+		Values:
+			60.0
+Number of similarity records: 28
+Number of extracted similarity records: 12
