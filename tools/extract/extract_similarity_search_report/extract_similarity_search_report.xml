@@ -27,13 +27,13 @@
         </xml>
 
         <xml name="test_constrain_extraction">
-            <param name="constrained_extraction" type="select" label="Constrain extraction?" display="radio">
+            <param name="constrained_extraction" type="select" display="radio" label="Constrain extraction?" help="">
                 <option value="no">No</option>
                 <option value="yes">Yes</option>
             </param>
         </xml>
         <xml name="constrain_number">
-            <param name="type" type="select" label="Type of constraint">
+            <param name="type" type="select" label="Type of constraint" help="">
                 <option value="equal">Equal to </option>
                 <option value="lower">Lower than </option>
                 <option value="strictly_lower">Strictly lower than </option>
@@ -43,13 +43,13 @@
         </xml>
         <xml name="constrain_string">
             <conditional name="constraint_type">
-                <param name="type" type="select" label="Type of constraint" display="radio">
+                <param name="type" type="select" display="radio" label="Type of constraint" help="">
                     <option value="equal">Equal a value</option>
                     <option value="in">In a list</option>
                     <option value="not_in">Not in a list</option>
                 </param>
                 <when value="equal">
-                    <param name="value" type="text" label="Equal to" size="200"/>
+                    <param name="value" type="text" size="200" label="Equal to" help=""/>
                     <validator type="empty_field" message="Give a value"/>
                 </when>
                 <when value="in">
@@ -76,7 +76,7 @@
             <when value="pident">
                 <repeat name="constraint_definition" title="Constraint on identity percentage" min="1">
                     <expand macro="constrain_number" />
-                    <param name="value" type="float" label="Value" min="0" max="100" value="97"/>
+                    <param name="value" type="float" min="0" max="100" value="97" label="Value" help=""/>
                 </repeat>
             </when>
         </xml>
@@ -84,7 +84,7 @@
             <when value="length">
                 <repeat name="constraint_definition" title="Constraint on alignment length" min="1">
                     <expand macro="constrain_number" />
-                    <param name="value" type="integer" label="Value" min="0" max="1000" value="10"/>
+                    <param name="value" type="integer"  min="0" max="1000" value="10" label="Value" help=""/>
                 </repeat>
             </when>
         </xml>
@@ -92,7 +92,7 @@
             <when value="mismatch">
                 <repeat name="constraint_definition" title="Constraint on mismatch number" min="1">
                     <expand macro="constrain_number" />
-                    <param name="value" type="integer" label="Value" min="0" max="1000" value="10"/>
+                    <param name="value" type="integer" min="0" max="1000" value="10" label="Value" help=""/>
                 </repeat>
             </when>
         </xml>
@@ -100,7 +100,7 @@
             <when value="gapopen">
                 <repeat name="constraint_definition" title="Constraint on open gap number" min="1">
                     <expand macro="constrain_number" />
-                    <param name="value" type="integer" label="Value" min="0" max="1000" value="10"/>
+                    <param name="value" type="integer" min="0" max="1000" value="10" label="Value" help=""/>
                 </repeat>
             </when>
         </xml>
@@ -108,7 +108,7 @@
             <when value="qstart">
                 <repeat name="constraint_definition" title="Constraint on starting position of alignment on query" min="1">
                     <expand macro="constrain_number" />
-                    <param name="value" type="integer" label="Value" min="0" max="1000" value="10"/>
+                    <param name="value" type="integer" min="0" max="1000" value="10" label="Value" help=""/>
                 </repeat>
             </when>
         </xml>
@@ -116,7 +116,7 @@
             <when value="qend">
                 <repeat name="constraint_definition" title="Constraint on ending position of alignment on query" min="1">
                     <expand macro="constrain_number" />
-                    <param name="value" type="integer" label="Value" min="0" max="1000" value="10"/>
+                    <param name="value" type="integer" min="0" max="1000" value="10" label="Value" help=""/>
                 </repeat>
             </when>
         </xml>
@@ -124,7 +124,7 @@
             <when value="sstart">
                 <repeat name="constraint_definition" title="Constraint on starting position of alignment on target" min="1">
                     <expand macro="constrain_number" />
-                    <param name="value" type="integer" label="Value" min="0" max="1000" value="10"/>
+                    <param name="value" type="integer" min="0" max="1000" value="10" label="Value" help=""/>
                 </repeat>
             </when>
         </xml>
@@ -132,7 +132,7 @@
             <when value="send">
                 <repeat name="constraint_definition" title="Constraint on ending position position of alignment on target" min="1">
                     <expand macro="constrain_number" />
-                    <param name="value" type="integer" label="Value" min="0" max="1000" value="10"/>
+                    <param name="value" type="integer" min="0" max="1000" value="10" label="Value" help=""/>
                 </repeat>
             </when>
         </xml>
@@ -140,7 +140,7 @@
             <when value="evalue">
                 <repeat name="constraint_definition" title="Constraint on e-value" min="1">
                     <expand macro="constrain_number" />
-                    <param name="value" type="float" label="Value" min="0" max="1000" value="10"/>
+                    <param name="value" type="float" min="0" max="1000" value="10" label="Value" help=""/>
                 </repeat>
             </when>
         </xml>
@@ -148,7 +148,7 @@
             <when value="bitscore">
                 <repeat name="constraint_definition" title="Bit score" min="1">
                     <expand macro="constrain_number" />
-                    <param name="value" type="integer" label="Value" min="0" max="1000" value="10"/>
+                    <param name="value" type="integer" min="0" max="1000" value="10" label="Value" help=""/>
                 </repeat>
             </when>
         </xml>
@@ -161,7 +161,7 @@
             <when value="coverage">
                 <repeat name="constraint_definition" title="Constraint on coverage percentage" min="1">
                     <expand macro="constrain_number" />
-                    <param name="value" type="float" label="Value" min="0" max="100" value="97"/>
+                    <param name="value" type="float" min="0" max="100" value="97" label="Value" help=""/>
                 </repeat>
             </when>
         </xml>
@@ -246,7 +246,7 @@
                             <option value="coverage">Coverage percentage</option>
                         </param>
                     </repeat>-->
-                    <param name="info_to_extract" type="select" label="Information to extract" multiple="true" display="checkboxes" help="Which columns will be in the output file">
+                    <param name="info_to_extract" type="select" multiple="true" display="checkboxes" label="Information to extract" help="Which columns will be in the output file">
                         <!--<options from_parameter="tool.app" >
                             <column name="value" index="0"/>
                             <column name="name" index="0"/>
@@ -259,7 +259,7 @@
                         <when value="yes">
                             <repeat name="constraint_definition" title="Constraints on similarity" min="1">
                                 <conditional name="constrained_information">
-                                    <param name="info_to_constrain" type="select" label="Information to constrain">
+                                    <param name="info_to_constrain" type="select" label="Information to constrain" help="">
                                         <expand macro="blast_6_7_10_default_options" />
                                     </param>
                                     <expand macro="blast_6_7_10_default_constraints" />
@@ -269,7 +269,7 @@
                     </conditional>
                 </when>
                 <when value="cigar">
-                    <param name="info_to_extract" type="select" label="Information to extract" multiple="true" display="checkboxes" help="Which columns will be in the output file">
+                    <param name="info_to_extract" type="select" multiple="true" display="checkboxes" label="Information to extract" help="Which columns will be in the output file">
                         <expand macro="blast_6_7_10_default_options_cigar" />
                         <validator type="no_options" message="Select at least one information to extract"/>
                     </param>
@@ -278,7 +278,7 @@
                         <when value="yes">
                             <repeat name="constraint_definition" title="Constraints on similarity" min="1">
                                 <conditional name="constrained_information">
-                                    <param name="info_to_constrain" type="select" label="Information to constrain">
+                                    <param name="info_to_constrain" type="select" label="Information to constrain" help="">
                                         <expand macro="blast_6_7_10_default_options_cigar" />
                                     </param>
                                     <expand macro="blast_6_7_10_default_cigar_constraints" />
@@ -288,7 +288,7 @@
                     </conditional>
                 </when>
                 <when value="cigar_coverage">
-                    <param name="info_to_extract" type="select" label="Information to extract" multiple="true" display="checkboxes" help="Which columns will be in the output file">
+                    <param name="info_to_extract" type="select" multiple="true" display="checkboxes" label="Information to extract" help="Which columns will be in the output file">
                         <expand macro="blast_6_7_10_default_options_cigar_coverage" />
                         <validator type="no_options" message="Select at least one information to extract"/>
                     </param>
@@ -297,7 +297,7 @@
                         <when value="yes">
                             <repeat name="constraint_definition" title="Constraints on similarity" min="1">
                                 <conditional name="constrained_information">
-                                    <param name="info_to_constrain" type="select" label="Information to constrain">
+                                    <param name="info_to_constrain" type="select" label="Information to constrain" help="">
                                         <expand macro="blast_6_7_10_default_options_cigar_coverage" />
                                     </param>
                                     <expand macro="blast_6_7_10_default_cigar_coverage_constraints" />
