@@ -1,4 +1,0 @@
-Input filepath: ../../../test-data/blast_6_output.txt
-Information to extract: query identity_percentage e_value
-Similarity number: 50
-Extracted similarity number:50
