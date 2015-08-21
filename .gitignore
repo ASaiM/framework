@@ -11,3 +11,11 @@ tools/extract/extract_similarity_search_report/test-data/blast/extraction_output
 !tools/extract/extract_similarity_search_report/test-data/blast/extraction_outputs/double_constraint_on_pident/expected.txt
 tools/extract/extract_similarity_search_report/test-data/blast/extraction_outputs/list_constraint_on_qseqid/*
 !tools/extract/extract_similarity_search_report/test-data/blast/extraction_outputs/list_constraint_on_qseqid/expected.txt
+tools/extract/extract_similarity_search_report/test-data/blast/extraction_reports/simple_extraction/*
+!tools/extract/extract_similarity_search_report/test-data/blast/extraction_reports/simple_extraction/expected.txt
+tools/extract/extract_similarity_search_report/test-data/blast/extraction_reports/simple_constraint_on_pident/*
+!tools/extract/extract_similarity_search_report/test-data/blast/extraction_reports/simple_constraint_on_pident/expected.txt
+tools/extract/extract_similarity_search_report/test-data/blast/extraction_reports/double_constraint_on_pident/*
+!tools/extract/extract_similarity_search_report/test-data/blast/extraction_reports/double_constraint_on_pident/expected.txt
+tools/extract/extract_similarity_search_report/test-data/blast/extraction_reports/list_constraint_on_qseqid/*
+!tools/extract/extract_similarity_search_report/test-data/blast/extraction_reports/list_constraint_on_qseqid/expected.txt
