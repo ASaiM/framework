@@ -328,7 +328,7 @@
   		
         #set format=$search_tool.report_format.format
         --format=$format
-        #if $format in ('6','7','8'):
+        #if $format in ('6','7','10'):
             --use_default_specifiers=$search_tool.report_format.report_specifiers.use_default_specifiers
         #end if
         #set $extraction_constraint=$search_tool.report_format.report_specifiers
@@ -364,19 +364,19 @@
 		    <when value="blast">
                 <conditional name="report_format">
                     <param name="format" type="select" display="radio" label="Format" help="Alignment view options (-outfmt option)">
-                        <option value="0">Pairwise (-outfmt 0, default value in Blast)</option>
-                        <option value="1">Query-anchored showing identities (-outfmt 1)</option>
-                        <option value="2">Query-anchored no identities (-outfmt 2)</option>
-                        <option value="3">Flat query-anchored, show identities (-outfmt 3)</option>
-                        <option value="4">Flat query-anchored, no identities (-outfmt 4)</option>
-                        <option value="5">XML Blast output (-outfmt 5)</option>
+                        <!--<option value="0">Pairwise (-outfmt 0, default value in Blast)</option>-->
+                        <!--<option value="1">Query-anchored showing identities (-outfmt 1)</option>-->
+                        <!--<option value="2">Query-anchored no identities (-outfmt 2)</option>-->
+                        <!--<option value="3">Flat query-anchored, show identities (-outfmt 3)</option>-->
+                        <!--<option value="4">Flat query-anchored, no identities (-outfmt 4)</option>-->
+                        <!--<option value="5">XML Blast output (-outfmt 5)</option>-->
                         <option value="6">Tabular (-outfmt 6)</option>
                         <option value="7">Tabular with comment lines (-outfmt 7)</option>
-                        <option value="8">Text ASN.1 (-outfmt 8)</option>
-                        <option value="9">Binary ASN.1 (-outfmt 9)</option>
+                        <!--<option value="8">Text ASN.1 (-outfmt 8)</option>-->
+                        <!--<option value="9">Binary ASN.1 (-outfmt 9)</option>-->
                         <option value="10">Comma-separated values (-outfmt 10)</option>
-                        <option value="11">BLAST archive format (ASN.1) (-outfmt 11)</option>
-                        <option value="12">JSON Seqalign output (-outfmt 12)</option>
+                        <!--<option value="11">BLAST archive format (ASN.1) (-outfmt 11)</option>-->
+                        <!--<option value="12">JSON Seqalign output (-outfmt 12)</option>-->
                     </param>
                     <when value="6">
                         <expand macro="blast_6_7_10" />
