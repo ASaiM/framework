@@ -1,11 +1,13 @@
 
 # Tests for extract_similarity_search_report
-tools/extract/extract_similarity_search_report/test-data/blast/blast_outputs/*.txt
-tools/extract/extract_similarity_search_report/test-data/blast/extraction_outputs/simple_extraction/*.txt
+tools/extract/extract_similarity_search_report/test-data/db/*
+!tools/extract/extract_similarity_search_report/test-data/db/db.fasta
+tools/extract/extract_similarity_search_report/test-data/blast/blast_outputs/*
+tools/extract/extract_similarity_search_report/test-data/blast/extraction_outputs/simple_extraction/*
 !tools/extract/extract_similarity_search_report/test-data/blast/extraction_outputs/simple_extraction/expected.txt
-tools/extract/extract_similarity_search_report/test-data/blast/extraction_outputs/simple_constraint_on_pident/*.txt
+tools/extract/extract_similarity_search_report/test-data/blast/extraction_outputs/simple_constraint_on_pident/*
 !tools/extract/extract_similarity_search_report/test-data/blast/extraction_outputs/simple_constraint_on_pident/expected.txt
-tools/extract/extract_similarity_search_report/test-data/blast/extraction_outputs/double_constraint_on_pident/*.txt
+tools/extract/extract_similarity_search_report/test-data/blast/extraction_outputs/double_constraint_on_pident/*
 !tools/extract/extract_similarity_search_report/test-data/blast/extraction_outputs/double_constraint_on_pident/expected.txt
-tools/extract/extract_similarity_search_report/test-data/blast/extraction_outputs/list_constraint_on_qseqid/*.txt
+tools/extract/extract_similarity_search_report/test-data/blast/extraction_outputs/list_constraint_on_qseqid/*
 !tools/extract/extract_similarity_search_report/test-data/blast/extraction_outputs/list_constraint_on_qseqid/expected.txt
