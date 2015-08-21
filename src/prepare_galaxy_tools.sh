@@ -7,6 +7,12 @@ tool_dir=tools
 # Extraction tools
 galaxy_extract_tool_dir=$galaxy_tool_dir/extract/
 extract_tool_dir=$tool_dir/extract
+# Extraction of sequence file
+galaxy_extract_sequence_file_dir=$galaxy_extract_tool_dir/extract_sequence_file
+extract_sequence_file_dir=$extract_tool_dir/extract_sequence_file
+mkdir -p $galaxy_extract_sequence_file_dir
+cp $extract_sequence_file_dir/extract_sequence_file.py $galaxy_extract_sequence_file_dir/extract_sequence_file.py
+cp $extract_sequence_file_dir/extract_sequence_file.xml $galaxy_extract_sequence_file_dir/extract_sequence_file.xml
 # Extraction of similarity search report
 galaxy_extract_similarity_search_report_dir=$galaxy_extract_tool_dir/extract_similarity_search_report
 extract_similarity_search_report_dir=$extract_tool_dir/extract_similarity_search_report
