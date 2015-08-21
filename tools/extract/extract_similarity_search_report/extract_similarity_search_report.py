@@ -51,7 +51,7 @@ def blast_6_parse_method(input_file, use_default_specifiers = 'default'):
         if len(split_row) != exp_specifier_nb:
             string = os.path.basename(__file__) + ': '
             string += row + ' has not the correct number of columns '
-            string += tool + ' - ' + format + ' - '
+            string += 'for blast -outfmt 10 and '
             string += use_default_specifiers
             raise ValueError(string)
 
@@ -73,7 +73,7 @@ def blast_7_parse_method(input_file, use_default_specifiers = 'default'):
         if len(split_row) != exp_specifier_nb:
             string = os.path.basename(__file__) + ': '
             string += row + ' has not the correct number of columns '
-            string += tool + ' - ' + format + ' - '
+            string += 'for blast -outfmt 10 and '
             string += use_default_specifiers
             raise ValueError(string)
 
@@ -105,7 +105,7 @@ def blast_10_parse_method(input_file, use_default_specifiers = 'default'):
         if len(split_row) != exp_specifier_nb:
             string = os.path.basename(__file__) + ': '
             string += row + ' has not the correct number of columns '
-            string += tool + ' - ' + format + ' - '
+            string += 'for blast -outfmt 10 and '
             string += use_default_specifiers
             raise ValueError(string)
 
