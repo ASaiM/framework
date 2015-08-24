@@ -1,4 +1,16 @@
 
+# Tests for extract_sequence_file
+tools/extract/extract_sequence_file/test-data/data/output_sequence_file/fasta/*
+tools/extract/extract_sequence_file/test-data/data/output_sequence_file/fastq/*
+tools/extract/extract_sequence_file/test-data/data/output_report_file/fasta/*
+!tools/extract/extract_sequence_file/test-data/data/output_report_file/fasta/expected
+tools/extract/extract_sequence_file/test-data/data/output_report_file/fastq/*
+!tools/extract/extract_sequence_file/test-data/data/output_report_file/fastq/expected
+tools/extract/extract_sequence_file/test-data/data/output_qual_file/fastq/*
+!tools/extract/extract_sequence_file/test-data/data/output_qual_file/fastq/expected
+tools/extract/extract_sequence_file/test-data/data/output_information_file/fasta/*
+tools/extract/extract_sequence_file/test-data/data/output_information_file/fastq/*
+
 # Tests for extract_similarity_search_report
 tools/extract/extract_similarity_search_report/test-data/db/*
 !tools/extract/extract_similarity_search_report/test-data/db/db.fasta
