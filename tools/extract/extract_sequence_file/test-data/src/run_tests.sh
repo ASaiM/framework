@@ -9,166 +9,175 @@ output_qual_dir="test-data/data/output_qual_file/"
 ## Fasta format
 
 echo "Read and write fasta file"
+test_dir="test-data/data/read_write_fasta_file/"
 python extract_sequence_file.py \
-    --input $input_data_dir/"fasta_file.fasta" \
+    --input $test_dir/"input_sequence_file.fasta" \
     --custom_extraction_type "no" \
-    --output_sequence $output_sequence_dir"fasta/read_write.fasta" \
-    --report $output_report_dir"fasta/read_write.txt" \
+    --output_sequence $test_dir/"output_sequence_file.fasta" \
+    --report $test_dir"output_report.txt" \
     --format "fasta" 
 python test-data/src/compare_files.py \
-    --exp_file $input_data_dir/"fasta_file.fasta" \
-    --obs_file $output_sequence_dir"fasta/read_write.fasta" \
+    --exp_file $test_dir/"input_sequence_file.fasta" \
+    --obs_file $test_dir/"output_sequence_file.fasta" \
     --comparison "Sequence file"
 python test-data/src/compare_files.py \
-    --exp_file $output_report_dir"fasta/expected/read_write.txt" \
-    --obs_file $output_report_dir"fasta/read_write.txt" \
+    --exp_file $test_dir"/expected_output_report.txt" \
+    --obs_file $test_dir"output_report.txt" \
     --comparison "Report file"
 
 echo "Simple extraction of fasta file"
+test_dir="test-data/data/simple_extraction_fasta_file/"
 python extract_sequence_file.py \
-    --input $input_data_dir/"fasta_file.fasta" \
+    --input $test_dir/"input_sequence_file.fasta" \
     --custom_extraction_type "yes" \
-    --output_information $output_information_dir"fasta/simple_extraction.txt" \
-    --report $output_report_dir"fasta/simple_extraction.txt" \
+    --output_information $test_dir"output_information.txt" \
+    --report $test_dir"output_report.txt" \
     --to_extract "{id,length}" \
     --format "fasta"
 python test-data/src/compare_files.py \
-    --exp_file $output_report_dir"fasta/expected/simple_extraction.txt" \
-    --obs_file $output_report_dir"fasta/simple_extraction.txt" \
+    --exp_file $test_dir"/expected_output_report.txt" \
+    --obs_file $test_dir"output_report.txt" \
     --comparison "Report file"
 python test-data/src/compare_files.py \
-    --exp_file $output_information_dir"/expected/simple_extraction.txt" \
-    --obs_file $output_information_dir"fasta/simple_extraction.txt" \
+    --exp_file $test_dir"expected_output_information.txt" \
+    --obs_file $test_dir"output_information.txt" \
     --comparison "Information file"
 
 echo "Simple constraint of fasta file"
+test_dir="test-data/data/simple_constraint_fasta_file/"
 python extract_sequence_file.py \
-    --input $input_data_dir/"fasta_file.fasta" \
+    --input $test_dir/"input_sequence_file.fasta" \
     --custom_extraction_type "yes" \
-    --output_information $output_information_dir"fasta/simple_constraint.txt" \
-    --report $output_report_dir"fasta/simple_constraint.txt" \
+    --output_information $test_dir"output_information.txt" \
+    --report $test_dir"output_report.txt" \
     --to_extract "{id,length}" \
     --constraint "length: greater: 100" \
     --format "fasta" 
 python test-data/src/compare_files.py \
-    --exp_file $output_report_dir"fasta/expected/simple_constraint.txt" \
-    --obs_file $output_report_dir"fasta/simple_constraint.txt" \
+    --exp_file $test_dir"/expected_output_report.txt" \
+    --obs_file $test_dir"output_report.txt" \
     --comparison "Report file"
 python test-data/src/compare_files.py \
-    --exp_file $output_information_dir"/expected/simple_constraint.txt" \
-    --obs_file $output_information_dir"fasta/simple_constraint.txt" \
+    --exp_file $test_dir"expected_output_information.txt" \
+    --obs_file $test_dir"output_information.txt" \
     --comparison "Information file"
 
 echo "Double constraints of fasta file"
+test_dir="test-data/data/double_constraint_fasta_file/"
 python extract_sequence_file.py \
-    --input $input_data_dir/"fasta_file.fasta" \
+    --input $test_dir/"input_sequence_file.fasta" \
     --custom_extraction_type "yes" \
-    --output_information $output_information_dir"fasta/double_constraint.txt" \
-    --report $output_report_dir"fasta/double_constraint.txt" \
+    --output_information $test_dir"output_information.txt" \
+    --report $test_dir"output_report.txt" \
     --to_extract "{id,length}" \
     --constraint "length: greater: 100" \
     --constraint "id: in: test-data/data/id_in_list.txt" \
     --format "fasta" 
 python test-data/src/compare_files.py \
-    --exp_file $output_report_dir"fasta/expected/double_constraint.txt" \
-    --obs_file $output_report_dir"fasta/double_constraint.txt" \
+    --exp_file $test_dir"/expected_output_report.txt" \
+    --obs_file $test_dir"output_report.txt" \
     --comparison "Report file"
 python test-data/src/compare_files.py \
-    --exp_file $output_information_dir"/expected/double_constraint.txt" \
-    --obs_file $output_information_dir"fasta/double_constraint.txt" \
+    --exp_file $test_dir"expected_output_information.txt" \
+    --obs_file $test_dir"output_information.txt" \
     --comparison "Information file"
 
 ## Fastq format
 
 echo "Read and write fastq file"
+test_dir="test-data/data/read_write_fastq_file/"
 python extract_sequence_file.py \
-    --input $input_data_dir/"fastq_file.fastq" \
+    --input $test_dir/"input_sequence_file.fastq" \
     --custom_extraction_type "no" \
-    --output_sequence $output_sequence_dir"fastq/read_write.fastq" \
-    --report $output_report_dir"fastq/read_write.txt" \
+    --output_sequence $test_dir/"output_sequence_file.fastq" \
+    --report $test_dir"output_report.txt" \
     --format "fastq"
 python test-data/src/compare_files.py \
-    --exp_file $input_data_dir/"fastq_file.fastq" \
-    --obs_file $output_sequence_dir"fastq/read_write.fastq" \
+    --exp_file $test_dir/"input_sequence_file.fastq" \
+    --obs_file $test_dir/"output_sequence_file.fastq" \
     --comparison "Sequence file"
 python test-data/src/compare_files.py \
-    --exp_file $output_report_dir"fastq/expected/read_write.txt" \
-    --obs_file $output_report_dir"fastq/read_write.txt" \
+    --exp_file $test_dir"/expected_output_report.txt" \
+    --obs_file $test_dir"output_report.txt" \
     --comparison "Report file"
 
 echo "Read and split fastq file"
+test_dir="test-data/data/split_fastq_file/"
 python extract_sequence_file.py \
-    --input $input_data_dir/"fastq_file.fastq" \
+    --input $test_dir/"input_sequence_file.fastq" \
     --custom_extraction_type "no" \
     --split "yes" \
     --quality_format "sanger" \
-    --output_sequence $output_sequence_dir"fastq/read_split.fasta" \
-    --output_quality $output_qual_dir"fastq/read_split.qual" \
-    --report $output_report_dir"fastq/read_split.txt" \
+    --output_sequence $test_dir/"output_sequence_file.fasta" \
+    --output_quality $test_dir/"output_quality.qual" \
+    --report $test_dir"output_report.txt" \
     --format "fastq"
 python test-data/src/compare_files.py \
-    --exp_file $input_data_dir/"fasta_file.fasta" \
-    --obs_file $output_sequence_dir"fastq/read_split.fasta" \
+    --exp_file $test_dir/"expected_output_sequence_file.fasta" \
+    --obs_file $test_dir/"output_sequence_file.fasta" \
     --comparison "Sequence file"
 python test-data/src/compare_files.py \
-    --exp_file $output_qual_dir"fastq/expected/read_split.qual" \
-    --obs_file $output_qual_dir"fastq/read_split.qual" \
+    --exp_file $test_dir/"output_quality.qual" \
+    --obs_file $test_dir/"expected_output_quality.qual" \
     --comparison "Quality file"
 python test-data/src/compare_files.py \
-    --exp_file $output_report_dir"fastq/expected/read_split.txt" \
-    --obs_file $output_report_dir"fastq/read_split.txt" \
+    --exp_file $test_dir"/expected_output_report.txt" \
+    --obs_file $test_dir"output_report.txt" \
     --comparison "Report file"
 
 echo "Simple extraction of fastq file"
+test_dir="test-data/data/simple_extraction_fastq_file/"
 python extract_sequence_file.py \
-    --input $input_data_dir/"fastq_file.fastq" \
+    --input $test_dir/"input_sequence_file.fastq" \
     --custom_extraction_type "yes" \
-    --output_information $output_information_dir"fastq/simple_extraction.txt" \
-    --report $output_report_dir"fastq/simple_extraction.txt" \
+    --output_information $test_dir"output_information.txt" \
+    --report $test_dir"output_report.txt" \
     --to_extract "{id,length}" \
     --format "fastq"
 python test-data/src/compare_files.py \
-    --exp_file $output_report_dir"fastq/expected/simple_extraction.txt" \
-    --obs_file $output_report_dir"fastq/simple_extraction.txt" \
+    --exp_file $test_dir"/expected_output_report.txt" \
+    --obs_file $test_dir"output_report.txt" \
     --comparison "Report file"
 python test-data/src/compare_files.py \
-    --exp_file $output_information_dir"/expected/simple_extraction.txt" \
-    --obs_file $output_information_dir"fastq/simple_extraction.txt" \
+    --exp_file $test_dir"expected_output_information.txt" \
+    --obs_file $test_dir"output_information.txt" \
     --comparison "Information file"
 
 echo "Simple constraint of fastq file"
+test_dir="test-data/data/simple_constraint_fastq_file/"
 python extract_sequence_file.py \
-    --input $input_data_dir/"fastq_file.fastq" \
+    --input $test_dir/"input_sequence_file.fastq" \
     --custom_extraction_type "yes" \
-    --output_information $output_information_dir"fastq/simple_constraint.txt" \
-    --report $output_report_dir"fastq/simple_constraint.txt" \
+    --output_information $test_dir"output_information.txt" \
+    --report $test_dir"output_report.txt" \
     --to_extract "{id,length}" \
     --constraint "length: greater: 100" \
     --format "fastq"
 python test-data/src/compare_files.py \
-    --exp_file $output_report_dir"fastq/expected/simple_constraint.txt" \
-    --obs_file $output_report_dir"fastq/simple_constraint.txt" \
+    --exp_file $test_dir"/expected_output_report.txt" \
+    --obs_file $test_dir"output_report.txt" \
     --comparison "Report file"
 python test-data/src/compare_files.py \
-    --exp_file $output_information_dir"/expected/simple_constraint.txt" \
-    --obs_file $output_information_dir"fastq/simple_constraint.txt" \
+    --exp_file $test_dir"expected_output_information.txt" \
+    --obs_file $test_dir"output_information.txt" \
     --comparison "Information file"
 
 echo "Double constraint of fastq file"
+test_dir="test-data/data/double_constraint_fastq_file/"
 python extract_sequence_file.py \
-    --input $input_data_dir/"fastq_file.fastq" \
+    --input $test_dir/"input_sequence_file.fastq" \
     --custom_extraction_type "yes" \
-    --output_information $output_information_dir"fastq/double_constraint.txt" \
-    --report $output_report_dir"fastq/double_constraint.txt" \
+    --output_information $test_dir"output_information.txt" \
+    --report $test_dir"output_report.txt" \
     --to_extract "{id,length}" \
     --constraint "length: greater: 100" \
     --constraint "id: in: test-data/data/id_in_list.txt" \
     --format "fastq"
 python test-data/src/compare_files.py \
-    --exp_file $output_report_dir"fastq/expected/double_constraint.txt" \
-    --obs_file $output_report_dir"fastq/double_constraint.txt" \
+    --exp_file $test_dir"/expected_output_report.txt" \
+    --obs_file $test_dir"output_report.txt" \
     --comparison "Report file"
 python test-data/src/compare_files.py \
-    --exp_file $output_information_dir"/expected/double_constraint.txt" \
-    --obs_file $output_information_dir"fastq/double_constraint.txt" \
+    --exp_file $test_dir"expected_output_information.txt" \
+    --obs_file $test_dir"output_information.txt" \
     --comparison "Information file"
