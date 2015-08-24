@@ -69,7 +69,7 @@
                             <when value="length">
                                 <repeat name="constraint_definition" title="Constraint on sequence length" min="1">
                                     <expand macro="constrain_number" />
-                                    <param name="value" type="float" min="0" max="3000" value="100" label="Value" help=""/>
+                                    <param name="value" type="integer" min="0" max="3000" value="100" label="Value" help=""/>
                                 </repeat>
                             </when>  
                         </conditional>
@@ -93,8 +93,7 @@
     <command interpreter="python">
   		extract_sequence_file.py 
   		--input=$sequence_file_format.sequence_file
-        --format=$sequence_file_format.format
-  		
+
         --custom_extraction_type=$sequence_file_format.extraction.specific_extraction
         #if $sequence_file_format.extraction.specific_extraction=="yes":
             --to_extract="{$sequence_file_format.extraction.to_extract}"
@@ -108,6 +107,7 @@
                     --output_quality=$quality_file
                 #else:
                     --output_sequence=$fastq_sequence_file
+                #end if
             #else:
                 --output_sequence=$fasta_sequence_file
             #end if
@@ -130,6 +130,7 @@
         #end if
 
         --report $report_filepath
+        --format=$sequence_file_format.format
   	</command>
 
   	<inputs>
@@ -218,12 +219,11 @@
 
   	<tests>
   		<test>
-  			<param name="similarity_report" value="blast_6_output.txt"/>
-  			<param name="extracted_information.format" value="BLAST_6"/>
-  			<param name="extracted_information.info_to_extract" value="query,target,identity_percentage"/>
-  			<param name="extracted_information.extraction_constraints.constrained_extraction" value="no"/>
-  			<output name="report_filepath" file="blast_6_simple_extraction_report.txt" />
-  			<output name="output_filepath" file="blast_6_simple_extraction_output.txt" />
+  			<param name="sequence_file_format.sequence_file" value="read_write_fasta_file/input_sequence_file.fasta"/>
+  			<param name="sequence_file_format.extraction.specific_extraction" value="no"/>
+            <param name="$sequence_file_format.format" value="fasta" />
+  			<output name="fasta_sequence_file" file="read_write_fasta_file/input_sequence_file.fasta"/>
+  			<output name="report_filepath" file="read_write_fasta_file/expected_output_report.txt"/>
   		</test>
   	</tests>
 
