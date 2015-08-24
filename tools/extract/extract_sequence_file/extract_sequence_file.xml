@@ -101,8 +101,9 @@
             --output_information=$information_file
         #else:
             #if $sequence_file_format.format=="fastq":
-                --split=$sequence_file_format.extraction.split
-                #if $sequence_file_format.extraction.split == 'yes':
+                --split=$sequence_file_format.extraction.split.split_test
+                #if $sequence_file_format.extraction.split.split_test == 'yes':
+                    --quality_format=$sequence_file_format.extraction.split.quality_format
                     --output_sequence=$fasta_sequence_file_from_fastq
                     --output_quality=$quality_file
                 #else:
@@ -162,10 +163,21 @@
                         </param>
                     </when>
                     <when value="no">
-                        <param name="split" type="select" display="radio" label="Split file into sequence and quality files?" help="If yes is selected, a fasta and a quality file are generated. If no, a fastq file is generated">
+                        <conditional name="split">
+                            <param name="split_test" type="select" display="radio" label="Split file into sequence and quality files?" help="If yes is selected, a fasta and a quality file are generated. If no, a fastq file is generated">
                             <option value="no">No</option>
                             <option value="yes">Yes</option>
-                        </param>
+                            </param>
+                            <when value="yes">
+                                <param name="quality_format" type="select" display="radio" label="Coding of quality scores?" help="">
+                                    <option value="sanger" selected="true">Sanger (Phred+33)</option>
+                                    <option value="solexa">Solexa (Solexa+64) </option>
+                                    <option value="illumina_1_3">Illumina 1.3+ (Phred+64) </option>
+                                    <option value="illumina_1_5">Illumina 1.5+ (Phred+64) </option>
+                                    <option value="illumina_1_8">Illumina 1.8+ (Phred+33) </option>
+                                </param>
+                            </when>
+                        </conditional> 
                     </when>
                 </conditional> 
                 <expand macro="constraint_definitions" />
@@ -186,19 +198,19 @@
         <data format="fastq" name="fastq_sequence_file" label="sequences_${sequence_file_format.sequence_file}" >
             <filter>((sequence_file_format['format'] == 'fastq' and 
                 sequence_file_format['extraction']['specific_extraction'] == 'no' and
-                sequence_file_format['extraction']['split'] == 'no'))</filter>
+                sequence_file_format['extraction']['split']['split_test'] == 'no'))</filter>
         </data>
 
         <data format="qual" name="quality_file" label="quality_${sequence_file_format.sequence_file}" >
             <filter>((sequence_file_format['format'] == 'fastq' and 
                 sequence_file_format['extraction']['specific_extraction'] == 'no' and
-                sequence_file_format['extraction']['split'] == 'yes'))</filter>
+                sequence_file_format['extraction']['split']['split_test'] == 'yes'))</filter>
         </data>
 
         <data format="fasta" name="fasta_sequence_file_from_fastq" label="sequences_${sequence_file_format.sequence_file}" >
             <filter>((sequence_file_format['format'] == 'fastq' and 
                 sequence_file_format['extraction']['specific_extraction'] == 'no' and
-                sequence_file_format['extraction']['split'] == 'yes'))</filter>
+                sequence_file_format['extraction']['split']['split_test'] == 'yes'))</filter>
         </data>
 
         <data format="txt" name="report_filepath" label="report_${sequence_file_format.sequence_file}" />
