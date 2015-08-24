@@ -419,7 +419,6 @@ def extract_similarity_search_report(args):
     records.save_conserved_records(output_filepath, to_extract)
     
     with open(report_filepath, 'w') as report_file:
-        report_file.write('Input filepath: ' + input_filepath + '\n')
         report_file.write('Information to extract:\n')
         for info in to_extract:
             report_file.write('\t' + info + '\n')
