@@ -346,7 +346,6 @@ def extract_sequence_file(args):
     
     report_filepath = args.report
     with open(report_filepath, 'w') as report_file:
-        report_file.write('Input filepath: ' + input_filepath + '\n')
 
         report_file.write('Information to extract:\n')
         if args.custom_extraction_type == 'yes':
