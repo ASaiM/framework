@@ -1,15 +1,14 @@
 
 # Tests for extract_sequence_file
-tools/extract/extract_sequence_file/test-data/data/output_sequence_file/fasta/*
-tools/extract/extract_sequence_file/test-data/data/output_sequence_file/fastq/*
-tools/extract/extract_sequence_file/test-data/data/output_report_file/fasta/*
-!tools/extract/extract_sequence_file/test-data/data/output_report_file/fasta/expected
-tools/extract/extract_sequence_file/test-data/data/output_report_file/fastq/*
-!tools/extract/extract_sequence_file/test-data/data/output_report_file/fastq/expected
-tools/extract/extract_sequence_file/test-data/data/output_qual_file/fastq/*
-!tools/extract/extract_sequence_file/test-data/data/output_qual_file/fastq/expected
-tools/extract/extract_sequence_file/test-data/data/output_information_file/fasta/*
-tools/extract/extract_sequence_file/test-data/data/output_information_file/fastq/*
+tools/extract/extract_sequence_file/test-data/data/ouble_constraint_fasta_file/output_*
+tools/extract/extract_sequence_file/test-data/data/double_constraint_fastq_file/output*
+tools/extract/extract_sequence_file/test-data/data/read_write_fasta_file/output*
+tools/extract/extract_sequence_file/test-data/data/read_write_fastq_file/output*
+tools/extract/extract_sequence_file/test-data/data/simple_constraint_fasta_file/output*
+tools/extract/extract_sequence_file/test-data/data/simple_constraint_fastq_file/output*
+tools/extract/extract_sequence_file/test-data/data/simple_extraction_fasta_file/output*
+tools/extract/extract_sequence_file/test-data/data/simple_extraction_fastq_file/output*
+tools/extract/extract_sequence_file/test-data/data/split_fastq_file/output*
 
 # Tests for extract_similarity_search_report
 tools/extract/extract_similarity_search_report/test-data/db/*

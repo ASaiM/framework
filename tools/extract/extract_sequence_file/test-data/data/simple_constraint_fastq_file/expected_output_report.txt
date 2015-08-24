@@ -1,4 +1,3 @@
-Input filepath: test-data/data/input//fasta_file.fasta
 Information to extract:
 	id
 	length
