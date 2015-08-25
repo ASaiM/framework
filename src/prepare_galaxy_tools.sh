@@ -4,6 +4,9 @@ galaxy_dir=$1
 galaxy_tool_dir=$galaxy_dir/tools/
 tool_dir=tools
 
+# Usearch
+usearch_tool_path=$tool_dir/usearch/usearch8.0.1623_i86osx32
+
 # Quality control
 galaxy_quality_control_tool_dir=$galaxy_tool_dir/quality_control/
 quality_control_tool_dir=$tool_dir/quality_control
@@ -17,6 +20,17 @@ mkdir -p $prinseq_dir/src/
 curl -L -s http://downloads.sourceforge.net/project/prinseq/standalone/prinseq-lite-0.20.4.tar.gz | tar -C $prinseq_dir/src/ --strip-components=1 -xz
 cp $prinseq_dir/prinseq.xml $galaxy_prinseq_dir/prinseq.xml
 cp -r $prinseq_dir/src/ $galaxy_prinseq_dir/src
+
+# Dereplication
+galaxy_dereplication_tool_dir=$galaxy_tool_dir/dereplication/
+dereplication_tool_dir=$tool_dir/dereplication
+
+## derep_prefix
+galaxy_derep_prefix_dir=$galaxy_dereplication_tool_dir/derep_prefix
+derep_prefix_dir=$dereplication_tool_dir/derep_prefix
+mkdir -p $galaxy_derep_prefix_dir/src/
+cp $derep_prefix_dir/derep_prefix.xml $galaxy_derep_prefix_dir/derep_prefix.xml
+cp -p $usearch_tool_path $galaxy_derep_prefix_dir/src/usearch
 
 # Extraction tools
 galaxy_extract_tool_dir=$galaxy_tool_dir/extract/
