@@ -3,80 +3,6 @@
 	<description>with PRINSEQ</description>
 
     <macros>
-        <xml name="fasta_option">
-            <option value="id">Identifiant</option>
-            <option value="length">Length</option>
-            <option value="description">Description</option>
-        </xml>
-        <xml name="fastq_option">
-            <expand macro="fasta_option" />
-        </xml>
-        <xml name="specific_extraction_test">
-            <param name="specific_extraction" type="select" display="radio" label="Extract specific information?" help="If no is selected, a sequence file is generated. If yes, a text file containing the wanted information is generated">
-                <option value="no">No</option>
-                <option value="yes">Yes</option>
-            </param>
-        </xml>
-        <xml name="test_constrain_extraction">
-            <param name="constrained_extraction" type="select" display="radio" label="Constrain extraction?" help="">
-                <option value="no">No</option>
-                <option value="yes">Yes</option>
-            </param>
-        </xml>
-        <xml name="constrain_string">
-            <conditional name="constraint_type">
-                <param name="type" type="select" display="radio" label="Type of constraint" help="">
-                    <option value="equal">Equal a value</option>
-                    <option value="in">In a list</option>
-                    <option value="not_in">Not in a list</option>
-                </param>
-                <when value="equal">
-                    <param name="value" type="text" size="200" label="Equal to" help=""/>
-                    <validator type="empty_field" message="Give a value"/>
-                </when>
-                <when value="in">
-                    <param format="txt" name="value" type="data" label="List of constraint" help="Text file with a value per line and nothing else"/>
-                    <validator type="unspecified_build" message="Select a file"/>
-                </when>
-                <when value="not_in">
-                    <param format="txt" name="value" type="data" label="List of constraint" help="Text file with a value per line and nothing else"/>
-                    <validator type="unspecified_build" message="Select a file"/>
-                </when>
-            </conditional>
-        </xml>
-        <xml name="constrain_number">
-            <param name="type" type="select" label="Type of constraint" help="">
-                <option value="equal">Equal to </option>
-                <option value="lower">Lower than </option>
-                <option value="strictly_lower">Strictly lower than </option>
-                <option value="greater">Greater than </option>
-                <option value="strictly_greater">Strictly greater than </option>
-            </param>
-        </xml>
-        <xml name="constraint_definitions">
-            <conditional name="constraints">
-                <expand macro="test_constrain_extraction" />
-                <when value="yes">
-                    <repeat name="constraint_definition" title="Constraints on sequences" min="1">
-                        <conditional name="constrained_information">
-                            <param name="info_to_constrain" type="select" label="Information to constrain" help="">
-                                <option value="id">Identifiant</option>
-                                <option value="length">Length</option>
-                            </param>
-                            <when value="id">
-                                <expand macro="constrain_string" />
-                            </when>  
-                            <when value="length">
-                                <repeat name="constraint_definition" title="Constraint on sequence length" min="1">
-                                    <expand macro="constrain_number" />
-                                    <param name="value" type="integer" min="0" max="3000" value="100" label="Value" help=""/>
-                                </repeat>
-                            </when>  
-                        </conditional>
-                    </repeat>
-                 </when>
-            </conditional>
-        </xml>
     </macros>
 
 	<requirements>
@@ -628,6 +554,7 @@
   	</help>
 
     <citations>
+        <citation type="doi">10.1093/bioinformatics/btr026</citation>
     </citations>
 </tool>
 
