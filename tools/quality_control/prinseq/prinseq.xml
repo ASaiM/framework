@@ -85,15 +85,32 @@
   	</requirements>
 
     <stdio>
+        <exit_code range="1:"   level="fatal"   description="" />
+        <regex match="ERROR"
+               source="stderr"
+               level="fatal"
+               description="" />
+        <regex match="WARNING"
+               source="stderr"
+               level="warning"
+               description="" />
+
+        <!--<regex match="command not found"
+               source="stderr"
+               level="fatal"
+               description="" />-->
     </stdio>
 
-    <version_command>python -version</version_command>
+    <version_command>perl -version</version_command>
 
   	<!--<command>-->
     <command interpreter="perl">
-  		src/prinseq-lite.pl
-
-            -fastq $inuput_sequence_file
+        src/prinseq-lite.pl  
+        <!--./prinseq_wrapper.sh $prinseq_parameters $good_sequence_file-->
+    
+            -fastq $input_sequence_file
+            -out_good stdout
+            -out_bad null
 
             #if $filter_treatments.apply_filter_treatments == 'yes':
                 #set length_filter_treatments=$filter_treatments.length_filter_treatments
@@ -156,11 +173,96 @@
                         -noniupac
                     #end if
                 #end if
+
+                #set complexity_filter_treatments=$filter_treatments.complexity_filter_treatments
+                #if $complexity_filter_treatments.apply_complexity_filter_treatments == 'yes':
+                    -lc_method $complexity_filter_treatments.method_complexity_filter_treatments
+                    -lc_threshold $complexity_filter_treatments.threshold_complexity_filter_treatments
+                #end if
+
             #end if
-  	</command>
+
+            #if $trimming_treatments.apply_trimming_treatments == 'yes':
+                #set length_trimming_treatments=$trimming_treatments.length_trimming_treatments
+                #if $length_trimming_treatments.apply_length_trimming_treatments == 'yes':
+                    -trim_to_len $length_trimming_treatments.value
+                #end if
+
+                #set position_trimming_treatments=$trimming_treatments.position_trimming_treatments
+                #if $position_trimming_treatments.apply_position_trimming_treatments == 'yes':
+                    #set nb_position_trimming_treatments=$position_trimming_treatments.nb_position_trimming_treatments
+                    #if $nb_position_trimming_treatments.apply_nb_position_trimming_treatments == 'yes':
+                        #set left_position_trimming_treatments=$nb_position_trimming_treatments.left_position_trimming_treatments
+                        #if $left_position_trimming_treatments.apply_left_position_trimming_treatments == 'yes':
+                            -trim_left $left_position_trimming_treatments.value
+                        #end if
+                        #set right_position_trimming_treatments=$nb_position_trimming_treatments.right_position_trimming_treatments
+                        #if $right_position_trimming_treatments.apply_right_position_trimming_treatments == 'yes':
+                            -trim_right $right_position_trimming_treatments.value
+                        #end if
+                    #end if
+                    #set percentage_position_trimming_treatments=$position_trimming_treatments.percentage_position_trimming_treatments
+                    #if $percentage_position_trimming_treatments.apply_percentage_position_trimming_treatments == 'yes':
+                        #set left_percentage_position_trimming_treatments=$percentage_position_trimming_treatments.left_percentage_position_trimming_treatments
+                        #if $left_percentage_position_trimming_treatments.apply_left_percentage_position_trimming_treatments == 'yes':
+                            -trim_left_p $left_percentage_position_trimming_treatments.value
+                        #end if
+                        #set right_percentage_position_trimming_treatments=$percentage_position_trimming_treatments.right_percentage_position_trimming_treatments
+                        #if $right_percentage_position_trimming_treatments.apply_right_percentage_position_trimming_treatments == 'yes':
+                            -trim_right_p $right_percentage_position_trimming_treatments.value
+                        #end if
+                    #end if
+                #end if
+
+                #set tail_trimming_treatments=$trimming_treatments.tail_trimming_treatments
+                #if $tail_trimming_treatments.apply_tail_trimming_treatments == 'yes':
+                    #set a_t_tail_trimming_treatments=$tail_trimming_treatments.a_t_tail_trimming_treatments
+                    #if $a_t_tail_trimming_treatments.apply_a_t_tail_trimming_treatments == 'yes':
+                        #set left_a_t_tail_trimming_treatments=$a_t_tail_trimming_treatments.left_a_t_tail_trimming_treatments
+                        #if $left_a_t_tail_trimming_treatments.apply_left_a_t_tail_trimming_treatments == 'yes':
+                            -trim_tail_left $left_a_t_tail_trimming_treatments.value
+                        #end if
+                        #set right_a_t_tail_trimming_treatments=$a_t_tail_trimming_treatments.right_a_t_tail_trimming_treatments
+                        #if right_a_t_tail_trimming_treatments.apply_right_a_t_tail_trimming_treatments == 'yes':
+                            -trim_tail_right $right_a_t_tail_trimming_treatments.value
+                        #end if
+                    #end if
+                    #set ns_tail_trimming_treatments=$tail_trimming_treatments.ns_tail_trimming_treatments
+                    #if $ns_tail_trimming_treatments.apply_ns_tail_trimming_treatments == 'yes':
+                        #set left_ns_tail_trimming_treatments=$ns_tail_trimming_treatments.left_ns_tail_trimming_treatments
+                        #if $left_ns_tail_trimming_treatments.apply_left_ns_tail_trimming_treatments == 'yes':
+                            -trim_ns_left $left_ns_tail_trimming_treatments.value
+                        #end if
+                        #set right_ns_tail_trimming_treatments=$ns_tail_trimming_treatments.right_ns_tail_trimming_treatments
+                        #if $right_ns_tail_trimming_treatments.apply_right_ns_tail_trimming_treatments == 'yes':
+                            -trim_ns_right $right_ns_tail_trimming_treatments.value
+                        #end if
+                    #end if
+                #end if
+
+                #set quality_trimming_treatments=$trimming_treatments.quality_trimming_treatments
+                #if $quality_trimming_treatments.apply_quality_trimming_treatments == 'yes':
+                    #set left_quality_trimming_treatments=$quality_trimming_treatments.left_quality_trimming_treatments
+                    #if $left_quality_trimming_treatments.apply_left_quality_trimming_treatments == 'yes':
+                        -trim_qual_left $left_quality_trimming_treatments.value
+                    #end if
+                    #set right_quality_trimming_treatments=$quality_trimming_treatments.right_quality_trimming_treatments
+                    #if $right_quality_trimming_treatments.apply_right_quality_trimming_treatments == 'yes':
+                        -trim_qual_right $right_quality_trimming_treatments.value
+                    #end if
+                    -trim_qual_type $quality_trimming_treatments.type_quality_trimming_treatments
+                    -trim_qual_rule $quality_trimming_treatments.rule_quality_trimming_treatments
+                    -trim_qual_window $quality_trimming_treatments.window_quality_trimming_treatments
+                    -trim_qual_step $quality_trimming_treatments.step_quality_trimming_treatments
+                #end if
+
+            #end if
+
+            >> $good_sequence_file
+    </command>
 
   	<inputs>
-        <param name="inuput_sequence_file" type="data" format="fastq" label="Input sequence file" help="The file must be in fastq format for quality scores"/>
+        <param name="input_sequence_file" type="data" format="fastq" label="Input sequence file" help="The file must be in fastq format for quality scores"/>
 
         <conditional name="filter_treatments">
         	<param name="apply_filter_treatments" type="select" display="radio" label="Apply filter treatments?" help="">
@@ -169,13 +271,13 @@
 	        </param>
 		    <when value="yes">
                 <conditional name="length_filter_treatments">
-                    <param name="apply_length_filter_treatments" type="select" display="radio" label="Apply filter treatments based on sequence length?" help="By default, sequences smaller than 60 bp are removed. No top threshold is defined">
+                    <param name="apply_length_filter_treatments" type="select" display="radio" label="Filter sequence based on their length?" help="By default, sequences smaller than 60 bp are removed. No top threshold is defined">
                         <option value="yes" selected="true">Yes</option>
                         <option value="no">No</option>
                     </param>    
                     <when value="yes">
                         <conditional name="min_length_filter_treatments">
-                            <param name="apply_min_length_filter_treatments" type="select" display="radio" label="Remove too small sequences?" help="By default, sequences smaller than 60 bp are removed.">
+                            <param name="apply_min_length_filter_treatments" type="select" display="radio" label="Filter too small sequences?" help="By default, sequences smaller than 60 bp are removed.">
                                 <option value="yes" selected="true">Yes</option>
                                 <option value="no">No</option>
                             </param>    
@@ -184,7 +286,7 @@
                             </when>
                         </conditional>  
                         <conditional name="max_length_filter_treatments">
-                            <param name="apply_max_length_filter_treatments" type="select" display="radio" label="Remove too big sequences?" help="By default, no treatment based on a maximal length is made">
+                            <param name="apply_max_length_filter_treatments" type="select" display="radio" label="Filter too big sequences?" help="By default, no treatment based on a maximal length is made">
                                 <option value="yes">Yes</option>
                                 <option value="no" selected="true">No</option>
                             </param>    
@@ -195,13 +297,13 @@
                     </when>
                 </conditional>  
                 <conditional name="quality_filter_treatments">
-                    <param name="apply_quality_filter_treatments" type="select" display="radio" label="Apply filter treatments based on quality score?" help="By default, sequences with a mean score below 15 are removed.">
+                    <param name="apply_quality_filter_treatments" type="select" display="radio" label="Filter sequences based on quality score?" help="By default, sequences with a mean score below 15 are removed.">
                         <option value="yes" selected="true">Yes</option>
                         <option value="no">No</option>
                     </param>    
                     <when value="yes">
                         <conditional name="min_quality_filter_treatments">
-                            <param name="apply_min_quality_filter_treatments" type="select" display="radio" label="Remove sequences based on their minimum score?" help="By default, no treatment based on a minimum score is made">
+                            <param name="apply_min_quality_filter_treatments" type="select" display="radio" label="Filter sequences based on their minimum score?" help="By default, no treatment based on a minimum score is made">
                                 <option value="yes">Yes</option>
                                 <option value="no" selected="true">No</option>
                             </param>    
@@ -210,7 +312,7 @@
                             </when>
                         </conditional>
                         <conditional name="max_quality_filter_treatments">
-                            <param name="apply_max_quality_filter_treatments" type="select" display="radio" label="Remove sequences based on their maximum score?" help="By default, no treatment based on a maximum score is made">
+                            <param name="apply_max_quality_filter_treatments" type="select" display="radio" label="Filter sequences based on their maximum score?" help="By default, no treatment based on a maximum score is made">
                                 <option value="yes">Yes</option>
                                 <option value="no" selected="true">No</option>
                             </param>    
@@ -219,13 +321,13 @@
                             </when>
                         </conditional>
                         <conditional name="mean_quality_filter_treatments">
-                            <param name="apply_mean_quality_filter_treatments" type="select" display="radio" label="Remove sequences based on their mean score?" help="By default, sequences with a mean score below 15 are removed.">
+                            <param name="apply_mean_quality_filter_treatments" type="select" display="radio" label="Filter sequences based on their mean score?" help="By default, sequences with a mean score below 15 are removed.">
                                 <option value="yes" selected="true">Yes</option>
                                 <option value="no">No</option>
                             </param>    
                             <when value="yes">
                                 <conditional name="min_mean_quality_filter_treatments">
-                                    <param name="apply_min_mean_quality_filter_treatments" type="select" display="radio" label="Remove sequences with too small mean score?" help="By default, sequences with a mean score below 15 are removed.">
+                                    <param name="apply_min_mean_quality_filter_treatments" type="select" display="radio" label="Filter sequences with too small mean score?" help="By default, sequences with a mean score below 15 are removed.">
                                         <option value="yes" selected="true">Yes</option>
                                         <option value="no">No</option>
                                     </param> 
@@ -234,7 +336,7 @@
                                     </when>
                                 </conditional>
                                 <conditional name="max_mean_quality_filter_treatments">
-                                    <param name="apply_max_mean_quality_filter_treatments" type="select" display="radio" label="Remove sequences with too high mean score?" help="By default, no treatment based on a maximum mean score is made">
+                                    <param name="apply_max_mean_quality_filter_treatments" type="select" display="radio" label="Filter sequences with too high mean score?" help="By default, no treatment based on a maximum mean score is made">
                                         <option value="yes">Yes</option>
                                         <option value="no" selected="true">No</option>
                                     </param> 
@@ -247,19 +349,19 @@
                     </when>
                 </conditional>
                 <conditional name="base_content_filter_treatments">
-                    <param name="apply_base_content_filter_treatments" type="select" display="radio" label="Apply filter treatments based on base content?" help="By default, sequences with more than 2% of N bases are removed.">
+                    <param name="apply_base_content_filter_treatments" type="select" display="radio" label="Filter sequences based on their base content?" help="By default, sequences with more than 2% of N bases are removed.">
                         <option value="yes" selected="true">Yes</option>
                         <option value="no">No</option>
                     </param>    
                     <when value="yes">
                         <conditional name="GC_perc_content_filter_treatments">
-                            <param name="apply_GC_perc_content_filter_treatments" type="select" display="radio" label="Remove sequences based on their GC percentage?" help="By default, no treatment based on GC percentage is made.">
+                            <param name="apply_GC_perc_content_filter_treatments" type="select" display="radio" label="Filter sequences based on their GC percentage?" help="By default, no treatment based on GC percentage is made.">
                                 <option value="yes" >Yes</option>
                                 <option value="no" selected="true">No</option>
                             </param>    
                             <when value="yes">
                                 <conditional name="min_GC_perc_content_filter_treatments">
-                                    <param name="apply_min_GC_perc_content_filter_treatments" type="select" display="radio" label="Remove sequences with too small GC percentage?" help="By default, no treatment based on GC percentage is made.">
+                                    <param name="apply_min_GC_perc_content_filter_treatments" type="select" display="radio" label="Filter sequences with too small GC percentage?" help="By default, no treatment based on GC percentage is made.">
                                         <option value="yes" >Yes</option>
                                         <option value="no" selected="true">No</option>
                                     </param>    
@@ -268,7 +370,7 @@
                                     </when>
                                 </conditional>
                                 <conditional name="max_GC_perc_content_filter_treatments">
-                                    <param name="apply_max_GC_perc_content_filter_treatments" type="select" display="radio" label="Remove sequences with too high GC percentage?" help="By default, no treatment based on GC percentage is made.">
+                                    <param name="apply_max_GC_perc_content_filter_treatments" type="select" display="radio" label="Filter sequences with too high GC percentage?" help="By default, no treatment based on GC percentage is made.">
                                         <option value="yes" >Yes</option>
                                         <option value="no" selected="true">No</option>
                                     </param>    
@@ -279,7 +381,7 @@
                             </when>
                         </conditional>
                         <conditional name="N_number_content_filter_treatments">
-                            <param name="apply_N_number_content_filter_treatments" type="select" display="radio" label="Remove sequences based on their number of N bases?" help="By default, no treatment based on N number is made.">
+                            <param name="apply_N_number_content_filter_treatments" type="select" display="radio" label="Filter sequences based on their number of N bases?" help="By default, no treatment based on N number is made.">
                                 <option value="yes" >Yes</option>
                                 <option value="no" selected="true">No</option>
                             </param>    
@@ -288,7 +390,7 @@
                             </when>
                         </conditional>
                         <conditional name="N_percentage_content_filter_treatments">
-                            <param name="apply_N_percentage_content_filter_treatments" type="select" display="radio" label="Remove sequences based on their percentage of N bases?" help="By default, sequences with more than 2% of N bases are removed.">
+                            <param name="apply_N_percentage_content_filter_treatments" type="select" display="radio" label="Filter sequences based on their percentage of N bases?" help="By default, sequences with more than 2% of N bases are removed.">
                                 <option value="yes" selected="true">Yes</option>
                                 <option value="no" >No</option>
                             </param>    
@@ -296,29 +398,213 @@
                                 <param name="value" type="integer" min="0" max="100" value="2" label="Maximal N percentage threshold to conserve sequences" help=""/>
                             </when>
                         </conditional>
-                        <param name="apply_other_base_content_filter_treatments" type="select" display="radio" label="Remove sequences with characters other than A, T, C, G and N?" help="By default, this treatment is not made.">
+                        <param name="apply_other_base_content_filter_treatments" type="select" display="radio" label="Filter sequences with characters other than A, T, C, G and N?" help="By default, this treatment is not made.">
                             <option value="yes">Yes</option>
                             <option value="no" selected="true">No</option>
                         </param>    
 
                     </when>
                 </conditional>
+                <conditional name="complexity_filter_treatments">
+                    <param name="apply_complexity_filter_treatments" type="select" display="radio" label="Filter sequences based on their complexity?" help="By default, no complexity filter is applied">
+                        <option value="yes" >Yes</option>
+                        <option value="no" selected="true">No</option>
+                    </param>
+                    <when value="yes">
+                        <param name="method_complexity_filter_treatments" type="select" display="radio" label="Method to filter low complexity sequences" help="">
+                            <option value="dust">Dust</option>
+                            <option value="entropy" >Entropy</option>
+                        </param> 
+                        <param name="threshold_complexity_filter_treatments" type="integer" min="0" max="100" value="2" label="Threshold value used to filter sequences by sequence complexity" help="The dust method uses the threshold as maximum allowed score and the entropy method as minimum allowed value."/>
+                    </when>
+                </conditional>
             </when>
         </conditional>  
+
+        <conditional name="trimming_treatments">
+            <param name="apply_trimming_treatments" type="select" display="radio" label="Apply trimming treatments?" help="">
+                <option value="yes" selected="true">Yes</option>
+                <option value="no">No</option>
+            </param>
+            <when value="yes">
+                <conditional name="length_trimming_treatments">
+                    <param name="apply_length_trimming_treatments" type="select" display="radio" label="Trim all sequences from the 3'-end?" help="By default, no length trimming is made">
+                        <option value="yes" >Yes</option>
+                        <option value="no" selected="true">No</option>
+                    </param>
+                    <when value="yes">
+                        <param name="value" type="integer" min="0" max="3000" value="100" label="Length of sequences after trimming" help=""/>
+                    </when>
+                </conditional>
+                <conditional name="position_trimming_treatments">
+                    <param name="apply_position_trimming_treatments" type="select" display="radio" label="Trim all sequences from the ends?" help="By default, no position trimming is made">
+                        <option value="yes" >Yes</option>
+                        <option value="no" selected="true">No</option>
+                    </param>
+                    <when value="yes">
+                        <conditional name="nb_position_trimming_treatments">
+                            <param name="apply_nb_position_trimming_treatments" type="select" display="radio" label="Trim sequences by a defined number of positions?" help="By default, no position trimming is made">
+                                <option value="yes" >Yes</option>
+                                <option value="no" selected="true">No</option>
+                            </param>
+                            <when value="yes">
+                                <conditional name="left_position_trimming_treatments">
+                                    <param name="apply_left_position_trimming_treatments" type="select" display="radio" label="Trim sequences at the 5'-end by a defined number of positions?" help="By default, no position trimming is made">
+                                        <option value="yes" >Yes</option>
+                                        <option value="no" selected="true">No</option>
+                                    </param>
+                                    <when value="yes">
+                                        <param name="value" type="integer" min="0" max="3000" value="100" label="Number of positions to trim on 5'-end" help=""/>
+                                    </when>
+                                </conditional>
+                                <conditional name="right_position_trimming_treatments">
+                                    <param name="apply_right_position_trimming_treatments" type="select" display="radio" label="Trim sequences at the 3'-end by a defined number of positions?" help="By default, no position trimming is made">
+                                        <option value="yes" >Yes</option>
+                                        <option value="no" selected="true">No</option>
+                                    </param>
+                                    <when value="yes">
+                                        <param name="value" type="integer" min="0" max="3000" value="100" label="Number of positions to trim on 3'-end" help=""/>
+                                    </when>
+                                </conditional>
+                            </when>
+                        </conditional>
+                        <conditional name="percentage_position_trimming_treatments">
+                            <param name="apply_percentage_position_trimming_treatments" type="select" display="radio" label="Trim sequences by a defined percentage of read length?" help="By default, no position trimming is made. The trim length is rounded towards the lower integer">
+                                <option value="yes" >Yes</option>
+                                <option value="no" selected="true">No</option>
+                            </param>
+                            <when value="yes">
+                                <conditional name="left_percentage_position_trimming_treatments">
+                                    <param name="apply_left_percentage_position_trimming_treatments" type="select" display="radio" label="Trim sequences at the 5'-end by a defined percentage of read length?" help="By default, no position trimming is made. The trim length is rounded towards the lower integer">
+                                        <option value="yes" >Yes</option>
+                                        <option value="no" selected="true">No</option>
+                                    </param>
+                                    <when value="yes">
+                                        <param name="value" type="integer" min="0" max="100" value="2" label="Percentage of positions to trim on 5'-end" help=""/>
+                                    </when>
+                                </conditional>
+                                <conditional name="right_percentage_position_trimming_treatments">
+                                    <param name="apply_right_percentage_position_trimming_treatments" type="select" display="radio" label="Trim sequences at the 3'-end by a defined percentage of read length?" help="By default, no position trimming is made. The trim length is rounded towards the lower integer">
+                                        <option value="yes" >Yes</option>
+                                        <option value="no" selected="true">No</option>
+                                    </param>
+                                    <when value="yes">
+                                        <param name="value" type="integer" min="0" max="100" value="2" label="Percentage of positions to trim on 3'-end" help=""/>
+                                    </when>
+                                </conditional>
+                            </when>
+                        </conditional>
+                    </when>
+                </conditional>
+                <conditional name="tail_trimming_treatments">
+                    <param name="apply_tail_trimming_treatments" type="select" display="radio" label="Trim all sequences from the ends?" help="By default, no tail trimming is made">
+                        <option value="yes" >Yes</option>
+                        <option value="no" selected="true">No</option>
+                    </param>
+                    <when value="yes">
+                        <conditional name="a_t_tail_trimming_treatments">
+                            <param name="apply_a_t_tail_trimming_treatments" type="select" display="radio" label="Trim poly-A/T tail?" help="By default, no poly-A/T tail trimming is made">
+                                <option value="yes" >Yes</option>
+                                <option value="no" selected="true">No</option>
+                            </param>
+                            <when value="yes">
+                                <conditional name="left_a_t_tail_trimming_treatments">
+                                    <param name="apply_left_a_t_tail_trimming_treatments" type="select" display="radio" label="Trim poly-A/T tail at the 5'-end?" help="By default, no 5'-end poly-A/T tail trimming is made">
+                                        <option value="yes" >Yes</option>
+                                        <option value="no" selected="true">No</option>
+                                    </param>
+                                    <when value="yes">
+                                        <param name="value" type="integer" min="0" max="3000" value="100" label="Minimum length of poly-A/T to trim at the 5'-end" help=""/>
+                                    </when>
+                                </conditional>
+                                <conditional name="right_a_t_tail_trimming_treatments">
+                                    <param name="apply_right_a_t_tail_trimming_treatments" type="select" display="radio" label="Trim poly-A/T tail at the 5'-end?" help="By default, no 3'-end poly-A/T tail trimming is made">
+                                        <option value="yes" >Yes</option>
+                                        <option value="no" selected="true">No</option>
+                                    </param>
+                                    <when value="yes">
+                                        <param name="value" type="integer" min="0" max="3000" value="100" label="Minimum length of poly-A/T to trim at the 5'-end" help=""/>
+                                    </when>
+                                </conditional>
+                            </when>
+                        </conditional>
+                        <conditional name="ns_tail_trimming_treatments">
+                            <param name="apply_ns_tail_trimming_treatments" type="select" display="radio" label="Trim poly-N tail?" help="By default, no poly-N tail trimming is made">
+                                <option value="yes" >Yes</option>
+                                <option value="no" selected="true">No</option>
+                            </param>
+                            <when value="yes">
+                                <conditional name="left_ns_tail_trimming_treatments">
+                                    <param name="apply_left_ns_tail_trimming_treatments" type="select" display="radio" label="Trim poly-N tail at the 5'-end?" help="By default, no 5'-end poly-N tail trimming is made">
+                                        <option value="yes" >Yes</option>
+                                        <option value="no" selected="true">No</option>
+                                    </param>
+                                    <when value="yes">
+                                        <param name="value" type="integer" min="0" max="3000" value="100" label="Minimum length of poly-N to trim at the 5'-end" help=""/>
+                                    </when>
+                                </conditional>
+                                <conditional name="right_ns_tail_trimming_treatments">
+                                    <param name="apply_right_ns_tail_trimming_treatments" type="select" display="radio" label="Trim poly-N tail at the 5'-end?" help="By default, no 3'-end poly-N tail trimming is made">
+                                        <option value="yes" >Yes</option>
+                                        <option value="no" selected="true">No</option>
+                                    </param>
+                                    <when value="yes">
+                                        <param name="value" type="integer" min="0" max="3000" value="100" label="Minimum length of poly-N to trim at the 5'-end" help=""/>
+                                    </when>
+                                </conditional>
+                            </when>
+                        </conditional>
+                    </when>
+                </conditional>
+                <conditional name="quality_trimming_treatments">
+                    <param name="apply_quality_trimming_treatments" type="select" display="radio" label="Trim sequence by quality score?" help="By default, a 3'-end trimming is made to remove ends with a minimum quality score over 5 bp below 20">
+                        <option value="yes" selected="true">Yes</option>
+                        <option value="no" >No</option>
+                    </param>
+                    <when value="yes">
+                        <conditional name="left_quality_trimming_treatments">
+                            <param name="apply_left_quality_trimming_treatments" type="select" display="radio" label="Trim sequence by quality score from the 5'-end?" help="By default, no 5'-end quality trimming is made">
+                                <option value="yes" >Yes</option>
+                                <option value="no" selected="true">No</option>
+                            </param>
+                            <when value="yes">
+                                <param name="value" type="integer" min="0" max="40" value="20" label="Quality score threshold to trim positions" help=""/>
+                            </when>
+                        </conditional>
+                        <conditional name="right_quality_trimming_treatments">
+                            <param name="apply_right_quality_trimming_treatments" type="select" display="radio" label="Trim sequence by quality score from the 3'-end?" help="By default, 3'-end trimming is made based on a score of 20">
+                                <option value="yes" selected="true">Yes</option>
+                                <option value="no" >No</option>
+                            </param>
+                            <when value="yes">
+                                <param name="value" type="integer" min="0" max="40" value="20" label="Quality score threshold to trim positions" help=""/>
+                            </when>
+                        </conditional>
+                        <param name="type_quality_trimming_treatments" type="select" display="radio" label="Type of quality score calculation to use" help="By default, min is used">
+                            <option value="min" selected="true">Mininum</option>
+                            <option value="mean" >Mean</option>
+                            <option value="max" >Max</option>
+                            <option value="sum" >Sum</option>
+                        </param>
+                        <param name="rule_quality_trimming_treatments" type="select" display="radio" label="Rule tu use to compare quality score to calculated value" help="By default, 'less than' is used">
+                            <option value="lt" selected="true">Less than</option>
+                            <option value="gt" >Greater than</option>
+                            <option value="et" >Equal to</option>
+                        </param>
+                        <param name="window_quality_trimming_treatments" type="integer" min="0" max="300" value="1" label="Size of the sliding window used to calculated quality score by type" help="To stop at the first base that fails the rule defined, use a window size of 1 (default value)"/>
+                        <param name="step_quality_trimming_treatments" type="integer" min="0" max="300" value="1" label="Step size used to move the sliding window" help="To move the window over all quality scores without missing any, the step size sould be less or equal to the window size. The default value is 1."/>
+                    </when>
+                </conditional>
+            </when>
+        </conditional>
   	</inputs>
 
   	<outputs>
-        <data format="fastq" name="output_sequence_file" label="treated_${inuput_sequence_file}" />
+        <data format="fastq" name="good_sequence_file" label="good_${input_sequence_file}" />
   	</outputs>
 
   	<tests>
-  		<test>
-  			<param name="sequence_file_format.sequence_file" value="read_write_fasta_file/input_sequence_file.fasta"/>
-  			<param name="sequence_file_format.extraction.specific_extraction" value="no"/>
-            <param name="$sequence_file_format.format" value="fasta" />
-  			<output name="fasta_sequence_file" file="read_write_fasta_file/input_sequence_file.fasta"/>
-  			<output name="report_filepath" file="read_write_fasta_file/expected_output_report.txt"/>
-  		</test>
+  
   	</tests>
 
   	<help>
