@@ -12,16 +12,18 @@
             <expand macro="fasta_option" />
         </xml>
         <xml name="specific_extraction_test">
-            <param name="specific_extraction" type="select" display="radio" label="Extract specific information?" help="If no is selected, a sequence file is generated. If yes, a text file containing the wanted information is generated">
+            <param name='specific_extraction' type='boolean' checked="false" truevalue='yes' falsevalue='no' label="Extract specific information?" help="If no is selected, a sequence file is generated. If yes, a text file containing the wanted information is generated"/>
+            <!--<param name="specific_extraction" type="select" display="radio" label="Extract specific information?" help="If no is selected, a sequence file is generated. If yes, a text file containing the wanted information is generated">
                 <option value="no">No</option>
                 <option value="yes">Yes</option>
-            </param>
+            </param>-->
         </xml>
         <xml name="test_constrain_extraction">
-            <param name="constrained_extraction" type="select" display="radio" label="Constrain extraction?" help="">
+            <param name='constrained_extraction' type='boolean' checked="false" truevalue='yes' falsevalue='no' label="Constrain extraction?" help=""/>
+            <!--<param name="constrained_extraction" type="select" display="radio" label="Constrain extraction?" help="">
                 <option value="no">No</option>
                 <option value="yes">Yes</option>
-            </param>
+            </param>-->
         </xml>
         <xml name="constrain_string">
             <conditional name="constraint_type">
@@ -165,10 +167,7 @@
                     </when>
                     <when value="no">
                         <conditional name="split">
-                            <param name="split_test" type="select" display="radio" label="Split file into sequence and quality files?" help="If yes is selected, a fasta and a quality file are generated. If no, a fastq file is generated">
-                            <option value="no">No</option>
-                            <option value="yes">Yes</option>
-                            </param>
+                            <param name='split_test' type='boolean' checked="false" truevalue='yes' falsevalue='no' label="Split file into sequence and quality files?" help="If yes is selected, a fasta and a quality file are generated. If no, a fastq file is generated"/>
                             <when value="yes">
                                 <param name="quality_format" type="select" display="radio" label="Coding of quality scores?" help="">
                                     <option value="sanger" selected="true">Sanger (Phred+33)</option>

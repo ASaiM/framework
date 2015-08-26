@@ -27,10 +27,7 @@
         </xml>
 
         <xml name="test_constrain_extraction">
-            <param name="constrained_extraction" type="select" display="radio" label="Constrain extraction?" help="">
-                <option value="no">No</option>
-                <option value="yes">Yes</option>
-            </param>
+            <param name='constrained_extraction' type='boolean' checked="false" truevalue='yes' falsevalue='no' label="Constrain extraction?" help=""/>
         </xml>
         <xml name="constrain_number">
             <param name="type" type="select" label="Type of constraint" help="">
