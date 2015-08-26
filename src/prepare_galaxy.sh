@@ -18,6 +18,8 @@ fi
 # Prepare galaxy config
 cp config/* $galaxy_dir/config/
 
+mkdir $galaxy_dir/dependency_dir
+
 # Launch galaxy
 cd $galaxy_dir
 sh run.sh
