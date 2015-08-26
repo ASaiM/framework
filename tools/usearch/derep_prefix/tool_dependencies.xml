@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<tool_dependency>
+    <package name="usearch" version="1.8.1">
+        <install version="1.0">
+            <actions>
+                <action type="download_by_url">http://drive5.com/cgi-bin/upload3.py?license=2015082506363830346</action>
+                <action type="shell_command">mv usearch8.0.1623_i86osx32 usearch</action>
+            </actions>
+        </install>
+        <readme></readme>
+    </package>
+</tool_dependency>

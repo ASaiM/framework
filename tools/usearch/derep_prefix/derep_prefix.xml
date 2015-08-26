@@ -1,0 +1,130 @@
+<tool id="derep_prefix" name="Dereplication using prefix matching">
+
+	<description>with derep_prefix of usearch</description>
+
+    <macros>
+    </macros>
+
+	<requirements>
+        <requirement type="package" version="1.8.1">usearch</requirement>
+    </requirements>
+
+    <stdio>
+        
+    </stdio>
+
+    <version_command></version_command>
+
+  	<!--<command>-->
+    <command>
+        usearch -derep_prefix $sequence_file_format.sequence_file
+            -fastaout $unique_sequence_file
+
+            $size_annotation
+
+            #if $minimum_size.test == 'yes':
+                -minuniquesize $minimum_size.value
+            #end if
+
+            #if $minimum_seq_length.test == 'yes':
+                -minseqlength $minimum_seq_length.value
+            #end if
+
+            #if $relabel.test == 'yes':
+                -relabel $relabel.value
+            #end if
+
+            #if $eliminate_cluster.test == 'yes':
+                -topn $eliminate_cluster.value
+            #end if
+    </command>
+
+  	<inputs>
+        <conditional name="sequence_file_format">
+
+            <param name="format" type="select" display="radio" label="Format of the sequence file" help="">
+                <option value="fasta">Fasta</option>
+                <option value="fastq">FastQ</option>
+            </param>
+            <when value="fasta">
+                <param name="sequence_file" type="data" format="fasta" label="Input sequence file" help=""/>
+            </when>
+            <when value="fastq">
+                <param name="sequence_file" type="data" format="fastq" label="Input sequence file" help=""/>
+            </when>
+        </conditional>  
+
+        <param name='size_annotation' type='boolean' checked="true" truevalue='-sizeout' falsevalue='' label='Addition of size annotations to the unique sequence labels?' help=""/>
+        <!--<conditional name="size_annotation">
+            <param name="test" type="select" display="radio" label="Addition of size annotations to the unique sequence labels?" help="">
+                <option value="yes" selected="true">Yes</option>
+                <option value="no">No</option>
+            </param>
+        </conditional>  -->
+
+        <conditional name="minimum_size">
+            <param name='test' type='boolean' checked="false" truevalue='yes' falsevalue='no' label="Set a minimum size for cluster?" help="Unique sequences with smaller clusters are not included in the output file"/>
+            <when value="yes">
+                <param name="value" type="integer" min="0" max="1000" value="2" label="Minimum size for cluster" help=""/>
+            </when>
+        </conditional>
+
+        <conditional name="minimum_seq_length">
+            <param name='test' type='boolean' checked="false" truevalue='yes' falsevalue='no' label="Set a minimum sequence length?" help="Using this option may significantly improve execution speed if there are very short sequences in the input which are not needed in the output"/>
+            <when value="yes">
+                <param name="value" type="integer" min="0" max="1000" value="2" label="Minimum sequence length" help=""/>
+            </when>
+        </conditional>
+
+        <conditional name="relabel">
+            <param name='test' type='boolean' checked="false" truevalue='yes' falsevalue='no' label="Relabel?" help="A string is used to re-label the dereplicated sequences. An integer is appended to the label"/>
+            <when value="yes">
+                <param name="value" type="text" size="30" value="" label="New prefix" help=""/>
+            </when>
+        </conditional>
+
+        <conditional name="eliminate_cluster">
+            <param name='test' type='boolean' checked="false" truevalue='yes' falsevalue='no' label="Conserve only the largest clusters?" help=""/>
+            <when value="yes">
+                <param name="value" type="integer" min="0" max="1000" value="2" label="Number of largest cluster to conserve" help=""/>
+            </when>
+        </conditional>
+  	</inputs>
+
+  	<outputs>
+        <data format="fasta" name="unique_sequence_file" label="uniques_${sequence_file_format.sequence_file}" />
+  	</outputs>
+
+  	<tests>
+  
+  	</tests>
+
+  	<help>
+
+        **What it does**
+
+        Dereplication is the identification of unique sequences so that only one copy of each sequence is reported. 
+
+        Here, derep_prefix command of usearch tool is used.
+
+        -----
+
+        **Input**
+
+        The input is one sequence file.
+
+        -----
+
+        **Outputs**
+
+        -----
+        
+        **Parameters**
+
+
+  	</help>
+
+    <citations>
+    </citations>
+</tool>
+
