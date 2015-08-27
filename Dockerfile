@@ -25,9 +25,9 @@ RUN cd /galaxy-central/tools/non_rRNA_taxonomic_assignation/metaphlan && \
 RUN cd /galaxy-central/tools/metabolic_analysis/humann2/ && \
     hg clone https://bitbucket.org/biobakery/humann2 && \
     cd humann2 && \
-    python setup.py install && \
-    humman2_config --update database_folder nucleotide /data/db/chocophlan && \
-    humman2_config --update database_folder protein /data/db/uniref
+    python setup.py install 
+#    humann2_config --update database_folder nucleotide /data/db/chocophlan && \
+#    humann2_config --update database_folder protein /data/db/uniref
 
 
 # Expose port 80 (webserver), 21 (FTP server), 8800 (Proxy)
