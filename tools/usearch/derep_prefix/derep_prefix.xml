@@ -22,19 +22,19 @@
 
             $size_annotation
 
-            #if $minimum_size.test == 'yes':
+            #if $minimum_size.test :
                 -minuniquesize $minimum_size.value
             #end if
 
-            #if $minimum_seq_length.test == 'yes':
+            #if $minimum_seq_length.test :
                 -minseqlength $minimum_seq_length.value
             #end if
 
-            #if $relabel.test == 'yes':
+            #if $relabel.test :
                 -relabel $relabel.value
             #end if
 
-            #if $eliminate_cluster.test == 'yes':
+            #if $eliminate_cluster.test :
                 -topn $eliminate_cluster.value
             #end if
     </command>

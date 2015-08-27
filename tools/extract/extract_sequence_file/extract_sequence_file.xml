@@ -97,13 +97,13 @@
   		--input=$sequence_file_format.sequence_file
 
         --custom_extraction_type=$sequence_file_format.extraction.specific_extraction
-        #if $sequence_file_format.extraction.specific_extraction=="yes":
+        #if $sequence_file_format.extraction.specific_extraction :
             --to_extract="{$sequence_file_format.extraction.to_extract}"
             --output_information=$information_file
         #else:
             #if $sequence_file_format.format=="fastq":
                 --split=$sequence_file_format.extraction.split.split_test
-                #if $sequence_file_format.extraction.split.split_test == 'yes':
+                #if $sequence_file_format.extraction.split.split_test :
                     --quality_format=$sequence_file_format.extraction.split.quality_format
                     --output_sequence=$fasta_sequence_file_from_fastq
                     --output_quality=$quality_file
@@ -114,7 +114,7 @@
                 --output_sequence=$fasta_sequence_file
             #end if
         #end if
-		#if $sequence_file_format.constraints.constrained_extraction=="yes":
+		#if $sequence_file_format.constraints.constrained_extraction :
             #for $i, $constrain in enumerate( $sequence_file_format.constraints.constraint_definition )
             	#set info_to_constrain=$constrain.constrained_information['info_to_constrain']             
                 #if $info_to_constrain in ("id"):

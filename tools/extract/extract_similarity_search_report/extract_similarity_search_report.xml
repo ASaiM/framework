@@ -330,7 +330,7 @@
         #end if
         #set $extraction_constraint=$search_tool.report_format.report_specifiers
 		--to_extract="{$extraction_constraint.info_to_extract}"
-		#if $extraction_constraint.extraction_constraints.constrained_extraction=="yes":
+		#if $extraction_constraint.extraction_constraints.constrained_extraction :
             #for $i, $constrain in enumerate( $extraction_constraint.extraction_constraints.constraint_definition )
             	#set info_to_constrain=$constrain.constrained_information['info_to_constrain']             
                 #if $info_to_constrain in ("qseqid", "sseqid", "cigar"):

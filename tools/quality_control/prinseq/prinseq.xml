@@ -38,142 +38,142 @@
             -out_good stdout
             -out_bad null
 
-            #if $filter_treatments.apply_filter_treatments == 'yes':
+            #if $filter_treatments.apply_filter_treatments :
                 #set length_filter_treatments=$filter_treatments.length_filter_treatments
-                #if $length_filter_treatments.apply_length_filter_treatments == 'yes':
+                #if $length_filter_treatments.apply_length_filter_treatments :
                     #set min_length_filter_treatments=$length_filter_treatments.min_length_filter_treatments
-                    #if $min_length_filter_treatments.apply_min_length_filter_treatments == 'yes':
+                    #if $min_length_filter_treatments.apply_min_length_filter_treatments :
                         -min_len $min_length_filter_treatments.value
                     #end if
                     #set max_length_filter_treatments=$length_filter_treatments.max_length_filter_treatments
-                    #if $max_length_filter_treatments.apply_max_length_filter_treatments == 'yes':
+                    #if $max_length_filter_treatments.apply_max_length_filter_treatments :
                         -max_len $min_length_filter_treatments.value
                     #end if
                 #end if
 
                 #set quality_filter_treatments=$filter_treatments.quality_filter_treatments
-                #if $quality_filter_treatments.apply_quality_filter_treatments == 'yes':
+                #if $quality_filter_treatments.apply_quality_filter_treatments:
                     #set min_quality_filter_treatments=$quality_filter_treatments.min_quality_filter_treatments 
-                    #if $min_quality_filter_treatments.apply_min_quality_filter_treatments== 'yes':
+                    #if $min_quality_filter_treatments.apply_min_quality_filter_treatments :
                         -min_qual_score $min_quality_filter_treatments.value
                     #end if
                     #set max_quality_filter_treatments=$quality_filter_treatments.max_quality_filter_treatments
-                    #if $max_quality_filter_treatments.apply_max_quality_filter_treatments== 'yes':
+                    #if $max_quality_filter_treatments.apply_max_quality_filter_treatments :
                         -max_qual_score $max_quality_filter_treatments.value
                     #end if
                     #set mean_quality_filter_treatments=$quality_filter_treatments.mean_quality_filter_treatments
-                    #if $mean_quality_filter_treatments.apply_mean_quality_filter_treatments== 'yes':
+                    #if $mean_quality_filter_treatments.apply_mean_quality_filter_treatments:
                         #set min_mean_quality_filter_treatments=$mean_quality_filter_treatments.min_mean_quality_filter_treatments
-                        #if $min_mean_quality_filter_treatments.apply_min_mean_quality_filter_treatments== 'yes':
+                        #if $min_mean_quality_filter_treatments.apply_min_mean_quality_filter_treatments:
                             -min_qual_mean $min_mean_quality_filter_treatments.value
                         #end if
                         #set max_mean_quality_filter_treatments=$mean_quality_filter_treatments.max_mean_quality_filter_treatments
-                        #if $max_mean_quality_filter_treatments.apply_max_mean_quality_filter_treatments== 'yes':
+                        #if $max_mean_quality_filter_treatments.apply_max_mean_quality_filter_treatments:
                             -max_qual_mean $max_mean_quality_filter_treatments.value
                         #end if
                     #end if
                 #end if
 
                 #set base_content_filter_treatments=$filter_treatments.base_content_filter_treatments
-                #if $base_content_filter_treatments.apply_base_content_filter_treatments == 'yes':
+                #if $base_content_filter_treatments.apply_base_content_filter_treatments :
                     #set GC_perc_content_filter_treatments=$base_content_filter_treatments.GC_perc_content_filter_treatments
-                    #if $GC_perc_content_filter_treatments.apply_GC_perc_content_filter_treatments == 'yes':
+                    #if $GC_perc_content_filter_treatments.apply_GC_perc_content_filter_treatments :
                         #set min_GC_perc_content_filter_treatments=$GC_perc_content_filter_treatments.min_GC_perc_content_filter_treatments
-                        #if $min_GC_perc_content_filter_treatments.apply_min_GC_perc_content_filter_treatments == 'yes':
+                        #if $min_GC_perc_content_filter_treatments.apply_min_GC_perc_content_filter_treatments :
                             -min_gc $min_GC_perc_content_filter_treatments.value
                         #end if
                         set max_GC_perc_content_filter_treatments=$GC_perc_content_filter_treatments.max_GC_perc_content_filter_treatments
-                        #if $max_GC_perc_content_filter_treatments.apply_max_GC_perc_content_filter_treatments == 'yes':
+                        #if $max_GC_perc_content_filter_treatments.apply_max_GC_perc_content_filter_treatments :
                             -max_gc $max_GC_perc_content_filter_treatments.value
                         #end if
                     #end if
                     #set N_number_content_filter_treatments=$base_content_filter_treatments.N_number_content_filter_treatments
-                    #if $N_number_content_filter_treatments.apply_N_number_content_filter_treatments == 'yes':
+                    #if $N_number_content_filter_treatments.apply_N_number_content_filter_treatments :
                         -ns_max_n $N_number_content_filter_treatments.value
                     #end if
                     #set N_percentage_content_filter_treatments=$base_content_filter_treatments.N_percentage_content_filter_treatments
-                    #if $N_percentage_content_filter_treatments.apply_N_percentage_content_filter_treatments == 'yes':
+                    #if $N_percentage_content_filter_treatments.apply_N_percentage_content_filter_treatments :
                         -ns_max_p $N_percentage_content_filter_treatments.value
                     #end if
-                    #if $base_content_filter_treatments.apply_other_base_content_filter_treatments == 'yes':
+                    #if $base_content_filter_treatments.apply_other_base_content_filter_treatments :
                         -noniupac
                     #end if
                 #end if
 
                 #set complexity_filter_treatments=$filter_treatments.complexity_filter_treatments
-                #if $complexity_filter_treatments.apply_complexity_filter_treatments == 'yes':
+                #if $complexity_filter_treatments.apply_complexity_filter_treatments :
                     -lc_method $complexity_filter_treatments.method_complexity_filter_treatments
                     -lc_threshold $complexity_filter_treatments.threshold_complexity_filter_treatments
                 #end if
 
             #end if
 
-            #if $trimming_treatments.apply_trimming_treatments == 'yes':
+            #if $trimming_treatments.apply_trimming_treatments :
                 #set length_trimming_treatments=$trimming_treatments.length_trimming_treatments
-                #if $length_trimming_treatments.apply_length_trimming_treatments == 'yes':
+                #if $length_trimming_treatments.apply_length_trimming_treatments :
                     -trim_to_len $length_trimming_treatments.value
                 #end if
 
                 #set position_trimming_treatments=$trimming_treatments.position_trimming_treatments
-                #if $position_trimming_treatments.apply_position_trimming_treatments == 'yes':
+                #if $position_trimming_treatments.apply_position_trimming_treatments :
                     #set nb_position_trimming_treatments=$position_trimming_treatments.nb_position_trimming_treatments
-                    #if $nb_position_trimming_treatments.apply_nb_position_trimming_treatments == 'yes':
+                    #if $nb_position_trimming_treatments.apply_nb_position_trimming_treatments :
                         #set left_position_trimming_treatments=$nb_position_trimming_treatments.left_position_trimming_treatments
-                        #if $left_position_trimming_treatments.apply_left_position_trimming_treatments == 'yes':
+                        #if $left_position_trimming_treatments.apply_left_position_trimming_treatments :
                             -trim_left $left_position_trimming_treatments.value
                         #end if
                         #set right_position_trimming_treatments=$nb_position_trimming_treatments.right_position_trimming_treatments
-                        #if $right_position_trimming_treatments.apply_right_position_trimming_treatments == 'yes':
+                        #if $right_position_trimming_treatments.apply_right_position_trimming_treatments :
                             -trim_right $right_position_trimming_treatments.value
                         #end if
                     #end if
                     #set percentage_position_trimming_treatments=$position_trimming_treatments.percentage_position_trimming_treatments
-                    #if $percentage_position_trimming_treatments.apply_percentage_position_trimming_treatments == 'yes':
+                    #if $percentage_position_trimming_treatments.apply_percentage_position_trimming_treatments :
                         #set left_percentage_position_trimming_treatments=$percentage_position_trimming_treatments.left_percentage_position_trimming_treatments
-                        #if $left_percentage_position_trimming_treatments.apply_left_percentage_position_trimming_treatments == 'yes':
+                        #if $left_percentage_position_trimming_treatments.apply_left_percentage_position_trimming_treatments :
                             -trim_left_p $left_percentage_position_trimming_treatments.value
                         #end if
                         #set right_percentage_position_trimming_treatments=$percentage_position_trimming_treatments.right_percentage_position_trimming_treatments
-                        #if $right_percentage_position_trimming_treatments.apply_right_percentage_position_trimming_treatments == 'yes':
+                        #if $right_percentage_position_trimming_treatments.apply_right_percentage_position_trimming_treatments :
                             -trim_right_p $right_percentage_position_trimming_treatments.value
                         #end if
                     #end if
                 #end if
 
                 #set tail_trimming_treatments=$trimming_treatments.tail_trimming_treatments
-                #if $tail_trimming_treatments.apply_tail_trimming_treatments == 'yes':
+                #if $tail_trimming_treatments.apply_tail_trimming_treatments :
                     #set a_t_tail_trimming_treatments=$tail_trimming_treatments.a_t_tail_trimming_treatments
-                    #if $a_t_tail_trimming_treatments.apply_a_t_tail_trimming_treatments == 'yes':
+                    #if $a_t_tail_trimming_treatments.apply_a_t_tail_trimming_treatments :
                         #set left_a_t_tail_trimming_treatments=$a_t_tail_trimming_treatments.left_a_t_tail_trimming_treatments
-                        #if $left_a_t_tail_trimming_treatments.apply_left_a_t_tail_trimming_treatments == 'yes':
+                        #if $left_a_t_tail_trimming_treatments.apply_left_a_t_tail_trimming_treatments :
                             -trim_tail_left $left_a_t_tail_trimming_treatments.value
                         #end if
                         #set right_a_t_tail_trimming_treatments=$a_t_tail_trimming_treatments.right_a_t_tail_trimming_treatments
-                        #if right_a_t_tail_trimming_treatments.apply_right_a_t_tail_trimming_treatments == 'yes':
+                        #if right_a_t_tail_trimming_treatments.apply_right_a_t_tail_trimming_treatments :
                             -trim_tail_right $right_a_t_tail_trimming_treatments.value
                         #end if
                     #end if
                     #set ns_tail_trimming_treatments=$tail_trimming_treatments.ns_tail_trimming_treatments
-                    #if $ns_tail_trimming_treatments.apply_ns_tail_trimming_treatments == 'yes':
+                    #if $ns_tail_trimming_treatments.apply_ns_tail_trimming_treatments :
                         #set left_ns_tail_trimming_treatments=$ns_tail_trimming_treatments.left_ns_tail_trimming_treatments
-                        #if $left_ns_tail_trimming_treatments.apply_left_ns_tail_trimming_treatments == 'yes':
+                        #if $left_ns_tail_trimming_treatments.apply_left_ns_tail_trimming_treatments :
                             -trim_ns_left $left_ns_tail_trimming_treatments.value
                         #end if
                         #set right_ns_tail_trimming_treatments=$ns_tail_trimming_treatments.right_ns_tail_trimming_treatments
-                        #if $right_ns_tail_trimming_treatments.apply_right_ns_tail_trimming_treatments == 'yes':
+                        #if $right_ns_tail_trimming_treatments.apply_right_ns_tail_trimming_treatments :
                             -trim_ns_right $right_ns_tail_trimming_treatments.value
                         #end if
                     #end if
                 #end if
 
                 #set quality_trimming_treatments=$trimming_treatments.quality_trimming_treatments
-                #if $quality_trimming_treatments.apply_quality_trimming_treatments == 'yes':
+                #if $quality_trimming_treatments.apply_quality_trimming_treatments :
                     #set left_quality_trimming_treatments=$quality_trimming_treatments.left_quality_trimming_treatments
-                    #if $left_quality_trimming_treatments.apply_left_quality_trimming_treatments == 'yes':
+                    #if $left_quality_trimming_treatments.apply_left_quality_trimming_treatments :
                         -trim_qual_left $left_quality_trimming_treatments.value
                     #end if
                     #set right_quality_trimming_treatments=$quality_trimming_treatments.right_quality_trimming_treatments
-                    #if $right_quality_trimming_treatments.apply_right_quality_trimming_treatments == 'yes':
+                    #if $right_quality_trimming_treatments.apply_right_quality_trimming_treatments :
                         -trim_qual_right $right_quality_trimming_treatments.value
                     #end if
                     -trim_qual_type $quality_trimming_treatments.type_quality_trimming_treatments
