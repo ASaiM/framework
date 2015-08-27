@@ -27,7 +27,8 @@
 
             --evalue $e_value
             --identity-threshold $identity
-
+            --protein-database /data/db/uniref
+            --nucleotide-database /data/db/chocophlan
     </command>
 
     <inputs>
