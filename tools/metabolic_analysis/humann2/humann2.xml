@@ -1,6 +1,6 @@
-<tool id="extract_similarity_search" name="Extract (constrained) information">
+<tool id="humann2" name="Functional profiling">
 
-    <description>from similarity search report</description>
+    <description>with HUMAnN2</description>
 
     <macros>
 
@@ -23,6 +23,11 @@
                 --taxonomic-profile $taxonomic_profile.file
             #end if
 
+            --metaphlan ../../non_rRNA_taxonomic_assignation/metaphlan
+
+            --evalue $e_value
+            --identity-threshold $identity
+
     </command>
 
     <inputs>
@@ -34,6 +39,9 @@
                 <param name="file" type="data" format="" label="Taxonomic profile file" help=""/>
             </when>
         </conditional>
+
+        <param name="e_value" type="float" min="0" max="10" value="1" label="E-value threshold to use with the translated search" help=""/>
+        <param name="identity" type="float" min="0" max="100" value="40" label="Identity threshold for alignments" help=""/>
 
     </inputs>
 
@@ -51,17 +59,31 @@
     <help>
         **What it does**
 
-        
+        HUMAnN is a pipeline tfor efficiently and accuretly profiling the presence/absence and abundance of microbial pathways in a community from metagenomic or metatranscriptomic sequencing data. 
 
-
+        .. _Read more about the tool: http://huttenhower.sph.harvard.edu/humann2/manual
 
         **Input**
 
+        Usually, a single file is the input. It must be one of the following types:
 
+            - filtered shotgun sequencing metagenome file (fastq, fastq.gz, fasta, or fasta.gz format)
+            - alignment file (sam, bam or blastm8 format)
+            - gene table file (tsv or biom format)
 
+        A file with taxonomic profiles can also be given to be use to select pangenomes in ChocoPhlan database.
 
         **Outputs**
 
+        HUMAnN creates three output files:
+
+            - Gene family abundance
+            - Pathway abundance
+            - Pathway coverage
+
+        and intermediate temp files.
+
+        Theses files are accessible via an html file
 
         **Parameters**
 
