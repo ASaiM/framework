@@ -6,9 +6,7 @@
     </macros>
 
 	<requirements>
-    	<!--<container type="docker">asaim/extract-similarity-search-report</container> -->
-        <requirement type="package" version="0.1.1">extract_similarity_search</requirement>
-  	</requirements>
+    </requirements>
 
     <stdio>
         <exit_code range="1:"   level="fatal"   description="" />
