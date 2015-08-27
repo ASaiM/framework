@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<repositories description="This requires the Molecule datatype definitions (e.g. SMILES, InChI, SD-format).">
+    <repository changeset_revision="85eca06eefc6" name="molecule_datatypes" owner="iuc" toolshed="http://toolshed.g2.bx.psu.edu" />
+</repositories>

@@ -13,6 +13,9 @@
             <tool file="quality_control/prinseq/prinseq.xml" />
         </section>
         <section id="dereplication" name="Dereplicate">
-            <tool file="dereplication/derep_prefix/derep_prefix.xml" />
+            <tool file="usearch/derep_prefix/derep_prefix.xml" />
+        </section>
+        <section id="align-it" name="align-it">
+            <tool file="silicos_it/align-it/align-it.xml" />
         </section>
 </toolbox>
