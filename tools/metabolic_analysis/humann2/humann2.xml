@@ -1,0 +1,73 @@
+<tool id="extract_similarity_search" name="Extract (constrained) information">
+
+    <description>from similarity search report</description>
+
+    <macros>
+
+    </macros>
+
+    <requirements>
+    </requirements>
+
+    <stdio>
+    </stdio>
+
+    <version_command></version_command>
+
+    <!--<command>-->
+    <command>
+        humann2 -i $input_file 
+            -o $html_file 
+
+            #if $taxonomic_profile.test:
+                --taxonomic-profile $taxonomic_profile.file
+            #end if
+
+    </command>
+
+    <inputs>
+        <param name="input_file" type="data" format="fastq,fasta,sam,bam,biom" label="Input file" help=""/>
+
+        <conditional name="taxonomic_profile">
+            <param name='test' type='boolean' checked="false" truevalue='yes' falsevalue='no' label="Use a custom taxonomic profile?" help="The file must have been created by MetaPhlan"/>
+            <when value="yes">
+                <param name="file" type="data" format="" label="Taxonomic profile file" help=""/>
+            </when>
+        </conditional>
+
+    </inputs>
+
+    <outputs>
+        <outputs>
+            <data format="html" name="html_file" label="humann2_outputs.html">
+        </outputs>
+
+    </outputs>
+
+    <tests>
+
+    </tests>
+
+    <help>
+        **What it does**
+
+        
+
+
+
+        **Input**
+
+
+
+
+        **Outputs**
+
+
+        **Parameters**
+
+
+    </help>
+
+    <citations>
+    </citations>
+</tool>
