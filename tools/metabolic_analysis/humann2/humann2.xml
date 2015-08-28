@@ -48,7 +48,7 @@
 
     <outputs>
         <outputs>
-            <data format="html" name="html_file" label="humann2_outputs.html">
+            <data format="html" name="html_file" label="humann2_outputs_${input_file}.html">
         </outputs>
 
     </outputs>
