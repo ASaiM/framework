@@ -1,0 +1,115 @@
+<tool id="humann" name="Functional profiling">
+
+    <description>with HUMAnN</description>
+
+    <macros>
+    </macros>
+
+    <requirements>
+    </requirements>
+
+    <stdio>
+    </stdio>
+
+    <version_command></version_command>
+
+    <!--<command>-->
+    <command interpreter="python">
+        humann_wrapper.py
+            --input $input_file
+            --output $html_file
+            --humann_dir humann/
+
+            --ko_abundance $ko_abundance.test
+            #if $ko_abundance.test:
+                --kegg_pathway $kegg_pathway
+                --kegg_module $kegg_module
+            #else:
+                --kegg_pathway false
+                --kegg_module false
+            #end if
+
+            --metarep $metarep
+
+            --metacyc_enz_abundance $metacyc_enz_abundance.test
+            #if $metacyc_enz_abundance.test:
+                --metacyc_pathway $metacyc_pathway
+            #else:
+                --metacyc_pathway false
+            #end if
+
+            --taxonomic_limitation $taxonomic_limitation
+            --wb_smoothing $wb_smoothing
+            --gap_filling $gap_filling
+
+            --coverage $coverage.test
+            #if $coverage.test:
+                --low_coverage_elimination $low_coverage_elimination
+            #else:
+                --low_coverage_elimination false
+            #end if
+
+            --abundance_computation $abundance_computation
+    </command>
+
+    <inputs>
+        <param name="input_file" type="data" format="txt" label="Input file" help="Tabular output file of Blast against COG database"/>
+
+        <conditional name="ko_abundance">
+            <param name='test' type='boolean' checked="true" truevalue='yes' falsevalue='no' label="Generate KO abundances from BLAST hits?" help=""/>
+            <when value="yes">
+                <param name='kegg_pathway' type='boolean' checked="true" truevalue='yes' falsevalue='no' label="Generate KEGG pathway assignments from KOs?" help=""/>
+                <param name='kegg_module' type='boolean' checked="true" truevalue='yes' falsevalue='no' label="Generate KEGG module assignments from KOs?" help=""/>
+            </when>
+        </conditional>
+
+        <conditional name="metacyc_enz_abundance">
+            <param name='test' type='boolean' checked="false" truevalue='yes' falsevalue='no' label="Generate METAREP abundances from BLAST hits?" help=""/>
+            <when value="yes">
+                <param name='metacyc_pathway' type='boolean' checked="true" truevalue='yes' falsevalue='no' label="Generate MetaCyc pathway assignments from enzymes?" help=""/>
+            </when>
+        </conditional>
+
+        <param name='metarep' type='boolean' checked="false" truevalue='yes' falsevalue='no' label="Generate METAREP abundances from BLAST hits?" help=""/>
+
+        <param name='taxonomic_limitation' type='boolean' checked="true" truevalue='yes' falsevalue='no' label="Filter by taxonomic limitation and normalize by copy number?" help=""/>
+        <param name='wb_smoothing' type='boolean' checked="true" truevalue='yes' falsevalue='no' label="Smooth abundance using Witten-Bell discounting?" help="Reevaluation of null and small probabilities)"/>
+        <param name='gap_filling' type='boolean' checked="true" truevalue='yes' falsevalue='no' label="Fill gap?" help="Increase the effective contribution of unobserved members of otherwise abundant pathways within each retained pathways/modules"/>
+        
+
+        <conditional name="coverage">
+            <param name='test' type='boolean' checked="true" truevalue='yes' falsevalue='no' label="Compute pathway coverage?" help="Likelihood that all genes needed to operate the pathway/module are present"/>
+            <when value="yes">
+                <param name='low_coverage_elimination' type='boolean' checked="true" truevalue='yes' falsevalue='no' label="Eliminate pathways/modules with low coverage?" help=""/>
+            </when>
+        </conditional>
+
+        <param name='abundance_computation' type='boolean' checked="true" truevalue='yes' falsevalue='no' label="Compute pathway abundance?" help=""/>
+        
+    </inputs>
+
+    <outputs>
+        <data format="html" name="html_file" label="humann_outputs_${input_file}">      
+    </outputs>
+
+    <tests>
+
+    </tests>
+
+    <help>
+        **What it does**
+
+        **Input**
+
+
+        **Outputs**
+
+        
+        **Parameters**
+
+
+    </help>
+
+    <citations>
+    </citations>
+</tool>
