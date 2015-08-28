@@ -233,24 +233,24 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--raw_data_dir', required=True)
     parser.add_argument('--extracted_data_dir', required=True)
-    parser.add_argument('--kegg_formated_data_dir', required=True)
+    parser.add_argument('--humann_formated_data_dir', required=True)
     parser.add_argument('--humann_dir', required=True)
     args = parser.parse_args()
 
     cog_dirpath = args.raw_data_dir
     cog_extracted_data_dirpath = args.extracted_data_dir
-    kegg_formated_data_dirpath = args.kegg_formated_data_dir
+    humann_formated_data_dirpath = args.humann_formated_data_dir
     humann_dirpath = args.humann_dir
     kegg_info_dirpath = humann_dirpath + 'data/'
 
-    if not os.path.exists(kegg_formated_data_dirpath):
-        os.system('mkdir -p ' + kegg_formated_data_dirpath)
+    if not os.path.exists(humann_formated_data_dirpath):
+        os.system('mkdir -p ' + humann_formated_data_dirpath)
 
     command = 'cp ' + cog_extracted_data_dirpath + '/genels.gz ' 
-    command += kegg_formated_data_dirpath
+    command += humann_formated_data_dirpath
     os.system(command)
     command = 'cp ' + cog_extracted_data_dirpath + '/koc.gz ' 
-    command += kegg_formated_data_dirpath
+    command += humann_formated_data_dirpath
     os.system(command)
     
     # use HUMAnN code
@@ -264,24 +264,24 @@ if __name__ == '__main__':
     K_not_found = []
     K_categories = []
     cog_ko_mapping = generation_cog_pathway_mapping(kegg_info_dirpath + '/keggc',
-        kegg_formated_data_dirpath + 'keggc', kegg_cog_mapping)
+        humann_formated_data_dirpath + 'keggc', kegg_cog_mapping)
     generation_cog_module_mapping(kegg_information_dirpath, 
-        kegg_formated_data_dirpath,kegg_cog_mapping)
+        humann_formated_data_dirpath,kegg_cog_mapping)
 
-    K_not_found_file = open(kegg_formated_data_dirpath + '/kegg_not_found','w')
+    K_not_found_file = open(humann_formated_data_dirpath + '/kegg_not_found','w')
     for k in K_not_found:
         K_not_found_file.write(k + '\n')
     K_not_found_file.close())
     print "\t\t", len(K_not_found), "/", len(K_categories),
     print "kegg categories not found"
 
-    retrieve_organism_pathway(kegg_formated_data_dirpath + 'taxpc', 
+    retrieve_organism_pathway(humann_formated_data_dirpath + 'taxpc', 
         Organisms_cogs,cog_ko_mapping)
     complete_category_information(kegg_information_dirpath + '/map_kegg.txt', 
         cog_dirpath + 'cognames2003-2014.tab', 
-        kegg_formated_data_dirpath + 'map_kegg.txt')
+        humann_formated_data_dirpath + 'map_kegg.txt')
 
     # Remove useless files
     os.system('rm -r ' + humann_dirpath)
-    command = 'cp ' + kegg_formated_data_dirpath + '/* ' + kegg_info_dirpath
+    command = 'cp ' + humann_formated_data_dirpath + '/* ' + kegg_info_dirpath
     os.system(command)
