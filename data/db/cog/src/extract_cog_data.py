@@ -4,13 +4,12 @@
 import sys
 import os
 import argparse
-
+import pickle
 
 ###########
 # Methods #
 ###########
 def extract_info_from_cog_table(cog_seq_name_correspondance_filepath):
-    try:
     if not os.path.exists(cog_seq_name_correspondance_filepath):
         string = os.path.basename(__file__) + ": " 
         string += cog_seq_name_correspondance_filepath + " does not exist"
@@ -56,19 +55,20 @@ def save_cog_detailed_informations (detailed_informations, dirpath):
                 string = organism.lower() + ':' + seq_id + '\t' 
                 string += detailed_informations[cog_name][organism][seq_id] 
                 string += '\n'
-                string += '\t' + organism.upper() + '#' + seq_id.upper()
+                gene_length_file.write(string) 
+                string = '\t' + organism.upper() + '#' + seq_id.upper() + '\n'
                 gene_to_COG_file.write(string)
 
     gene_length_file.close()
     gene_to_COG_file.close()
 
-    os.system('gzip ' + dirpath + '/genels')
-    os.system('gzip ' + dirpath + '/koc')
+    os.system('gzip -f ' + dirpath + '/genels')
+    os.system('gzip -f ' + dirpath + '/koc')
     print os.listdir(dirpath)
 
 def make_refseq_organism_id_correspondance(seqid_organism_correspondance, 
     prot_tab_filepath, refseq_orga_id_corres_filepath):
-    refseq_organism_id_correspondance = {}
+    refseq_orga_id_corresp = {}
     with open(prot_tab_filepath,'r') as prot_tab_file:
         for line in prot_tab_file.readlines():
             split_line = line[:-1].split('\t')
@@ -82,22 +82,20 @@ def make_refseq_organism_id_correspondance(seqid_organism_correspondance,
             organism = seqid_organism_correspondance[seq_id]
 
             combination = organism.lower() + ':' + seq_id
-            test1 = refseq_organism_id_correspondance.has_key(refseq) 
-            test2 = combination != refseq_organism_id_correspondance[refseq]
-            if test1 and test2:
+            test = refseq_orga_id_corresp.has_key(refseq) 
+            test = test and (combination != refseq_orga_id_corresp[refseq])
+            if test:
                 string = os.path.basename(__file__) + ": " + refseq 
                 string += " already registered in " 
-                string += "refseq_organism_id_correspondance for a different " 
-                string += "organism (" 
-                string += refseq_organism_id_correspondance[refseq] + 
+                string += "refseq_orga_id_correspondance for a different " 
+                string += "organism (" + refseq_orga_id_corresp[refseq]
                 string += ') than here (' + combination + ')'
                 raise ValueError(string)
             else:
-                refseq_organism_id_correspondance.setdefault(refseq,combination)
+                refseq_orga_id_corresp.setdefault(refseq,combination)
 
     with open(refseq_orga_id_corres_filepath, 'w') as refseq_orga_id_corres_file:
-    	pickle.dump(refseq_organism_id_correspondance,
-    		refseq_organism_id_correspondance_file)	 
+    	pickle.dump(refseq_orga_id_corresp, refseq_orga_id_corres_file)	 
 	
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
@@ -116,5 +114,5 @@ if __name__ == '__main__':
     save_cog_detailed_informations(cog_info, extracted_data_dirpath)
     make_refseq_organism_id_correspondance(seqid_orga_correspondance, 
         raw_data_dirpath + 'prot2003-2014.tab', 
-        extracted_data_dirpath + 'refseq_organism_id_correspondance')
+        extracted_data_dirpath + 'refseq_orga_id_correspondance')
 

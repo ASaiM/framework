@@ -34,7 +34,8 @@ def cog_download(cog_dirpath):
     ftp_download(ftp,"prot2003-2014.fa.gz",cog_dirpath)
     ftp_download(ftp,"prot2003-2014.tab",cog_dirpath)
 
-    os.system('gunzip ' + cog_dirpath + 'prot2003-2014.fa.gz')
+    if not os.path.exists(cog_dirpath + 'prot2003-2014.fa'):
+        os.system('gunzip ' + cog_dirpath + 'prot2003-2014.fa.gz')
 
 
 #########################
