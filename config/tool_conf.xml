@@ -25,5 +25,6 @@
     <label text="FUNCTIONAL ASSIGNATION" id="functional" />
         <section id="metabolic_analysis" name="Metabolic analysis">
             <tool file="metabolic_analysis/humann2/humann2.xml" />
+            <tool file="metabolic_analysis/regroup_table/regroup_table.xml" />
         </section>
 </toolbox>
