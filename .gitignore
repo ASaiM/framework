@@ -1,3 +1,7 @@
+# Data/db
+data/db/cog/raw_data/*
+data/db/cog/extracted_data/*
+data/db/cog/kegg_formated_data_dir/*
 
 # Tests for extract_sequence_file
 tools/extract/extract_sequence_file/test-data/data/ouble_constraint_fasta_file/output_*
