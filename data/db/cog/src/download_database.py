@@ -5,7 +5,7 @@ import sys
 import os
 from ftplib import FTP
 import inspect
-import json_config_manipulation
+import argparse
 
 ###########
 # Methods #
@@ -18,7 +18,9 @@ def ftp_download(ftp, filename,dirpath):
 
         #os.system('mv ' + filename + ' ' + dirpath + filename)
     except:
-        raise ValueError(os.path.basename(__file__) + ' -- ' + inspect.stack()[1][3] + ": Error to download " + filename) 
+        string = os.path.basename(__file__) + ' -- ' + inspect.stack()[1][3]
+        string += ": Error to download " + filename
+        raise ValueError(string) 
 
 def cog_download(cog_dirpath):
     #ftp = FTP("ftp.ncbi.nlm.nih.gov")
@@ -39,8 +41,11 @@ def cog_download(cog_dirpath):
 # Download COG database #
 #########################
 if __name__ == '__main__':
-    directory_information = json_config_manipulation.load_json_config_file('/src/global_information.json')
-    raw_data_dirpath = json_config_manipulation.search_key_in_config_params(directory_information,"raw_data_dir")
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--raw_data_dir', required=True)
+    args = parser.parse_args()
+
+    raw_data_dirpath = args.raw_data_dir
     if not os.path.exists(raw_data_dirpath):
         os.system('mkdir -p ' + raw_data_dirpath)
     cog_download(raw_data_dirpath)
