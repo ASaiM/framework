@@ -1,0 +1,9 @@
+tests:
+    image: busybox
+    volumes_from:
+        - refseq
+
+refseq:
+    build: .
+    volumes:
+        - /refseq
