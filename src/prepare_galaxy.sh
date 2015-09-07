@@ -12,13 +12,17 @@ else
     git clone https://github.com/galaxyproject/galaxy.git $galaxy_dir
 fi
 
+cp -r tools/ $galaxy_dir/tools
+
 # Prepare galaxy tools
 ./src/prepare_galaxy_tools.sh $galaxy_dir
 
 # Prepare galaxy config
 cp config/* $galaxy_dir/config/
 
-mkdir $galaxy_dir/dependency_dir
+if [ ! -d $galaxy_dir/dependency_dir ]; then
+    mkdir $galaxy_dir/dependency_dir
+fi
 
 # Launch galaxy
 cd $galaxy_dir
