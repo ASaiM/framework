@@ -29,6 +29,14 @@ RUN cd /galaxy-central/tools/metabolic_analysis/humann2/ && \
 #    humann2_config --update database_folder nucleotide /data/db/chocophlan && \
 #    humann2_config --update database_folder protein /data/db/uniref
 
+## humann
+RUN mkdir -p /src/lib/Scons && \
+    curl -L http://downloads.sourceforge.net/project/scons/scons/2.3.5/scons-2.3.5.tar.gz | tar -C /src/lib/Scons --strip-components=1 -xz && \
+    ##curl -s https://bitbucket.org/scons/scons/get/default.tar.gz | tar -C /src/lib/Scons --strip-components=1 -xz && \
+    ## TODO: fixme as it does not work
+    cd /src/lib/Scons && python setup.py install
+RUN cd /galaxy-central/tools/metabolic_analysis/humann/ && \
+    hg clone https://bitbucket.org/biobakery/humann
 
 # Expose port 80 (webserver), 21 (FTP server), 8800 (Proxy)
 EXPOSE :80
