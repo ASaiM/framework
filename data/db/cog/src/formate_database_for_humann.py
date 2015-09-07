@@ -283,7 +283,3 @@ if __name__ == '__main__':
     complete_category_information(humann_data_dirpath + '/map_kegg.txt', 
         cog_dirpath + 'cognames2003-2014.tab', 
         humann_formated_data_dirpath + 'map_kegg.txt')
-
-    command = 'cp ' + humann_formated_data_dirpath + '/* ' + humann_data_dirpath
-    print command
-    os.system(command)

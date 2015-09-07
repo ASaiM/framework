@@ -9,6 +9,14 @@
     </requirements>
 
     <stdio>
+        <regex match="error"
+               source="stderr"
+               level="fatal"
+               description="" />
+        <regex match="warning"
+               source="stderr"
+               level="warning"
+               description="" />
     </stdio>
 
     <version_command></version_command>
@@ -18,23 +26,27 @@
         humann_wrapper.py
             --input $input_file
             --output $html_file
-            --humann_dir humann/
+            #set humann_dir=os.getcwd()+"/tools/metabolic_analysis/humann/humann/"
+            --humann_dir $humann_dir
+            --cog_extracted_data $cog_use
 
-            --ko_abundance $ko_abundance.test
             #if $ko_abundance.test:
-                --kegg_pathway $kegg_pathway
-                --kegg_module $kegg_module
+                --ko_abundance true
+                --kegg_pathway $ko_abundance.kegg_pathway
+                --kegg_module $ko_abundance.kegg_module
             #else:
+                --ko_abundance false
                 --kegg_pathway false
                 --kegg_module false
             #end if
 
             --metarep $metarep
 
-            --metacyc_enz_abundance $metacyc_enz_abundance.test
             #if $metacyc_enz_abundance.test:
-                --metacyc_pathway $metacyc_pathway
+                --metacyc_enz_abundance true
+                --metacyc_pathway $metacyc_enz_abundance.metacyc_pathway
             #else:
+                --metacyc_enz_abundance false
                 --metacyc_pathway false
             #end if
 
@@ -42,54 +54,69 @@
             --wb_smoothing $wb_smoothing
             --gap_filling $gap_filling
 
-            --coverage $coverage.test
             #if $coverage.test:
-                --low_coverage_elimination $low_coverage_elimination
+                --coverage true
+                --low_coverage_elimination $coverage.low_coverage_elimination
             #else:
+                --coverage false
                 --low_coverage_elimination false
             #end if
 
-            --abundance_computation $abundance_computation
+            #if $abundance.test:
+                --abundance_computation true
+                --graphlan_export $graphlan_export
+            #else:
+                --abundance_computation false
+                --graphlan_export false
+            #end if
+            
     </command>
 
     <inputs>
-        <param name="input_file" type="data" format="txt" label="Input file" help="Tabular output file of Blast against COG database"/>
+        <param name="input_file" type="data" format="txt" label="Input file" help="Tabular output file of Blast against a sequence database"/>
+
+        <param name='cog_use' type='boolean' checked="true" truevalue='true' falsevalue='false' label="COG used for Blast?" help=""/>
 
         <conditional name="ko_abundance">
             <param name='test' type='boolean' checked="true" truevalue='yes' falsevalue='no' label="Generate KO abundances from BLAST hits?" help=""/>
             <when value="yes">
-                <param name='kegg_pathway' type='boolean' checked="true" truevalue='yes' falsevalue='no' label="Generate KEGG pathway assignments from KOs?" help=""/>
-                <param name='kegg_module' type='boolean' checked="true" truevalue='yes' falsevalue='no' label="Generate KEGG module assignments from KOs?" help=""/>
+                <param name='kegg_pathway' type='boolean' checked="true" truevalue='true' falsevalue='false' label="Generate KEGG pathway assignments from KOs?" help=""/>
+                <param name='kegg_module' type='boolean' checked="true" truevalue='true' falsevalue='false' label="Generate KEGG module assignments from KOs?" help=""/>
             </when>
         </conditional>
 
         <conditional name="metacyc_enz_abundance">
             <param name='test' type='boolean' checked="false" truevalue='yes' falsevalue='no' label="Generate METAREP abundances from BLAST hits?" help=""/>
             <when value="yes">
-                <param name='metacyc_pathway' type='boolean' checked="true" truevalue='yes' falsevalue='no' label="Generate MetaCyc pathway assignments from enzymes?" help=""/>
+                <param name='metacyc_pathway' type='boolean' checked="true" truevalue='true' falsevalue='false' label="Generate MetaCyc pathway assignments from enzymes?" help=""/>
             </when>
         </conditional>
 
-        <param name='metarep' type='boolean' checked="false" truevalue='yes' falsevalue='no' label="Generate METAREP abundances from BLAST hits?" help=""/>
+        <param name='metarep' type='boolean' checked="false" truevalue='true' falsevalue='false' label="Generate METAREP abundances from BLAST hits?" help=""/>
 
-        <param name='taxonomic_limitation' type='boolean' checked="true" truevalue='yes' falsevalue='no' label="Filter by taxonomic limitation and normalize by copy number?" help=""/>
-        <param name='wb_smoothing' type='boolean' checked="true" truevalue='yes' falsevalue='no' label="Smooth abundance using Witten-Bell discounting?" help="Reevaluation of null and small probabilities)"/>
-        <param name='gap_filling' type='boolean' checked="true" truevalue='yes' falsevalue='no' label="Fill gap?" help="Increase the effective contribution of unobserved members of otherwise abundant pathways within each retained pathways/modules"/>
+        <param name='taxonomic_limitation' type='boolean' checked="true" truevalue='true' falsevalue='false' label="Filter by taxonomic limitation and normalize by copy number?" help=""/>
+        <param name='wb_smoothing' type='boolean' checked="true" truevalue='true' falsevalue='false' label="Smooth abundance using Witten-Bell discounting?" help="Reevaluation of null and small probabilities)"/>
+        <param name='gap_filling' type='boolean' checked="true" truevalue='true' falsevalue='false' label="Fill gap?" help="Increase the effective contribution of unobserved members of otherwise abundant pathways within each retained pathways/modules"/>
         
 
         <conditional name="coverage">
             <param name='test' type='boolean' checked="true" truevalue='yes' falsevalue='no' label="Compute pathway coverage?" help="Likelihood that all genes needed to operate the pathway/module are present"/>
             <when value="yes">
-                <param name='low_coverage_elimination' type='boolean' checked="true" truevalue='yes' falsevalue='no' label="Eliminate pathways/modules with low coverage?" help=""/>
+                <param name='low_coverage_elimination' type='boolean' checked="true" truevalue='false' falsevalue='no' label="Eliminate pathways/modules with low coverage?" help=""/>
             </when>
         </conditional>
 
-        <param name='abundance_computation' type='boolean' checked="true" truevalue='yes' falsevalue='no' label="Compute pathway abundance?" help=""/>
+        <conditional name="abundance">
+            <param name='test' type='boolean' checked="true" truevalue='yes' falsevalue='no' label="Compute pathway abundance?" help=""/>
+            <when value="yes">
+                <param name='graphlan_export' type='boolean' checked="true" truevalue='true' falsevalue='false' label="Export for graphlan?" help=""/>
+            </when>
+        </conditional>
         
     </inputs>
 
     <outputs>
-        <data format="html" name="html_file" label="humann_outputs_${input_file}">      
+        <data format="html" name="html_file" label="humann_outputs_${input_file}" />      
     </outputs>
 
     <tests>
@@ -99,10 +126,19 @@
     <help>
         **What it does**
 
+        HUMAnN is a pipeline for efficiently and accurately determining the 
+        presence/absence and abundance of microbial pathways in a community 
+        from metagenomic data.
+
+        .. _Read more about the tool: https://huttenhower.sph.harvard.edu/humann
+
         **Input**
 
+        HUMAnN input file is a report from a sequence similarity search.
 
         **Outputs**
+
+        HUMAnN outputs numerous files
 
         
         **Parameters**
