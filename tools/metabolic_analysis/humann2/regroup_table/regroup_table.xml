@@ -34,10 +34,7 @@
     </inputs>
 
     <outputs>
-        <outputs>
-            <data format="tsv" name="output_file" label="humann2_regroup_table_${input_file}.html">
-        </outputs>
-
+        <data format="tsv" name="output_file" label="humann2_regroup_table_${input_file}.html" />
     </outputs>
 
     <tests>

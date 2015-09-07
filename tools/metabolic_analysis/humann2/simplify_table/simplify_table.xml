@@ -24,10 +24,7 @@
     </inputs>
 
     <outputs>
-        <outputs>
-            <data format="tsv" name="output_file" label="humann2_simplify_table_${input_file}">
-        </outputs>
-
+        <data format="tsv" name="output_file" label="humann2_simplify_table_${input_file}" />
     </outputs>
 
     <tests>
