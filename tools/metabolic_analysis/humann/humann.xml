@@ -9,14 +9,14 @@
     </requirements>
 
     <stdio>
-        <regex match="error"
+        <!--<regex match="error"
                source="stderr"
                level="fatal"
                description="" />
         <regex match="warning"
                source="stderr"
                level="warning"
-               description="" />
+               description="" />-->
     </stdio>
 
     <version_command></version_command>
@@ -24,99 +24,191 @@
     <!--<command>-->
     <command interpreter="python">
         humann_wrapper.py
-            --input $input_file
-            --output $html_file
+            --input=$input_file
             #set humann_dir=os.getcwd()+"/tools/metabolic_analysis/humann/humann/"
-            --humann_dir $humann_dir
-            --cog_extracted_data $cog_use
+            --humann_dir=$humann_dir
+            --cog_extracted_data=$cog_use
 
             #if $ko_abundance.test:
-                --ko_abundance true
-                --kegg_pathway $ko_abundance.kegg_pathway
-                --kegg_module $ko_abundance.kegg_module
+                --ko_abundance=yes
+                --kegg_pathway=$ko_abundance.kegg_pathway
+                --kegg_module=$ko_abundance.kegg_module
+                #if $cog_use:
+                    --cog_abundance_file=$cog_abundance_file
+                #else:
+                    --kegg_ko_abundance_file=$kegg_ko_abundance_file
+                #end if
             #else:
-                --ko_abundance false
-                --kegg_pathway false
-                --kegg_module false
+                --ko_abundance=no
+                --kegg_pathway=no
+                --kegg_module=no
             #end if
 
-            --metarep $metarep
+            --metarep=$metarep
 
-            #if $metacyc_enz_abundance.test:
-                --metacyc_enz_abundance true
-                --metacyc_pathway $metacyc_enz_abundance.metacyc_pathway
+            #if $metacyc.test:
+                --metacyc_enzyme=yes
+                --metacyc_pathway=$metacyc.pathway
             #else:
-                --metacyc_enz_abundance false
-                --metacyc_pathway false
+                --metacyc_enzyme=no
+                --metacyc_pathway=no
             #end if
 
-            --taxonomic_limitation $taxonomic_limitation
-            --wb_smoothing $wb_smoothing
-            --gap_filling $gap_filling
+            --taxonomic_limitation=$taxonomic_limitation
+            --wb_smoothing=$wb_smoothing
+            --gap_filling=$gap_filling
 
             #if $coverage.test:
-                --coverage true
-                --low_coverage_elimination $coverage.low_coverage_elimination
+                --coverage=yes
+                --low_coverage_elimination=$coverage.low_coverage_elimination
+                #if $ko_abundance.kegg_pathway=="yes":
+                    --kegg_pathway_coverage_file=$kegg_pathway_coverage_file
+                #end if
+                #if $ko_abundance.kegg_module=="yes":
+                    --kegg_module_coverage_file=$kegg_module_coverage_file
+                #end if
+                #if $metacyc.pathway=="yes":
+                    --metacyc_pathway_coverage_file=$metacyc_pathway_coverage_file
+                #end if
             #else:
-                --coverage false
-                --low_coverage_elimination false
+                --coverage=no
+                --low_coverage_elimination=no
             #end if
 
             #if $abundance.test:
-                --abundance_computation true
-                --graphlan_export $graphlan_export
+                --abundance_computation=yes
+                #if $ko_abundance.kegg_pathway=="yes":
+                    --kegg_pathway_abundance_file=$kegg_pathway_abundance_file
+                #end if
+                #if $ko_abundance.kegg_module=="yes":
+                    --kegg_module_abundance_file=$kegg_module_abundance_file
+                #end if
+                #if $metacyc.pathway=="yes":
+                    --metacyc_pathway_abundance_file=$metacyc_pathway_abundance_file
+                #end if
+
+                --graphlan_export=$graphlan_export
+                #if $graphlan_export=="yes":
+                    #if $ko_abundance.kegg_pathway=="yes":
+                        --kegg_pathway_abundance_graphlan_tree=$kegg_pathway_abundance_graphlan_tree
+                        --kegg_pathway_abundance_graphlan_rings=$kegg_pathway_abundance_graphlan_rings
+                    #end if
+                    #if $ko_abundance.kegg_module=="yes":
+                        --kegg_module_abundance_graphlan_tree=$kegg_module_abundance_graphlan_tree
+                        --kegg_module_abundance_graphlan_rings=$kegg_module_abundance_graphlan_rings
+                    #end if
+                    #if $metacyc.pathway=="yes":
+                        --metacyc_pathway_abundance_graphlan_tree=$metacyc_pathway_abundance_graphlan_tree
+                        --metacyc_pathway_abundance_graphlan_rings=$metacyc_pathway_abundance_graphlan_rings
+                    #end if
+                #end if
             #else:
-                --abundance_computation false
-                --graphlan_export false
+                --abundance_computation=no
+                --graphlan_export=no
             #end if
-            
     </command>
 
     <inputs>
         <param name="input_file" type="data" format="txt" label="Input file" help="Tabular output file of Blast against a sequence database"/>
 
-        <param name='cog_use' type='boolean' checked="true" truevalue='true' falsevalue='false' label="COG used for Blast?" help=""/>
+        <param name="cog_use" type="boolean" checked="true" truevalue="yes" falsevalue="no" label="COG used for Blast?" help=""/>
 
         <conditional name="ko_abundance">
-            <param name='test' type='boolean' checked="true" truevalue='yes' falsevalue='no' label="Generate KO abundances from BLAST hits?" help=""/>
+            <param name="test" type="boolean" checked="true" truevalue="yes" falsevalue="no" label="Generate KO or COG abundances from BLAST hits?" help=""/>
             <when value="yes">
-                <param name='kegg_pathway' type='boolean' checked="true" truevalue='true' falsevalue='false' label="Generate KEGG pathway assignments from KOs?" help=""/>
-                <param name='kegg_module' type='boolean' checked="true" truevalue='true' falsevalue='false' label="Generate KEGG module assignments from KOs?" help=""/>
+                <param name="kegg_pathway" type="boolean" checked="yes" truevalue="yes" falsevalue="no" label="Generate KEGG pathway assignments from KOs?" help=""/>
+                <param name="kegg_module" type="boolean" checked="yes" truevalue="yes" falsevalue="no" label="Generate KEGG module assignments from KOs?" help=""/>
             </when>
         </conditional>
 
-        <conditional name="metacyc_enz_abundance">
-            <param name='test' type='boolean' checked="false" truevalue='yes' falsevalue='no' label="Generate METAREP abundances from BLAST hits?" help=""/>
+        <param name="metarep" type="boolean" checked="false" truevalue="yes" falsevalue="no" label="Generate METAREP abundances from BLAST hits?" help=""/>
+
+        <conditional name="metacyc">
+            <param name="test" type="boolean" checked="false" truevalue="yes" falsevalue="no" label="Generate MetaCyc enzyme from BLAST hits?" help=""/>
             <when value="yes">
-                <param name='metacyc_pathway' type='boolean' checked="true" truevalue='true' falsevalue='false' label="Generate MetaCyc pathway assignments from enzymes?" help=""/>
+                <param name="pathway" type="boolean" checked="true" truevalue="yes" falsevalue="no" label="Generate MetaCyc pathway assignments from enzymes?" help=""/>
             </when>
         </conditional>
 
-        <param name='metarep' type='boolean' checked="false" truevalue='true' falsevalue='false' label="Generate METAREP abundances from BLAST hits?" help=""/>
-
-        <param name='taxonomic_limitation' type='boolean' checked="true" truevalue='true' falsevalue='false' label="Filter by taxonomic limitation and normalize by copy number?" help=""/>
-        <param name='wb_smoothing' type='boolean' checked="true" truevalue='true' falsevalue='false' label="Smooth abundance using Witten-Bell discounting?" help="Reevaluation of null and small probabilities)"/>
-        <param name='gap_filling' type='boolean' checked="true" truevalue='true' falsevalue='false' label="Fill gap?" help="Increase the effective contribution of unobserved members of otherwise abundant pathways within each retained pathways/modules"/>
+        <param name="taxonomic_limitation" type="boolean" checked="true" truevalue="yes" falsevalue="no" label="Filter modules/pathways by taxonomic limitation and normalize by copy number?" help=""/>
+        <param name="wb_smoothing" type="boolean" checked="true" truevalue="yes" falsevalue="no" label="Smooth module/pathway abundance using Witten-Bell discounting?" help="Reevaluation of null and small probabilities)"/>
+        <param name="gap_filling" type="boolean" checked="true" truevalue="yes" falsevalue="no" label="Fill gap?" help="Increase the effective contribution of unobserved members of otherwise abundant pathways within each retained pathways/modules"/>
         
-
         <conditional name="coverage">
-            <param name='test' type='boolean' checked="true" truevalue='yes' falsevalue='no' label="Compute pathway coverage?" help="Likelihood that all genes needed to operate the pathway/module are present"/>
+            <param name="test" type="boolean" checked="true" truevalue="yes" falsevalue="no" label="Compute module/pathway coverage?" help="Likelihood that all genes needed to operate the pathway/module are present"/>
             <when value="yes">
-                <param name='low_coverage_elimination' type='boolean' checked="true" truevalue='false' falsevalue='no' label="Eliminate pathways/modules with low coverage?" help=""/>
+                <param name="low_coverage_elimination" type="boolean" checked="true" truevalue="false" falsevalue="no" label="Eliminate modules/pathways with low coverage?" help=""/>
             </when>
         </conditional>
 
         <conditional name="abundance">
-            <param name='test' type='boolean' checked="true" truevalue='yes' falsevalue='no' label="Compute pathway abundance?" help=""/>
+            <param name="test" type="boolean" checked="true" truevalue="yes" falsevalue="no" label="Compute module/pathway abundance?" help=""/>
             <when value="yes">
-                <param name='graphlan_export' type='boolean' checked="true" truevalue='true' falsevalue='false' label="Export for graphlan?" help=""/>
+                <param name="graphlan_export" type="boolean" checked="true" truevalue="yes" falsevalue="no" label="Export for graphlan?" help=""/>
             </when>
         </conditional>
         
     </inputs>
 
     <outputs>
-        <data format="html" name="html_file" label="humann_outputs_${input_file}" />      
+        <data format="text" name="kegg_ko_abundance_file" label="kegg_ko_abundance_${input_file.name}">  
+            <filter>((ko_abundance["test"] and not cog_use ))</filter>
+        </data>
+        <data format="text" name="cog_abundance_file" label="cog_abundance_${input_file.name}">  
+            <filter>((ko_abundance["test"] and cog_use))</filter>
+        </data>
+
+        <data format="text" name="kegg_pathway_coverage_file" label="kegg_pathway_coverage_${input_file}">  
+            <filter>((ko_abundance["test"] and ko_abundance["kegg_pathway"] and 
+                coverage["test"] ))</filter>
+        </data>
+        <data format="text" name="kegg_pathway_abundance_file" label="kegg_pathway_abundance_${input_file}">  
+            <filter>((ko_abundance["test"] and ko_abundance["kegg_pathway"] and 
+                abundance["test"] ))</filter>
+        </data> 
+        <data format="text" name="kegg_pathway_abundance_graphlan_rings" label="kegg_pathway_abundance_graphlan_rings_${input_file}">  
+            <filter>((ko_abundance["test"] and ko_abundance["kegg_pathway"] and 
+                abundance["test"] and abundance["graphlan_export"] ))</filter>
+        </data>
+        <data format="text" name="kegg_pathway_abundance_graphlan_tree" label="kegg_pathway_abundance_graphlan_tree_${input_file}">  
+            <filter>((ko_abundance["test"] and ko_abundance["kegg_pathway"] and 
+                abundance["test"] and abundance["graphlan_export"] ))</filter>
+        </data>
+
+        <data format="text" name="kegg_module_coverage_file" label="kegg_module_coverage_${input_file}">  
+            <filter>((ko_abundance["test"] and ko_abundance["kegg_module"] and 
+                coverage["test"] == "yes"))</filter>
+        </data>
+        <data format="text" name="kegg_module_abundance_file" label="kegg_module_abundance_${input_file}">  
+            <filter>((ko_abundance["test"] and ko_abundance["kegg_module"] and 
+                abundance["test"] ))</filter>
+        </data>
+        <data format="text" name="kegg_module_abundance_graphlan_rings" label="kegg_module_abundance_graphlan_rings_${input_file}">  
+            <filter>((ko_abundance["test"] and ko_abundance["kegg_module"] and 
+                abundance["test"] and abundance["graphlan_export"] ))</filter>
+        </data>
+        <data format="text" name="kegg_module_abundance_graphlan_tree" label="kegg_module_abundance_graphlan_tree_${input_file}">  
+            <filter>((ko_abundance["test"] and ko_abundance["kegg_module"] and 
+                abundance["test"] and abundance["graphlan_export"] ))</filter>
+        </data>
+
+        <data format="text" name="metacyc_pathway_coverage_file" label="metacyc_pathway_coverage_${input_file}">  
+            <filter>((metacyc["test"] and metacyc["pathway"] and 
+                coverage["test"] ))</filter>
+        </data>
+        <data format="text" name="metacyc_pathway_abundance_file" label="metacyc_pathway_abundance_${input_file}">  
+            <filter>((metacyc["test"] and metacyc["pathway"] and 
+                abundance["test"] ))</filter>
+        </data>
+        <data format="text" name="metacyc_pathway_abundance_graphlan_rings" label="metacyc_pathway_abundance_graphlan_rings_${input_file}">  
+            <filter>((metacyc["test"] and metacyc["pathway"] and 
+                abundance["test"] and abundance["graphlan_export"] ))</filter>
+        </data>
+        <data format="text" name="metacyc_pathway_abundance_graphlan_tree" label="metacyc_pathway_abundance_graphlan_tree_${input_file}">  
+            <filter>((metacyc["test"] and metacyc["pathway"] and 
+                abundance["test"] and abundance["graphlan_export"] ))</filter>
+        </data>
+
     </outputs>
 
     <tests>
@@ -132,14 +224,18 @@
 
         .. _Read more about the tool: https://huttenhower.sph.harvard.edu/humann
 
+        The pipeline follows the flowchart |H|.
+
+        .. |H| image:: img/humann_pipeline_flowchart.png
+
         **Input**
 
         HUMAnN input file is a report from a sequence similarity search.
 
         **Outputs**
 
-        HUMAnN outputs numerous files
-
+        HUMAnN outputs numerous temporary files given the flowchart |H|.
+        The wrapper formate only useful outputs.
         
         **Parameters**
 
