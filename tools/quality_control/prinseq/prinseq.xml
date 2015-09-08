@@ -412,7 +412,7 @@
   	</inputs>
 
   	<outputs>
-        <data format="fastq" name="good_sequence_file" label="good_${input_sequence_file}" />
+        <data format="fastq" name="good_sequence_file" label="good_${input_sequence_file.name}" />
   	</outputs>
 
   	<tests>

@@ -388,8 +388,8 @@
   	</inputs>
 
   	<outputs>
-  		<data format="txt" name="report_filepath" label="${similarity_report}_report" />
-  		<data format="txt" name="output_filepath" label="${similarity_report}_report" />
+  		<data format="txt" name="report_filepath" label="report_extraction_${similarity_report.name}" />
+  		<data format="txt" name="output_filepath" label="output_extraction_${similarity_report.name}" />
   	</outputs>
 
   	<tests>

@@ -28,7 +28,7 @@
     </inputs>
 
     <outputs>
-        <data format="text" name="output_file" label="metaphlan_outputs_${input_file}.txt" />
+        <data format="text" name="output_file" label="metaphlan_outputs_${input_file.name}.txt" />
     </outputs>
 
     <tests>

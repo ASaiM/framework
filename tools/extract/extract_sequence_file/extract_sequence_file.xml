@@ -184,34 +184,34 @@
   	</inputs>
 
   	<outputs>
-        <data format="txt" name="information_file" label="information_${sequence_file_format.sequence_file}" >
+        <data format="txt" name="information_file" label="information_${sequence_file_format.sequence_file.name}" >
             <filter>(sequence_file_format['extraction']['specific_extraction'] == 'yes')</filter>
         </data>
 
-        <data format="fasta" name="fasta_sequence_file" label="sequences_${sequence_file_format.sequence_file}" >
+        <data format="fasta" name="fasta_sequence_file" label="sequences_${sequence_file_format.sequence_file.name}" >
             <filter>((sequence_file_format['format'] == 'fasta' and 
                 sequence_file_format['extraction']['specific_extraction'] == 'no'))</filter>
         </data>
 
-        <data format="fastq" name="fastq_sequence_file" label="sequences_${sequence_file_format.sequence_file}" >
+        <data format="fastq" name="fastq_sequence_file" label="sequences_${sequence_file_format.sequence_file.name}" >
             <filter>((sequence_file_format['format'] == 'fastq' and 
                 sequence_file_format['extraction']['specific_extraction'] == 'no' and
                 sequence_file_format['extraction']['split']['split_test'] == 'no'))</filter>
         </data>
 
-        <data format="qual" name="quality_file" label="quality_${sequence_file_format.sequence_file}" >
+        <data format="qual" name="quality_file" label="quality_${sequence_file_format.sequence_file.name}" >
             <filter>((sequence_file_format['format'] == 'fastq' and 
                 sequence_file_format['extraction']['specific_extraction'] == 'no' and
                 sequence_file_format['extraction']['split']['split_test'] == 'yes'))</filter>
         </data>
 
-        <data format="fasta" name="fasta_sequence_file_from_fastq" label="sequences_${sequence_file_format.sequence_file}" >
+        <data format="fasta" name="fasta_sequence_file_from_fastq" label="sequences_${sequence_file_format.sequence_file.name}" >
             <filter>((sequence_file_format['format'] == 'fastq' and 
                 sequence_file_format['extraction']['specific_extraction'] == 'no' and
                 sequence_file_format['extraction']['split']['split_test'] == 'yes'))</filter>
         </data>
 
-        <data format="txt" name="report_filepath" label="report_${sequence_file_format.sequence_file}" />
+        <data format="txt" name="report_filepath" label="report_${sequence_file_format.sequence_file.name}" />
   	</outputs>
 
   	<tests>
