@@ -152,8 +152,6 @@ def transform_combination_from_kegg_to_cog(module):
             s = '(' + s + ')'
             #s += ')'
 
-        s = check_transformation(s)
-        print module, s
         return s
 
 def generation_cog_module_mapping(input_dirpath, output_dirpath,
