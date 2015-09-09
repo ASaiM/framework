@@ -62,14 +62,18 @@
             #if $coverage.test:
                 --coverage=yes
                 --low_coverage_elimination=$coverage.low_coverage_elimination
-                #if $ko_abundance.kegg_pathway=="yes":
-                    --kegg_pathway_coverage_file=$kegg_pathway_coverage_file
+                #if $ko_abundance.test:
+                    #if $ko_abundance.kegg_pathway:
+                        --kegg_pathway_coverage_file=$kegg_pathway_coverage_file
+                    #end if
+                    #if $ko_abundance.kegg_module:
+                        --kegg_module_coverage_file=$kegg_module_coverage_file
+                    #end if
                 #end if
-                #if $ko_abundance.kegg_module=="yes":
-                    --kegg_module_coverage_file=$kegg_module_coverage_file
-                #end if
-                #if $metacyc.pathway=="yes":
-                    --metacyc_pathway_coverage_file=$metacyc_pathway_coverage_file
+                #if $metacyc.test:
+                    #if $metacyc.pathway:
+                        --metacyc_pathway_coverage_file=$metacyc_pathway_coverage_file
+                    #end if
                 #end if
             #else:
                 --coverage=no
@@ -78,29 +82,37 @@
 
             #if $abundance.test:
                 --abundance_computation=yes
-                #if $ko_abundance.kegg_pathway=="yes":
-                    --kegg_pathway_abundance_file=$kegg_pathway_abundance_file
+                #if $ko_abundance.test:
+                    #if $ko_abundance.kegg_pathway:
+                        --kegg_pathway_abundance_file=$kegg_pathway_abundance_file
+                    #end if
+                    #if $ko_abundance.kegg_module:
+                        --kegg_module_abundance_file=$kegg_module_abundance_file
+                    #end if
                 #end if
-                #if $ko_abundance.kegg_module=="yes":
-                    --kegg_module_abundance_file=$kegg_module_abundance_file
-                #end if
-                #if $metacyc.pathway=="yes":
-                    --metacyc_pathway_abundance_file=$metacyc_pathway_abundance_file
+                #if $metacyc.test:
+                    #if $metacyc.pathway:
+                        --metacyc_pathway_abundance_file=$metacyc_pathway_abundance_file
+                    #end if
                 #end if
 
-                --graphlan_export=$graphlan_export
-                #if $graphlan_export=="yes":
-                    #if $ko_abundance.kegg_pathway=="yes":
-                        --kegg_pathway_abundance_graphlan_tree=$kegg_pathway_abundance_graphlan_tree
-                        --kegg_pathway_abundance_graphlan_rings=$kegg_pathway_abundance_graphlan_rings
+                --graphlan_export=$abundance.graphlan_export
+                #if $abundance.graphlan_export:
+                    #if $ko_abundance.test:
+                        #if $ko_abundance.kegg_pathway:
+                            --kegg_pathway_abundance_graphlan_tree=$kegg_pathway_abundance_graphlan_tree
+                            --kegg_pathway_abundance_graphlan_rings=$kegg_pathway_abundance_graphlan_rings
+                        #end if
+                        #if $ko_abundance.kegg_module:
+                            --kegg_module_abundance_graphlan_tree=$kegg_module_abundance_graphlan_tree
+                            --kegg_module_abundance_graphlan_rings=$kegg_module_abundance_graphlan_rings
+                        #end if
                     #end if
-                    #if $ko_abundance.kegg_module=="yes":
-                        --kegg_module_abundance_graphlan_tree=$kegg_module_abundance_graphlan_tree
-                        --kegg_module_abundance_graphlan_rings=$kegg_module_abundance_graphlan_rings
-                    #end if
-                    #if $metacyc.pathway=="yes":
-                        --metacyc_pathway_abundance_graphlan_tree=$metacyc_pathway_abundance_graphlan_tree
-                        --metacyc_pathway_abundance_graphlan_rings=$metacyc_pathway_abundance_graphlan_rings
+                    #if $metacyc.test:
+                        #if $metacyc.pathway:
+                            --metacyc_pathway_abundance_graphlan_tree=$metacyc_pathway_abundance_graphlan_tree
+                            --metacyc_pathway_abundance_graphlan_rings=$metacyc_pathway_abundance_graphlan_rings
+                        #end if
                     #end if
                 #end if
             #else:

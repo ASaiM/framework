@@ -19,11 +19,19 @@ def generate_humann_param_file(sconstruct_filepath, args, data_dir):
     sconstruct_file.write("import re\n")
     sconstruct_file.write("\n")
 
+    sconstruct_file.write("def isexclude( strInput ):\n")
+    sconstruct_file.write("\t\"\"\"\n")
+    sconstruct_file.write("\tGiven the name of an input file, return True if it should be skipped.  Useful for\n")
+    sconstruct_file.write("\tmatching only a specific set (by inclusion) or removing a specific set (by exclusion)\n")
+    sconstruct_file.write("\tusing regular expression patterns or raw filenames.\n")
+    sconstruct_file.write("\t\"\"\"\n")
+    sconstruct_file.write("\treturn (False)\n\n")
+
     # Directory name scanned for input files
     if args.cog_extracted_data == 'yes':
-        sconstruct_file.write("c_strDirInput = \"" + data_dir + '/' + os.path.split(args.input)[0] + "/formatted\"\n")
+        sconstruct_file.write("c_strDirInput = \"" + os.path.split(args.input)[0] + "/formatted\"\n")
     else:
-        sconstruct_file.write("c_strDirInput = \"" + data_dir + '/' + os.path.split(args.input)[0] + "/\"\n")
+        sconstruct_file.write("c_strDirInput = \"" + os.path.split(args.input)[0] + "/\"\n")
 
     # Directory into which all output files are placed
     tmp_output_dir = os.path.split(args.input)[0] + '/temporary_humann_output/'
@@ -66,7 +74,7 @@ def generate_humann_param_file(sconstruct_filepath, args, data_dir):
     sconstruct_file.write("c_apProcessors = [\n")
 
     # Default: txt or gzipped txt blastx data
-    sconstruct_file.write(" CProcessor( \".dat\",\"00\",\"hit\",c_strProgBlast2Hits,[],[],True,True ),\n")
+    sconstruct_file.write("\tCProcessor( \".dat\", \"00\", \"hit\", c_strProgBlast2Hits, [], [], True, True ),\n")
     #sconstruct_file.write(" CProcessor( \".txt.gz\",\"00\",\"hit\", c_strProgBlast2Hits,[],[],True,True ),\n")
 
     # Default: mapped bam data
@@ -97,18 +105,18 @@ def generate_humann_param_file(sconstruct_filepath, args, data_dir):
         # hits -> enzymes
 
         # Generate KO abundances from BLAST hits
-        sconstruct_file.write(" CProcessor( \"00\",\"01\",\"ko\",c_strProgHits2Enzymes,[c_strFileKOC, c_strFileGeneLs],[str( c_fOrg )] ),\n")
-        sconstruct_file.write(" CProcessor( \"01\",\"01b\",\"cat\",c_strProgCat,[] ),\n")
+        sconstruct_file.write("\tCProcessor( \"00\", \"01\", \"ko\", c_strProgHits2Enzymes, [c_strFileKOC, c_strFileGeneLs], [str( c_fOrg )] ),\n")
+        sconstruct_file.write("\tCProcessor( \"01\", \"01b\", \"cat\", c_strProgCat, [] ),\n")
 
         # enzymes -> pathways
         # Generate KEGG pathway assignments from KOs
         if args.kegg_pathway == 'yes':
-            sconstruct_file.write(" CProcessor( \"01\",\"02a\",\"mpt\",c_strProgEnzymes2PathwaysMP,[c_strFileMP, c_strFileKEGGC] ),\n")
+            sconstruct_file.write("\tCProcessor( \"01\", \"02a\", \"mpt\", c_strProgEnzymes2PathwaysMP, [c_strFileMP, c_strFileKEGGC] ),\n")
             last_id = "02a"
 
         # Generate KEGG module assignments from KOs
         if args.kegg_module == 'yes':
-            sconstruct_file.write(" CProcessor( \"01\",\"02a\",\"mpm\",c_strProgEnzymes2PathwaysMP,[c_strFileMP, c_strFileModuleC] ),\n")
+            sconstruct_file.write("\tCProcessor( \"01\", \"02a\", \"mpm\", c_strProgEnzymes2PathwaysMP, [c_strFileMP, c_strFileModuleC] ),\n")
             last_id = "02a"
 
     # MetaCyc
@@ -116,48 +124,48 @@ def generate_humann_param_file(sconstruct_filepath, args, data_dir):
         # hits -> enzymes
         # Generate MetaCyc enzyme abundances from BLAST hits
         # Enable only if c_strInputMetaCyc is defined above
-        sconstruct_file.write(" CProcessor( \"00\",\"11\",\"mtc\",c_strProgHits2Metacyc,[c_strFileMCC] ),\n")
+        sconstruct_file.write("\tCProcessor( \"00\", \"11\", \"mtc\", c_strProgHits2Metacyc, [c_strFileMCC] ),\n")
 
         # enzymes -> pathways
         # Generate MetaCyc pathway assignments from enzymes
         if args.metacyc_pathway == 'yes':
-            sconstruct_file.write(" CProcessor( \"11\",\"02a\",\"mpt\",c_strProgEnzymes2PathwaysMP,[c_strFileMP, c_strFileMCPC] ),\n")
+            sconstruct_file.write("\tCProcessor( \"11\", \"02a\", \"mpt\", c_strProgEnzymes2PathwaysMP, [c_strFileMP, c_strFileMCPC] ),\n")
             last_id = "02a"
 
     # MetaRep
     if args.metarep == 'yes' :
         # hits -> metarep
         # Optional: Generate a METAREP input file from BLAST hits
-        sconstruct_file.write(" CProcessor( \"00\",\"99\",\"mtr\",c_strProgHits2Metarep,[c_strFileGeneLs] ),\n")
+        sconstruct_file.write("\tCProcessor( \"00\", \"99\", \"mtr\", c_strProgHits2Metarep, [c_strFileGeneLs] ),\n")
 
     if last_id != None:
         # taxonomic provenance
         if args.taxonomic_limitation == 'yes':
-            sconstruct_file.write(" CProcessor( \"" + last_id + "\",\"02b\",\"cop\",c_strProgTaxlim,[c_strFileTaxPC, c_strFileKOC] ),\n")
+            sconstruct_file.write("\tCProcessor( \"" + last_id + "\", \"02b\", \"cop\", c_strProgTaxlim, [c_strFileTaxPC, c_strFileKOC] ),\n")
             last_id = "02b"
 
         # smoothing
         # Smoothing is disabled by default with the latest KEGG Module update
         if args.wb_smoothing == 'yes':
-            sconstruct_file.write(" CProcessor( \"" + last_id + "\",\"03a\",\"wbl\",c_strProgSmoothWB,[c_strFilePathwayC] ),\n")
+            sconstruct_file.write("\tCProcessor( \"" + last_id + "\", \"03a\", \"wbl\", c_strProgSmoothWB, [c_strFilePathwayC] ),\n")
         else:
-            sconstruct_file.write(" CProcessor( \"" + last_id + "\",\"03a\",\"nul\",c_strProgCat,[] ),\n")
+            sconstruct_file.write("\tCProcessor( \"" + last_id + "\", \"03a\", \"nul\", c_strProgCat, [] ),\n")
         last_id = "03a"
 
         # gap filling
         if args.gap_filling == 'yes':
-            sconstruct_file.write(" CProcessor( \"" + last_id + "\",\"03b\",\"nve\",c_strProgGapfill,[c_strFilePathwayC] ),\n")
+            sconstruct_file.write("\tCProcessor( \"" + last_id + "\", \"03b\", \"nve\", c_strProgGapfill, [c_strFilePathwayC] ),\n")
             last_id = "03b"
 
         # COVERAGE
         if args.coverage == 'yes':
-            sconstruct_file.write(" CProcessor( \"" + last_id + "\",\"03c\",\"nve\",c_strProgPathCov,[c_strFilePathwayC, c_strFileModuleP] ),\n")
+            sconstruct_file.write("\tCProcessor( \"" + last_id + "\", \"03c\", \"nve\", c_strProgPathCov, [c_strFilePathwayC, c_strFileModuleP] ),\n")
             if args.low_coverage_elimination == 'yes':
-                sconstruct_file.write(" CProcessor( \"03c\",\"04a\",\"xpe\",c_strProgPathCovXP,[c_strProgXipe] ),\n")
+                sconstruct_file.write("\tCProcessor( \"03c\", \"04a\", \"xpe\", c_strProgPathCovXP, [c_strProgXipe] ),\n")
 
         # ABUNDANCE
         if args.abundance_computation == 'yes':
-            sconstruct_file.write(" CProcessor( \"" + last_id + "\",\"04b\",\"nve\",c_strProgPathAb,[c_strFilePathwayC, c_strFileModuleP] ),\n")
+            sconstruct_file.write("\tCProcessor( \"" + last_id + "\", \"04b\", \"nve\", c_strProgPathAb, [c_strFilePathwayC, c_strFileModuleP] ),\n")
 
     sconstruct_file.write("]\n")
     
@@ -171,9 +179,9 @@ def generate_humann_param_file(sconstruct_filepath, args, data_dir):
     #    The processing script
     #    A list of zero or more files provided on the command line to the processing script
     sconstruct_file.write("c_aastrFinalizers = [\n")
-    sconstruct_file.write(" [None, c_strProgZero],\n")
-    sconstruct_file.write(" [None, c_strProgFilter, [c_strFilePathwayC, c_strFileModuleP]],\n")
-    sconstruct_file.write(" [r'0(1")
+    sconstruct_file.write("\t[None, c_strProgZero],\n")
+    sconstruct_file.write("\t[None, c_strProgFilter, [c_strFilePathwayC, c_strFileModuleP]],\n")
+    sconstruct_file.write("\t[r'0(1")
     if last_id != None:
         if args.coverage == '' :
             if args.low_coverage_elimination == 'yes':
@@ -181,9 +189,9 @@ def generate_humann_param_file(sconstruct_filepath, args, data_dir):
             else:
                 sconstruct_file.write("|(3c)")
         if args.abundance_computation == 'yes':
-            sconstruct_file.write("|(4b)'")
+            sconstruct_file.write("|(4b)")
     sconstruct_file.write(")', c_strProgNormalize],\n")
-    sconstruct_file.write(" [None, c_strProgEco],\n")
+    sconstruct_file.write("\t[None, c_strProgEco],\n")
     #sconstruct_file.write("    [None, c_strProgMetadata],\n")#, [c_strInputMetadata]],\n")
     sconstruct_file.write("]\n")
     sconstruct_file.write("\n")
@@ -198,11 +206,11 @@ def generate_humann_param_file(sconstruct_filepath, args, data_dir):
     #        The processing script\n")
     #        An array of zero or more files provided on the command line to the processing script\n")
     #    A required tag for the file to differentiate it from other HUMAnN outputs\n")
+    sconstruct_file.write("c_aastrExport = [\n")
     if args.graphlan_export == 'yes':
-        sconstruct_file.write("c_aastrExport = [\n")
-        sconstruct_file.write(" [r'04b.*', [[c_strProgGraphlanTree, [c_strFileGraphlan]]], \"-graphlan_tree\"],\n")
-        sconstruct_file.write(" [r'04b.*', [[c_strProgGraphlanRings, [c_strFileGraphlan]]], \"-graphlan_rings\"],\n")
-        sconstruct_file.write("]\n")
+        sconstruct_file.write("\t[r'04b.*', [[c_strProgGraphlanTree, [c_strFileGraphlan]]], \"-graphlan_tree\"],\n")
+        sconstruct_file.write("\t[r'04b.*', [[c_strProgGraphlanRings, [c_strFileGraphlan]]], \"-graphlan_rings\"],\n")
+    sconstruct_file.write("]\n")
 
     sconstruct_file.write("\n")
     sconstruct_file.write("main( globals( ) )\n")
@@ -289,7 +297,7 @@ if __name__ == '__main__':
     current_directory = os.getcwd()
 
     os.chdir(args.humann_dir)
-    tmp_output_dir = "output"#generate_humann_param_file('SConstruct', args, current_directory)
+    tmp_output_dir = generate_humann_param_file('SConstruct', args, current_directory)
     os.system("scons > " + args.report)
     #os.system('ls data/')
     #print output_dir
