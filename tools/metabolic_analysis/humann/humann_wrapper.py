@@ -246,6 +246,7 @@ def generate_outputs(tmp_output_dir,args):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--input', required=True)
+    parser.add_argument('--report', required=True)
     parser.add_argument('--humann_dir', required=True)
     parser.add_argument('--cog_extracted_data')
     parser.add_argument('--ko_abundance', required=True)
@@ -288,8 +289,8 @@ if __name__ == '__main__':
     current_directory = os.getcwd()
 
     os.chdir(args.humann_dir)
-    tmp_output_dir = generate_humann_param_file('SConstruct', args, current_directory)
-    os.system("scons")
+    tmp_output_dir = "output"#generate_humann_param_file('SConstruct', args, current_directory)
+    os.system("scons > " + args.report)
     #os.system('ls data/')
     #print output_dir
     #os.system('ls ' + output_dir)

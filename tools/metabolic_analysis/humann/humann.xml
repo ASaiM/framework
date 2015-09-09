@@ -25,6 +25,7 @@
     <command interpreter="python">
         humann_wrapper.py
             --input=$input_file
+            --report=$report_file
             #set humann_dir=os.getcwd()+"/tools/metabolic_analysis/humann/humann/"
             --humann_dir=$humann_dir
             --cog_extracted_data=$cog_use
@@ -151,6 +152,8 @@
     </inputs>
 
     <outputs>
+        <data format="text" name="report_file" label="humann_report_${input_file.name}" />  
+
         <data format="text" name="kegg_ko_abundance_file" label="kegg_ko_abundance_${input_file.name}">  
             <filter>((ko_abundance["test"] and not cog_use ))</filter>
         </data>
