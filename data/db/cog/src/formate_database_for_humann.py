@@ -108,6 +108,16 @@ def generation_cog_pathway_mapping(kegg_pathway_mapping_filepath,
     kegg_pathway_mapping_file.close()
     return cog_ko_mapping
 
+def check_transformation(module_string):
+    new_module_string = module_string
+
+    open_bracket = 0
+    module_nb = 0
+    for s in new_module_string:
+        if s == '(':
+            open_bracket += 1
+    return new_module_string
+
 def transform_combination_from_kegg_to_cog(module):
     if isinstance(module,str):
         return ''
@@ -120,20 +130,30 @@ def transform_combination_from_kegg_to_cog(module):
     else :
         #s = '('
         s = ''
+        #print "module", module
         module_str = str(module)
+        module_num = 0
+        found_module = 0
         for submodule in module.m_pToken:
+            module_num += 1
             pos = module_str.find(str(submodule))
-            #print module_str, module_str[pos-1]
+            #print 'submodule', submodule, module_str[pos-1]
             kegg_to_cog_str = transform_combination_from_kegg_to_cog(submodule)
+            #print 'kegg_to_cog_str',kegg_to_cog_str
             if kegg_to_cog_str != '':
-                if s == '':
-                    s += '('
-                else :
+                found_module += 1
+                #if s == '' :
+                #    if module_num != len(module.m_pToken):
+                #        s += '('
+                if s != '' :
                     s += module_str[pos-1]
                 s += kegg_to_cog_str
-        if s != '':
-            s += ')'
-        #print module, s
+        if s != '' and found_module > 1:
+            s = '(' + s + ')'
+            #s += ')'
+
+        s = check_transformation(s)
+        print module, s
         return s
 
 def generation_cog_module_mapping(input_dirpath, output_dirpath,
@@ -160,12 +180,13 @@ def generation_cog_module_mapping(input_dirpath, output_dirpath,
     for module in kegg_module_mapping:
         module_id = module.m_strID
         module_detail = module.m_pPathway.m_pToken
-        module_mapping_file.write(module_id)
+        s = ''
         for submodule in module_detail:
             kegg_to_cog_str = transform_combination_from_kegg_to_cog(submodule)
             if kegg_to_cog_str != '':
-                module_mapping_file.write('\t' + kegg_to_cog_str)
-        module_mapping_file.write('\n')
+                s += '\t' + kegg_to_cog_str
+        if s != '':
+            module_mapping_file.write(module_id + s + '\n')
     module_mapping_file.close()
     kegg_module_mapping_file.close()
 
@@ -239,7 +260,7 @@ if __name__ == '__main__':
     cog_extracted_data_dirpath = args.extracted_data_dir
     humann_formated_data_dirpath = args.humann_formated_data_dir
     humann_dirpath = args.humann_dir
-    humann_data_dirpath = humann_dirpath + 'data/'
+    humann_data_dirpath = humann_dirpath + 'original_data/'
 
     if not os.path.exists(humann_formated_data_dirpath):
         os.system('mkdir -p ' + humann_formated_data_dirpath)
