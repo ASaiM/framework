@@ -197,7 +197,7 @@ def retrieve_organism_pathway(taxpc_filepath,Organisms_cogs,cog_ko_mapping):
             if cog_ko != None :
            	    ko_list += cog_ko
         if ko_list != []:
-            taxpc_file.write(orga)
+            taxpc_file.write(orga.lower())
             for ko in set(ko_list): #transforming into set to remove duplicates
            	    taxpc_file.write('\t' + ko + '#1')
             taxpc_file.write('\n')
