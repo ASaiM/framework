@@ -42,15 +42,22 @@ cd $humann_dir
 if [ ! -d "humann/" ]; then
     echo "  cloning"
     hg clone https://bitbucket.org/biobakery/humann
-    mkdir humann/original_data/
-    cp humann/data/* humann/original_data/
-    cp humann/SConstruct humann/original_data/
+    cd humann/
+    mkdir original_data/
+    cp data/* original_data/
+    cp SConstruct original_data/  
 else
     echo "  updating"
-    cd "humann/"
+    cd humann/
     hg pull
-    cd ../
 fi
+cd data/
+mkdir MinPath/
+curl "http://omics.informatics.indiana.edu/mg/get.php?justdoit=yes&software=minpath1.2.tar.gz" | tar -C MinPath/ --strip-components=1 -xvz
+cd MinPath/glpk-4.6/
+./configure
+make clean
+make
 cd $current_dir
 
 ## retrieve cog, extract info and formate for use with humann
