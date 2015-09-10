@@ -9,14 +9,14 @@
     </requirements>
 
     <stdio>
-        <!--<regex match="error"
+        <regex match="error"
                source="stderr"
                level="fatal"
                description="" />
         <regex match="warning"
                source="stderr"
                level="warning"
-               description="" />-->
+               description="" />
     </stdio>
 
     <version_command></version_command>
