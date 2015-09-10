@@ -81,7 +81,7 @@
             #end if
 
             #if $abundance.test:
-                --abundance_computation=yes
+                --abundance=yes
                 #if $ko_abundance.test:
                     #if $ko_abundance.kegg_pathway:
                         --kegg_pathway_abundance_file=$kegg_pathway_abundance_file
