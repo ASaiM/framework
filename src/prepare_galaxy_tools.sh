@@ -58,6 +58,7 @@ cd MinPath/glpk-4.6/
 ./configure
 make clean
 make
+cp $current_dir/data/db/metacyc/meta.tar.gz ../../
 cd $current_dir
 
 ## retrieve cog, extract info and formate for use with humann
