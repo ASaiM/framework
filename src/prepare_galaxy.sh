@@ -12,7 +12,7 @@ else
     git clone https://github.com/galaxyproject/galaxy.git $galaxy_dir
 fi
 
-cp -r tools/ $galaxy_dir/tools
+cp -r tools/ $galaxy_dir/
 
 # Prepare galaxy tools
 ./src/prepare_galaxy_tools.sh $galaxy_dir
