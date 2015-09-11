@@ -5,6 +5,7 @@ import sys
 import os
 import pickle
 import argparse
+import re
 
 def generate_humann_param_file(sconstruct_filepath, args, data_dir):
     sconstruct_file = open(sconstruct_filepath,"w")
@@ -43,8 +44,8 @@ def generate_humann_param_file(sconstruct_filepath, args, data_dir):
     #sconstruct_file.write("c_strInputMetadata                  = c_strDirInput + \"/hmp_metadata.dat\"\n")
 
     # Optional: MetaCyc distribution tarball, will be used for pathways if present
-    sconstruct_file.write("c_strInputMetaCyc = \"\" # c_strDirInput + \"/meta.tar.gz\"\n")
-    sconstruct_file.write("c_strVersionMetaCyc = \"14.6\"\n")
+    sconstruct_file.write("c_strInputMetaCyc = \"data/meta.tar.gz\"\n")
+    sconstruct_file.write("c_strVersionMetaCyc = \"19.1\"\n")
 
     # Optional: MetaCyc distribution tarball, will be used for pathways if present
     # Note: Should build synthetic communities in the \"synth\" subdirectory first if enabled
@@ -164,7 +165,7 @@ def generate_humann_param_file(sconstruct_filepath, args, data_dir):
                 sconstruct_file.write("\tCProcessor( \"03c\", \"04a\", \"xpe\", c_strProgPathCovXP, [c_strProgXipe] ),\n")
 
         # ABUNDANCE
-        if args.abundance_computation == 'yes':
+        if args.abundance == 'yes':
             sconstruct_file.write("\tCProcessor( \"" + last_id + "\", \"04b\", \"nve\", c_strProgPathAb, [c_strFilePathwayC, c_strFileModuleP] ),\n")
 
     sconstruct_file.write("]\n")
@@ -188,7 +189,7 @@ def generate_humann_param_file(sconstruct_filepath, args, data_dir):
                 sconstruct_file.write("|(4a)")
             else:
                 sconstruct_file.write("|(3c)")
-        if args.abundance_computation == 'yes':
+        if args.abundance == 'yes':
             sconstruct_file.write("|(4b)")
     sconstruct_file.write(")', c_strProgNormalize],\n")
     sconstruct_file.write("\t[None, c_strProgEco],\n")
@@ -247,16 +248,78 @@ def formate_blast_output(input_report_filepath,
                 split_row[1] = refseq_organism_id_corres[target]
                 output_report_file.write('\t'.join(split_row) + '\n')
 
-def generate_outputs(tmp_output_dir,args):
-    pass
+def test_file_presence(regular_expression, filepaths):
+    found_filepath = []
+    for filepath in filepaths:
+        if re.search(regular_expression, filepath) != None:
+            found_filepath.append(filepath)
 
+    if len(found_filepath) == 0 :
+        return None
+    elif len(found_filepath) > 2 :
+        string = "Multiple files found corresponding to the regular expression" 
+        string += regular_expression + " in " + str(filepaths)
+        raise ValueError(string)
+    else:
+        return found_filepath[0]
+
+def copy_file(input_filename, input_dir, output_filepath):
+    if input_filename != None :
+        input_filepath = input_dir + input_filename
+        if not os.path.exists(input_filepath):
+            string = "File " + input_filepath + " does not exists"
+            raise ValueError(string)
+        os.system('cp ' + input_filepath + ' ' + output_filepath)
+
+def generate_outputs(tmp_output_dir,args):
+    tmp_output_files = os.listdir(tmp_output_dir)
+
+    if args.cog_extracted_data == 'yes':
+        output_filepath = args.cog_abundance_file 
+    else:
+        output_filepath = args.kegg_ko_abundance_file
+    copy_file(test_file_presence('01b-hit-ko-cat.txt', tmp_output_files), 
+        tmp_output_dir, output_filepath)
+            
+    copy_file(test_file_presence('^(0[4a|3c]-hit-ko-mpt)[0-9a-z\-]+\.txt', 
+        tmp_output_files), tmp_output_dir, args.kegg_pathway_coverage_file)
+    copy_file(test_file_presence('^(04b-hit-ko-mpm)[0-9a-z\-]+\.tx', 
+        tmp_output_files), tmp_output_dir, args.kegg_pathway_coverage_file)
+    copy_file(test_file_presence('^(04b-hit-ko-mpt)(.*)(graphlan_rings.txt)$', 
+        tmp_output_files), tmp_output_dir, 
+        args.kegg_pathway_abundance_graphlan_rings)
+    copy_file(test_file_presence('^(04b-hit-ko-mpt)(.*)(graphlan_tree.txt)$', 
+        tmp_output_files), tmp_output_dir, 
+        args.kegg_pathway_abundance_graphlan_tree)
+
+    copy_file(test_file_presence('^(0[4a|3c]-hit-ko-mpm)[0-9a-z\-]+\.txt', 
+        tmp_output_files), tmp_output_dir, args.kegg_module_coverage_file)
+    copy_file(test_file_presence('^(04b-hit-ko-mpm)[0-9a-z\-]+\.txt', 
+        tmp_output_files), tmp_output_dir, args.kegg_module_abundance_file)
+    copy_file(test_file_presence('^(04b-hit-ko-mpm)(.*)(graphlan_rings.txt)$', 
+        tmp_output_files), tmp_output_dir, 
+        args.kegg_module_abundance_graphlan_rings)
+    copy_file(test_file_presence('^(04b-hit-ko-mpm)(.*)(graphlan_tree.txt)$', 
+        tmp_output_files), tmp_output_dir, 
+        args.kegg_module_abundance_graphlan_tree)
+
+    copy_file(test_file_presence('^(0[4a|3c]-hit-mtc-mpt)[0-9a-z\-]+\.txt', 
+        tmp_output_files), tmp_output_dir, args.metacyc_pathway_coverage_file)
+    copy_file(test_file_presence('^(04b-hit-mtc-mpt)[0-9a-z\-]+\.txt', 
+        tmp_output_files), tmp_output_dir, args.metacyc_pathway_abundance_file)
+    copy_file(test_file_presence('^(04b-hit-mtc-mpt)(.*)(graphlan_rings.txt)$', 
+        tmp_output_files), tmp_output_dir,  
+        args.metacyc_pathway_abundance_graphlan_rings)
+    copy_file(test_file_presence('^(04b-hit-mtc-mpt)(.*)(graphlan_tree.txt)$', 
+        tmp_output_files), tmp_output_dir,  
+        args.metacyc_pathway_abundance_graphlan_tree)
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--input', required=True)
     parser.add_argument('--report', required=True)
     parser.add_argument('--humann_dir', required=True)
-    parser.add_argument('--cog_extracted_data')
+    parser.add_argument('--cog_extracted_data', required=True)
     parser.add_argument('--ko_abundance', required=True)
     parser.add_argument('--kegg_pathway', required=True)
     parser.add_argument('--kegg_module', required=True)
@@ -268,7 +331,7 @@ if __name__ == '__main__':
     parser.add_argument('--gap_filling', required=True)
     parser.add_argument('--coverage', required=True)
     parser.add_argument('--low_coverage_elimination', required=True)
-    parser.add_argument('--abundance_computation', required=True)
+    parser.add_argument('--abundance', required=True)
     parser.add_argument('--graphlan_export', required=True)
     parser.add_argument('--kegg_ko_abundance_file')
     parser.add_argument('--cog_abundance_file') 
