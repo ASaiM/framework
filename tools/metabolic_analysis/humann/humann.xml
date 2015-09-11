@@ -173,53 +173,53 @@
             <filter>((ko_abundance["test"] and cog_use))</filter>
         </data>
 
-        <data format="text" name="kegg_pathway_coverage_file" label="kegg_pathway_coverage_${input_file}">  
+        <data format="text" name="kegg_pathway_coverage_file" label="kegg_pathway_coverage_${input_file.name}">  
             <filter>((ko_abundance["test"] and ko_abundance["kegg_pathway"] and 
                 coverage["test"] ))</filter>
         </data>
-        <data format="text" name="kegg_pathway_abundance_file" label="kegg_pathway_abundance_${input_file}">  
+        <data format="text" name="kegg_pathway_abundance_file" label="kegg_pathway_abundance_${input_file.name}">  
             <filter>((ko_abundance["test"] and ko_abundance["kegg_pathway"] and 
                 abundance["test"] ))</filter>
         </data> 
-        <data format="text" name="kegg_pathway_abundance_graphlan_rings" label="kegg_pathway_abundance_graphlan_rings_${input_file}">  
+        <data format="text" name="kegg_pathway_abundance_graphlan_rings" label="kegg_pathway_abundance_graphlan_rings_${input_file.name}">  
             <filter>((ko_abundance["test"] and ko_abundance["kegg_pathway"] and 
                 abundance["test"] and abundance["graphlan_export"] ))</filter>
         </data>
-        <data format="text" name="kegg_pathway_abundance_graphlan_tree" label="kegg_pathway_abundance_graphlan_tree_${input_file}">  
+        <data format="text" name="kegg_pathway_abundance_graphlan_tree" label="kegg_pathway_abundance_graphlan_tree_${input_file.name}">  
             <filter>((ko_abundance["test"] and ko_abundance["kegg_pathway"] and 
                 abundance["test"] and abundance["graphlan_export"] ))</filter>
         </data>
 
-        <data format="text" name="kegg_module_coverage_file" label="kegg_module_coverage_${input_file}">  
+        <data format="text" name="kegg_module_coverage_file" label="kegg_module_coverage_${input_file.name}">  
             <filter>((ko_abundance["test"] and ko_abundance["kegg_module"] and 
-                coverage["test"] == "yes"))</filter>
+                coverage["test"]))</filter>
         </data>
-        <data format="text" name="kegg_module_abundance_file" label="kegg_module_abundance_${input_file}">  
+        <data format="text" name="kegg_module_abundance_file" label="kegg_module_abundance_${input_file.name}">  
             <filter>((ko_abundance["test"] and ko_abundance["kegg_module"] and 
                 abundance["test"] ))</filter>
         </data>
-        <data format="text" name="kegg_module_abundance_graphlan_rings" label="kegg_module_abundance_graphlan_rings_${input_file}">  
+        <data format="text" name="kegg_module_abundance_graphlan_rings" label="kegg_module_abundance_graphlan_rings_${input_file.name}">  
             <filter>((ko_abundance["test"] and ko_abundance["kegg_module"] and 
                 abundance["test"] and abundance["graphlan_export"] ))</filter>
         </data>
-        <data format="text" name="kegg_module_abundance_graphlan_tree" label="kegg_module_abundance_graphlan_tree_${input_file}">  
+        <data format="text" name="kegg_module_abundance_graphlan_tree" label="kegg_module_abundance_graphlan_tree_${input_file.name}">  
             <filter>((ko_abundance["test"] and ko_abundance["kegg_module"] and 
                 abundance["test"] and abundance["graphlan_export"] ))</filter>
         </data>
 
-        <data format="text" name="metacyc_pathway_coverage_file" label="metacyc_pathway_coverage_${input_file}">  
+        <data format="text" name="metacyc_pathway_coverage_file" label="metacyc_pathway_coverage_${input_file.name}">  
             <filter>((metacyc["test"] and metacyc["pathway"] and 
                 coverage["test"] ))</filter>
         </data>
-        <data format="text" name="metacyc_pathway_abundance_file" label="metacyc_pathway_abundance_${input_file}">  
+        <data format="text" name="metacyc_pathway_abundance_file" label="metacyc_pathway_abundance_${input_file.name}">  
             <filter>((metacyc["test"] and metacyc["pathway"] and 
                 abundance["test"] ))</filter>
         </data>
-        <data format="text" name="metacyc_pathway_abundance_graphlan_rings" label="metacyc_pathway_abundance_graphlan_rings_${input_file}">  
+        <data format="text" name="metacyc_pathway_abundance_graphlan_rings" label="metacyc_pathway_abundance_graphlan_rings_${input_file.name}">  
             <filter>((metacyc["test"] and metacyc["pathway"] and 
                 abundance["test"] and abundance["graphlan_export"] ))</filter>
         </data>
-        <data format="text" name="metacyc_pathway_abundance_graphlan_tree" label="metacyc_pathway_abundance_graphlan_tree_${input_file}">  
+        <data format="text" name="metacyc_pathway_abundance_graphlan_tree" label="metacyc_pathway_abundance_graphlan_tree_${input_file.name}">  
             <filter>((metacyc["test"] and metacyc["pathway"] and 
                 abundance["test"] and abundance["graphlan_export"] ))</filter>
         </data>
