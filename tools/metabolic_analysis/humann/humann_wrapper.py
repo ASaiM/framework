@@ -269,6 +269,9 @@ def copy_file(input_filename, input_dir, output_filepath):
         if not os.path.exists(input_filepath):
             string = "File " + input_filepath + " does not exists"
             raise ValueError(string)
+        if output_filepath == None:
+            string = "File " + input_filename + " has no output filepath"
+            raise ValueError(string)
         os.system('cp ' + input_filepath + ' ' + output_filepath)
 
 def generate_outputs(tmp_output_dir,args):
@@ -276,9 +279,12 @@ def generate_outputs(tmp_output_dir,args):
 
     if args.cog_extracted_data == 'yes':
         output_filepath = args.cog_abundance_file 
+        print 'cog'
     else:
         output_filepath = args.kegg_ko_abundance_file
-    copy_file(test_file_presence('01b-hit-ko-cat.txt', tmp_output_files), 
+        print 'kegg'
+    print output_filepath
+    copy_file(test_file_presence('^01b-hit-ko-cat.txt', tmp_output_files), 
         tmp_output_dir, output_filepath)
             
     copy_file(test_file_presence('^(0[4a|3c]-hit-ko-mpt)[0-9a-z\-]+\.txt', 
@@ -314,6 +320,8 @@ def generate_outputs(tmp_output_dir,args):
         tmp_output_files), tmp_output_dir,  
         args.metacyc_pathway_abundance_graphlan_tree)
 
+    os.system('rm -rf ' + tmp_output_dir)
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--input', required=True)
@@ -323,9 +331,9 @@ if __name__ == '__main__':
     parser.add_argument('--ko_abundance', required=True)
     parser.add_argument('--kegg_pathway', required=True)
     parser.add_argument('--kegg_module', required=True)
-    parser.add_argument('--metarep', required=True)
-    parser.add_argument('--metacyc_enzyme', required=True)
-    parser.add_argument('--metacyc_pathway', required=True)
+    parser.add_argument('--metarep')
+    parser.add_argument('--metacyc_enzyme')
+    parser.add_argument('--metacyc_pathway')
     parser.add_argument('--taxonomic_limitation', required=True)
     parser.add_argument('--wb_smoothing', required=True)
     parser.add_argument('--gap_filling', required=True)
@@ -368,3 +376,5 @@ if __name__ == '__main__':
     os.chdir(current_directory)
 
     generate_outputs(tmp_output_dir,args)
+
+
