@@ -45,20 +45,20 @@ if [ ! -d "humann/" ]; then
     cd humann/
     mkdir original_data/
     cp data/* original_data/
-    cp SConstruct original_data/  
+    cp SConstruct original_data/
+    cp $current_dir/data/db/metacyc/meta.tar.gz data/  
+    
+    scons > initial_scons
+    cd data/MinPath/glpk-4.6/
+    autoconf
+    ./configure
+    make clean
+    make
 else
     echo "  updating"
     cd humann/
     hg pull
 fi
-cd data/
-mkdir MinPath/
-curl "http://omics.informatics.indiana.edu/mg/get.php?justdoit=yes&software=minpath1.2.tar.gz" | tar -C MinPath/ --strip-components=1 -xvz
-cd MinPath/glpk-4.6/
-./configure
-make clean
-make
-cp $current_dir/data/db/metacyc/meta.tar.gz ../../
 cd $current_dir
 
 ## retrieve cog, extract info and formate for use with humann
