@@ -56,8 +56,9 @@ def save_cog_detailed_informations (detailed_informations, dirpath):
                 string += detailed_informations[cog_name][organism][seq_id] 
                 string += '\n'
                 gene_length_file.write(string) 
-                string = '\t' + organism.upper() + '#' + seq_id.upper() + '\n'
+                string = '\t' + organism.upper() + '#' + seq_id.upper()
                 gene_to_COG_file.write(string)
+        gene_to_COG_file.write('\n')
 
     gene_length_file.close()
     gene_to_COG_file.close()
