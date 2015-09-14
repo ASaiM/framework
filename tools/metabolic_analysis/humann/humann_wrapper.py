@@ -287,10 +287,12 @@ def generate_outputs(tmp_output_dir,args):
     copy_file(test_file_presence('^01b-hit-ko-cat.txt', tmp_output_files), 
         tmp_output_dir, output_filepath)
             
-    copy_file(test_file_presence('^(0[4a|3c]-hit-ko-mpt)[0-9a-z\-]+\.txt', 
+    copy_file(test_file_presence('^(03c-hit-ko-mpt)[0-9a-z\-]+\.txt', 
         tmp_output_files), tmp_output_dir, args.kegg_pathway_coverage_file)
-    copy_file(test_file_presence('^(04b-hit-ko-mpm)[0-9a-z\-]+\.tx', 
+    copy_file(test_file_presence('^(04a-hit-ko-mpt)[0-9a-z\-]+\.txt', 
         tmp_output_files), tmp_output_dir, args.kegg_pathway_coverage_file)
+    copy_file(test_file_presence('^(04b-hit-ko-mpt)[0-9a-z\-]+\.tx', 
+        tmp_output_files), tmp_output_dir, args.kegg_pathway_abundance_file)
     copy_file(test_file_presence('^(04b-hit-ko-mpt)(.*)(graphlan_rings.txt)$', 
         tmp_output_files), tmp_output_dir, 
         args.kegg_pathway_abundance_graphlan_rings)
@@ -298,7 +300,9 @@ def generate_outputs(tmp_output_dir,args):
         tmp_output_files), tmp_output_dir, 
         args.kegg_pathway_abundance_graphlan_tree)
 
-    copy_file(test_file_presence('^(0[4a|3c]-hit-ko-mpm)[0-9a-z\-]+\.txt', 
+    copy_file(test_file_presence('^(03c-hit-ko-mpm)[0-9a-z\-]+\.txt', 
+        tmp_output_files), tmp_output_dir, args.kegg_module_coverage_file)
+    copy_file(test_file_presence('^(04a-hit-ko-mpm)[0-9a-z\-]+\.txt', 
         tmp_output_files), tmp_output_dir, args.kegg_module_coverage_file)
     copy_file(test_file_presence('^(04b-hit-ko-mpm)[0-9a-z\-]+\.txt', 
         tmp_output_files), tmp_output_dir, args.kegg_module_abundance_file)
@@ -309,7 +313,9 @@ def generate_outputs(tmp_output_dir,args):
         tmp_output_files), tmp_output_dir, 
         args.kegg_module_abundance_graphlan_tree)
 
-    copy_file(test_file_presence('^(0[4a|3c]-hit-mtc-mpt)[0-9a-z\-]+\.txt', 
+    copy_file(test_file_presence('^(03c-hit-mtc-mpt)[0-9a-z\-]+\.txt', 
+        tmp_output_files), tmp_output_dir, args.metacyc_pathway_coverage_file)
+    copy_file(test_file_presence('^(04a-hit-mtc-mpt)[0-9a-z\-]+\.txt', 
         tmp_output_files), tmp_output_dir, args.metacyc_pathway_coverage_file)
     copy_file(test_file_presence('^(04b-hit-mtc-mpt)[0-9a-z\-]+\.txt', 
         tmp_output_files), tmp_output_dir, args.metacyc_pathway_abundance_file)
