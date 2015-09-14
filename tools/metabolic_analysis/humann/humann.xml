@@ -151,7 +151,7 @@
         <conditional name="coverage">
             <param name="test" type="boolean" checked="true" truevalue="yes" falsevalue="no" label="Compute module/pathway coverage?" help="Likelihood that all genes needed to operate the pathway/module are present"/>
             <when value="yes">
-                <param name="low_coverage_elimination" type="boolean" checked="true" truevalue="false" falsevalue="no" label="Eliminate modules/pathways with low coverage?" help=""/>
+                <param name="low_coverage_elimination" type="boolean" checked="true" truevalue="yes" falsevalue="no" label="Eliminate modules/pathways with low coverage?" help=""/>
             </when>
         </conditional>
 
