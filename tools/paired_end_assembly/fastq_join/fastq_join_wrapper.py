@@ -6,9 +6,10 @@ import os
 import argparse
 
 def launch_fastq_join(args, dirpath, file_format):
-    current_directory = os.getcwd()
+    src_directory = dirpath.split('galaxy/')[0] 
+    src_directory += 'galaxy/tools/paired_end_assembly/fastq_join'
 
-    command = current_directory + '/trunk/clipper/fastq-join'
+    command = src_directory + '/trunk/clipper/fastq-join'
 
     command += ' -p ' + args.max_diff_perc
     command += ' -m ' + args.min_overlap
@@ -17,14 +18,26 @@ def launch_fastq_join(args, dirpath, file_format):
 
     command += ' ' + args.r1_sequence_file
     command += ' ' + args.r2_sequence_file
-    command += ' -o ' + dirpath + '/%.' + file_format
+    command += ' -o ' + dirpath + '/%'
     command += ' > ' + dirpath + '/fastq_join_verbose_output' 
 
     os.system(command)
 
+def copy_file(input_filepath, output_filepath):
+    if not os.path.exists(input_filepath):
+        string = input_filepath + " not found"
+        raise ValueError(string)
+    command = 'cp ' + input_filepath + ' ' + output_filepath
+    os.system(command)
+
 def generate_outputs(dirpath, args):
     output_files = os.listdir(dirpath)
-    print output_files
+    copy_file(dirpath + '/join', args.join_sequence_file)
+    copy_file(dirpath + '/un1', args.single_R1_sequence_file)
+    copy_file(dirpath + '/un2', args.single_R2_sequence_file)
+    copy_file(dirpath + '/fastq_join_verbose_output', args.report)
+
+    
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
