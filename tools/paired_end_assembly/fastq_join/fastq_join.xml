@@ -1,0 +1,90 @@
+<tool id="fastq_join" name="Assemble paired-end sequences">
+
+	<description>with FastQJoin</description>
+
+    <macros>
+    </macros>
+
+	<requirements>
+    </requirements>
+
+    <stdio>
+    </stdio>
+
+    <version_command>
+    </version_command>
+
+  	<!--<command>-->
+    <command interpreter="python">
+        fastq_join_wrapper.py 
+            --r1_sequence_file $r1_sequence_file
+            --r2_sequence_file $r2_sequence_file
+            --min_overlap $min_overlap
+            --max_diff_perc $max_diff_perc
+            --smaller_insert $smaller_insert
+            --join_sequence_file $join_sequence_file
+            --single_R1_sequence_file $single_R1_sequence_file
+            --single_R2_sequence_file $single_R2_sequence_file
+            --report $report
+    </command>
+
+  	<inputs>
+        <param name="r1_sequence_file" type="data" format="fastq,fasta" label="R1 sequence file" help=""/>
+        <param name="r2_sequence_file" type="data" format="fastq,fasta" label="R2 sequence file" help=""/>
+        <param name="min_overlap" type="integer" min="0" max="3000" value="6" label="Minimal overlap length (in bp) required to join pairs" help=""/>
+        <param name="max_diff_perc" type="integer" min="0" max="100" value="8" label="Maximal percentage of differences within overlap region" help=""/>
+        <param name='smaller_insert' type='boolean' checked="true" truevalue='yes' falsevalue='no' label="Smaller insert?" help=""/> 
+  	</inputs>
+
+  	<outputs>
+        <data format="fastq,fasta" name="join_sequence_file" label="joined_${r1_sequence_file.name}_${r2_sequence_file.name}" />
+        <data format="fastq,fasta" name="single_R1_sequence_file" label="single_${r1_sequence_file.name}" />
+        <data format="fastq,fasta" name="single_R2_sequence_file" label="single_${r2_sequence_file.name}" />
+        <data format="text" name="report" label="report_fastq_join_${r2_sequence_file.name}" />
+  	</outputs>
+
+  	<tests>
+  
+  	</tests>
+
+  	<help>
+        FastQJoin is not working on MacOSX
+
+        **What it does**
+
+        FastQJoin is a command-line tool available in ea-utils tools. 
+
+        Similar to audy's stitch program, it uses the squared distance for 
+        anchored alignment, which is a good measure of anchored alignment 
+        quality, akin to squared-deviation for means.
+
+        For assembly, the overlapping bases are treated as:
+
+            - When the bases match, the higher quality base is used
+            - When the bases don't match, if one quality is greater than 50%, then the resulting quality is the difference between the two qualities (reduced quality due to mismatch), or 50%, whichever is greater.
+
+        **Input**
+
+        FastQJoin takes as input two sequence files to join and some parameters 
+        such as:
+
+            - Minimal overlap length (in bp) required to join pairs
+            - Maximal percentage of differences within overlap region
+            - Information if smaller insert
+
+        **Outputs**
+
+        The outputs are 3 sequence files:
+
+            - One file with the joined sequences
+            - One file with the non joined sequences from R1 sequence file
+            - One file with the non joined sequences from R2 sequence file
+
+
+  	</help>
+
+    <citations>
+        <citation type="doi">10.2174/1875036201307010001</citation>
+    </citations>
+</tool>
+
