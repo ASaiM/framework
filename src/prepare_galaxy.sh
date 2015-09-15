@@ -24,6 +24,11 @@ if [ ! -d $galaxy_dir/dependency_dir ]; then
     mkdir $galaxy_dir/dependency_dir
 fi
 
+# Prepare ftp directory
+if [ ! -d $galaxy_dir/database/ftp ]; then
+    mkdir $galaxy_dir/database/ftp
+fi
+
 # Launch galaxy
 cd $galaxy_dir
 sh run.sh
