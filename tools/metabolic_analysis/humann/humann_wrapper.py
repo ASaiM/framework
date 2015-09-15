@@ -7,7 +7,8 @@ import pickle
 import argparse
 import re
 
-def generate_humann_param_file(sconstruct_filepath, args, data_dir):
+def generate_humann_param_file(sconstruct_filepath, args, tmp_input_dirpath,
+    tmp_output_dirpath):
     sconstruct_file = open(sconstruct_filepath,"w")
 
     #######################
@@ -29,16 +30,10 @@ def generate_humann_param_file(sconstruct_filepath, args, data_dir):
     sconstruct_file.write("\treturn (False)\n\n")
 
     # Directory name scanned for input files
-    if args.cog_extracted_data == 'yes':
-        sconstruct_file.write("c_strDirInput = \"" + os.path.split(args.input)[0] + "/formatted\"\n")
-    else:
-        sconstruct_file.write("c_strDirInput = \"" + os.path.split(args.input)[0] + "/\"\n")
+    sconstruct_file.write("c_strDirInput = \"" + tmp_input_dirpath + "\"\n")
 
     # Directory into which all output files are placed
-    tmp_output_dir = os.path.split(args.input)[0] + '/temporary_humann_output/'
-    if not os.path.exists(tmp_output_dir):
-        os.makedirs(tmp_output_dir)
-    sconstruct_file.write("c_strDirOutput = \"" + tmp_output_dir + "\"\n")
+    sconstruct_file.write("c_strDirOutput = \"" + tmp_output_dirpath + "\"\n")
 
     # Filename from which metadata annotations are read; can be excluded
     #sconstruct_file.write("c_strInputMetadata                  = c_strDirInput + \"/hmp_metadata.dat\"\n")
@@ -216,9 +211,7 @@ def generate_humann_param_file(sconstruct_filepath, args, data_dir):
     sconstruct_file.write("\n")
     sconstruct_file.write("main( globals( ) )\n")
 
-    return tmp_output_dir
-
-def formate_blast_output(input_report_filepath, 
+def formate_blast_output(input_report_filepath, output_report_dirpath,
     refseq_orga_id_corresp_filepath):
     if not os.path.exists(refseq_orga_id_corresp_filepath):
         string = refseq_orga_id_corresp_filepath + " does not exist\n"
@@ -230,14 +223,10 @@ def formate_blast_output(input_report_filepath,
     with open(refseq_orga_id_corresp_filepath,'r') as refseq_orga_id_corresp_file:
         refseq_organism_id_corres = pickle.load(refseq_orga_id_corresp_file)
 
-    dirpath, filename = os.path.split(os.path.abspath(input_report_filepath))
-    output_report_dirpath = dirpath + '/formatted/'
-    if not os.path.exists(output_report_dirpath):
-        os.mkdir( output_report_dirpath)
+    filename = os.path.split(os.path.abspath(input_report_filepath))[1]
     transfo_function = lambda s: s.split('|')[3].split('.')[0]
-
     with open(input_report_filepath, 'r') as input_report_file:
-        with open(output_report_dirpath + filename,'w') as output_report_file:
+        with open(output_report_dirpath + '/' + filename,'w') as output_report_file:
             for row in input_report_file:
                 split_row = row[:-1].split('\t')
                 target = transfo_function(split_row[1])
@@ -265,7 +254,7 @@ def test_file_presence(regular_expression, filepaths):
 
 def copy_file(input_filename, input_dir, output_filepath):
     if input_filename != None :
-        input_filepath = input_dir + input_filename
+        input_filepath = input_dir + '/' + input_filename
         if not os.path.exists(input_filepath):
             string = "File " + input_filepath + " does not exists"
             raise ValueError(string)
@@ -279,18 +268,18 @@ def generate_outputs(tmp_output_dir,args):
 
     if args.cog_extracted_data == 'yes':
         output_filepath = args.cog_abundance_file 
-        print 'cog'
     else:
         output_filepath = args.kegg_ko_abundance_file
         print 'kegg'
-    print output_filepath
     copy_file(test_file_presence('^01b-hit-ko-cat.txt', tmp_output_files), 
         tmp_output_dir, output_filepath)
             
-    copy_file(test_file_presence('^(0[4a|3c]-hit-ko-mpt)[0-9a-z\-]+\.txt', 
+    copy_file(test_file_presence('^(03c-hit-ko-mpt)[0-9a-z\-]+\.txt', 
         tmp_output_files), tmp_output_dir, args.kegg_pathway_coverage_file)
-    copy_file(test_file_presence('^(04b-hit-ko-mpm)[0-9a-z\-]+\.tx', 
+    copy_file(test_file_presence('^(04a-hit-ko-mpt)[0-9a-z\-]+\.txt', 
         tmp_output_files), tmp_output_dir, args.kegg_pathway_coverage_file)
+    copy_file(test_file_presence('^(04b-hit-ko-mpt)[0-9a-z\-]+\.tx', 
+        tmp_output_files), tmp_output_dir, args.kegg_pathway_abundance_file)
     copy_file(test_file_presence('^(04b-hit-ko-mpt)(.*)(graphlan_rings.txt)$', 
         tmp_output_files), tmp_output_dir, 
         args.kegg_pathway_abundance_graphlan_rings)
@@ -298,7 +287,9 @@ def generate_outputs(tmp_output_dir,args):
         tmp_output_files), tmp_output_dir, 
         args.kegg_pathway_abundance_graphlan_tree)
 
-    copy_file(test_file_presence('^(0[4a|3c]-hit-ko-mpm)[0-9a-z\-]+\.txt', 
+    copy_file(test_file_presence('^(03c-hit-ko-mpm)[0-9a-z\-]+\.txt', 
+        tmp_output_files), tmp_output_dir, args.kegg_module_coverage_file)
+    copy_file(test_file_presence('^(04a-hit-ko-mpm)[0-9a-z\-]+\.txt', 
         tmp_output_files), tmp_output_dir, args.kegg_module_coverage_file)
     copy_file(test_file_presence('^(04b-hit-ko-mpm)[0-9a-z\-]+\.txt', 
         tmp_output_files), tmp_output_dir, args.kegg_module_abundance_file)
@@ -309,7 +300,9 @@ def generate_outputs(tmp_output_dir,args):
         tmp_output_files), tmp_output_dir, 
         args.kegg_module_abundance_graphlan_tree)
 
-    copy_file(test_file_presence('^(0[4a|3c]-hit-mtc-mpt)[0-9a-z\-]+\.txt', 
+    copy_file(test_file_presence('^(03c-hit-mtc-mpt)[0-9a-z\-]+\.txt', 
+        tmp_output_files), tmp_output_dir, args.metacyc_pathway_coverage_file)
+    copy_file(test_file_presence('^(04a-hit-mtc-mpt)[0-9a-z\-]+\.txt', 
         tmp_output_files), tmp_output_dir, args.metacyc_pathway_coverage_file)
     copy_file(test_file_presence('^(04b-hit-mtc-mpt)[0-9a-z\-]+\.txt', 
         tmp_output_files), tmp_output_dir, args.metacyc_pathway_abundance_file)
@@ -319,8 +312,6 @@ def generate_outputs(tmp_output_dir,args):
     copy_file(test_file_presence('^(04b-hit-mtc-mpt)(.*)(graphlan_tree.txt)$', 
         tmp_output_files), tmp_output_dir,  
         args.metacyc_pathway_abundance_graphlan_tree)
-
-    os.system('rm -rf ' + tmp_output_dir)
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
@@ -358,23 +349,40 @@ if __name__ == '__main__':
 
     args = parser.parse_args()
 
+    tmp_dirpath, filename = os.path.split(os.path.abspath(args.input))
+    filename = filename.split('.')[0]
+    tmp_dirpath = tmp_dirpath + '/' + filename + '_humann_files/'
+    if not os.path.exists(tmp_dirpath):
+        os.makedirs(tmp_dirpath)
+    tmp_input_dirpath = tmp_dirpath + 'input'
+    if not os.path.exists(tmp_input_dirpath):
+        os.makedirs(tmp_input_dirpath)
+    tmp_output_dirpath = tmp_dirpath + 'output'
+    if not os.path.exists(tmp_output_dirpath):
+        os.makedirs(tmp_output_dirpath)
+
     if args.cog_extracted_data == 'yes':
-        formate_blast_output(args.input,
+        formate_blast_output(args.input, tmp_input_dirpath,
             args.humann_dir + '/cog_data/refseq_orga_id_correspondance')
         command = 'cp ' + args.humann_dir + '/cog_data/* ' 
         command += args.humann_dir + '/data'
+        os.system(command)
+    else:
+        command = 'cp ' + args.input + ' '
+        command += tmp_input_dirpath
         os.system(command)
 
     current_directory = os.getcwd()
 
     os.chdir(args.humann_dir)
-    tmp_output_dir = generate_humann_param_file('SConstruct', args, current_directory)
+    generate_humann_param_file('SConstruct', args, tmp_input_dirpath, 
+        tmp_output_dirpath)
     os.system("scons > " + args.report)
-    #os.system('ls data/')
-    #print output_dir
-    #os.system('ls ' + output_dir)
     os.chdir(current_directory)
 
-    generate_outputs(tmp_output_dir,args)
+    generate_outputs(tmp_output_dirpath,args)
+
+    os.system('rm -rf ' + tmp_dirpath)
+
 
 
