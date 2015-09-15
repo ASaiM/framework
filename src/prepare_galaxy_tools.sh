@@ -16,7 +16,10 @@ echo "FastQ-join..."
 fastq_join_dir=$galaxy_tool_dir/paired_end_assembly/fastq_join 
 cd $fastq_join_dir
 svn checkout http://ea-utils.googlecode.com/svn/trunk/
-cd clipper
+cd trunk/clipper
+autoconf
+./configure
+make clean
 make 
 cd $current_dir
 
