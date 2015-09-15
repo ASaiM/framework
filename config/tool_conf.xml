@@ -12,6 +12,9 @@
         <section id="qualityControl" name="Control quality">
             <tool file="quality_control/prinseq/prinseq.xml" />
         </section>
+        <section id="paired_end_assembly" name="Paired-end assembly">
+            <tool file="paired_end_assembly/fastq_join/fastq_join.xml" />
+        </section>
         <section id="dereplication" name="Dereplicate">
             <tool file="usearch/derep_prefix/derep_prefix.xml" />
         </section>

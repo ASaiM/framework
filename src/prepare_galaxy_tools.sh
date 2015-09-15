@@ -11,6 +11,15 @@ prinseq_dir=$galaxy_tool_dir/quality_control/prinseq
 mkdir -p $prinseq_dir/src
 curl -L -s http://downloads.sourceforge.net/project/prinseq/standalone/prinseq-lite-0.20.4.tar.gz | tar -C $prinseq_dir/src/ --strip-components=1 -xz
 
+## fastq-join
+echo "FastQ-join..."
+fastq_join_dir=$galaxy_tool_dir/paired_end_assembly/fastq_join 
+cd $fastq_join_dir
+svn checkout http://ea-utils.googlecode.com/svn/trunk/
+cd clipper
+make 
+cd $current_dir
+
 ## metaphlan 2
 echo "Metaphlan 2..."
 metaphlan2_dir=$galaxy_tool_dir/non_rRNA_taxonomic_assignation/metaphlan2
@@ -25,7 +34,6 @@ else
     cd ../
 fi
 cd $current_dir
-
 
 ## humann 2
 #humann2_dir=$galaxy_dir/metabolic_analysis/humann2

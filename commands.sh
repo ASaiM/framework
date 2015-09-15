@@ -7,6 +7,8 @@ eval "$(boot2docker shellinit)"
 boot2docker ip
 
 docker build -t='galaxy' .
+#docker ps
+#docker rm (image sur le port 80)
 #docker run -i -p 8080:80 galaxy
 
 
