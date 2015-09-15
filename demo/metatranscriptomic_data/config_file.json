@@ -1,0 +1,162 @@
+{
+    "input_filepath": ["R1_sequences.fastq","R2_sequences.fastq"],
+
+    "pretreatments": {
+        "execute_pretreatments": true,
+        "quality_control": {
+            "execute_quality_control": true,
+            "quality_estimation": {
+                "execute_quality_estimation": true,
+                "fastqc": {
+                    "execute_quality_estimation_with_fastqc": true,
+                    "quality_estimation_with_fastqc_sequence_length_warn": 1,
+                    "quality_estimation_with_fastqc_sequence_length_error": 1,
+                    "quality_estimation_with_fastqc_sequence_warn": 27,
+                    "quality_estimation_with_fastqc_sequence_error": 20,
+                    "quality_estimation_with_fastqc_base_lower_warn": 10,
+                    "quality_estimation_with_fastqc_base_lower_error": 5,
+                    "quality_estimation_with_fastqc_base_median_warn": 25,
+                    "quality_estimation_with_fastqc_base_median_error": 20,
+                    "quality_estimation_with_fastqc_tile_warn": 5,
+                    "quality_estimation_with_fastqc_tile_error": 10,
+                    "quality_estimation_with_fastqc_gc_content_warn": 15,
+                    "quality_estimation_with_fastqc_gc_content_error": 30,
+                    "quality_estimation_with_fastqc_sequence_content_warn": 10,
+                    "quality_estimation_with_fastqc_sequence_content_error": 20,
+                    "quality_estimation_with_fastqc_n_content_warn": 5,
+                    "quality_estimation_with_fastqc_n_content_error": 20,
+                    "quality_estimation_with_fastqc_duplication_warn": 70,
+                    "quality_estimation_with_fastqc_duplication_error": 50,
+                    "quality_estimation_with_fastqc_overrepresented_warn": 0.1,
+                    "quality_estimation_with_fastqc_overrepresented_error": 1,
+                    "quality_estimation_with_fastqc_kmer_warn": 2,
+                    "quality_estimation_with_fastqc_kmer_error": 5,
+                    "quality_estimation_with_fastqc_adapter_warn": 5,
+                    "quality_estimation_with_fastqc_adapter_error": 10
+                }
+            },
+            "quality_treatment":{
+                "execute_quality_treatment": true,
+                "prinseq":{
+                    "execute_quality_treatment_with_prinseq": true,
+                    "quality_treatment_with_prinseq_length_min": 60,
+                    "quality_treatment_with_prinseq_length_max": null,
+                    "quality_treatment_with_prinseq_gc_min": null,
+                    "quality_treatment_with_prinseq_gc_max": null,
+                    "quality_treatment_with_prinseq_score_min": null,
+                    "quality_treatment_with_prinseq_score_max": null,
+                    "quality_treatment_with_prinseq_score_mean_min": 15,
+                    "quality_treatment_with_prinseq_score_mean_max": null,
+                    "quality_treatment_with_prinseq_n_percentage": 2,
+                    "quality_treatment_with_prinseq_n_number": null,
+                    "quality_treatment_with_prinseq_other_base_filter": false,
+                    "quality_treatment_with_prinseq_trim_to_length": null,
+                    "quality_treatment_with_prinseq_trim_left": null,
+                    "quality_treatment_with_prinseq_trim_right": null,
+                    "quality_treatment_with_prinseq_trim_left_percentage": null,
+                    "quality_treatment_with_prinseq_trim_right_percentage": null,
+                    "quality_treatment_with_prinseq_trim_tail_left": null,
+                    "quality_treatment_with_prinseq_trim_tail_right": null,
+                    "quality_treatment_with_prinseq_trim_ns_left": null,
+                    "quality_treatment_with_prinseq_trim_ns_right": null,
+                    "quality_treatment_with_prinseq_trim_qual_left": null,
+                    "quality_treatment_with_prinseq_trim_qual_right": 20,
+                    "quality_treatment_with_prinseq_trim_qual_type": "mean",
+                    "quality_treatment_with_prinseq_trim_qual_rule": "lt",
+                    "quality_treatment_with_prinseq_trim_qual_window": 5,
+                    "quality_treatment_with_prinseq_trim_qual_step": 5
+                }
+            }            
+        },
+        "paired_end_assembly":{
+            "execute_paired_end_assembly": true,
+            "fastq_join":{
+                "execute_paired_end_assembly_with_fastq_join": true,
+                "paired_end_assembly_with_fastq_join_min_overlap": 6,
+                "paired_end_assembly_with_fastq_join_perc_max_diff": 8,
+                "paired_end_assembly_with_fastq_join_assembly_smaller_insert": false
+            }
+            
+        },
+        "rna_sorting":{
+            "execute_rna_sorting": true,
+            "sort_me_rna":{
+                "execute_rna_sorting_with_sort_me_rna": true,
+                "rna_sorting_with_sort_me_rna_db": ["silva-bac-16s-id90","silva-arc-16s-id95","silva-euk-18s-id95","silva-bac-23s-id98","silva-arc-23s-id98","silva-euk-28s-id98","rfam-5s-database-id98","rfam-5.8s-database-id98"],
+                "rna_sorting_with_sort_me_rna_db_format": "fasta",
+                "rna_sorting_with_sort_me_rna_seed_length": 18,
+                "rna_sorting_with_sort_me_rna_max_nb_position": 10000,
+                "rna_sorting_with_sort_me_rna_fastx": true,
+                "rna_sorting_with_sort_me_rna_sam": false,
+                "rna_sorting_with_sort_me_rna_sq": false,
+                "rna_sorting_with_sort_me_rna_blast": 1,
+                "rna_sorting_with_sort_me_rna_log": true,
+                "rna_sorting_with_sort_me_rna_num_alignments": 0,
+                "rna_sorting_with_sort_me_rna_best": -1,
+                "rna_sorting_with_sort_me_rna_min_lis": -1,
+                "rna_sorting_with_sort_me_rna_print_all_reads": false,
+                "rna_sorting_with_sort_me_rna_paired_in": false,
+                "rna_sorting_with_sort_me_rna_paired_out": false,
+                "rna_sorting_with_sort_me_rna_match_score": 2,
+                "rna_sorting_with_sort_me_rna_mismatch_penalty": -3,
+                "rna_sorting_with_sort_me_rna_gap_open_penalty": 5,
+                "rna_sorting_with_sort_me_rna_gap_ext_penalty": 2,
+                "rna_sorting_with_sort_me_rna_n_penalty": -3,
+                "rna_sorting_with_sort_me_rna_forward_strand_search": false,
+                "rna_sorting_with_sort_me_rna_reverse_complementary_search": false,
+                "rna_sorting_with_sort_me_rna_thread_number": 1,
+                "rna_sorting_with_sort_me_rna_e_value_threshold": 1,
+                "rna_sorting_with_sort_me_rna_memory": 1024,
+                "rna_sorting_with_sort_me_rna_id": 0.97,
+                "rna_sorting_with_sort_me_rna_coverage": 0.97,
+                "rna_sorting_with_sort_me_rna_de_novo_otu": false,
+                "rna_sorting_with_sort_me_rna_otu_map": false,
+                "rna_sorting_with_sort_me_rna_passes": [18,9,3],
+                "rna_sorting_with_sort_me_rna_edges": 4,
+                "rna_sorting_with_sort_me_rna_num_seeds": 2,
+                "rna_sorting_with_sort_me_rna_full_search": false,
+                "rna_sorting_with_sort_me_rna_pid": false
+            }
+        }
+    },
+
+    "taxonomic_assignation":{
+        "execute_taxonomic_assignation": true,
+        "non_rRNA_taxonomic_assignation":{
+            "execute_non_rRNA_taxonomic_assignation": true,
+            "metaphlan":{
+                "execute_non_rRNA_taxonomic_assignation_with_metaphlan": true,
+                "non_rRNA_taxonomic_assignation_with_metaphlan_analysis_type": "relative_abundance",
+                "non_rRNA_taxonomic_assignation_with_metaphlan_taxonomic_level": "all",
+                "non_rRNA_taxonomic_assignation_with_metaphlan_read_number": 0,
+                "non_rRNA_taxonomic_assignation_with_metaphlan_presence_threshold": 0,
+                "non_rRNA_taxonomic_assignation_with_metaphlan_database": "metaphlan_blast_db",
+                "non_rRNA_taxonomic_assignation_with_metaphlan_evalue": 1e-6,
+                "non_rRNA_taxonomic_assignation_with_metaphlan_word_size": 11,
+                "non_rRNA_taxonomic_assignation_with_metaphlan_min_cu_len": 10000,
+                "non_rRNA_taxonomic_assignation_with_metaphlan_input_type": "automatic",
+                "non_rRNA_taxonomic_assignation_with_metaphlan_stat_q": 0.1
+                }
+        }
+    },
+
+    "functional_assignation": {
+        "execute_functional_assignation": true,
+        "protein_ncrna_db_search":{
+            "execute_protein_ncrna_db_search": true,
+            "cog":{
+                "execute_protein_ncrna_db_search_against_cog": true,
+                "blast":{
+                    "execute_protein_ncrna_db_search_against_cog_with_blast": true,
+                    "protein_ncrna_db_search_against_cog_with_blast_strand": "both",
+                    "protein_ncrna_db_search_against_cog_with_blast_query_gencode": 1,
+                    "protein_ncrna_db_search_against_cog_with_blast_evalue": 1,
+                    "protein_ncrna_db_search_against_cog_with_blast_outfmt": 6
+                }
+            }
+        },
+        "humann":{
+            "execute_functional_assignation_with_humann": false
+        }
+    }
+}
