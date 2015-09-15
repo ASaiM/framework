@@ -1,6 +1,6 @@
 #!/bin/bash
 
-galaxy_dir="../galaxy"
+galaxy_dir="galaxy"
 current_dir=$PWD
 
 # Clone or pull galaxy code
