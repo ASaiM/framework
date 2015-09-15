@@ -9,7 +9,7 @@ Clone galaxy code, config galaxy, add tools and launch galaxy
 
 ### Various tools
 
-`git`, `mercurial`, `python`
+`git`, `mercurial`, `python`, `scons`
 
 ### PostgreSQL
 
@@ -17,14 +17,23 @@ Clone galaxy code, config galaxy, add tools and launch galaxy
 
 Ubuntu/Debian 
 
-```sudo apt-get install postgresql-9.4``
+```
+username@compute:galaxy_tool_dir$ sudo apt-get install postgresql-9.4
+username@compute:galaxy_tool_dir$ sudo su - postgres
+```
 
-Mac
+[Installation](http://www.postgresql.org/download/macosx/) for Mac OS X, with Homebrew:
+
+```
+username@compute:galaxy_tool_dir$ brew install postgresql
+username@compute:galaxy_tool_dir$ mkdir -p ~/Library/LaunchAgents
+username@compute:galaxy_tool_dir$ ln -sfv /usr/local/opt/postgresql/*.plist ~/Library/LaunchAgents
+username@compute:galaxy_tool_dir$ launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
+```
 
 #### Configuration for FTP file upload
 
-```
-username@compute:galaxy_tool_dir$ sudo su - postgres
+``
 postgres@dbserver:~$ createuser -SDR galaxyftp
 postgres@dbserver:~$ createdb galaxydb
 postgres@dbserver:~$ psql galaxydb
@@ -52,11 +61,24 @@ username@compute:galaxy_tool_dir$ echo 'LoadModule mod_sql_postgres.c' >> /etc/p
 
 ##### Mac
 
+With `brew`:
+
+```
+username@compute:galaxy_tool_dir$ brew install proftpd
+```
+
+At login:
+
+```
+username@compute:galaxy_tool_dir$ ln -sfv /usr/local/opt/proftpd/*.plist ~/Library/LaunchAgents
+username@compute:galaxy_tool_dir$ launchctl load ~/Library/LaunchAgents/homebrew.mxcl.proftpd.plist
+```
 
 #### Configuration to use PBKDF2 password authentication
 
-ProFTPd's default configuration file is located in `/etc/proftpd/proftpd.conf`, 
-or otherwise in the etc subdirectory where ProFTPd is installed.
+ProFTPd's default configuration file is located in `/etc/proftpd/proftpd.conf` 
+(for Ubuntu) and in `/usr/local/etc/proftpd.conf` (for MacOSX), or otherwise in 
+the etc subdirectory where ProFTPd is installed.
 
 ```
 username@compute:galaxy_tool_dir$ sudo cp config/proftpd.conf /etc/proftpd/proftpd.conf
