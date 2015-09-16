@@ -15,6 +15,9 @@
         <section id="paired_end_assembly" name="Paired-end assembly">
             <tool file="paired_end_assembly/fastq_join/fastq_join.xml" />
         </section>
+        <section id="rna_sorting" name="RNA sorting">
+            <tool file="rna_sorting/sortmerna/sortmerna.xml" />
+        </section>
         <section id="dereplication" name="Dereplicate">
             <tool file="usearch/derep_prefix/derep_prefix.xml" />
         </section>
