@@ -1,0 +1,282 @@
+{
+    "a_galaxy_workflow": "true", 
+    "annotation": "", 
+    "format-version": "0.1", 
+    "name": "Metatranscriptomic", 
+    "steps": {
+        "0": {
+            "annotation": "", 
+            "id": 0, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "R1 reads"
+                }
+            ], 
+            "label": null, 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 203, 
+                "top": 277.453125
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"R1 reads\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "user_outputs": [], 
+            "uuid": "20f9ed6c-484f-4a0f-afdc-5aea038a3f76"
+        }, 
+        "1": {
+            "annotation": "", 
+            "id": 1, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "R2 reads"
+                }
+            ], 
+            "label": null, 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 200, 
+                "top": 453.453125
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"R2 reads\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "user_outputs": [], 
+            "uuid": "e5d5012c-db83-4913-b203-d938003df0b3"
+        }, 
+        "2": {
+            "annotation": "", 
+            "id": 2, 
+            "input_connections": {
+                "input_sequence_file": {
+                    "id": 0, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Process quality", 
+            "outputs": [
+                {
+                    "name": "good_sequence_file", 
+                    "type": "fastq"
+                }
+            ], 
+            "position": {
+                "left": 372, 
+                "top": 277.453125
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "prinseq", 
+            "tool_state": "{\"__page__\": 0, \"__rerun_remap_job_id__\": null, \"filter_treatments\": \"{\\\"complexity_filter_treatments\\\": {\\\"apply_complexity_filter_treatments\\\": \\\"False\\\", \\\"__current_case__\\\": 1}, \\\"length_filter_treatments\\\": {\\\"min_length_filter_treatments\\\": {\\\"value\\\": \\\"60\\\", \\\"apply_min_length_filter_treatments\\\": \\\"True\\\", \\\"__current_case__\\\": 0}, \\\"apply_length_filter_treatments\\\": \\\"True\\\", \\\"max_length_filter_treatments\\\": {\\\"apply_max_length_filter_treatments\\\": \\\"False\\\", \\\"__current_case__\\\": 1}, \\\"__current_case__\\\": 0}, \\\"apply_filter_treatments\\\": \\\"True\\\", \\\"__current_case__\\\": 0, \\\"base_content_filter_treatments\\\": {\\\"__current_case__\\\": 0, \\\"N_number_content_filter_treatments\\\": {\\\"apply_N_number_content_filter_treatments\\\": \\\"False\\\", \\\"__current_case__\\\": 1}, \\\"apply_other_base_content_filter_treatments\\\": \\\"False\\\", \\\"N_percentage_content_filter_treatments\\\": {\\\"value\\\": \\\"2\\\", \\\"__current_case__\\\": 0, \\\"apply_N_percentage_content_filter_treatments\\\": \\\"True\\\"}, \\\"GC_perc_content_filter_treatments\\\": {\\\"apply_GC_perc_content_filter_treatments\\\": \\\"False\\\", \\\"__current_case__\\\": 1}, \\\"apply_base_content_filter_treatments\\\": \\\"True\\\"}, \\\"quality_filter_treatments\\\": {\\\"mean_quality_filter_treatments\\\": {\\\"apply_mean_quality_filter_treatments\\\": \\\"True\\\", \\\"max_mean_quality_filter_treatments\\\": {\\\"apply_max_mean_quality_filter_treatments\\\": \\\"False\\\", \\\"__current_case__\\\": 1}, \\\"__current_case__\\\": 0, \\\"min_mean_quality_filter_treatments\\\": {\\\"value\\\": \\\"15\\\", \\\"apply_min_mean_quality_filter_treatments\\\": \\\"True\\\", \\\"__current_case__\\\": 0}}, \\\"max_quality_filter_treatments\\\": {\\\"apply_max_quality_filter_treatments\\\": \\\"False\\\", \\\"__current_case__\\\": 1}, \\\"min_quality_filter_treatments\\\": {\\\"apply_min_quality_filter_treatments\\\": \\\"False\\\", \\\"__current_case__\\\": 1}, \\\"apply_quality_filter_treatments\\\": \\\"True\\\", \\\"__current_case__\\\": 0}}\", \"input_sequence_file\": \"null\", \"trimming_treatments\": \"{\\\"length_trimming_treatments\\\": {\\\"apply_length_trimming_treatments\\\": \\\"False\\\", \\\"__current_case__\\\": 1}, \\\"quality_trimming_treatments\\\": {\\\"type_quality_trimming_treatments\\\": \\\"min\\\", \\\"step_quality_trimming_treatments\\\": \\\"1\\\", \\\"apply_quality_trimming_treatments\\\": \\\"True\\\", \\\"window_quality_trimming_treatments\\\": \\\"1\\\", \\\"__current_case__\\\": 0, \\\"right_quality_trimming_treatments\\\": {\\\"apply_right_quality_trimming_treatments\\\": \\\"True\\\", \\\"value\\\": \\\"20\\\", \\\"__current_case__\\\": 0}, \\\"rule_quality_trimming_treatments\\\": \\\"lt\\\", \\\"left_quality_trimming_treatments\\\": {\\\"apply_left_quality_trimming_treatments\\\": \\\"False\\\", \\\"__current_case__\\\": 1}}, \\\"apply_trimming_treatments\\\": \\\"True\\\", \\\"tail_trimming_treatments\\\": {\\\"apply_tail_trimming_treatments\\\": \\\"False\\\", \\\"__current_case__\\\": 1}, \\\"__current_case__\\\": 0, \\\"position_trimming_treatments\\\": {\\\"apply_position_trimming_treatments\\\": \\\"False\\\", \\\"__current_case__\\\": 1}}\"}", 
+            "tool_version": "1.0.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "b2435f96-2b8c-4116-9f43-941301762762"
+        }, 
+        "3": {
+            "annotation": "", 
+            "id": 3, 
+            "input_connections": {
+                "input_sequence_file": {
+                    "id": 1, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Process quality", 
+            "outputs": [
+                {
+                    "name": "good_sequence_file", 
+                    "type": "fastq"
+                }
+            ], 
+            "position": {
+                "left": 374, 
+                "top": 454.453125
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "prinseq", 
+            "tool_state": "{\"__page__\": 0, \"__rerun_remap_job_id__\": null, \"filter_treatments\": \"{\\\"complexity_filter_treatments\\\": {\\\"apply_complexity_filter_treatments\\\": \\\"False\\\", \\\"__current_case__\\\": 1}, \\\"length_filter_treatments\\\": {\\\"min_length_filter_treatments\\\": {\\\"value\\\": \\\"60\\\", \\\"apply_min_length_filter_treatments\\\": \\\"True\\\", \\\"__current_case__\\\": 0}, \\\"apply_length_filter_treatments\\\": \\\"True\\\", \\\"max_length_filter_treatments\\\": {\\\"apply_max_length_filter_treatments\\\": \\\"False\\\", \\\"__current_case__\\\": 1}, \\\"__current_case__\\\": 0}, \\\"apply_filter_treatments\\\": \\\"True\\\", \\\"__current_case__\\\": 0, \\\"base_content_filter_treatments\\\": {\\\"__current_case__\\\": 0, \\\"N_number_content_filter_treatments\\\": {\\\"apply_N_number_content_filter_treatments\\\": \\\"False\\\", \\\"__current_case__\\\": 1}, \\\"apply_other_base_content_filter_treatments\\\": \\\"False\\\", \\\"N_percentage_content_filter_treatments\\\": {\\\"value\\\": \\\"2\\\", \\\"__current_case__\\\": 0, \\\"apply_N_percentage_content_filter_treatments\\\": \\\"True\\\"}, \\\"GC_perc_content_filter_treatments\\\": {\\\"apply_GC_perc_content_filter_treatments\\\": \\\"False\\\", \\\"__current_case__\\\": 1}, \\\"apply_base_content_filter_treatments\\\": \\\"True\\\"}, \\\"quality_filter_treatments\\\": {\\\"mean_quality_filter_treatments\\\": {\\\"apply_mean_quality_filter_treatments\\\": \\\"True\\\", \\\"max_mean_quality_filter_treatments\\\": {\\\"apply_max_mean_quality_filter_treatments\\\": \\\"False\\\", \\\"__current_case__\\\": 1}, \\\"__current_case__\\\": 0, \\\"min_mean_quality_filter_treatments\\\": {\\\"value\\\": \\\"15\\\", \\\"apply_min_mean_quality_filter_treatments\\\": \\\"True\\\", \\\"__current_case__\\\": 0}}, \\\"max_quality_filter_treatments\\\": {\\\"apply_max_quality_filter_treatments\\\": \\\"False\\\", \\\"__current_case__\\\": 1}, \\\"min_quality_filter_treatments\\\": {\\\"apply_min_quality_filter_treatments\\\": \\\"False\\\", \\\"__current_case__\\\": 1}, \\\"apply_quality_filter_treatments\\\": \\\"True\\\", \\\"__current_case__\\\": 0}}\", \"input_sequence_file\": \"null\", \"trimming_treatments\": \"{\\\"length_trimming_treatments\\\": {\\\"apply_length_trimming_treatments\\\": \\\"False\\\", \\\"__current_case__\\\": 1}, \\\"quality_trimming_treatments\\\": {\\\"type_quality_trimming_treatments\\\": \\\"min\\\", \\\"step_quality_trimming_treatments\\\": \\\"1\\\", \\\"apply_quality_trimming_treatments\\\": \\\"True\\\", \\\"window_quality_trimming_treatments\\\": \\\"1\\\", \\\"__current_case__\\\": 0, \\\"right_quality_trimming_treatments\\\": {\\\"apply_right_quality_trimming_treatments\\\": \\\"True\\\", \\\"value\\\": \\\"20\\\", \\\"__current_case__\\\": 0}, \\\"rule_quality_trimming_treatments\\\": \\\"lt\\\", \\\"left_quality_trimming_treatments\\\": {\\\"apply_left_quality_trimming_treatments\\\": \\\"False\\\", \\\"__current_case__\\\": 1}}, \\\"apply_trimming_treatments\\\": \\\"True\\\", \\\"tail_trimming_treatments\\\": {\\\"apply_tail_trimming_treatments\\\": \\\"False\\\", \\\"__current_case__\\\": 1}, \\\"__current_case__\\\": 0, \\\"position_trimming_treatments\\\": {\\\"apply_position_trimming_treatments\\\": \\\"False\\\", \\\"__current_case__\\\": 1}}\"}", 
+            "tool_version": "1.0.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "3dfb76bf-d05f-4b18-9f6c-bb83895cd066"
+        }, 
+        "4": {
+            "annotation": "", 
+            "id": 4, 
+            "input_connections": {
+                "r1_sequence_file": {
+                    "id": 2, 
+                    "output_name": "good_sequence_file"
+                }, 
+                "r2_sequence_file": {
+                    "id": 3, 
+                    "output_name": "good_sequence_file"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Assemble paired-end sequences", 
+            "outputs": [
+                {
+                    "name": "join_sequence_file", 
+                    "type": "fastq,fasta"
+                }, 
+                {
+                    "name": "single_R1_sequence_file", 
+                    "type": "fastq,fasta"
+                }, 
+                {
+                    "name": "single_R2_sequence_file", 
+                    "type": "fastq,fasta"
+                }, 
+                {
+                    "name": "report", 
+                    "type": "text"
+                }
+            ], 
+            "position": {
+                "left": 645, 
+                "top": 371.453125
+            }, 
+            "post_job_actions": {
+                "ChangeDatatypeActionjoin_sequence_file": {
+                    "action_arguments": {
+                        "newtype": "fastq"
+                    }, 
+                    "action_type": "ChangeDatatypeAction", 
+                    "output_name": "join_sequence_file"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "fastq_join", 
+            "tool_state": "{\"__page__\": 0, \"smaller_insert\": \"\\\"True\\\"\", \"max_diff_perc\": \"\\\"8\\\"\", \"min_overlap\": \"\\\"6\\\"\", \"__rerun_remap_job_id__\": null, \"r1_sequence_file\": \"null\", \"r2_sequence_file\": \"null\"}", 
+            "tool_version": "1.0.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "848df126-27a9-4e0d-a745-995aae20383c"
+        }, 
+        "5": {
+            "annotation": "", 
+            "id": 5, 
+            "input_connections": {
+                "sequence_file_format|sequence_file": {
+                    "id": 4, 
+                    "output_name": "join_sequence_file"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Extract", 
+            "outputs": [
+                {
+                    "name": "information_file", 
+                    "type": "txt"
+                }, 
+                {
+                    "name": "fasta_sequence_file", 
+                    "type": "fasta"
+                }, 
+                {
+                    "name": "fastq_sequence_file", 
+                    "type": "fastq"
+                }, 
+                {
+                    "name": "quality_file", 
+                    "type": "qual"
+                }, 
+                {
+                    "name": "fasta_sequence_file_from_fastq", 
+                    "type": "fasta"
+                }, 
+                {
+                    "name": "report_filepath", 
+                    "type": "txt"
+                }
+            ], 
+            "position": {
+                "left": 914, 
+                "top": 426.453125
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "extract_sequence_file", 
+            "tool_state": "{\"__page__\": 0, \"sequence_file_format\": \"{\\\"extraction\\\": {\\\"specific_extraction\\\": \\\"False\\\", \\\"split\\\": {\\\"split_test\\\": \\\"True\\\", \\\"__current_case__\\\": 0, \\\"quality_format\\\": \\\"sanger\\\"}, \\\"__current_case__\\\": 1}, \\\"constraints\\\": {\\\"constrained_extraction\\\": \\\"False\\\", \\\"__current_case__\\\": 1}, \\\"sequence_file\\\": null, \\\"__current_case__\\\": 1, \\\"format\\\": \\\"fastq\\\"}\", \"__rerun_remap_job_id__\": null}", 
+            "tool_version": "1.0.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "d83750b5-fa8b-4ea2-a9fd-a0c48a8335c8"
+        }, 
+        "6": {
+            "annotation": "", 
+            "id": 6, 
+            "input_connections": {
+                "input_sequence_file": {
+                    "id": 5, 
+                    "output_name": "fasta_sequence_file"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Sort RNA", 
+            "outputs": [
+                {
+                    "name": "aligned_sequence_file", 
+                    "type": "fastq,fasta"
+                }, 
+                {
+                    "name": "rejected_sequence_file", 
+                    "type": "fastq,fasta"
+                }, 
+                {
+                    "name": "sam_alignment_file", 
+                    "type": "sam"
+                }, 
+                {
+                    "name": "blast_output_file", 
+                    "type": "text"
+                }, 
+                {
+                    "name": "log_output_file", 
+                    "type": "text"
+                }
+            ], 
+            "position": {
+                "left": 1184, 
+                "top": 481.453125
+            }, 
+            "post_job_actions": {
+                "ChangeDatatypeActionaligned_sequence_file": {
+                    "action_arguments": {
+                        "newtype": "fasta"
+                    }, 
+                    "action_type": "ChangeDatatypeAction", 
+                    "output_name": "aligned_sequence_file"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "sortmerna", 
+            "tool_state": "{\"__page__\": 0, \"fastx\": \"{\\\"test\\\": \\\"True\\\", \\\"rejected\\\": \\\"True\\\", \\\"__current_case__\\\": 0}\", \"log\": \"\\\"True\\\"\", \"sam\": \"{\\\"test\\\": \\\"True\\\", \\\"__current_case__\\\": 0, \\\"sq_tag\\\": \\\"True\\\"}\", \"__rerun_remap_job_id__\": null, \"mismatch\": \"\\\"-3\\\"\", \"ambiguous_letter\": \"\\\"-3\\\"\", \"gap_ext\": \"\\\"2\\\"\", \"databases_type\": \"{\\\"databases_selector\\\": \\\"cached\\\", \\\"input_databases\\\": [\\\"rfam-5s-id98\\\", \\\"silva-arc-16s-id95\\\", \\\"silva-arc-23s-id98\\\", \\\"silva-bac-16s-id90\\\", \\\"silva-bac-23s-id98\\\", \\\"silva-euk-18s-id95\\\", \\\"silva-euk-28s-id98\\\"], \\\"__current_case__\\\": 0}\", \"match\": \"\\\"2\\\"\", \"max_pos\": \"\\\"10000\\\"\", \"gap_open\": \"\\\"5\\\"\", \"report\": \"{\\\"type\\\": \\\"best\\\", \\\"best\\\": {\\\"type\\\": \\\"1\\\", \\\"min_lis\\\": \\\"2\\\", \\\"__current_case__\\\": 1}, \\\"__current_case__\\\": 0}\", \"input_sequence_file\": \"null\", \"blast\": \"{\\\"test\\\": \\\"True\\\", \\\"__current_case__\\\": 0, \\\"format\\\": \\\"3\\\"}\", \"e_value\": \"\\\"1.0\\\"\", \"strand\": \"\\\"both\\\"\", \"seed_length\": \"\\\"18\\\"\"}", 
+            "tool_version": "1.0.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "97d1b6f1-4a51-4675-96e9-006b558bd386"
+        }
+    }, 
+    "uuid": "76c40d46-c25c-4c17-93fa-41d9c034d513"
+}
