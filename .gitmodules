@@ -7,3 +7,6 @@
 [submodule "lib/galaxy_tools/rna_sorting/sortmerna/sortmerna"]
 	path = lib/galaxy_tools/rna_sorting/sortmerna/sortmerna
 	url = https://github.com/biocore/sortmerna.git
+[submodule "lib/git-hg"]
+	path = lib/git-hg
+	url = https://github.com/offbytwo/git-hg.git
