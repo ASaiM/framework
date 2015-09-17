@@ -9,7 +9,7 @@ Clone galaxy code, config galaxy, add tools and launch galaxy
 
 ### Various tools
 
-`git`, `mercurial`, `python`, `scons`
+`git`, `mercurial`, `python`, `scons`, `perl`
 
 ### PostgreSQL
 
