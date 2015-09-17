@@ -9,7 +9,9 @@ Clone galaxy code, config galaxy, add tools and launch galaxy
 
 ### Various tools
 
-`git`, `mercurial`, `python`, `scons`, `perl`
+`git`, `mercurial`, `python`, `scons`, `perl`, `openssl` > 1.0.0c
+
+Some are tested and installed by a custom script 
 
 ### PostgreSQL
 
@@ -47,6 +49,8 @@ galaxydb-# GRANT SELECT ON galaxy_user TO galaxyftp
 Quit `psql` and `postgres` (`CTRL+D`)
 
 ### ProFTPd
+
+automatically installed with custom script
 
 #### Installation
 
