@@ -1,16 +1,12 @@
 #!/bin/bash
 
-galaxy_dir="galaxy/"
+galaxy_dir="lib/galaxy/"
 current_dir=$PWD
 
 # Clone or pull galaxy code
-if [ -d $galaxy_dir ]; then
-    cd $galaxy_dir
-    git pull 
-    cd $current_dir
-else
-    git clone https://github.com/galaxyproject/galaxy.git $galaxy_dir
-fi
+cd $galaxy_dir
+git pull 
+cd $current_dir
 
 cp -r tools/* $galaxy_dir/tools/
 

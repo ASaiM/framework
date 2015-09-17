@@ -25,16 +25,8 @@ cd $current_dir
 ## sortmerna
 echo "SortMeRNA..."
 sortmerna_dir=$galaxy_tool_dir/rna_sorting/sortmerna
-cd $sortmerna_dir
-if [ ! -d sortmerna ]; then
-    echo "   cloning"
-    git clone https://github.com/biocore/sortmerna.git 
-    cd sortmerna/
-else
-    echo "  updating"
-    cd sortmerna/
-    git pull
-fi
+cd $sortmerna_dir/sortmerna
+git pull
 ./build.sh
 cd $current_dir
 
