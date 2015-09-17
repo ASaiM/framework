@@ -1,0 +1,10 @@
+Information to extract:
+	id
+	length
+Constraints on extraction:
+	Info to constraint: length
+		Type of constraint: greater
+		Values:
+			100
+Number of similarity records: 36
+Number of extracted similarity records: 31
