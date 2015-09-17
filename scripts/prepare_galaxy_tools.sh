@@ -32,16 +32,17 @@ cd $current_dir
 ## metaphlan 2
 echo "Metaphlan 2..."
 metaphlan2_dir=$galaxy_tool_dir/non_rRNA_taxonomic_assignation/metaphlan2
-cd $metaphlan2_dir
-if [ ! -d "metaphlan2/" ]; then
-    echo "  cloning"
-    hg clone https://bitbucket.org/biobakery/metaphlan2 
-else
-    echo "  updating"
-    cd "metaphlan2/"
-    hg pull
-    cd ../
-fi
+cd $metaphlan2_dir/metaphlan2/
+git-hg pull
+#if [ ! -d "metaphlan2/" ]; then
+#    echo "  cloning"
+#    hg clone https://bitbucket.org/biobakery/metaphlan2 
+#else
+#    echo "  updating"
+#    cd "metaphlan2/"
+#    hg pull
+#    cd ../
+#fi
 cd $current_dir
 
 ## humann 2

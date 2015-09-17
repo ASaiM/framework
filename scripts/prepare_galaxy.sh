@@ -3,7 +3,7 @@
 galaxy_dir=$1
 current_dir=$PWD
 
-# Clone or pull galaxy code
+# Pull galaxy code
 cd $galaxy_dir
 git pull 
 cd $current_dir
