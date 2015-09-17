@@ -4,9 +4,6 @@
 [submodule "lib/galaxy"]
 	path = lib/galaxy
 	url = https://github.com/galaxyproject/galaxy.git
-[submodule "git-hg"]
-	path = lib/git-hg
-	url = https://github.com/offbytwo/git-hg.git
 [submodule "lib/galaxy_tools/rna_sorting/sortmerna/sortmerna"]
 	path = lib/galaxy_tools/rna_sorting/sortmerna/sortmerna
 	url = https://github.com/biocore/sortmerna.git
