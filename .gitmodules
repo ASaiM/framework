@@ -4,12 +4,12 @@
 [submodule "lib/galaxy"]
 	path = lib/galaxy
 	url = https://github.com/galaxyproject/galaxy.git
-[submodule "lib/galaxy_tools/rna_manipulation/sortmerna/sortmerna"]
-	path = lib/galaxy_tools/rna_manipulation/sortmerna/sortmerna
-	url = https://github.com/biocore/sortmerna.git
 [submodule "lib/git-hg"]
 	path = lib/git-hg
 	url = https://github.com/offbytwo/git-hg.git
+[submodule "lib/galaxy_tools/rna_manipulation/sortmerna/sortmerna"]
+	path = lib/galaxy_tools/rna_manipulation/sortmerna/sortmerna
+	url = https://github.com/biocore/sortmerna.git
 [submodule "lib/galaxy_tools/rna_manipulation/reago/reago"]
 	path = lib/galaxy_tools/rna_manipulation/reago/reago
 	url = https://github.com/chengyuan/reago-1.1.git
