@@ -12,8 +12,7 @@ curl -L -s http://downloads.sourceforge.net/project/prinseq/standalone/prinseq-l
 
 ## fastq-join
 echo "FastQ-join..."
-fastq_join_dir=$galaxy_tool_dir/paired_end_assembly/fastq_join 
-cd $fastq_join_dir
+cd $galaxy_tool_dir/paired_end_assembly/fastq_join 
 svn checkout http://ea-utils.googlecode.com/svn/trunk/
 if [ ! -e trunk/clipper/fastq_join ]; then
     cd trunk/clipper
@@ -23,26 +22,38 @@ cd $current_dir
 
 ## sortmerna
 echo "SortMeRNA..."
-sortmerna_dir=$galaxy_tool_dir/rna_manipulation/sortmerna
-cd $sortmerna_dir/sortmerna
+cd $galaxy_tool_dir/rna_manipulation/sortmerna/sortmerna
 git pull
 ./build.sh
 cd $current_dir
 
 ## infernal
-echo "Infernal..."
-infernal_dir=$galaxy_tool_dir/rna_manipulation/infernal
-tar xzf infernal-1.1.1.tar.gz
-cd $infernal_dir/infernal-1.1.1
-./configure
-make
-make check
-make install
+if ! which cmsearch > /dev/null; then
+    echo "Infernal..."
+    echo -e "install infernal on machine (needed to use reago)? (y/n) \c"
+    read 
+    if [ $REPLY == "y" ]; then
+        infernal_dir=$galaxy_tool_dir/rna_manipulation/infernal
+        cd $infernal_dir
+        tar xzf infernal-1.1.1.tar.gz
+        cd infernal-1.1.1
+        ./configure
+        make
+        make check
+        make install
+        cd $current_dir
+    fi
+fi
+
+## reago
+echo "Reago..."
+cd $galaxy_tool_dir/rna_manipulation/reago/reago
+git pull
+cd $current_dir
 
 ## metaphlan 2
 echo "Metaphlan 2..."
-metaphlan2_dir=$galaxy_tool_dir/non_rRNA_taxonomic_assignation/metaphlan2
-cd $metaphlan2_dir/metaphlan2/
+cd $galaxy_tool_dir/non_rRNA_taxonomic_assignation/metaphlan2/metaphlan2/
 git-hg pull
 #if [ ! -d "metaphlan2/" ]; then
 #    echo "  cloning"
@@ -65,8 +76,7 @@ cd $current_dir
 
 ## humann 
 echo "HUMAnN..."
-humann_dir=$galaxy_tool_dir/metabolic_analysis/humann
-cd $humann_dir
+cd =$galaxy_tool_dir/metabolic_analysis/humann
 if [ ! -d "humann/" ]; then
     echo "  cloning"
     hg clone https://bitbucket.org/biobakery/humann

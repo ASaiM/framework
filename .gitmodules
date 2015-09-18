@@ -13,3 +13,6 @@
 [submodule "lib/galaxy_tools/rna_manipulation/reago/reago"]
 	path = lib/galaxy_tools/rna_manipulation/reago/reago
 	url = https://github.com/chengyuan/reago-1.1.git
+[submodule "lib/galaxy_tools/genometools/genometools"]
+	path = lib/galaxy_tools/genometools/genometools
+	url = https://github.com/genometools/genometools.git
