@@ -11,7 +11,7 @@ cd $current_dir
 cp -r lib/galaxy_tools/* $galaxy_dir/tools/
 
 # Prepare galaxy tools
-./scripts/prepare_galaxy_tools.sh $galaxy_dir
+sudo ./scripts/prepare_galaxy_tools.sh $galaxy_dir
 
 # Prepare galaxy config
 cp config/* $galaxy_dir/config/
