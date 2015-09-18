@@ -8,7 +8,13 @@ if [ $REPLY == "y" ]; then
     read 
     if [ $REPLY == "y" ]; then
         cd lib/proftpd
-        make clean
+
+        make clean >> tmp/proftpd_make_clean
+        if grep "Error" tmp/proftpd_make_clean > /dev/null ; then
+            echo "Error with make_clean for proftpd"
+            exit
+        fi
+
         ./configure \
             --prefix=/usr/local/ \
             --disable-auth-file \
@@ -16,24 +22,34 @@ if [ $REPLY == "y" ]; then
             --disable-ident \
             --disable-shadow \
             --enable-openssl \
-            --with-modules=mod_sql:mod_sql_passwd:mod_sql_postgres 
+            --with-modules=mod_sql:mod_sql_passwd:mod_sql_postgres \
             #--with-includes=/usr/lib/postgresql/9.4/bin/ \
             #--with-libraries=/usr/lib/postgresql/9.4/lib/
-        make
-        make install
+            >> proftpd_tmp/configure
+        if grep "Error" tmp/proftpd_configure > /dev/null ; then
+            echo "Error with configure for proftpd"
+            exit
+        fi
+
+        make >> tmp/proftpd_make
+        if grep "Error" tmp/proftpd_make > /dev/null ; then
+            echo "Error with make for proftpd"
+            exit
+        fi
+
+        sudo make install >> tmp/proftpd_make_install
+        if grep "Error" tmp/proftpd_make_install > /dev/null ; then
+            echo "Error with make_install for proftpd"
+            exit
+        fi
+
         cd $current_dir
-    else
-        sudo apt-get install proftpd-basic \
-            proftpd-mod-pgsql \
-            proftpd-mod-mysql 
-        echo 'LoadModule mod_sql.c' >> /etc/proftpd/modules.conf 
-        echo 'LoadModule mod_sql_passwd.c' >> /etc/proftpd/modules.conf 
-        echo 'LoadModule mod_sql_postgres.c' >> /etc/proftpd/modules.conf
-        cp config/proftpd.conf /etc/proftpd/proftpd.conf
-        echo "SQLNamedQuery                   LookupGalaxyUser SELECT \"email, (CASE WHEN substring(password from 1 for 6) = 'PBKDF2' THEN substring(password from 38 for 69) ELSE password END) AS password2,512,512,'"$PWD"/"$1"database/ftp/%U','/bin/bash' FROM galaxy_user WHERE email='%U'\"" >> /usr/local/etc/proftpd.conf 
-    fi
 fi
-cp config/proftpd.conf /usr/local/etc/proftpd.conf
+sudo cp config/proftpd.conf /usr/local/etc/proftpd.conf >> tmp/proftpd_cp
+if grep "Error" tmp/proftpd_cp > /dev/null ; then
+    echo "Error with cp for proftpd"
+    exit
+fi
 echo "SQLNamedQuery                   LookupGalaxyUser SELECT \"email, (CASE WHEN substring(password from 1 for 6) = 'PBKDF2' THEN substring(password from 38 for 69) ELSE password END) AS password2,512,512,'"$PWD"/"$1"database/ftp/%U','/bin/bash' FROM galaxy_user WHERE email='%U'\"" >> /usr/local/etc/proftpd.conf 
 
 if ! which git-hg > /dev/null; then
@@ -41,11 +57,31 @@ if ! which git-hg > /dev/null; then
     read
     if [ $REPLY == "y" ]; then
         cd lib/git-hg
-        make
-        sudo make install
+        git pull >> tmp/git-hg_git_pull
+        if grep "Error" tmp/hg_git_pull > /dev/null ; then
+            echo "Error with git pull for git-hg"
+            exit
+        fi
+
+        make >> tmp/git-hg_make
+        if grep "Error" tmp/git-hg_make > /dev/null ; then
+            echo "Error with make for git-hg"
+            exit
+        fi
+
+        sudo make install >> tmp/git-hg_make_install
+        if grep "Error" tmp/git-hg_make_install > /dev/null ; then
+            echo "Error with make install for git-hg"
+            exit
+        fi
+
         cd $current_dir
     fi
 fi
 
-pip install -r requirements.txt
+pip install -r requirements.txt >> tmp/pip_install
+if grep "Error" tmp/pip_install > /dev/null ; then
+    echo "Error with pip_install"
+    exit
+fi
 

@@ -16,15 +16,12 @@ cd $galaxy_tool_dir/paired_end_assembly/fastq_join
 svn checkout http://ea-utils.googlecode.com/svn/trunk/
 if [ ! -e trunk/clipper/fastq_join ]; then
     cd trunk/clipper
-    make 
+    make >> $current_dir/tmp/fastq_join_make 2> $current_dir/tmp/fastq_join_make_errors
+    if grep "Error" $current_dir/tmp/fastq_join_make > /dev/null ; then
+        echo "Error with make for FastQ Join"
+        exit
+    fi
 fi
-cd $current_dir
-
-## sortmerna
-echo "SortMeRNA..."
-cd $galaxy_tool_dir/rna_manipulation/sortmerna/sortmerna
-git pull
-./build.sh
 cd $current_dir
 
 ## infernal
@@ -37,33 +34,27 @@ if ! which cmsearch > /dev/null; then
         cd $infernal_dir
         tar xzf infernal-1.1.1.tar.gz
         cd infernal-1.1.1
-        ./configure
-        make
-        make check
-        make install
+
+        ./configure >> $current_dir/tmp/infernal_configure
+        if grep "Error" $current_dir/tmp/infernal_configure > /dev/null ; then
+            echo "Error with configure for Infernal"
+            exit
+        fi
+
+        make >> $current_dir/tmp/infernal_make
+        if grep "Error" $current_dir/tmp/infernal_make > /dev/null ; then
+            echo "Error with make for Infernal"
+            exit
+        fi 
+
+        sudo make install >> $current_dir/tmp/infernal_make_install
+        if grep "Error" $current_dir/tmp/infernal_make_install > /dev/null ; then
+            echo "Error with make install for Infernal"
+            exit
+        fi
         cd $current_dir
     fi
 fi
-
-## GenomeTools
-if ! which gt > /dev/null; then 
-    echo "GenomeTools..."
-    echo -e "install GenomeTools on machine (needed to use reago)? (y/n) \c"
-    read 
-    if [ $REPLY == "y" ]; then
-        cd $galaxy_tool_dir/genometools/genometools/
-        git pull
-        make
-        make install
-        cd $current_dir
-    fi
-fi
-
-## reago
-echo "Reago..."
-cd $galaxy_tool_dir/rna_manipulation/reago/reago
-git pull
-cd $current_dir
 
 ## metaphlan 2
 echo "Metaphlan 2..."
@@ -90,7 +81,7 @@ cd $current_dir
 
 ## humann 
 echo "HUMAnN..."
-cd =$galaxy_tool_dir/metabolic_analysis/humann
+cd $galaxy_tool_dir/metabolic_analysis/humann
 if [ ! -d "humann/" ]; then
     echo "  cloning"
     hg clone https://bitbucket.org/biobakery/humann
@@ -100,12 +91,31 @@ if [ ! -d "humann/" ]; then
     cp SConstruct original_data/
     cp $current_dir/data/db/metacyc/meta.tar.gz data/  
     
-    scons > initial_scons
+    scons >> $current_dir/tmp/humann_initial_scons 
     cd data/MinPath/glpk-4.6/
-    autoconf
-    ./configure
-    make clean
-    make
+    autoconf >> $current_dir/tmp/humann_glpk_autoconf
+    if grep "Error" $current_dir/tmp/humann_autoconf > /dev/null ; then
+        echo "Error with autoconf for glpk in humann"
+        exit
+    fi
+
+    ./configure >> $current_dir/tmp/humann_glpk_configure
+    if grep "Error" $current_dir/tmp/humann_glpk_configure > /dev/null ; then
+        echo "Error with configure for glpk in humann"
+        exit
+    fi
+
+    make clean >> $current_dir/tmp/humann_glpk_make_clean
+    if grep "Error" $current_dir/tmp/humann_make_clean > /dev/null ; then
+        echo "Error with make clean for glpk in humann"
+        exit
+    fi
+
+    make >> $current_dir/tmp/humann_glpk_make
+    if grep "Error" $current_dir/tmp/humann_glpk_make > /dev/null ; then
+        echo "Error with make for glpk in humann"
+        exit
+    fi    
 else
     echo "  updating"
     cd humann/
