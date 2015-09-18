@@ -15,8 +15,13 @@
         <section id="paired_end_assembly" name="Paired-end assembly">
             <tool file="paired_end_assembly/fastq_join/fastq_join.xml" />
         </section>
+        <!--<section id="de_novo_assembly" name="De novo assembly">
+            <tool file="genometools/readjoiner/readjoiner.xml" />
+        </section>-->
         <section id="rna_manipulation" name="RNA manipulation">
             <tool file="rna_manipulation/sortmerna/sortmerna.xml" />
+            <tool file="rna_manipulation/reago/reago.xml" />
+            <!--<tool file="rna_manipulation/infernal/infernal.xml" />-->
         </section>
         <section id="dereplication" name="Dereplicate">
             <tool file="usearch/derep_prefix/derep_prefix.xml" />
