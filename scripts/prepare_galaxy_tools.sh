@@ -23,11 +23,21 @@ cd $current_dir
 
 ## sortmerna
 echo "SortMeRNA..."
-sortmerna_dir=$galaxy_tool_dir/rna_sorting/sortmerna
+sortmerna_dir=$galaxy_tool_dir/rna_manipulation/sortmerna
 cd $sortmerna_dir/sortmerna
 git pull
 ./build.sh
 cd $current_dir
+
+## infernal
+echo "Infernal..."
+infernal_dir=$galaxy_tool_dir/rna_manipulation/infernal
+tar xzf infernal-1.1.1.tar.gz
+cd $infernal_dir/infernal-1.1.1
+./configure
+make
+make check
+make install
 
 ## metaphlan 2
 echo "Metaphlan 2..."

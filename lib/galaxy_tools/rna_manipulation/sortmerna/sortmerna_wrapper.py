@@ -21,14 +21,14 @@ def generate_ref_argument(dbs, dirpath):
     return ref
 
 def launch_indexdb_rna(args, ref_string):
-    command = args.src_dir + '/tools/rna_sorting/sortmerna/sortmerna/indexdb_rna'
+    command = args.src_dir + '/tools/rna_manipulation/sortmerna/sortmerna/indexdb_rna'
     command += ' --ref ' + ref_string
     command += ' -L ' + args.seed_length
     command += ' --max_pos ' + args.max_pos
     os.system(command)
 
 def launch_sortmerna(args, ref_string, dirpath):
-    command = args.src_dir + '/tools/rna_sorting/sortmerna/sortmerna/sortmerna'
+    command = args.src_dir + '/tools/rna_manipulation/sortmerna/sortmerna/sortmerna'
     command += ' --ref ' + ref_string
     command += ' --reads ' + args.input_sequence_file
     command += ' --aligned ' + dirpath + '/aligned_sequences'
