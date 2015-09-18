@@ -45,6 +45,20 @@ if ! which cmsearch > /dev/null; then
     fi
 fi
 
+## GenomeTools
+if ! which gt > /dev/null; then 
+    echo "GenomeTools..."
+    echo -e "install GenomeTools on machine (needed to use reago)? (y/n) \c"
+    read 
+    if [ $REPLY == "y" ]; then
+        cd $galaxy_tool_dir/genometools/genometools/
+        git pull
+        make
+        make install
+        cd $current_dir
+    fi
+fi
+
 ## reago
 echo "Reago..."
 cd $galaxy_tool_dir/rna_manipulation/reago/reago
