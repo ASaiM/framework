@@ -1,7 +1,11 @@
 ASaiM Galaxy
 ============
 
-Clone galaxy code, config galaxy, add tools and launch galaxy
+Clone the repository recursively (because of submodules)
+
+``
+git clone --recursive git@gitlab.com:bebatut/galaxy_tools.git
+``
 
 # If Docker is not used
 
