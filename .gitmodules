@@ -10,3 +10,6 @@
 [submodule "lib/git-hg"]
 	path = lib/git-hg
 	url = https://github.com/offbytwo/git-hg.git
+[submodule "lib/galaxy_tools/rna_sorting/reago/reago"]
+	path = lib/galaxy_tools/rna_sorting/reago/reago
+	url = https://github.com/chengyuan/reago-1.1.git
