@@ -3,19 +3,34 @@ ASaiM Galaxy
 
 Clone the repository recursively (because of submodules)
 
-``
+```
 git clone --recursive git@gitlab.com:bebatut/galaxy_tools.git
-``
+```
 
 # If Docker is not used
 
 ## Requirements
 
-### Various tools
+Some tools must be installed before launching any scripts:
 
-`git`, `mercurial`, `python`, `scons`, `perl`, `openssl` > 1.0.0c
+- `git`
+- `python`
+- `pip`
+- `perl`
+- `scons`
+- `mercurial`
+- `openssl` > 1.0.0c, 
 
-Some are tested and installed by a custom script 
+Some tools are tested and installed by a custom script executed automatically 
+when galaxy is launched:
+
+- `git-hg`
+- `proftpd`
+- python libraries in `requirements.txt` with `pip install -r requirements.txt`
+
+For Ubuntu
+
+- `libssl-dev`
 
 ### PostgreSQL
 
@@ -39,7 +54,7 @@ username@compute:galaxy_tool_dir$ launchctl load ~/Library/LaunchAgents/homebrew
 
 #### Configuration for FTP file upload
 
-``
+```
 postgres@dbserver:~$ createuser -SDR galaxyftp
 postgres@dbserver:~$ createdb galaxydb
 postgres@dbserver:~$ psql galaxydb
@@ -52,49 +67,6 @@ galaxydb-# GRANT SELECT ON galaxy_user TO galaxyftp
 
 Quit `psql` and `postgres` (`CTRL+D`)
 
-### ProFTPd
-
-automatically installed with custom script
-
-#### Installation
-
-##### Ubuntu/Debian 
-
-```
-username@compute:galaxy_tool_dir$ sudo apt-get install proftpd-basic proftpd-mod-pgsql proftpd-mod-mysql
-username@compute:galaxy_tool_dir$ echo 'LoadModule mod_sql.c' >> /etc/proftpd/modules.conf
-username@compute:galaxy_tool_dir$ echo 'LoadModule mod_sql_passwd.c' >> /etc/proftpd/modules.conf
-username@compute:galaxy_tool_dir$ echo 'LoadModule mod_sql_postgres.c' >> /etc/proftpd/modules.conf
-```
-
-##### Mac
-
-With `brew`:
-
-```
-username@compute:galaxy_tool_dir$ brew install proftpd
-```
-
-At login:
-
-```
-username@compute:galaxy_tool_dir$ ln -sfv /usr/local/opt/proftpd/*.plist ~/Library/LaunchAgents
-username@compute:galaxy_tool_dir$ launchctl load ~/Library/LaunchAgents/homebrew.mxcl.proftpd.plist
-```
-
-#### Configuration to use PBKDF2 password authentication
-
-ProFTPd's default configuration file is located in `/etc/proftpd/proftpd.conf` 
-(for Ubuntu) and in `/usr/local/etc/proftpd.conf` (for MacOSX), or otherwise in 
-the etc subdirectory where ProFTPd is installed.
-
-```
-username@compute:galaxy_tool_dir$ sudo cp config/proftpd.conf /etc/proftpd/proftpd.conf
-```
-
-The configuration file in `config/proftpd.conf` is inspired from 
-[Peter Briggs](https://gist.githubusercontent.com/pjbriggs/9c8db43d8ac12c686fa7/raw/3b509c7575842c9275fcc8e3d5865ddede19e155/proftpd.conf-extract)
-
 Make ProFTPd run as a service 
 
 ```
@@ -104,11 +76,11 @@ username@compute:galaxy_tool_dir$ sudo service proftpd start
 ## Usage
 
 Launch script:
+
 ```
-./src/prepare_galaxy.sh
+./src/launch_galaxy.sh
 ```
 ## Possible errors
-
 
 # If Docker is used
 
@@ -117,7 +89,6 @@ Launch script:
 Linux
 
 Mac: install `docker` and `boot2docker`
-
 
 ## Configuration
 
