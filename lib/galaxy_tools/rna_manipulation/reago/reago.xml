@@ -35,7 +35,7 @@
 
         <param name="read_length" type="integer" min="1" max="1000" value="1" label="Read length" help=""/>
         <param name="overlap" type="float" min="0" max="1" value="0.7" label="Read length" help=""/>
-        <param name="error_correction" type="float" min="0" max="1" value=".05" label="Error correction" help=""/>
+        <param name="error_correction" type="float" min="1" max="1000" value="5" label="Error correction" help=""/>
         <param name="tip_size" type="integer" min="0" max="1000" value="30" label="Tip size" help=""/>
         <param name="path_finding_parameter" type="integer" min="2" max="11" value="10" label="Path finding parameter" help=""/>
   	</inputs>
