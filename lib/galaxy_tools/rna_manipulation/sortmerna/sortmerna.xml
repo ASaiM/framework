@@ -52,7 +52,7 @@
                 --blast_output_format $blast.format
             #end if
             
-            #if $log:
+            #if $log.test:
                 --log_file $log_output_file
             #end if
 
@@ -135,7 +135,9 @@
             </when>
         </conditional>
 
-        <param name='log' type='boolean' checked="true" truevalue='yes' falsevalue='no' label="Conserve overall statistic output into a log file?" help=""/>
+        <conditional name="log">
+            <param name='test' type='boolean' checked="true" truevalue='yes' falsevalue='no' label="Conserve overall statistic output into a log file?" help=""/>
+        </conditional>
 
         <conditional name="report">
             <param name="type" type="select" display="radio" label="Parameters for filtering and read mapping" help="">
@@ -208,7 +210,7 @@
         </data>
 
         <data format="text" name="log_output_file" label="rna_sorting_log_${input_sequence_file.name}">
-            <filter>((blast['test']))</filter>
+            <filter>((log['test']))</filter>
         </data>
 
 
