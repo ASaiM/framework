@@ -11,19 +11,8 @@
         <xml name="fastq_option">
             <expand macro="fasta_option" />
         </xml>
-        <xml name="specific_extraction_test">
-            <param name='specific_extraction' type='boolean' checked="false" truevalue='yes' falsevalue='no' label="Extract specific information?" help="If no is selected, a sequence file is generated. If yes, a text file containing the wanted information is generated"/>
-            <!--<param name="specific_extraction" type="select" display="radio" label="Extract specific information?" help="If no is selected, a sequence file is generated. If yes, a text file containing the wanted information is generated">
-                <option value="no">No</option>
-                <option value="yes">Yes</option>
-            </param>-->
-        </xml>
         <xml name="test_constrain_extraction">
             <param name='constrained_extraction' type='boolean' checked="false" truevalue='yes' falsevalue='no' label="Constrain extraction?" help=""/>
-            <!--<param name="constrained_extraction" type="select" display="radio" label="Constrain extraction?" help="">
-                <option value="no">No</option>
-                <option value="yes">Yes</option>
-            </param>-->
         </xml>
         <xml name="constrain_string">
             <conditional name="constraint_type">
@@ -142,7 +131,7 @@
 		    <when value="fasta">
                 <param name="sequence_file" type="data" format="fasta" label="Sequence file" help=""/>
                 <conditional name="extraction">
-                    <expand macro="specific_extraction_test" />
+                    <param name='specific_extraction' type='boolean' checked="false" truevalue='yes' falsevalue='no' label="Extract specific information?" help="If no is selected, a sequence file is generated. If yes, a text file containing the wanted information is generated"/>
                     <when value="yes">
                         <param name="to_extract" type="select" display="checkboxes" multiple="true" label="Information to extract" help="">
                             <expand macro="fasta_option" />
@@ -156,10 +145,10 @@
             <when value="fastq">
                 <param name="sequence_file" type="data" format="fastq" label="Sequence file" help=""/>
                 <conditional name="extraction">
-                    <expand macro="specific_extraction_test" />
+                    <param name='specific_extraction' type='boolean' checked="false" truevalue='yes' falsevalue='no' label="Extract specific information?" help="If no is selected, a sequence file is generated. If yes, a text file containing the wanted information is generated"/>
                     <when value="yes">
                         <param name="to_extract" type="select" display="checkboxes" multiple="true" label="Information to extract" help="">
-                            <expand macro="fastq_option" />
+                            <param name='constrained_extraction' type='boolean' checked="false" truevalue='yes' falsevalue='no' label="Constrain extraction?" help=""/>
                             <validator type="no_options" message="Select at least one information to extract"/>
                         </param>
                     </when>
@@ -185,29 +174,29 @@
 
   	<outputs>
         <data format="txt" name="information_file" label="information_${sequence_file_format.sequence_file.name}" >
-            <filter>(sequence_file_format['extraction']['specific_extraction'])</filter>
+            <filter>((sequence_file_format['extraction']['specific_extraction']))</filter>
         </data>
 
         <data format="fasta" name="fasta_sequence_file" label="sequences_${sequence_file_format.sequence_file.name}" >
             <filter>((sequence_file_format['format'] == 'fasta' and 
-                sequence_file_format['extraction']['specific_extraction']))</filter>
+                not sequence_file_format['extraction']['specific_extraction']))</filter>
         </data>
 
         <data format="fastq" name="fastq_sequence_file" label="sequences_${sequence_file_format.sequence_file.name}" >
             <filter>((sequence_file_format['format'] == 'fastq' and 
-                sequence_file_format['extraction']['specific_extraction'] and
-                sequence_file_format['extraction']['split']['split_test']))</filter>
+                not sequence_file_format['extraction']['specific_extraction'] and
+                not sequence_file_format['extraction']['split']['split_test']))</filter>
         </data>
 
         <data format="qual" name="quality_file" label="quality_${sequence_file_format.sequence_file.name}" >
             <filter>((sequence_file_format['format'] == 'fastq' and 
-                sequence_file_format['extraction']['specific_extraction'] and
+                not sequence_file_format['extraction']['specific_extraction'] and
                 sequence_file_format['extraction']['split']['split_test']))</filter>
         </data>
 
         <data format="fasta" name="fasta_sequence_file_from_fastq" label="sequences_${sequence_file_format.sequence_file.name}" >
             <filter>((sequence_file_format['format'] == 'fastq' and 
-                sequence_file_format['extraction']['specific_extraction'] and
+                not sequence_file_format['extraction']['specific_extraction'] and
                 sequence_file_format['extraction']['split']['split_test']))</filter>
         </data>
 
