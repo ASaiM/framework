@@ -1,0 +1,52 @@
+<tool id="qiime" name="Taxonomic profiling">
+
+	<description>with QIIME</description>
+
+    <macros>
+    </macros>
+
+	<requirements>
+    </requirements>
+
+    <stdio>
+    </stdio>
+
+    <version_command>
+    </version_command>
+
+  	<!--<command>-->
+    <command>
+    </command>
+
+  	<inputs>
+        <param name="input_sequence_file" type="data" format="fasta,fastq" label="Input sequence file" help=""/>
+  	</inputs>
+
+  	<outputs>
+        <data format="text" name="taxonomic_profiling" label="taxonomic_profiling_${input_sequence_file.name}"/>
+  	</outputs>
+
+  	<tests>
+  	</tests>
+
+  	<help>
+        **What it does**
+
+        
+
+
+        **Input**
+
+        
+
+
+        **Outputs**
+
+
+        **Parameters**
+  	</help>
+
+    <citations>
+    </citations>
+</tool>
+
