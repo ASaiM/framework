@@ -1,0 +1,51 @@
+<tool id="blast" name="Similarity search">
+
+    <description>with Blast</description>
+
+    <macros>
+    </macros>
+
+    <requirements>
+    </requirements>
+
+    <stdio>
+    </stdio>
+
+    <version_command>
+    </version_command>
+
+    <!--<command>-->
+    <command>
+    </command>
+
+    <inputs>
+        <param name="input_sequence_file" type="data" format="fasta,fastq" label="Input sequence file" help=""/>
+    </inputs>
+
+    <outputs>
+        <data format="text" name="similarity_search_report" label="similarity_search_report_${input_sequence_file.name}"/>
+    </outputs>
+
+    <tests>
+    </tests>
+
+    <help>
+        **What it does**
+
+        
+
+
+        **Input**
+
+        
+
+
+        **Outputs**
+
+
+        **Parameters**
+    </help>
+
+    <citations>
+    </citations>
+</tool>
