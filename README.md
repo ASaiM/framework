@@ -78,7 +78,7 @@ username@compute:galaxy_tool_dir$ sudo service proftpd start
 Launch script:
 
 ```
-./src/launch_galaxy.sh
+./scripts/launch_galaxy.sh
 ```
 ## Possible errors
 
@@ -125,7 +125,7 @@ eval "$(boot2docker shellinit)"
 
 Launch script:
 ```
-./src/prepare_galaxy.sh
+./scripts/launch_galaxy.sh
 ```
 
 ## Possible errors
