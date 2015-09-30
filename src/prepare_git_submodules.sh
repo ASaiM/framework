@@ -6,7 +6,6 @@ current_dir=`pwd`
 ## sortmerna
 echo "SortMeRNA..."
 cd $tool_dir/rna_manipulation/sortmerna/sortmerna
-git pull >> $current_dir/tmp/git_pull
 ./build.sh >> $current_dir/tmp/sortmerna_build
 if grep "Error" $current_dir/tmp/sortmerna_build > /dev/null ; then
     echo "Error with build for sortmerna"
@@ -21,7 +20,6 @@ if ! which gt > /dev/null; then
     read 
     if [ $REPLY == "y" ]; then
         cd $tool_dir/genometools/genometools/
-        git pull >> $current_dir/tmp/git_pull
         make >> $current_dir/tmp/genometools_make
         if grep "Error" $current_dir/tmp/genometools_make > /dev/null ; then
             echo "Error with make for GenomeTools"
@@ -40,5 +38,11 @@ fi
 ## reago
 echo "Reago..."
 cd $tool_dir/rna_manipulation/reago/reago
-git pull >> $current_dir/tmp/git_pull
 cd $current_dir
+
+## RDPTools
+echo "RDPTools..."
+cd $tool_dir/RDPTools/RDPTools
+git submodule init
+git submodule update
+make
