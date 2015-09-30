@@ -1,0 +1,145 @@
+<tool id="framebot" name="Frameshift correction and nearest neighbor classification tool">
+
+    <description>with Framebot</description>
+
+    <macros>
+    </macros>
+
+    <requirements>
+    </requirements>
+
+    <stdio>
+    </stdio>
+
+    <version_command>
+    </version_command>
+
+    <!--<command>-->
+    <command interpreter="python">
+        framebot_wrapper.py
+            --src_dir $os.getcwd()
+            --input_sequence_file $sequence_file
+            --alignment_mode $alignment_mode
+            --denovo_abund_cutoff $denovo_abund_cutoff
+            --denovo_id_cutoff $denovo_id_cutoff
+            --identity_cutoff $identity_cutoff
+            --knn $knn
+            --length_cutoff $length_cutoff
+            
+            --no_metric_search $no_metric_search.test
+            #if $no_metric_search.test:
+                --gap_ext_penalty $no_metric_search.gap_ext_penalty
+                --frameshift_penalty $no_metric_search.frameshift_penalty
+                --gap_open_penalty $no_metric_search.gap_open_penalty
+                --no_prefilter $no_metric_search.no_prefilter
+                --scoring_matrix $no_metric_search.scoring_matrix
+            #else:
+                --max_radius $no_metric_search.max_radius
+            #end if
+
+            --transl_table $transl_table
+            --word_size $word_size
+            --de_novo $de_novo
+
+            --framebot_output_file $framebot
+            --nucl_corr_output_file $nucl_corr_output_file
+            --all_seqs_derep_prot_corr_output_file $all_seqs_derep_prot_corr_output_file
+            --failed_framebot_output_file $failed_framebot_output_file
+            --nucl_failed_output_file $nucl_failed_output_file
+    </command>
+
+    <inputs>
+        <param name="sequence_file" type="data" format="fasta,fastq" label="Input sequence file" help=""/>
+
+        <param name="alignment_mode" type="select" display="radio" label="Alignment mode" help="">
+            <option value="glocal">Glocal</option>
+            <option value="local">Local</option>
+            <option value="global">Global</option>
+        </param>
+
+        <param name="denovo_abund_cutoff" type="integer" min="0" max="100" value="10" label="Minimum abundance for de-novo mode" help=""/>
+        <param name="denovo_id_cutoff" type="float" min="0" max="1" value="0.7" label="Maximimum aa identity cutoff for de-novo mode" help=""/>
+        <param name="identity_cutoff" type="float" min="0" max="1" value="0.4" label="Percent identity cutoff" help=""/>
+
+        <conditional name="no_metric_search">
+            <param name="test" type='boolean' checked="true" truevalue='yes' falsevalue='no' label="Disable metric search?" help="Provide fasta file of seeds instead of index file"/>
+            <when value="yes">
+                <param name="gap_ext_penalty" type="integer" min="-10" max="0" value="-1" label="Gap extension penalty" help=""/>
+                <param name="frameshift_penalty" type="integer" min="-20" max="0" value="-10" label="Frameshift penalty" help=""/>
+                <param name="gap_open_penalty" type="integer" min="-20" max="0" value="-10" label="Gap opening penalty" help=""/>
+                <param name="no_prefilter" type='boolean' checked="false" truevalue='yes' falsevalue='no' label="Disable the pre-filtering step?" help=""/>
+                <param name="scoring_matrix" type="select" display="radio" label="Protein scoring matrix" help="">
+                    <option value="Blosum62">Blosum62</option>
+                </param>
+            </when>
+            <when value="no">
+                <param name="max_radius" type="float" min="1" max="2147483647" value="100" label="Maximum radius" help=""/>
+            </when>
+        </conditional>
+        
+        <param name="knn" type="integer" min="0" max="100" value="10" label="The top k closest protein targets" help=""/>
+        <param name="length_cutoff" type="integer" min="0" max="100" value="80" label="Length cutoff in number of amino acids" help=""/>
+        
+        <param name="transl_table" type="select" display="radio" label="Protein translation table to use" help="NCBI Translation Tables">
+            <option value="1">Standard Code</option>
+            <option value="2">Vertebrate Mitochondrial Code</option>
+            <option value="3">Yeast Mitochondrial Code</option>
+            <option value="4">Mold, Protozoan, and Coelenterate Mitochondrial Code and the Mycoplasma/Spiroplasma Code</option>
+            <option value="5">Invertebrate Mitochondrial Code</option>
+            <option value="6">Ciliate, Dasycladacean and Hexamita Nuclear Code</option>
+            <option value="9">Echinoderm and Flatworm Mitochondrial Code</option>
+            <option value="10">Euplotid Nuclear Code</option>
+            <option value="11" selected="true">Bacterial, Archaeal and Plant Plastid Code</option>
+            <option value="12">Alternative Yeast Nuclear Code</option>
+            <option value="13">Ascidian Mitochondrial Code</option>
+            <option value="14">Alternative Flatworm Mitochondrial Code</option>
+            <option value="16">Chlorophycean Mitochondrial Code</option>
+            <option value="21">Trematode Mitochondrial Code</option>
+            <option value="22">Scenedesmus obliquus Mitochondrial Code</option>
+            <option value="23">Thraustochytrium Mitochondrial Code</option>
+            <option value="24">Pterobranchia Mitochondrial Code</option>
+            <option value="25">Candidate Division SR1 and Gracilibacteria Code</option>
+        </param>
+        
+        <param name="word_size" type="integer" min="3" max="6" value="4" label="Word size used to find closest protein target" help=""/>
+        <param name="de_novo" type='boolean' checked="false" truevalue='yes' falsevalue='no' label="Enable de novo mode to add abundant query seqs to refset" help=""/>
+    </inputs>
+
+    <outputs>
+        <data format="text" name="framebot_output_file" label="framebot_${sequence_file.name}" />
+        <data format="fasta" name="nucl_corr_output_file" label="nucl_corr_${sequence_file.name}" />
+        <data format="fasta" name="all_seqs_derep_prot_corr_output_file" label="all_seqs_derep_prot_corr_${sequence_file.name}" />
+        <data format="text" name="failed_framebot_output_file" label="failed_framebot_${sequence_file.name}" />
+        <data format="fasta" name="nucl_failed_output_file" label="nucl_failed_${sequence_file.name}" />
+    </outputs>
+
+    <tests>
+  
+    </tests>
+
+    <help>
+        **What it does**
+
+        Framebot is a frameshift correction and nearest neighbor classification tool for use with high-throughput amplicon sequencing
+
+        -----
+
+        **Input**
+
+        The input is one sequence file.
+
+        -----
+
+        **Outputs**
+
+        -----
+        
+        **Parameters**
+
+    </help>
+
+    <citations>
+       <citation type="doi">10.1128/mBio.00592-13</citation>
+    </citations>
+</tool>
+
