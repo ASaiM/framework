@@ -16,3 +16,6 @@
 [submodule "lib/galaxy_tools/genometools/genometools"]
 	path = lib/galaxy_tools/genometools/genometools
 	url = https://github.com/genometools/genometools.git
+[submodule "lib/galaxy_tools/RDPTools/RDPTools"]
+	path = lib/galaxy_tools/RDPTools/RDPTools
+	url = https://github.com/rdpstaff/RDPTools.git
