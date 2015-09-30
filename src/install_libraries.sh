@@ -78,3 +78,14 @@ if grep "Error" tmp/pip_install > /dev/null ; then
     echo "Error with pip_install"
     exit
 fi
+
+if ! which ant >> /dev/null; then
+    echo -e "ant not found! Install? (y/n) \c"
+    read
+    if [ $REPLY == "y" ]; then
+        cd lib/ant/
+        sudo sh build.sh -Ddist.dir=/bin/ant dist
+        export PATH="/bin/ant/bin:$PATH"
+        cd $current_dir
+    fi
+fi
