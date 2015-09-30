@@ -6,61 +6,57 @@
     </macros>
 
 	<requirements>
-        <requirement type="package" version="1.8.1">usearch</requirement>
     </requirements>
 
     <stdio>
-        
+        <regex match="error"
+               source="stderr"
+               level="fatal"
+               description="" />
+        <regex match="warning"
+               source="stderr"
+               level="warning"
+               description="" />
     </stdio>
 
     <version_command></version_command>
 
   	<!--<command>-->
-    <command>
-        usearch -derep_prefix $sequence_file_format.sequence_file
-            -fastaout $unique_sequence_file
-
-            $size_annotation
+    <command interpreter="python">
+        derep_prefix_wrapper.py 
+            --src_dir $os.getcwd()
+            --input_sequence_file $sequence_file
+            --output_file $unique_sequence_file
+            --size_annotation $size_annotation
 
             #if $minimum_size.test :
-                -minuniquesize $minimum_size.value
+                --min_unique_size $minimum_size.value
             #end if
 
             #if $minimum_seq_length.test :
-                -minseqlength $minimum_seq_length.value
+                --min_seq_length $minimum_seq_length.value
             #end if
 
             #if $relabel.test :
-                -relabel $relabel.value
+                --relabel $relabel.value
             #end if
 
             #if $eliminate_cluster.test :
-                -topn $eliminate_cluster.value
+                --conserve_cluster_nb $eliminate_cluster.value
             #end if
+
+            --os $os_info
     </command>
 
   	<inputs>
-        <conditional name="sequence_file_format">
+        <param name="sequence_file" type="data" format="fasta,fastq" label="Input sequence file" help=""/>
+        <param name="os_info" type="select" display="radio" label="Computer OS" help="">
+            <option value="mac">Mac OSX</option>
+            <option value="linux" selected="true">Linux</option>
+            <option value="window">Windows</option>
+        </param>
 
-            <param name="format" type="select" display="radio" label="Format of the sequence file" help="">
-                <option value="fasta">Fasta</option>
-                <option value="fastq">FastQ</option>
-            </param>
-            <when value="fasta">
-                <param name="sequence_file" type="data" format="fasta" label="Input sequence file" help=""/>
-            </when>
-            <when value="fastq">
-                <param name="sequence_file" type="data" format="fastq" label="Input sequence file" help=""/>
-            </when>
-        </conditional>  
-
-        <param name='size_annotation' type='boolean' checked="true" truevalue='-sizeout' falsevalue='' label='Addition of size annotations to the unique sequence labels?' help=""/>
-        <!--<conditional name="size_annotation">
-            <param name="test" type="select" display="radio" label="Addition of size annotations to the unique sequence labels?" help="">
-                <option value="yes" selected="true">Yes</option>
-                <option value="no">No</option>
-            </param>
-        </conditional>  -->
+        <param name='size_annotation' type='boolean' checked="true" truevalue='yes' falsevalue='no' label='Addition of size annotations to the unique sequence labels?' help=""/>
 
         <conditional name="minimum_size">
             <param name='test' type='boolean' checked="false" truevalue='yes' falsevalue='no' label="Set a minimum size for cluster?" help="Unique sequences with smaller clusters are not included in the output file"/>
@@ -92,7 +88,7 @@
   	</inputs>
 
   	<outputs>
-        <data format="fasta" name="unique_sequence_file" label="uniques_${sequence_file_format.sequence_file}" />
+        <data format="fasta" name="unique_sequence_file" label="uniques_${sequence_file.name}" />
   	</outputs>
 
   	<tests>
