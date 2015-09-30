@@ -9,12 +9,12 @@ git pull
 cd $current_dir
 
 # Prepary galaxy tools which are in git submodules
-./scripts/prepare_git_submodules.sh
+./src/prepare_git_submodules.sh
 
 cp -r lib/galaxy_tools/* $galaxy_dir/tools/
 
 # Prepare galaxy tools
-./scripts/prepare_galaxy_tools.sh $galaxy_dir
+./src/prepare_galaxy_tools.sh $galaxy_dir
 
 # Prepare galaxy config
 cp config/* $galaxy_dir/config/
