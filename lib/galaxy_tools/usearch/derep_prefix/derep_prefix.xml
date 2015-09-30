@@ -15,7 +15,15 @@
                description="" />
         <regex match="warning"
                source="stderr"
-               level="warning"
+               level="fatal"
+               description="" />
+        <regex match="denied"
+               source="stderr"
+               level="fatal"
+               description="" />
+        <regex match="Invalid"
+               source="stderr"
+               level="fatal"
                description="" />
     </stdio>
 
