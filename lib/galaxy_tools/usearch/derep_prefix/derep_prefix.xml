@@ -15,7 +15,7 @@
                description="" />
         <regex match="warning"
                source="stderr"
-               level="fatal"
+               level="warning"
                description="" />
         <regex match="denied"
                source="stderr"
