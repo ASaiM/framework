@@ -4,7 +4,7 @@ ASaiM Galaxy
 Clone the repository recursively (because of submodules)
 
 ```
-git clone --recursive git@github.com:ASaiM/framework.git
+git clone --recursive https://github.com/ASaiM/framework.git
 ```
 
 # If Docker is not used
