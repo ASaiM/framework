@@ -57,12 +57,6 @@ if ! which git-hg > /dev/null; then
     read
     if [ $REPLY == "y" ]; then
         cd lib/git-hg
-        git pull >> tmp/git-hg_git_pull
-        if grep "Error" tmp/hg_git_pull > /dev/null ; then
-            echo "Error with git pull for git-hg"
-            exit
-        fi
-
         make >> tmp/git-hg_make
         if grep "Error" tmp/git-hg_make > /dev/null ; then
             echo "Error with make for git-hg"
@@ -84,4 +78,3 @@ if grep "Error" tmp/pip_install > /dev/null ; then
     echo "Error with pip_install"
     exit
 fi
-
