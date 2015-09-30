@@ -19,7 +19,8 @@ Some tools must be installed before launching any scripts:
 - `perl`
 - `scons`
 - `mercurial`
-- `openssl` > 1.0.0c, 
+- `openssl` > 1.0.0c
+- `java` 
 
 Some tools are tested and installed by a custom script executed automatically 
 when galaxy is launched:
