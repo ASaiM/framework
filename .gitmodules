@@ -22,3 +22,6 @@
 [submodule "lib/ant"]
 	path = lib/ant
 	url = https://git-wip-us.apache.org/repos/asf/ant.git
+[submodule "lib/galaxy_tools/sequence_clustering/cd-hit/cd-hit"]
+	path = lib/galaxy_tools/sequence_clustering/cd-hit/cd-hit
+	url = https://github.com/weizhongli/cdhit.git
