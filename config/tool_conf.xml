@@ -26,6 +26,9 @@
         <section id="dereplication" name="Dereplication">
             <tool file="usearch/derep_prefix/derep_prefix.xml" />
         </section>
+        <section id="chimera_detection" name="Chimera detection">
+            <tool file="usearch/uchime_denovo/uchime_denovo.xml" />
+        </section>
         <section id="similarity_search" name="Similarity search">
             <tool file="similarity_search/blast/blast.xml" />
             <tool file="similarity_search/diamond/diamond.xml" />
