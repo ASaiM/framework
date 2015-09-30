@@ -45,4 +45,23 @@ echo "RDPTools..."
 cd $tool_dir/RDPTools/RDPTools
 git submodule init
 git submodule update
-make
+export PATH="/bin/ant/bin:$PATH"
+if [ ! -f "FrameBot.jar" ]; then 
+    make >> $current_dir/tmp/RDPTools_make
+    if grep "Error" $current_dir/tmp/RDPTools_make > /dev/null ; then
+        echo "Error with make for RDPTools"
+        exit
+    fi
+else
+    echo -e "  recompile? (y/n) \c"
+    read 
+    if [ $REPLY == "y" ]; then
+        make clean
+        make >> $current_dir/tmp/RDPTools_make
+        if grep "Error" $current_dir/tmp/RDPTools_make > /dev/null ; then
+            echo "Error with make for RDPTools"
+            exit
+        fi
+    fi
+fi
+cd $current_dir
