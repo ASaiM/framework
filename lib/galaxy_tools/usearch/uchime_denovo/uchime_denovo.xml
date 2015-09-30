@@ -1,0 +1,173 @@
+<tool id="uchime_denovo" name="de novo chimera detection">
+
+	<description>with uchime_denovo of usearch</description>
+
+    <macros>
+    </macros>
+
+	<requirements>
+        <requirement type="package" version="1.8.1">usearch</requirement>
+    </requirements>
+
+    <stdio>
+        <regex match="error"
+               source="stderr"
+               level="fatal"
+               description="" />
+        <regex match="warning"
+               source="stderr"
+               level="warning"
+               description="" />
+        <regex match="denied"
+               source="stderr"
+               level="fatal"
+               description="" />
+        <regex match="Invalid"
+               source="stderr"
+               level="fatal"
+               description="" />
+    </stdio>
+
+    <version_command></version_command>
+
+  	<!--<command>-->
+    <command interpreter="python">
+        uchime_denovo_wrapper.py 
+            --src_dir $os.getcwd()
+            --input_sequence_file $sequence_file
+
+            #if $uchimeout.test:
+                --uchimeout_file $uchimeout_file
+            #end if
+
+            #if $uchimealns.test:
+                --uchimealns_file $uchimealns_file
+            #end if
+
+            #if $chimera_file.test:
+                --chimeras_file_format $chimera_file.format
+                #if $chimera_file.format == 'fastq':
+                    --chimerasq_file $chimerasq_file
+                #else
+                    --chimeras_file $chimeras_file
+                #end if
+            #end if
+
+            #if $non_chimera_file.test:
+                #if $non_chimera_file.format == 'fastq':
+                    --nonchimerasq_file $nonchimerasq_file
+                #else
+                    --nonchimeras_file $nonchimeras_file
+                #end if
+            #end if
+
+            --minimum_score $minimum_score
+            --no_vote_weight $no_vote_weight
+            --no_vote_pseudo_count $no_vote_pseudo_count
+            --min_diff_nb $min_diff_nb
+            --min_div $min_div
+            --abundance_skew $abundance_skew
+
+            --os $os_info
+    </command>
+
+  	<inputs>
+        <param name="sequence_file" type="data" format="fasta,fastq" label="Input sequence file" help="Estimated amplicons with abundances specified by size annotations"/>
+        <param name="os_info" type="select" display="radio" label="Computer OS" help="">
+            <option value="mac">Mac OSX</option>
+            <option value="linux" selected="true">Linux</option>
+            <option value="window">Windows</option>
+        </param>
+
+        <conditional name="uchimeout">
+            <param name="test" type='boolean' checked="true" truevalue='yes' falsevalue='no' label="Generate a tabbed output file?" help="" />
+        </conditional>
+
+        <conditional name="uchimealns">
+            <param name="test" type='boolean' checked="false" truevalue='yes' falsevalue='no' label="Generate an output file for human-readable 3-way alignments of query to putative parents?" help="" />
+        </conditional>
+
+        <conditional name="chimera_file">
+            <param name="test" type='boolean' checked="true" truevalue='yes' falsevalue='no' label="Generate a sequence file with sequences classified as chimeric?" help="" />
+            <when value="yes">
+                <param name="format" type="select" display="radio" label="Chimeric sequence file format?" help="">
+                    <option value="fasta">Fasta</option>
+                    <option value="fastq" >FastQ</option>
+                </param>
+            </when>
+        </conditional>
+
+        <conditional name="non_chimera_file">
+            <param name="test" type='boolean' checked="true" truevalue='yes' falsevalue='no' label="Generate a sequence file with sequences classified as not chimeric?" help="" />
+            <when value="yes">
+                <param name="format" type="select" display="radio" label="Not chimeric sequence file format?" help="">
+                    <option value="fasta" >Fasta</option>
+                    <option value="fastq" >FastQ</option>
+                </param>
+            </when>
+        </conditional>
+
+        <param name='minimum_score' type='float' min="0" max="10" value=".28" label='Minimum score' help="Increasing this value tends to reduce the number of false positives and decrease sensitivity"/>
+        <param name='no_vote_weight' type='float' min="1" max="20" value="8" label='Weight of "no" vote' help="Increasing this value tends to reduce the number of false positives and decrease sensitivity"/>
+        <param name='no_vote_pseudo_count' type='float' min="0" max="10" value="1.4" label='Pseudo-count prior for "no" votes' help="Increasing this value tends to the reduce number of false positives and decrease sensitivity"/>
+        <param name='min_diff_nb' type='float' min="0" max="10" value="3" label='Minimum number of diffs in a segment' help="Increasing this value tends to reduce the number of false positives while reducing sensitivity to very low-divergence chimeras"/>
+        <param name='min_div' type='float' min="0" max="1" value=".8" label='Minimum divergence, i.e. 100% - identity between the query and closest reference database sequence' help="Expressed as a percentage, so the default is 0.8%, which allows chimeras that are up to 99.2% similar to a reference sequence. This value is chosen to improve sensitivity to very low-divergence chimeras as needed to achieve a high score on the SIM2 benchmark (see UCHIME paper). The tool author generally recommends increasing this value to, say, 1.5 to further reduce the number of false positives, which allows reducing the minimum score option to improve sensitivity to higher-divergence chimeras. "/>
+        <param name='abundance_skew' type='float' min="0" max="10" value="2" label='Abundance skew' help="Minimum value required to classify a sequence as chimeric"/>
+  	</inputs>
+
+  	<outputs>
+        <data format="text" name="uchimeout_file" label="uchimeout_${sequence_file.name}">
+            <filter>((uchimeout['test']))</filter>
+        </data>
+        <data format="text" name="uchimealns_file" label="uchimealns_${sequence_file.name}">
+            <filter>((uchimealns['test']))</filter>
+        </data>
+        <data format="fasta" name="chimeras_file" label="chimeras_${sequence_file.name}">
+            <filter>((chimera_file['test'] and chimera_file['format'] == 'fasta'))</filter>
+        </data>
+        <data format="fasta" name="nonchimeras_file" label="nonchimeras_${sequence_file.name}">
+            <filter>((non_chimera_file['test'] and non_chimera_file['format'] == 'fasta'))</filter>
+        </data>
+        <data format="fastq" name="chimerasq_file" label="chimerasq_${sequence_file.name}">
+            <filter>((chimera_file['test'] and chimera_file['format'] == 'fastq'))</filter>
+        </data>
+        <data format="fastq" name="nonchimerasq_file" label="nonchimerasq_${sequence_file.name}">
+            <filter>((non_chimera_file['test'] and non_chimera_file['format'] == 'fastq'))</filter>
+        </data>
+  	</outputs>
+
+  	<tests>
+  
+  	</tests>
+
+  	<help>
+
+        **What it does**
+
+        de novo chimera detection performs using UCHIME algorithm.
+        Here, uchime_denovo command of usearch tool is used.
+
+        Warning: this command is deprecated for use in OTU clustering pipelines.
+        The cluster_otus command is more effective
+
+        -----
+
+        **Input**
+
+        The input is one sequence file.
+
+        -----
+
+        **Outputs**
+
+        -----
+        
+        **Parameters**
+
+
+  	</help>
+
+    <citations>
+    </citations>
+</tool>
+
