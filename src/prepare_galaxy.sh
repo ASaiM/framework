@@ -3,11 +3,6 @@
 galaxy_dir=$1
 current_dir=$PWD
 
-# Pull galaxy code
-cd $galaxy_dir
-git pull 
-cd $current_dir
-
 # Prepary galaxy tools which are in git submodules
 ./src/prepare_git_submodules.sh
 
