@@ -21,9 +21,9 @@
             -o $clustered_sequences
 
             #if $cluster:
-                -g 1
-            #else:
                 -g 0
+            #else:
+                -g 1
             #end if
 
             -c $seq_id_threshold
