@@ -41,7 +41,7 @@
             --word_size $word_size
             --de_novo $de_novo
 
-            --framebot_output_file $framebot
+            --framebot_output_file $framebot_output_file
             --nucl_corr_output_file $nucl_corr_output_file
             --all_seqs_derep_prot_corr_output_file $all_seqs_derep_prot_corr_output_file
             --failed_framebot_output_file $failed_framebot_output_file
