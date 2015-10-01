@@ -12,42 +12,42 @@
         <section id="qualityControl" name="Control quality">
             <tool file="quality_control/prinseq/prinseq.xml" />
         </section>
-        <section id="paired_end_assembly" name="Paired-end assembly">
+        <section id="paired_end_assembly" name="Assemble paired-end sequences">
             <tool file="paired_end_assembly/fastq_join/fastq_join.xml" />
         </section>
         <!--<section id="de_novo_assembly" name="De novo assembly">
             <tool file="genometools/readjoiner/readjoiner.xml" />
         </section>-->
-        <section id="rna_manipulation" name="RNA manipulation">
+        <section id="rna_manipulation" name="Manipulate RNA">
             <tool file="rna_manipulation/sortmerna/sortmerna.xml" />
             <tool file="rna_manipulation/reago/reago.xml" />
             <!--<tool file="rna_manipulation/infernal/infernal.xml" />-->
         </section>
-        <section id="dereplication" name="Dereplication">
+        <section id="dereplication" name="Dereplicate">
             <tool file="usearch/derep_prefix/derep_prefix.xml" />
         </section>
-        <section id="chimera_detection" name="Chimera detection">
+        <section id="chimera_detection" name="Detect chimeric sequences">
             <tool file="usearch/uchime_denovo/uchime_denovo.xml" />
         </section>
-        <section id="frameshift_detection" name="Frameshift detection">
+        <section id="frameshift_detection" name="Detect frameshift">
             <tool file="RDPTools/framebot/framebot.xml" />
         </section>
-        <section id="sequence_clustering" name="Sequence clustering">
+        <section id="sequence_clustering" name="Cluster sequences">
             <tool file="sequence_clustering/cd-hit/cd-hit.xml" />
         </section>
-        <section id="similarity_search" name="Similarity search">
+        <section id="similarity_search" name="Search similarity">
             <tool file="similarity_search/blast/blast.xml" />
             <tool file="similarity_search/diamond/diamond.xml" />
         </section>
     <label text="TAXONOMIC ASSIGNATION" id="taxonomic" />
-        <section id="non_rRNA_taxonomic_assignation" name="For non rRNA sequences">
+        <section id="non_rRNA_taxonomic_assignation" name="Manipulate non rRNA sequences">
             <tool file="non_rRNA_taxonomic_assignation/metaphlan2/metaphlan2.xml" />
         </section>
-        <section id="rRNA_taxonomic_assignation" name="For rRNA sequences">
+        <section id="rRNA_taxonomic_assignation" name="Manipulate rRNA sequences">
             <tool file="rRNA_taxonomic_assignation/qiime/qiime.xml" />
         </section>
     <label text="FUNCTIONAL ASSIGNATION" id="functional" />
-        <section id="metabolic_analysis" name="Metabolic analysis">
+        <section id="metabolic_analysis" name="Analyze metabolism">
             <tool file="metabolic_analysis/humann/humann.xml" />
             <tool file="metabolic_analysis/humann2/humann2.xml" />
             <tool file="metabolic_analysis/humann2/regroup_table/regroup_table.xml" />
