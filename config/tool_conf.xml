@@ -32,6 +32,9 @@
         <section id="frameshift_detection" name="Frameshift detection">
             <tool file="RDPTools/framebot/framebot.xml" />
         </section>
+        <section id="sequence_clustering" name="Sequence clustering">
+            <tool file="sequence_clustering/cd-hit/cd-hit.xml" />
+        </section>
         <section id="similarity_search" name="Similarity search">
             <tool file="similarity_search/blast/blast.xml" />
             <tool file="similarity_search/diamond/diamond.xml" />
