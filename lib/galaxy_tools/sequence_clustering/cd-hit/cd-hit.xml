@@ -1,0 +1,152 @@
+<tool id="cd-hit" name="Sequence clustering">
+
+    <description>with cd-hit</description>
+
+    <macros>
+    </macros>
+
+    <requirements>
+    </requirements>
+
+    <stdio>
+    </stdio>
+
+    <version_command>
+    </version_command>
+
+    <!--<command>-->
+    <command>
+        cd-hit/cd-hit
+            -i $sequence_file
+            -o $clustered_sequences
+
+            #if $cluster:
+                -g 1
+            #else:
+                -g 0
+            #end if
+
+            -c $seq_id_threshold
+            -G $seq_id
+            -n $word_length
+
+            -l $throw_away_seq_length
+            -t $redundance_tolerance
+            -s $length_diff_cutoff
+            -S $aa_length_diff_cutoff
+            -aL $longer_seq_alignment_coverage
+            -AL $longer_seq_alignment_coverage_control
+            -aS $shorter_seq_alignment_coverage
+            -AS $shorter_seq_alignment_coverage_control
+            -A $minimal_seq_alignment_coverage_control
+            -uL $longer_seq_max_unmatched_percentage
+            -uS $shorter_seq_max_unmatched_percentage
+            -U $max_unmatched_length
+
+            -b $band_width
+            #if $memory_limit.test:
+                -M $memory_limit.value
+            #else:
+                -M 0
+            #end if
+
+            #if $thread_number.test:
+                -T $thread_number.value
+            #else:
+                -T 0
+            #end if
+            
+            -d $description_length
+            
+            -B $sequence_storage
+
+            #if $print:
+                -p 1 
+            #else:
+                -p 0
+            #end if
+
+            
+    </command>
+
+    <inputs>
+        <param name="sequence_file" type="data" format="fasta" label="Input sequence file" help=""/>
+
+        <param name="seq_id" type="select" display="radio" label="Use sequence identity?" help="Do not use local unless use alignment coverage controls">
+            <option value="1">Global</option>
+            <option value="0">Local</option>
+        </param>
+
+        <param name="cluster" type='boolean' checked="false" truevalue='yes' falsevalue='no' label="Cluster sequence to the first cluster that meet the threshold (or into the most similar cluster that meet the threshold)?" help="It won't change the representatives of final clusters" />
+
+        <param name="seq_id_threshold" type="float" min="0.4" max="1" value="0.9" label="Sequence identity threshold" help="Number of identical amino acids in alignment divided by the full length of the shorter sequence"/>
+        <param name="word_length" type="integer" min="2" max="5" value="5" label="Word size" help="5 for thresholds [0.7-1], 4 for [0.6-0.7], 3 for [0.5-0.6], 2 for [0.4-0.5]"/>
+        <param name="length_diff_cutoff" type="float" min="0" max="1" value="0" label="Length difference cutoff" help="If set to 0.9, the shorter sequences need to be at least 90% length of the representative of the cluster"/>
+        <param name="aa_length_diff_cutoff" type="integer" min="0" max="999999" value="999999" label="Length difference cutoff in amino acid" help="If set to 60, the length difference between the shorter sequences and the representative of the cluster can not be bigger than 60"/>
+        <param name="longer_seq_alignment_coverage" type="float" min="0" max="1" value="0" label="Alignment coverage for the longer sequence" help="If set to 0.9, the alignment must covers 90% of the sequence"/>
+        <param name="longer_seq_alignment_coverage_control" type="float" min="0" max="99999999" value="99999999" label="Alignment coverage control for the longer sequence" help="If set to 60, and the length of the sequence is 400, then the alignment must be >= 340 (400-60) residues"/>
+        <param name="shorter_seq_alignment_coverage" type="float" min="0" max="1" value="0" label="Alignment coverage for the shorter sequence" help="If set to 0.9, the alignment must covers 90% of the sequence"/>
+        <param name="shorter_seq_alignment_coverage_control" type="float" min="0" max="99999999" value="99999999" label="Alignment coverage control for the shorter sequence" help="If set to 60, and the length of the sequence is 400, then the alignment must be >= 340 (400-60) residues"/>
+        <param name="minimal_seq_alignment_coverage_control" type="float" min="0" max="99999999" value="0" label="Minimal alignment coverage control for the both sequences" help="Alignment must cover >= this value for both sequences"/>
+        <param name="longer_seq_max_unmatched_percentage" type="float" min="0" max="1" value="0" label="Maximum unmatched percentage for the longer sequence" help="If set to 0.1, the unmatched region (excluding leading and tailing gaps) must not be more than 10% of the sequence"/>
+        <param name="shorter_seq_max_unmatched_percentage" type="float" min="0" max="1" value="0" label="Maximum unmatched percentage for the shorter sequence" help="If set to 0.1, the unmatched region (excluding leading and tailing gaps) must not be more than 10% of the sequence"/>
+        <param name="max_unmatched_length" type="integer" min="0" max="99999999" value="99999999" label="Maximum unmatched length" help="If set to 10, the unmatched region (excluding leading and tailing gaps) must not be more than 10 bases"/>
+
+        <param name="throw_away_seq_length" type="integer" min="0" max="20" value="10" label="Length of throw away sequences" help=""/>
+        <param name="redundance_tolerance" type="integer" min="0" max="10" value="2" label="Tolerance for redundance" help=""/>
+
+        <param name="band_width" type="integer" min="0" max="100" value="20" label="Band width of alignment" help=""/>
+        <conditional name="memory_limit">
+            <param name="test" type='boolean' checked="true" truevalue='yes' falsevalue='no' label="Limit memory?" help="">
+            <when value="yes">
+                <param name="value" type="integer" min="0" max="16000" value="800" label="Memory limit (Mb)" help=""/>
+            </when>
+        </conditional> 
+        <conditional name="thread_number">
+            <param name="test" type='boolean' checked="true" truevalue='yes' falsevalue='no' label="Limit thread number?" help="">
+            <when value="yes">
+                <param name="value" type="integer" min="0" max="32" value="1" label="Number of thread" help=""/>
+            </when>
+        </conditional> 
+        <param name="sequence_storage" type="select" display="radio" label="Sequence storage?" help="">
+            <option value="0">Sequences stored in RAM</option>
+            <option value="1">Sequences stored in hard drive</option>
+        </param>
+        <param name="print" type='boolean' checked="false" truevalue='yes' falsevalue='no' label="Print alignment overlap?" help="" />
+        <param name="description_length" type="integer" min="0" max="50" value="20" label="Length of description in cltr file" help="If set to 0, it takes the fasta defline and stops at first space"/>
+        
+    </inputs>
+
+    <outputs>
+        <data format="text" name="clustered_sequences" label="cluster_${sequence_file.name}" />
+    </outputs>
+
+    <tests>
+  
+    </tests>
+
+    <help>
+        **What it does**
+
+        CD-HIT clusters proteins into clusters that meet a user-defined similarity threshold, usually a sequence identity. Each cluster has one representative sequence.
+
+        -----
+
+        **Input**
+
+        -----
+
+        **Outputs**
+
+        -----
+        
+        **Parameters**
+
+    </help>
+
+    <citations>
+       <citation type="doi">10.1093/bioinformatics/bts565</citation>
+       <citation type="doi">10.1093/bioinformatics/btl158</citation>
+    </citations>
+</tool>
+
