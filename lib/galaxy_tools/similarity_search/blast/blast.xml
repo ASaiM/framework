@@ -16,10 +16,43 @@
 
     <!--<command>-->
     <command>
+
+            #if str( $databases_type.databases_selector ) == 'history':
+                #for $db in $databases_type.database_name
+                    --db $db
+                #end for
+            #else:
+                ## databases path is not directly accessible, must match by hand with LOC file contents
+                #set $data_table = dict([(_[0], _[2]) for _ in $databases_type.input_databases.input.options.tool_data_table.data])
+                #for $db in $databases_type.input_databases.value
+                    #set $db_path=$os.getcwd() + '/'
+                    #set $db_path += $data_table[$db]
+                    --db $db_path
+                #end for
+            #end if
     </command>
 
     <inputs>
-        <param name="input_sequence_file" type="data" format="fasta,fastq" label="Input sequence file" help=""/>
+        <param name="input_sequence_file" type="data" format="fasta" label="Input sequence file" help=""/>
+
+        <conditional name="databases_type">
+            <param name="databases_selector" type="select" label="Databases to query" help="">
+                <option value="cached" selected="true">Public databases</option>
+                <option value="history">Databases from your history</option>
+            </param>
+            <when value="cached">
+                <param name="input_databases" label="Available databases" type="select" display="checkboxes" multiple="true">
+                    <options from_data_table="sortmerna_rRNA_databases" />
+                    <validator type="no_options" message="Select at least one database"/>
+                </param>
+            </when>
+            <when value="history">
+                <param name="database_name" type="data" format="fasta" multiple="true" label="rRNA databases"
+                    help=""/>
+            </when>
+        </conditional>
+
+        
     </inputs>
 
     <outputs>
