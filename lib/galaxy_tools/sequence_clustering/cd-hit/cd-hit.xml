@@ -16,57 +16,59 @@
 
     <!--<command>-->
     <command>
-        cd-hit/cd-hit
-            -i $sequence_file
-            -o $clustered_sequences
+        cd-hit_wrapper.py
+            --src_dir $os.getcwd()
+            --input_sequence_file $sequence_file
+            --representative_cluster_sequence $representative_cluster_sequence
+            --cluster_description $cluster_description
 
             #if $cluster:
-                -g 0
+                --cluster 0
             #else:
-                -g 1
+                --cluster 1
             #end if
 
-            -c $seq_id_threshold
-            -G $seq_id
-            -n $word_length
+            --seq_id_threshold $seq_id_threshold
+            --seq_id $seq_id
+            --word_length $word_length
 
-            -l $throw_away_seq_length
-            -t $redundance_tolerance
-            -s $length_diff_cutoff
-            -S $aa_length_diff_cutoff
-            -aL $longer_seq_alignment_coverage
-            -AL $longer_seq_alignment_coverage_control
-            -aS $shorter_seq_alignment_coverage
-            -AS $shorter_seq_alignment_coverage_control
-            -A $minimal_seq_alignment_coverage_control
-            -uL $longer_seq_max_unmatched_percentage
-            -uS $shorter_seq_max_unmatched_percentage
-            -U $max_unmatched_length
+            --throw_away_seq_length $throw_away_seq_length
+            --redundance_tolerance $redundance_tolerance
+            --length_diff_cutoff $length_diff_cutoff
+            --aa_length_diff_cutoff $aa_length_diff_cutoff
+            --longer_seq_alignment_coverage $longer_seq_alignment_coverage
+            --longer_seq_alignment_coverage_control $longer_seq_alignment_coverage_control
+            --shorter_seq_alignment_coverage $shorter_seq_alignment_coverage
+            --shorter_seq_alignment_coverage_control $shorter_seq_alignment_coverage_control
+            --minimal_seq_alignment_coverage_control $minimal_seq_alignment_coverage_control
+            --longer_seq_max_unmatched_percentage $longer_seq_max_unmatched_percentage
+            --shorter_seq_max_unmatched_percentage $shorter_seq_max_unmatched_percentage
+            --max_unmatched_length $max_unmatched_length
 
-            -b $band_width
+            --band_width $band_width
             #if $memory_limit.test:
-                -M $memory_limit.value
+                --memory_limit $memory_limit.value
             #else:
-                -M 0
+                --memory_limit 0
             #end if
 
             #if $thread_number.test:
-                -T $thread_number.value
+                --thread_number $thread_number.value
             #else:
-                -T 0
+                --thread_number 0
             #end if
             
-            -d $description_length
+            --description_length $description_length
             
-            -B $sequence_storage
+            --sequence_storage $sequence_storage
 
             #if $print:
-                -p 1 
+                --print_description 1 
             #else:
-                -p 0
+                --print_description 0
             #end if
 
-            
+            --delete_tmp_dirpath True
     </command>
 
     <inputs>
@@ -118,7 +120,8 @@
     </inputs>
 
     <outputs>
-        <data format="text" name="clustered_sequences" label="cluster_${sequence_file.name}" />
+        <data format="text" name="cluster_description" label="cluster_description_${sequence_file.name}" />
+        <data format="fasta" name="representative_cluster_sequence" label="representative_cluster_sequence_${sequence_file.name}" />
     </outputs>
 
     <tests>
