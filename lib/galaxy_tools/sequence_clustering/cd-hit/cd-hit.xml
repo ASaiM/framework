@@ -17,10 +17,13 @@
     <!--<command>-->
     <command>
         cd-hit_wrapper.py
-            --src_dir $os.getcwd() + 'tools/sequence_clustering/cd-hit/cd-hit/cd-hit'
+            --src_dir $os.getcwd()
             --input_sequence_file $sequence_file
             --representative_cluster_sequence $representative_cluster_sequence
             --cluster_description $cluster_description
+            --report $clusterisation_report
+
+            --filter $filter
 
             #if $cluster:
                 --cluster 0
@@ -74,6 +77,8 @@
     <inputs>
         <param name="sequence_file" type="data" format="fasta" label="Input sequence file" help=""/>
 
+        <param name="filter" type='boolean' checked="false" truevalue='yes' falsevalue='no' label="Conserve only cluster with more than one sequence?" help="" />
+
         <param name="seq_id" type="select" display="radio" label="Use sequence identity?" help="Do not use local unless use alignment coverage controls">
             <option value="1">Global</option>
             <option value="0">Local</option>
@@ -99,13 +104,13 @@
 
         <param name="band_width" type="integer" min="0" max="100" value="20" label="Band width of alignment" help=""/>
         <conditional name="memory_limit">
-            <param name="test" type='boolean' checked="true" truevalue='yes' falsevalue='no' label="Limit memory?" help="">
+            <param name="test" type='boolean' checked="true" truevalue='yes' falsevalue='no' label="Limit memory?" help="" />
             <when value="yes">
                 <param name="value" type="integer" min="0" max="16000" value="800" label="Memory limit (Mb)" help=""/>
             </when>
         </conditional> 
         <conditional name="thread_number">
-            <param name="test" type='boolean' checked="true" truevalue='yes' falsevalue='no' label="Limit thread number?" help="">
+            <param name="test" type='boolean' checked="true" truevalue='yes' falsevalue='no' label="Limit thread number?" help="" />
             <when value="yes">
                 <param name="value" type="integer" min="0" max="32" value="1" label="Number of thread" help=""/>
             </when>
@@ -122,6 +127,7 @@
     <outputs>
         <data format="text" name="cluster_description" label="cluster_description_${sequence_file.name}" />
         <data format="fasta" name="representative_cluster_sequence" label="representative_cluster_sequence_${sequence_file.name}" />
+        <data format="text" name="clusterisation_report" label="cluster_report_${sequence_file.name}" />
     </outputs>
 
     <tests>
