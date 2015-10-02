@@ -127,17 +127,23 @@ def generate_outputs(dirpath, args):
     conserved_seq_ref = generate_report_file(args.cluster_description, 
         args.report, args.filter)
 
+    print args.filter
     if args.filter == 'yes':
         with open(dirpath + '/conserved_seq_ref', 'w') as conserved_seq_ref_file:
             for seq_ref in conserved_seq_ref:
                 conserved_seq_ref_file.write(seq_ref + '\n')
 
-        command = args.src_dir + 'tools/extract/extract_sequence_file.py'
+        print "filter"
+        command = 'python ' + args.src_dir 
+        command += 'tools/extract/extract_sequence_file/extract_sequence_file.py'
         command += ' --input ' + args.representative_cluster_sequence
-        command += '--format fasta'
-        command += '--custom_extraction_type no'
-        command += '--constraint \"id:in:' + dirpath + '/conserved_seq_ref' + '\"'
-        command += '--report ' + dirpath + '/extract_report'
+        command += ' --output_sequence ' + args.representative_cluster_sequence
+        command += ' --format fasta'
+        command += ' --custom_extraction_type no'
+        command += ' --constraint \"id: in: ' + dirpath + '/conserved_seq_ref' + '\"'
+        command += ' --report ' + dirpath + '/extract_report'
+        print command
+        os.system(command)
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
