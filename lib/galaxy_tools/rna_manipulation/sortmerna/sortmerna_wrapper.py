@@ -148,6 +148,7 @@ if __name__ == '__main__':
     parser.add_argument('--strand', required=True)
     parser.add_argument('--seed_length', required=True)
     parser.add_argument('--max_pos', required=True)
+    parser.add_argument('--delete_tmp_dirpath', required=True)
     args = parser.parse_args()
 
     print args
@@ -166,6 +167,8 @@ if __name__ == '__main__':
 
     generate_outputs(dirpath, args)
 
+    if args.delete_tmp_dirpath:
+        os.system('rm -rf ' + dirpath)
 
 
 

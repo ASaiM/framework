@@ -46,6 +46,8 @@
             --all_seqs_derep_prot_corr_output_file $all_seqs_derep_prot_corr_output_file
             --failed_framebot_output_file $failed_framebot_output_file
             --nucl_failed_output_file $nucl_failed_output_file
+
+            --delete_tmp_dirpath True
     </command>
 
     <inputs>

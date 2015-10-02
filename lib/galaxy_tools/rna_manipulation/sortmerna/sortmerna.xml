@@ -86,6 +86,8 @@
 
             --seed_length $seed_length
             --max_pos $max_pos
+
+            --delete_tmp_dirpath True
     </command>
 
   	<inputs>
