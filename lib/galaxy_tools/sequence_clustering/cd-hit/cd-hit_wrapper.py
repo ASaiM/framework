@@ -4,10 +4,11 @@
 import sys
 import os
 import argparse
+import re
 
 def launch_cd_hit(args, dirpath):
 
-    command = args.src_dir + 'tools/sequence_clustering/cd-hit/cd-hit/cd-hit'
+    command = args.src_dir
     command += ' -i ' + args.input_sequence_file
     command += ' -o ' + dirpath + '/clustered'
     command += ' -g ' + args.cluster
@@ -27,8 +28,8 @@ def launch_cd_hit(args, dirpath):
     command += ' -uS ' + args.shorter_seq_max_unmatched_percentage
     command += ' -U ' + args.max_unmatched_length
     command += ' -b ' + args.band_width
-    command += ' -M ' + args.memory_limit.value
-    command += ' -T ' + args.thread_number.value
+    command += ' -M ' + args.memory_limit
+    command += ' -T ' + args.thread_number
     command += ' -d ' + args.description_length
     command += ' -B ' + args.sequence_storage
     command += ' -p ' + args.print_description
@@ -89,11 +90,11 @@ if __name__ == '__main__':
     parser.add_argument('--shorter_seq_alignment_coverage_control', required=True)
     parser.add_argument('--minimal_seq_alignment_coverage_control', required=True)
     parser.add_argument('--longer_seq_max_unmatched_percentage', required=True)
-    parser.add_argument('--horter_seq_max_unmatched_percentage', required=True)
+    parser.add_argument('--shorter_seq_max_unmatched_percentage', required=True)
     parser.add_argument('--max_unmatched_length', required=True)
     parser.add_argument('--band_width', required=True)
-    parser.add_argument('--memory_limit.value', required=True)
-    parser.add_argument('--thread_number.value', required=True)
+    parser.add_argument('--memory_limit', required=True)
+    parser.add_argument('--thread_number', required=True)
     parser.add_argument('--description_length', required=True)
     parser.add_argument('--sequence_storage', required=True)
     parser.add_argument('--print_description', required=True)
