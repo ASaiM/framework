@@ -17,7 +17,7 @@
     <!--<command>-->
     <command>
         cd-hit_wrapper.py
-            --src_dir $os.getcwd()
+            --src_dir $os.getcwd() + 'tools/sequence_clustering/cd-hit/cd-hit/cd-hit'
             --input_sequence_file $sequence_file
             --representative_cluster_sequence $representative_cluster_sequence
             --cluster_description $cluster_description
