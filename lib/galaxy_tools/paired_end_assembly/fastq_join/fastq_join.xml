@@ -26,6 +26,7 @@
             --single_R1_sequence_file $single_R1_sequence_file
             --single_R2_sequence_file $single_R2_sequence_file
             --report $report
+            --delete_tmp_dirpath True
     </command>
 
   	<inputs>

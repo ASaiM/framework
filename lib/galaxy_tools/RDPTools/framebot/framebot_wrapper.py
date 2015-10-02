@@ -102,6 +102,7 @@ if __name__ == '__main__':
     parser.add_argument('--all_seqs_derep_prot_corr_output_file', required=True)
     parser.add_argument('--failed_framebot_output_file', required=True)
     parser.add_argument('--nucl_failed_output_file', required=True)
+    parser.add_argument('--delete_tmp_dirpath', required=True)
     args = parser.parse_args()
 
     dirpath, filename = os.path.split(os.path.abspath(args.input_sequence_file))
@@ -109,3 +110,9 @@ if __name__ == '__main__':
     dirpath += '/' + filename +'_framebot_file/'
     if not os.path.exists(dirpath):
         os.makedirs(dirpath)
+
+    launch_framebot(args, dirpath)
+    generate_outputs(dirpath, args)
+
+    if args.delete_tmp_dirpath:
+        os.system('rm -rf ' + dirpath)

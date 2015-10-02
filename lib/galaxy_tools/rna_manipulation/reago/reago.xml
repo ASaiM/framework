@@ -27,6 +27,7 @@
             --error_correction $error_correction
             --tip_size $tip_size
             --path_finding_parameter $path_finding_parameter
+            --delete_tmp_dirpath True
     </command>
 
   	<inputs>

@@ -86,6 +86,7 @@ if __name__ == '__main__':
     parser.add_argument('--error_correction', required=True)
     parser.add_argument('--tip_size', required=True)
     parser.add_argument('--path_finding_parameter', required=True)
+    parser.add_argument('--delete_tmp_dirpath', required=True)
     args = parser.parse_args()
 
     dirpath, r1_filename = os.path.split(os.path.abspath(args.r1_input_sequence_file))
@@ -104,8 +105,9 @@ if __name__ == '__main__':
     launch_filter_input(args, dirpath)
     launch_reago(args, dirpath)
     generate_outputs(dirpath, args)
-    #print args
-
+    
+    if args.delete_tmp_dirpath:
+        os.system('rm -rf ' + dirpath)
 
 
 

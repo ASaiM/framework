@@ -50,6 +50,7 @@ if __name__ == '__main__':
     parser.add_argument('--single_R1_sequence_file', required=True)
     parser.add_argument('--single_R2_sequence_file', required=True)
     parser.add_argument('--report', required=True)
+    parser.add_argument('--delete_tmp_dirpath', required=True)
     args = parser.parse_args()
 
     dirpath, R1_filename = os.path.split(os.path.abspath(args.r1_sequence_file))
@@ -65,6 +66,9 @@ if __name__ == '__main__':
     launch_fastq_join(args, dirpath, file_format)
 
     generate_outputs(dirpath, args)
+
+    if args.delete_tmp_dirpath:
+        os.system('rm -rf ' + dirpath)
 
 
 

@@ -346,7 +346,7 @@ if __name__ == '__main__':
     parser.add_argument('--kegg_module_abundance_graphlan_rings')
     parser.add_argument('--metacyc_pathway_abundance_graphlan_tree')
     parser.add_argument('--metacyc_pathway_abundance_graphlan_rings')
-
+    parser.add_argument('--delete_tmp_dirpath', required=True)
     args = parser.parse_args()
 
     tmp_dirpath, filename = os.path.split(os.path.abspath(args.input))
@@ -382,7 +382,8 @@ if __name__ == '__main__':
 
     generate_outputs(tmp_output_dirpath,args)
 
-    os.system('rm -rf ' + tmp_dirpath)
+    if args.delete_tmp_dirpath:
+        os.system('rm -rf ' + tmp_dirpath)
 
 
 

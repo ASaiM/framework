@@ -120,6 +120,8 @@
                 --abundance_computation=no
                 --graphlan_export=no
             #end if
+
+            --delete_tmp_dirpath True
     </command>
 
     <inputs>
