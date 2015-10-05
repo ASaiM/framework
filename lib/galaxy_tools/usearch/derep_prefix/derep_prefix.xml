@@ -57,13 +57,14 @@
     </command>
 
   	<inputs>
-        <param name="sequence_file" type="data" format="fasta,fastq" label="Input sequence file" help=""/>
         <param name="os_info" type="select" display="radio" label="Computer OS" help="">
             <option value="mac">Mac OSX</option>
             <option value="linux" selected="true">Linux</option>
             <option value="window">Windows</option>
         </param>
-
+        
+        <param name="sequence_file" type="data" format="fasta,fastq" label="Input sequence file" help=""/>
+        
         <param name='size_annotation' type='boolean' checked="true" truevalue='yes' falsevalue='no' label='Addition of size annotations to the unique sequence labels?' help=""/>
 
         <conditional name="minimum_size">
