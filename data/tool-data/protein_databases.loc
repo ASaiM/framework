@@ -1,0 +1,7 @@
+#This is a sample file distributed with Galaxy that is used to define a
+#list of public ribosomal databases for SortMeRNA, using the following format
+#(white space characters are TAB characters):
+#
+#<unique_id>    <database_caption>  <fasta_file_path>
+#
+cog  COG   ../db/cog/raw_data/prot2003-2014.fa
