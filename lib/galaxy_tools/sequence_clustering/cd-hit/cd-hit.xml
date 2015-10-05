@@ -22,7 +22,6 @@
             --representative_cluster_sequence $representative_cluster_sequence
             --cluster_description $cluster_description
             --report $clusterisation_report
-
             --filter $filter
 
             #if $cluster:
@@ -78,7 +77,6 @@
         <param name="sequence_file" type="data" format="fasta" label="Input sequence file" help=""/>
 
         <param name="filter" type='boolean' checked="false" truevalue='yes' falsevalue='no' label="Conserve only cluster with more than one sequence?" help="" />
-
         <param name="seq_id" type="select" display="radio" label="Use sequence identity?" help="Do not use local unless use alignment coverage controls">
             <option value="1">Global</option>
             <option value="0">Local</option>

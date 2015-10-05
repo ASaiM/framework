@@ -6,6 +6,7 @@ import os
 import argparse
 import re
 
+<<<<<<< HEAD
 def apply_regular_expression(regular_expression, string_to_search):
     re_output = re.search(regular_expression,string_to_search)
     if re_output == None:
@@ -70,6 +71,7 @@ def copy_file(input_filename, input_dir, output_filepath):
             raise ValueError(string)
         os.system('cp ' + input_filepath + ' ' + output_filepath)
 
+<<<<<<< HEAD
 def generate_report_file(cluster_description_filepath, report_filepath, filter):
     conserved_seq_ref = []
     with open(report_filepath,'w') as report_file:
