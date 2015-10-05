@@ -61,11 +61,11 @@ echo "Blast..."
 cd $galaxy_tool_dir/similarity_search/blast/
 if [ ! -d "ncbi-blast-2.2.31+-x64-linux/" ]; then
     mkdir ncbi-blast-2.2.31+-x64-linux
-    tar xzf ncbi-blast-2.2.31+-x64-linux.tar.gz -C ncbi-blast-2.2.31+-x64-linux
+    curl -L -s ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.2.31/ncbi-blast-2.2.31+-x64-linux.tar.gz | tar -C ncbi-blast-2.2.31+-x64-linux --strip-components=1 -xz
 fi
 if [ ! -d "ncbi-blast-2.2.31+-universal-macosx/" ]; then
     mkdir ncbi-blast-2.2.31+-universal-macosx
-    tar xzf ncbi-blast-2.2.31+-universal-macosx.tar.gz -C ncbi-blast-2.2.31+-universal-macosx
+    curl -L -s ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.2.31/ncbi-blast-2.2.31+-universal-macosx.tar.gz | tar -C ncbi-blast-2.2.31+-universal-macosx --strip-components=1 -xz
 fi
 cd $current_dir
 
