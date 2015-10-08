@@ -1,18 +1,31 @@
 #!/bin/bash
 
+tool_dir=lib/galaxy_tools/
 galaxy_tool_dir=$1/tools/
 current_dir=`pwd`
 db_dir=/db/
 
+function create_copy_tool_dir {
+    if [ ! -d $2 ]; then
+        mkdir -p $2
+    fi
+    cp -r $1/* $2
+}
+
+## extraction
+
 ## prinseq
 echo "PRINSEQ..."
-prinseq_dir=$galaxy_tool_dir/quality_control/prinseq
-mkdir -p $prinseq_dir/src
-curl -L -s http://downloads.sourceforge.net/project/prinseq/standalone/prinseq-lite-0.20.4.tar.gz | tar -C $prinseq_dir/src/ --strip-components=1 -xz
+prinseq_dir=control_quality/prinseq
+create_copy_tool_dir $tool_dir/$prinseq_dir $galaxy_tool_dir/$prinseq_dir
+mkdir -p $galaxy_tool_dir/$prinseq_dir/src/
+curl -L -s http://downloads.sourceforge.net/project/prinseq/standalone/prinseq-lite-0.20.4.tar.gz | tar -C $galaxy_tool_dir/$prinseq_dir/src/ --strip-components=1 -xz
 
 ## fastq-join
 echo "FastQ-join..."
-cd $galaxy_tool_dir/paired_end_assembly/fastq_join 
+fastq_join_dir=assemble_paired_end/fastq_join 
+create_copy_tool_dir $tool_dir/$fastq_join_dir $galaxy_tool_dir/$fastq_join_dir
+cd $galaxy_tool_dir/$fastq_join_dir
 svn checkout http://ea-utils.googlecode.com/svn/trunk/
 if [ ! -e trunk/clipper/fastq_join ]; then
     cd trunk/clipper
@@ -25,13 +38,15 @@ fi
 cd $current_dir
 
 ## infernal
+echo "infernal..."
+infernal_dir=manipulate_rRNA/infernal
+create_copy_tool_dir $tool_dir/$infernal_dir $galaxy_tool_dir/$infernal_dir
 if ! which cmsearch > /dev/null; then
     echo "Infernal..."
     echo -e "install infernal on machine (needed to use reago)? (y/n) \c"
     read 
     if [ $REPLY == "y" ]; then
-        infernal_dir=$galaxy_tool_dir/rna_manipulation/infernal
-        cd $infernal_dir
+        cd $galaxy_tool_dir/$infernal_dir
         tar xzf infernal-1.1.1.tar.gz
         cd infernal-1.1.1
 
@@ -57,31 +72,32 @@ if ! which cmsearch > /dev/null; then
 fi
 
 ## blast
-echo "Blast..."
-cd $galaxy_tool_dir/similarity_search/blast/
-if [ ! -d "ncbi-blast-2.2.31+-x64-linux/" ]; then
-    mkdir ncbi-blast-2.2.31+-x64-linux
-    curl -L -s ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.2.31/ncbi-blast-2.2.31+-x64-linux.tar.gz | tar -C ncbi-blast-2.2.31+-x64-linux --strip-components=1 -xz
-fi
-if [ ! -d "ncbi-blast-2.2.31+-universal-macosx/" ]; then
-    mkdir ncbi-blast-2.2.31+-universal-macosx
-    curl -L -s ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.2.31/ncbi-blast-2.2.31+-universal-macosx.tar.gz | tar -C ncbi-blast-2.2.31+-universal-macosx --strip-components=1 -xz
-fi
-cd $current_dir
+#echo "Blast..."
+#cd $galaxy_tool_dir/similarity_search/blast/
+#if [ ! -d "ncbi-blast-2.2.31+-x64-linux/" ]; then
+#    mkdir ncbi-blast-2.2.31+-x64-linux
+#    curl -L -s ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.2.31/ncbi-blast-2.2.31+-x64-linux.tar.gz | tar -C ncbi-blast-2.2.31+-x64-linux --strip-components=1 -xz
+#fi
+#if [ ! -d "ncbi-blast-2.2.31+-universal-macosx/" ]; then
+#    mkdir ncbi-blast-2.2.31+-universal-macosx
+#    curl -L -s ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.2.31/ncbi-blast-2.2.31+-universal-macosx.tar.gz | tar -C ncbi-blast-2.2.31+-universal-macosx --strip-components=1 -xz
+#fi
+#cd $current_dir
 
 ## metaphlan 2
 echo "Metaphlan 2..."
-cd $galaxy_tool_dir/non_rRNA_taxonomic_assignation/metaphlan2/metaphlan2/
-git-hg pull
-#if [ ! -d "metaphlan2/" ]; then
-#    echo "  cloning"
-#    hg clone https://bitbucket.org/biobakery/metaphlan2 
-#else
-#    echo "  updating"
-#    cd "metaphlan2/"
-#    hg pull
-#    cd ../
-#fi
+metaphlan2_dir=assigne_taxonomy_to_non_rRNA/metaphlan2
+create_copy_tool_dir $tool_dir/$metaphlan2_dir $galaxy_tool_dir/$metaphlan2_dir
+cd $galaxy_tool_dir/$metaphlan2_dir
+if [ ! -d "metaphlan2/" ]; then
+    echo "  cloning"
+    hg clone https://bitbucket.org/biobakery/metaphlan2 
+else
+    echo "  updating"
+    cd "metaphlan2/"
+    hg pull
+    cd ../
+fi
 cd $current_dir
 
 ## humann 2
@@ -94,7 +110,9 @@ cd $current_dir
 
 ## humann 
 echo "HUMAnN..."
-cd $galaxy_tool_dir/metabolic_analysis/humann
+humann_dir=analyze_metabolism/humann
+create_copy_tool_dir $tool_dir/$humann_dir $galaxy_tool_dir/$humann_dir
+cd $galaxy_tool_dir/$humann_dir
 if [ ! -d "humann/" ]; then
     echo "  cloning"
     hg clone https://bitbucket.org/biobakery/humann
@@ -159,8 +177,8 @@ if [ ! -d $humann_dir/humann/cog_data/ ]; then
     mkdir $humann_dir/humann/cog_data/
 fi
 
-cp $cog_dir/humann_formated_data/* $humann_dir/humann/cog_data/
-cp $cog_dir/extracted_data/refseq_orga_id_correspondance $humann_dir/humann/cog_data/
+cp $cog_dir/humann_formated_data/* $galaxy_tool_dir/$humann_dir/humann/cog_data/
+cp $cog_dir/extracted_data/refseq_orga_id_correspondance $galaxy_tool_dir/$humann_dir/humann/cog_data/
 
 
 
