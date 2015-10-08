@@ -160,3 +160,7 @@ To integrate a tool:
 4. Create a configuration file in this directory
 5. Integrate information about this tool in `tool_conf.xml` and 
 `prepare_galaxy_tools.sh`
+
+# License
+
+ASaiM framework is released under Apache 2 License. See the LICENSE file for details.
