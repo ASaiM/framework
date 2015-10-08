@@ -25,3 +25,6 @@
 [submodule "lib/galaxy_tools/sequence_clustering/cd-hit/cd-hit"]
 	path = lib/galaxy_tools/sequence_clustering/cd-hit/cd-hit
 	url = https://github.com/weizhongli/cdhit.git
+[submodule "lib/galaxy_tools/similarity_search/blast"]
+	path = lib/galaxy_tools/similarity_search/blast
+	url = https://github.com/peterjc/galaxy_blast.git
