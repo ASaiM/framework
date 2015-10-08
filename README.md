@@ -1,10 +1,15 @@
-ASaiM Galaxy
-============
+ASaiM framework
+===============
 
-Clone the repository recursively (because of submodules)
+The ASaiM framework is a Galaxy instance with a local server developed to
+process data from gut microbiota.
+
+# Get the code
+
+Clone the repository
 
 ```
-git clone --recursive https://github.com/ASaiM/framework.git
+git clone https://github.com/ASaiM/framework.git
 ```
 
 # If Docker is not used
@@ -149,17 +154,6 @@ The second number is the process number; stop the server by sending it a signal:
 ```
 kill 28440
 ``` 
-
-# Tool integration
-
-To integrate a tool:
-
-1. Create a directory in `tools`
-2. Add the sources (if they are not in a remote repository)
-3. Create a Dockerfile in this directory
-4. Create a configuration file in this directory
-5. Integrate information about this tool in `tool_conf.xml` and 
-`prepare_galaxy_tools.sh`
 
 # License
 
