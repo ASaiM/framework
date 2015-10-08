@@ -10,7 +10,7 @@ if [ $REPLY == "y" ]; then
         cd lib/proftpd
 
         make clean >> tmp/proftpd_make_clean
-        if grep "Error" tmp/proftpd_make_clean > /dev/null ; then
+        if grep "Error" tmp/proftpd_make_clean > /dev/null; then
             echo "Error with make_clean for proftpd"
             exit
         fi
@@ -26,19 +26,19 @@ if [ $REPLY == "y" ]; then
             #--with-includes=/usr/lib/postgresql/9.4/bin/ \
             #--with-libraries=/usr/lib/postgresql/9.4/lib/
             >> proftpd_tmp/configure
-        if grep "Error" tmp/proftpd_configure > /dev/null ; then
+        if grep "Error" tmp/proftpd_configure > /dev/null; then
             echo "Error with configure for proftpd"
             exit
         fi
 
         make >> tmp/proftpd_make
-        if grep "Error" tmp/proftpd_make > /dev/null ; then
+        if grep "Error" tmp/proftpd_make > /dev/null; then
             echo "Error with make for proftpd"
             exit
         fi
 
         sudo make install >> tmp/proftpd_make_install
-        if grep "Error" tmp/proftpd_make_install > /dev/null ; then
+        if grep "Error" tmp/proftpd_make_install > /dev/null; then
             echo "Error with make_install for proftpd"
             exit
         fi
@@ -58,13 +58,13 @@ if ! which git-hg > /dev/null; then
     if [ $REPLY == "y" ]; then
         cd lib/git-hg
         make >> tmp/git-hg_make
-        if grep "Error" tmp/git-hg_make > /dev/null ; then
+        if grep "Error" tmp/git-hg_make > /dev/null; then
             echo "Error with make for git-hg"
             exit
         fi
 
         sudo make install >> tmp/git-hg_make_install
-        if grep "Error" tmp/git-hg_make_install > /dev/null ; then
+        if grep "Error" tmp/git-hg_make_install > /dev/null; then
             echo "Error with make install for git-hg"
             exit
         fi
@@ -74,7 +74,7 @@ if ! which git-hg > /dev/null; then
 fi
 
 pip install -r requirements.txt >> tmp/pip_install
-if grep "Error" tmp/pip_install > /dev/null ; then
+if grep "Error" tmp/pip_install > /dev/null; then
     echo "Error with pip_install"
     exit
 fi
