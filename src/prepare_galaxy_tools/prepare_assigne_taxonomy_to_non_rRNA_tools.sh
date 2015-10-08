@@ -9,6 +9,20 @@ current_dir=`pwd`
 echo "Assign taxonomy to non rRNA..."
 create_tool_section_dir $galaxy_tool_dir/assigne_taxonomy_to_non_rRNA
 
+## metaphlan 
+echo " Metaphlan..."
+metaphlan=assigne_taxonomy_to_non_rRNA/metaphlan
+cd $galaxy_tool_dir/
+if [ ! -d "metaphlan/" ]; then
+    echo "  cloning"
+    hg clone https://toolshed.g2.bx.psu.edu/repos/dannon/metaphlan
+else
+    echo "  updating"
+    cd "metaphlan/"
+    hg pull
+    cd ../
+fi
+
 ## metaphlan 2
 echo " Metaphlan 2..."
 metaphlan2_dir=assigne_taxonomy_to_non_rRNA/metaphlan2
