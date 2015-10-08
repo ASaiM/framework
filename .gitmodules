@@ -16,3 +16,15 @@
 [submodule "lib/ant"]
 	path = lib/ant
 	url = https://git-wip-us.apache.org/repos/asf/ant.git
+[submodule "lib/galaxy_tools/cluster_sequences/cd-hit/cd-hit"]
+	path = lib/galaxy_tools/cluster_sequences/cd-hit/cd-hit
+	url = https://github.com/weizhongli/cdhit.git
+[submodule "lib/galaxy_tools/manipulate_rna/sortmerna/sortmerna"]
+	path = lib/galaxy_tools/manipulate_rna/sortmerna/sortmerna
+	url = https://github.com/biocore/sortmerna.git
+[submodule "lib/galaxy_tools/manipulate_rna/reago/reago"]
+	path = lib/galaxy_tools/manipulate_rna/reago/reago
+	url = https://github.com/chengyuan/reago-1.1.git
+[submodule "lib/galaxy_tools/search_similarity/blast"]
+	path = lib/galaxy_tools/search_similarity/blast
+	url = https://github.com/peterjc/galaxy_blast.git
