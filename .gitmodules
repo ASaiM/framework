@@ -7,11 +7,11 @@
 [submodule "lib/git-hg"]
 	path = lib/git-hg
 	url = https://github.com/offbytwo/git-hg.git
-[submodule "lib/galaxy_tools/rna_manipulation/sortmerna/sortmerna"]
-	path = lib/galaxy_tools/rna_manipulation/sortmerna/sortmerna
+[submodule "lib/galaxy_tools/manipulate_rna/sortmerna/sortmerna"]
+	path = lib/galaxy_tools/manipulate_rna/sortmerna/sortmerna
 	url = https://github.com/biocore/sortmerna.git
-[submodule "lib/galaxy_tools/rna_manipulation/reago/reago"]
-	path = lib/galaxy_tools/rna_manipulation/reago/reago
+[submodule "lib/galaxy_tools/manipulate_rna/reago/reago"]
+	path = lib/galaxy_tools/manipulate_rna/reago/reago
 	url = https://github.com/chengyuan/reago-1.1.git
 [submodule "lib/galaxy_tools/genometools/genometools"]
 	path = lib/galaxy_tools/genometools/genometools
@@ -22,6 +22,6 @@
 [submodule "lib/ant"]
 	path = lib/ant
 	url = https://git-wip-us.apache.org/repos/asf/ant.git
-[submodule "lib/galaxy_tools/sequence_clustering/cd-hit/cd-hit"]
-	path = lib/galaxy_tools/sequence_clustering/cd-hit/cd-hit
+[submodule "lib/galaxy_tools/cluster_sequences/cd-hit/cd-hit"]
+	path = lib/galaxy_tools/cluster_sequences/cd-hit/cd-hit
 	url = https://github.com/weizhongli/cdhit.git
