@@ -9,21 +9,21 @@
             <tool file="extract/extract_similarity_search_report/extract_similarity_search_report.xml" />
         </section>
         <section id="concatenate" name="Concatenate files">
-            <tool file="concatenation/file_concatenation/file_concatenation.xml" />
+            <tool file="concatenate/file_concatenation/file_concatenation.xml" />
         </section>
     <label text="PRETREATMENTS" id="pretreatments" />
         <section id="qualityControl" name="Control quality">
-            <tool file="quality_control/prinseq/prinseq.xml" />
+            <tool file="control_quality/prinseq/prinseq.xml" />
         </section>
         <section id="paired_end_assembly" name="Assemble paired-end sequences">
-            <tool file="paired_end_assembly/fastq_join/fastq_join.xml" />
+            <tool file="assemble_paired_end/fastq_join/fastq_join.xml" />
         </section>
         <!--<section id="de_novo_assembly" name="De novo assembly">
             <tool file="genometools/readjoiner/readjoiner.xml" />
         </section>-->
         <section id="rna_manipulation" name="Manipulate RNA">
-            <tool file="rna_manipulation/sortmerna/sortmerna.xml" />
-            <tool file="rna_manipulation/reago/reago.xml" />
+            <tool file="manipulate_rna/sortmerna/sortmerna.xml" />
+            <tool file="manipulate_rna/reago/reago.xml" />
             <!--<tool file="rna_manipulation/infernal/infernal.xml" />-->
         </section>
         <section id="dereplication" name="Dereplicate">
@@ -36,25 +36,25 @@
             <tool file="RDPTools/framebot/framebot.xml" />
         </section>
         <section id="sequence_clustering" name="Cluster sequences">
-            <tool file="sequence_clustering/cd-hit/cd-hit.xml" />
+            <tool file="cluster_sequences/cd-hit/cd-hit.xml" />
         </section>
         <section id="similarity_search" name="Search similarity">
-            <tool file="similarity_search/blast/blast.xml" />
-            <tool file="similarity_search/diamond/diamond.xml" />
+            <!--<tool file="search_similarity/blast/blast.xml" />
+            <tool file="search_similarity/diamond/diamond.xml" />-->
         </section>
     <label text="TAXONOMIC ASSIGNATION" id="taxonomic" />
         <section id="non_rRNA_taxonomic_assignation" name="Manipulate non rRNA sequences">
-            <tool file="non_rRNA_taxonomic_assignation/metaphlan2/metaphlan2.xml" />
+            <tool file="assigne_taxonomy_to_non_rRNA/metaphlan2/metaphlan2.xml" />
         </section>
         <section id="rRNA_taxonomic_assignation" name="Manipulate rRNA sequences">
-            <tool file="rRNA_taxonomic_assignation/qiime/qiime.xml" />
+            <!--<tool file="assigne_taxonomy_to_rRNA/qiime/qiime.xml" />-->
         </section>
     <label text="FUNCTIONAL ASSIGNATION" id="functional" />
         <section id="metabolic_analysis" name="Analyze metabolism">
-            <tool file="metabolic_analysis/humann/humann.xml" />
-            <tool file="metabolic_analysis/humann2/humann2.xml" />
+            <tool file="analyze_metabolism/humann/humann.xml" />
+            <!--<tool file="metabolic_analysis/humann2/humann2.xml" />
             <tool file="metabolic_analysis/humann2/regroup_table/regroup_table.xml" />
             <tool file="metabolic_analysis/humann2/add_group_description/add_group_description.xml" />
-            <tool file="metabolic_analysis/humann2/simplify_table/simplify_table.xml" />
+            <tool file="metabolic_analysis/humann2/simplify_table/simplify_table.xml" />-->
         </section>
 </toolbox>
