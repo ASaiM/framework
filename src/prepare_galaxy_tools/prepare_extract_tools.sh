@@ -11,3 +11,11 @@ section_dir=extract
 echo "Extract data..."
 create_tool_section_dir $galaxy_tool_dir/$section_dir
 
+echo " Extract sequence file..."
+seq_file_extraction=$section_dir/extract_sequence_file
+create_copy_tool_dir $tool_dir/$seq_file_extraction $galaxy_tool_dir/$seq_file_extraction
+
+echo " Extract similarity search report..."
+search_report_extraction=$section_dir/extract_similarity_search_report
+create_copy_tool_dir $tool_dir/$search_report_extraction $galaxy_tool_dir/$search_report_extraction
+
