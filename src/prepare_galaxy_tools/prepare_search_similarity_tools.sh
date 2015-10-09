@@ -12,16 +12,7 @@ echo "Search similarity..."
 create_tool_section_dir $galaxy_tool_dir/$section_dir
 
 ## blast
-echo "Blast..."
-
-#cd $galaxy_tool_dir/similarity_search/blast/
-#if [ ! -d "ncbi-blast-2.2.31+-x64-linux/" ]; then
-#    mkdir ncbi-blast-2.2.31+-x64-linux
-#    curl -L -s ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.2.31/ncbi-blast-2.2.31+-x64-linux.tar.gz | tar -C ncbi-blast-2.2.31+-x64-linux --strip-components=1 -xz
-#fi
-#if [ ! -d "ncbi-blast-2.2.31+-universal-macosx/" ]; then
-#    mkdir ncbi-blast-2.2.31+-universal-macosx
-#    curl -L -s ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.2.31/ncbi-blast-2.2.31+-universal-macosx.tar.gz | tar -C ncbi-blast-2.2.31+-universal-macosx --strip-components=1 -xz
-#fi
-#cd $current_dir
+echo " NCBI Blast +..."
+ncbi_blast_plus_dir=$section_dir/ncbi_blast_plus
+create_copy_tool_dir $tool_dir/$section_dir/blast/tools/ncbi_blast_plus $galaxy_tool_dir/$ncbi_blast_plus
 
