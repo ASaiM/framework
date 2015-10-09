@@ -76,8 +76,8 @@ if [ ! -e $cog_dir/humann_formated_data/map_kegg.txt ]; then
         --humann_formated_data_dir $cog_dir/humann_formated_data/ \
         --humann_dir $humann_dir/humann/
 fi
-if [ ! -d $humann_dir/humann/cog_data/ ]; then
-    mkdir $humann_dir/humann/cog_data/
+if [ ! -d $galaxy_tool_dir/$humann_dir/humann/cog_data/ ]; then
+    mkdir $galaxy_tool_dir/$humann_dir/humann/cog_data/
 fi
 cp $db_dir/cog/humann_formated_data/* $galaxy_tool_dir/$humann_dir/humann/cog_data/
 cp $db_dir/cog/extracted_data/refseq_orga_id_correspondance $galaxy_tool_dir/$humann_dir/humann/cog_data/
