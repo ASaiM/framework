@@ -28,3 +28,6 @@
 [submodule "lib/galaxy_tools/search_similarity/blast"]
 	path = lib/galaxy_tools/search_similarity/blast
 	url = https://github.com/peterjc/galaxy_blast.git
+[submodule "lib/galaxy_tools/lparsons_wrappers"]
+	path = lib/galaxy_tools/lparsons_wrappers
+	url = https://github.com/lparsons/galaxy_tools.git
