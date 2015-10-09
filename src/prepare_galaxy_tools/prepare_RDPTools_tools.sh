@@ -2,16 +2,18 @@
 
 . ./src/prepare_galaxy_tools/functions.sh 
 
-tool_dir=$1
-galaxy_tool_dir=$2
+galaxy_tool_dir=$1
+tool_dir=$2
 current_dir=`pwd`
 
+section_dir=RDPTools
+
 echo "RDPTools..."
-create_tool_section_dir $galaxy_tool_dir/RDPTools
+create_tool_section_dir $galaxy_tool_dir/$section_dir
 
 ## RDPTools
 echo " RDPTools..."
-rdptools_dir=RDPTools/
+rdptools_dir=$section_dir/
 cd $tool_dir/$rdptools_dir/RDPTools
 git submodule init
 git submodule update

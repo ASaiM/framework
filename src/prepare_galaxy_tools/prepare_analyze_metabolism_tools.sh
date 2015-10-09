@@ -2,13 +2,17 @@
 
 . ./src/prepare_galaxy_tools/functions.sh 
 
-tool_dir=$1
-galaxy_tool_dir=$2
+galaxy_tool_dir=$1
+tool_dir=$2
 db_dir=$3
 current_dir=`pwd`
 
+section_dir=analyze_metabolism
+
+current_dir=`pwd`
+
 echo "Analyze metabolism..."
-create_tool_section_dir $galaxy_tool_dir/analyze_metabolism
+create_tool_section_dir $galaxy_tool_dir/$section_dir
 
 ## humann 2
 #humann2_dir=$galaxy_dir/metabolic_analysis/humann2
@@ -20,7 +24,7 @@ create_tool_section_dir $galaxy_tool_dir/analyze_metabolism
 
 ## humann 
 echo " HUMAnN..."
-humann_dir=analyze_metabolism/humann
+humann_dir=$section_dir/humann
 create_copy_tool_dir $tool_dir/$humann_dir $galaxy_tool_dir/$humann_dir
 cd $galaxy_tool_dir/$humann_dir
 if [ ! -d "humann/" ]; then

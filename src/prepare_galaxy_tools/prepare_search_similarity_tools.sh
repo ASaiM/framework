@@ -2,12 +2,14 @@
 
 . ./src/prepare_galaxy_tools/functions.sh 
 
-tool_dir=$1
-galaxy_tool_dir=$2
+galaxy_tool_dir=$1
+tool_dir=$2
 current_dir=`pwd`
 
+section_dir=search_similarity
+
 echo "Search similarity..."
-create_tool_section_dir $galaxy_tool_dir/search_similarity
+create_tool_section_dir $galaxy_tool_dir/$section_dir
 
 ## blast
 echo "Blast..."

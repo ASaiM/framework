@@ -2,16 +2,18 @@
 
 . ./src/prepare_galaxy_tools/functions.sh 
 
-tool_dir=$1
-galaxy_tool_dir=$2
+galaxy_tool_dir=$1
+tool_dir=$2
 current_dir=`pwd`
 
+section_dir=manipulate_rna
+
 echo "Manipulate RNA..."
-create_tool_section_dir $galaxy_tool_dir/manipulate_rna
+create_tool_section_dir $galaxy_tool_dir/$section_dir
 
 ## sortmerna
 echo " SortMeRNA..."
-sortmerna_dir=manipulate_rna/sortmerna
+sortmerna_dir=$section_dir/sortmerna
 cd $tool_dir/$sortmerna_dir/sortmerna
 ./build.sh >> $current_dir/tmp/sortmerna_build
 if grep "Error" $current_dir/tmp/sortmerna_build > /dev/null ; then
@@ -23,7 +25,7 @@ create_copy_tool_dir $tool_dir/$sortmerna_dir $galaxy_tool_dir/$sortmerna_dir
 
 ## infernal
 echo " infernal..."
-infernal_dir=manipulate_rRNA/infernal
+infernal_dir=$section_dir/infernal
 create_copy_tool_dir $tool_dir/$infernal_dir $galaxy_tool_dir/$infernal_dir
 if ! which cmsearch > /dev/null; then
     echo "Infernal..."
@@ -57,5 +59,5 @@ fi
 
 ## reago
 echo " Reago..."
-reago_dir=manipulate_rna/reago/
+reago_dir=$section_dir/reago/
 create_copy_tool_dir $tool_dir/$reago_dir $galaxy_tool_dir/$reago_dir

@@ -2,16 +2,18 @@
 
 . ./src/prepare_galaxy_tools/functions.sh 
 
-tool_dir=$1
-galaxy_tool_dir=$2
+galaxy_tool_dir=$1
+tool_dir=$2
 current_dir=`pwd`
 
+section_dir=genometools
+
 echo "GenomeTools..."
-create_tool_section_dir $galaxy_tool_dir/genometools
+create_tool_section_dir $galaxy_tool_dir/$section_dir
 
 ## GenomeTools
 echo " GenomeTools..."
-genometools_dir=genometools/genometools/
+genometools_dir=$section_dir/genometools/
 if ! which gt > /dev/null; then 
     echo "GenomeTools..."
     echo -e "install GenomeTools on machine (needed to use reago)? (y/n) \c"

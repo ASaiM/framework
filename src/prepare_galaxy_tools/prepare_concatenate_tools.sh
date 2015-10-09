@@ -2,9 +2,11 @@
 
 . ./src/prepare_galaxy_tools/functions.sh 
 
-tool_dir=$1
-galaxy_tool_dir=$2
+galaxy_tool_dir=$1
+tool_dir=$2
 current_dir=`pwd`
 
+section_dir=concatenate
+
 echo "Concatenate data..."
-create_tool_section_dir $galaxy_tool_dir/concatenate
+create_tool_section_dir $galaxy_tool_dir/$section_dir

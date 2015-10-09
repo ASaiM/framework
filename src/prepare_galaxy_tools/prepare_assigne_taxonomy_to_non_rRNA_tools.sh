@@ -2,16 +2,18 @@
 
 . ./src/prepare_galaxy_tools/functions.sh 
 
-tool_dir=$1
-galaxy_tool_dir=$2
+galaxy_tool_dir=$1
+tool_dir=$2
 current_dir=`pwd`
 
+section_dir=assigne_taxonomy_to_non_rRNA
+
 echo "Assign taxonomy to non rRNA..."
-create_tool_section_dir $galaxy_tool_dir/assigne_taxonomy_to_non_rRNA
+create_tool_section_dir $galaxy_tool_dir/$section_dir
 
 ## metaphlan 
 echo " Metaphlan..."
-metaphlan=assigne_taxonomy_to_non_rRNA/metaphlan
+metaphlan=$section_dir/metaphlan
 cd $galaxy_tool_dir/
 if [ ! -d "metaphlan/" ]; then
     echo "  cloning"
@@ -25,7 +27,7 @@ fi
 
 ## metaphlan 2
 echo " Metaphlan 2..."
-metaphlan2_dir=assigne_taxonomy_to_non_rRNA/metaphlan2
+metaphlan2_dir=$section_dir/metaphlan2
 create_copy_tool_dir $tool_dir/$metaphlan2_dir $galaxy_tool_dir/$metaphlan2_dir
 cd $galaxy_tool_dir/$metaphlan2_dir
 if [ ! -d "metaphlan2/" ]; then

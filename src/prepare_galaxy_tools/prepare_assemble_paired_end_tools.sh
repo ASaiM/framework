@@ -2,16 +2,18 @@
 
 . ./src/prepare_galaxy_tools/functions.sh 
 
-tool_dir=$1
-galaxy_tool_dir=$2
+galaxy_tool_dir=$1
+tool_dir=$2
 current_dir=`pwd`
 
+section_dir=assemble_paired_end
+
 echo "Assemble paired end..."
-create_tool_section_dir $galaxy_tool_dir/assemble_paired_end
+create_tool_section_dir $galaxy_tool_dir/$section_dir
 
 ## fastq-join
 echo " FastQ-join..."
-fastq_join_dir=assemble_paired_end/fastq_join 
+fastq_join_dir=$section_dir/fastq_join 
 create_copy_tool_dir $tool_dir/$fastq_join_dir $galaxy_tool_dir/$fastq_join_dir
 cd $galaxy_tool_dir/$fastq_join_dir
 svn checkout http://ea-utils.googlecode.com/svn/trunk/
