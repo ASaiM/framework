@@ -9,7 +9,9 @@
             <option value="description">Description</option>
         </xml>
         <xml name="fastq_option">
-            <expand macro="fasta_option" />
+            <option value="id">Identifiant</option>
+            <option value="length">Length</option>
+            <option value="description">Description</option>
         </xml>
         <xml name="test_constrain_extraction">
             <param name='constrained_extraction' type='boolean' checked="false" truevalue='yes' falsevalue='no' label="Constrain extraction?" help=""/>
@@ -140,7 +142,6 @@
                     </when>
                 </conditional>  
                 <expand macro="constraint_definitions" />
-                          
 		    </when>
             <when value="fastq">
                 <param name="sequence_file" type="data" format="fastq" label="Sequence file" help=""/>
@@ -148,7 +149,7 @@
                     <param name='specific_extraction' type='boolean' checked="false" truevalue='yes' falsevalue='no' label="Extract specific information?" help="If no is selected, a sequence file is generated. If yes, a text file containing the wanted information is generated"/>
                     <when value="yes">
                         <param name="to_extract" type="select" display="checkboxes" multiple="true" label="Information to extract" help="">
-                            <param name='constrained_extraction' type='boolean' checked="false" truevalue='yes' falsevalue='no' label="Constrain extraction?" help=""/>
+                            <expand macro="fasta_option" />
                             <validator type="no_options" message="Select at least one information to extract"/>
                         </param>
                     </when>
