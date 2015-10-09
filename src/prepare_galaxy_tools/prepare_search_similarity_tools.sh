@@ -16,3 +16,8 @@ echo " NCBI Blast +..."
 ncbi_blast_plus_dir=$section_dir/ncbi_blast_plus
 create_copy_tool_dir $tool_dir/$section_dir/blast/tools/ncbi_blast_plus $galaxy_tool_dir/$ncbi_blast_plus
 
+## diamond
+echo " diamond..."
+diamond=$section_dir/diamond
+create_copy_tool_dir $tool_dir/bgruening_wrappers/tools/diamond $galaxy_tool_dir/$diamond
+
