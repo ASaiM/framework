@@ -15,6 +15,18 @@
     </version_command>
 
     <command interpreter="python">
+        fastq_join_wrapper.py 
+            --r1_sequence_file $r1_sequence_file
+            --r2_sequence_file $r2_sequence_file
+            --min_overlap $min_overlap
+            --max_diff_perc $max_diff_perc
+            --smaller_insert $smaller_insert
+            --join_sequence_file $join_sequence_file
+            --single_R1_sequence_file $single_R1_sequence_file
+            --single_R2_sequence_file $single_R2_sequence_file
+            --report $report
+            --delete_tmp_dirpath True
+
         <!--trunk/clipper/fastq-join
             -p $max_diff_perc
             -m $min_overlap
@@ -28,18 +40,6 @@
             -o $single_R2_sequence_file
             -o $join_sequence_file
             > $report-->
-
-        fastq_join_wrapper.py 
-            --r1_sequence_file $r1_sequence_file
-            --r2_sequence_file $r2_sequence_file
-            --min_overlap $min_overlap
-            --max_diff_perc $max_diff_perc
-            --smaller_insert $smaller_insert
-            --join_sequence_file $join_sequence_file
-            --single_R1_sequence_file $single_R1_sequence_file
-            --single_R2_sequence_file $single_R2_sequence_file
-            --report $report
-            --delete_tmp_dirpath True
     </command>
 
   	<inputs>
