@@ -12,11 +12,11 @@
             <tool file="concatenate/file_concatenation/file_concatenation.xml" />
         </section>
     <label text="PRETREATMENTS" id="pretreatments" />
-        <section id="qualityControl" name="Control quality">
-            <tool file="control_quality/prinseq/prinseq.xml" />
-        </section>
         <section id="paired_end_assembly" name="Assemble paired-end sequences">
             <tool file="assemble_paired_end/fastq_join/fastq_join.xml" />
+        </section>
+        <section id="qualityControl" name="Control quality">
+            <tool file="control_quality/prinseq/prinseq.xml" />
         </section>
         <!--<section id="de_novo_assembly" name="De novo assembly">
             <tool file="genometools/readjoiner/readjoiner.xml" />
@@ -44,6 +44,7 @@
         </section>
     <label text="TAXONOMIC ASSIGNATION" id="taxonomic" />
         <section id="non_rRNA_taxonomic_assignation" name="Manipulate non rRNA sequences">
+            <tool file="assigne_taxonomy_to_non_rRNA/metaphlan/metaphlan.xml" />
             <tool file="assigne_taxonomy_to_non_rRNA/metaphlan2/metaphlan2.xml" />
         </section>
         <section id="rRNA_taxonomic_assignation" name="Manipulate rRNA sequences">
