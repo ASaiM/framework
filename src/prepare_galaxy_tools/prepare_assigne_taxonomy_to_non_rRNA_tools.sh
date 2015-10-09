@@ -13,8 +13,7 @@ create_tool_section_dir $galaxy_tool_dir/$section_dir
 
 ## metaphlan 
 echo " Metaphlan..."
-metaphlan=$section_dir/metaphlan
-cd $galaxy_tool_dir/
+cd $galaxy_tool_dir/$section_dir
 if [ ! -d "metaphlan/" ]; then
     echo "  cloning"
     hg clone https://toolshed.g2.bx.psu.edu/repos/dannon/metaphlan
