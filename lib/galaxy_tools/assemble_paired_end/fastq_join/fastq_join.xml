@@ -14,8 +14,21 @@
     <version_command>
     </version_command>
 
-  	<!--<command>-->
     <command interpreter="python">
+        <!--trunk/clipper/fastq-join
+            -p $max_diff_perc
+            -m $min_overlap
+            #if $smaller_insert:
+                -x 
+            #end if
+
+            $r1_sequence_file
+            $r2_sequence_file
+            -o $single_R1_sequence_file
+            -o $single_R2_sequence_file
+            -o $join_sequence_file
+            > $report-->
+
         fastq_join_wrapper.py 
             --r1_sequence_file $r1_sequence_file
             --r2_sequence_file $r2_sequence_file
