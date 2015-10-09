@@ -7,7 +7,7 @@ import argparse
 
 def launch_fastq_join(args, dirpath, file_format):
     src_directory = dirpath.split('galaxy/')[0] 
-    src_directory += 'galaxy/tools/paired_end_assembly/fastq_join'
+    src_directory += 'galaxy/tools/assemble_paired_end/fastq_join'
 
     command = src_directory + '/trunk/clipper/fastq-join'
 
