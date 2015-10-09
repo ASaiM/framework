@@ -16,4 +16,5 @@ rm -rf tmp
 
 # Launch galaxy
 cd $galaxy_dir
-sh run.sh
+sh run.sh >> run_galaxy
+
