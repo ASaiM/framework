@@ -14,11 +14,11 @@ echo "Prepare tools"
     $galaxy_tool_dir \
     $tool_dir
 
-./src/prepare_galaxy_tools/prepare_control_quality_tools.sh \
+./src/prepare_galaxy_tools/prepare_assemble_paired_end_tools.sh \
     $galaxy_tool_dir \
     $tool_dir
 
-./src/prepare_galaxy_tools/prepare_assemble_paired_end_tools.sh \
+./src/prepare_galaxy_tools/prepare_control_quality_tools.sh \
     $galaxy_tool_dir \
     $tool_dir
 
