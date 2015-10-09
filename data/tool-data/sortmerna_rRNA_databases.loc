@@ -21,11 +21,11 @@
 #by creating the actual index files as explained above and uncommenting the
 #following lines.
 
-rfam-5.8s-id98	Rfam 5.8S eukarya	tools/rna_manipulation/sortmerna/sortmerna/rRNA_databases/rfam-5.8s-database-id98.fasta
-rfam-5s-id98	Rfam 5S archaea/bacteria	tools/rna_manipulation/sortmerna/sortmerna/rRNA_databases/rfam-5s-database-id98.fasta
-silva-arc-16s-id95	SILVA v.119 16S archaea	tools/rna_manipulation/sortmerna/sortmerna/rRNA_databases/silva-arc-16s-id95.fasta
-silva-arc-23s-id98	SILVA v.119 23S archaea	tools/rna_manipulation/sortmerna/sortmerna/rRNA_databases/silva-arc-23s-id98.fasta
-silva-bac-16s-id90	SILVA v.119 16S bacteria	tools/rna_manipulation/sortmerna/sortmerna/rRNA_databases/silva-bac-16s-id90.fasta
-silva-bac-23s-id98	SILVA v.119 23S bacteria	tools/rna_manipulation/sortmerna/sortmerna/rRNA_databases/silva-bac-23s-id98.fasta
-silva-euk-18s-id95	SILVA v.119 18S eukarya	tools/rna_manipulation/sortmerna/sortmerna/rRNA_databases/silva-euk-18s-id95.fasta
-silva-euk-28s-id98	SILVA v.119 28S eukarya	tools/rna_manipulation/sortmerna/sortmerna/rRNA_databases/silva-euk-28s-id98.fasta
+rfam-5.8s-id98	Rfam 5.8S eukarya	tools/manipulate_rna/sortmerna/sortmerna/rRNA_databases/rfam-5.8s-database-id98.fasta
+rfam-5s-id98	Rfam 5S archaea/bacteria	tools/manipulate_rna/sortmerna/sortmerna/rRNA_databases/rfam-5s-database-id98.fasta
+silva-arc-16s-id95	SILVA v.119 16S archaea	tools/manipulate_rna/sortmerna/sortmerna/rRNA_databases/silva-arc-16s-id95.fasta
+silva-arc-23s-id98	SILVA v.119 23S archaea	tools/manipulate_rna/sortmerna/sortmerna/rRNA_databases/silva-arc-23s-id98.fasta
+silva-bac-16s-id90	SILVA v.119 16S bacteria	tools/manipulate_rna/sortmerna/sortmerna/rRNA_databases/silva-bac-16s-id90.fasta
+silva-bac-23s-id98	SILVA v.119 23S bacteria	tools/manipulate_rna/sortmerna/sortmerna/rRNA_databases/silva-bac-23s-id98.fasta
+silva-euk-18s-id95	SILVA v.119 18S eukarya	tools/manipulate_rna/sortmerna/sortmerna/rRNA_databases/silva-euk-18s-id95.fasta
+silva-euk-28s-id98	SILVA v.119 28S eukarya	tools/manipulate_rna/sortmerna/sortmerna/rRNA_databases/silva-euk-28s-id98.fasta
