@@ -1,6 +1,6 @@
 #!/bin/bash
 
-galaxy_dir="lib/galaxy/"
+galaxy_dir=$1
 galaxy_tool_dir=$galaxy_dir/tools/
 
 tool_dir=lib/galaxy_tools/
