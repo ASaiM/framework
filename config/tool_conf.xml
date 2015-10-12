@@ -11,6 +11,9 @@
         <section id="concatenate" name="Concatenate files">
             <tool file="concatenate/file_concatenation/file_concatenation.xml" />
         </section>
+        <section id="compare" name="Compare files">
+            <tool file="compare/compare_column_content/compare_column_content.xml" />
+        </section>
     <label text="PRETREATMENTS" id="pretreatments" />
         <section id="paired_end_assembly" name="Assemble paired-end sequences">
             <tool file="assemble_paired_end/fastq_join/fastq_join.xml" />
