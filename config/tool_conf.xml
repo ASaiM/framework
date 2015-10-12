@@ -4,15 +4,40 @@
         <section id="getext" name="Get Data">
             <tool file="data_source/upload.xml" />
         </section>
+        <section id="textutil" name="Manipulate text">
+            <tool file="filters/fixedValueColumn.xml" />
+            <tool file="filters/catWrapper.xml" />
+            <tool file="filters/condense_characters.xml" />
+            <tool file="filters/convert_characters.xml" />
+            <tool file="filters/mergeCols.xml" />
+            <tool file="filters/CreateInterval.xml" />
+            <tool file="filters/cutWrapper.xml" />
+            <tool file="filters/changeCase.xml" />
+            <tool file="filters/pasteWrapper.xml" />
+            <tool file="filters/remove_beginning.xml" />
+            <tool file="filters/randomlines.xml" />
+            <tool file="filters/headWrapper.xml" />
+            <tool file="filters/tailWrapper.xml" />
+            <tool file="filters/trimmer.xml" />
+            <tool file="filters/wc_gnu.xml" />
+            <tool file="filters/secure_hash_message_digest.xml" />
+        </section>
+        <section id="filter" name="Filter and Sort">
+            <tool file="stats/filtering.xml" />
+            <tool file="filters/sorter.xml" />
+            <tool file="filters/grep.xml" />
+        </section>
+        <section id="group" name="Join, Subtract and Group">
+            <tool file="filters/joiner.xml" />
+            <tool file="filters/compare.xml" />
+            <tool file="stats/grouping.xml" />
+        </section>
         <section id="extraction" name="Extract data">
             <tool file="extract/extract_sequence_file/extract_sequence_file.xml" />
             <tool file="extract/extract_similarity_search_report/extract_similarity_search_report.xml" />
         </section>
         <section id="concatenate" name="Concatenate files">
             <tool file="concatenate/file_concatenation/file_concatenation.xml" />
-        </section>
-        <section id="compare" name="Compare files">
-            <tool file="compare/compare_column_content/compare_column_content.xml" />
         </section>
     <label text="PRETREATMENTS" id="pretreatments" />
         <section id="paired_end_assembly" name="Assemble paired-end sequences">
