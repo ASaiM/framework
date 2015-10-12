@@ -1,0 +1,98 @@
+<tool id="compare_column_content" name="Compare column content">
+
+    <description>of two files</description>
+
+    <macros>
+    </macros>
+
+    <requirements>
+    </requirements>
+
+    <stdio>
+    </stdio>
+
+    <version_command></version_command>
+
+    <command interpreter="python">
+        compare_column_content.py
+            --file_1 $file_1
+            --file_1_column_number $file_1_column_number
+            --file_1_column_to_compare $file_1_column_to_compare
+            --file_1_column_separator $file_1_column_separator
+            --file_1_spec_info_file $file_1_spec_info_file
+            --file_1_similar_info_file $file_1_similar_info_file
+            --file_2 $file_2
+            --file_2_column_number $file_2_column_number
+            --file_2_column_to_compare $file_2_column_to_compare
+            --file_2_column_separator $file_2_column_separator
+            --file_2_spec_info_file $file_2_spec_info_file
+            --file_2_similar_info_file $file_2_similar_info_file
+            --report $report
+
+    </command>
+
+    <inputs>
+        <param name="file_1" type="data" format="text" label="First file" help=""/>
+        <param name="file_1_column_number" type="integer" min="0" max="10" value="1" label="Number of columns in first file" help=""/>
+        <param name="file_1_column_separator" type="select" display="radio" label="Separator of columns in first file" help="">
+            <option value="\t">Tabulation</option>
+            <option value=" ">Space</option>
+            <option value=";">Semi-colon</option>
+            <option value=",">Colon</option>
+        </param>
+        <param name="file_1_column_to_compare" type="integer" min="0" max="10" value="1" label="Column to compare in first file to second file" help="This number must be inferior to column number"/>
+
+        <param name="file_2" type="data" format="text" label="Second file" help=""/>
+        <param name="file_2_column_number" type="integer" min="0" max="10" value="1" label="Number of columns in second file" help=""/>
+        <param name="file_2_column_separator" type="select" display="radio" label="Separator of columns in second file" help="">
+            <option value="\t">Tabulation</option>
+            <option value=" ">Space</option>
+            <option value=";">Semi-colon</option>
+            <option value=",">Colon</option>
+        </param>
+        <param name="file_2_column_to_compare" type="integer" min="0" max="10" value="1" label="Column to compare in second file to first file" help="This number must be inferior to column number"/>
+    </inputs>
+
+    <outputs>
+        <data format="text" name="file_1_spec_info_file" label="specific_info_${file_1.name}" />
+        <data format="text" name="file_1_similar_info_file" label="similar_info_${file_1.name}" />
+        <data format="text" name="file_2_spec_info_file" label="specific_info_${file_2.name}" />
+        <data format="text" name="file_2_similar_info_file" label="similar_info_${file_2.name}" />
+        <data format="text" name="report" label="report_comparison_${file_1.name}_${file_2.name}" />
+    </outputs>
+
+    <tests>
+    </tests>
+
+    <help>
+        **What it does**
+
+        This tool compare one column of two files and . 
+
+        **Input**
+
+        The input are two files in text format.
+
+
+        **Outputs**
+
+        The tool generates 4 outputs :
+
+            - a file containing lines of the first file for which the column to 
+            compare contain information similar to second file
+            - a file containing lines of the first file for which the column to 
+            compare do not contain information similar to second file
+            - a file containing lines of the first file for which the column to 
+            compare contain information similar to second file
+            - a file containing lines of the first file for which the column to 
+            compare do not contain information similar to second file
+            - a report of the comparison
+
+        **Parameters**
+
+
+    </help>
+
+    <citations>
+    </citations>
+</tool>
