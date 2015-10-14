@@ -13,8 +13,8 @@ create_tool_section_dir $galaxy_tool_dir/$section_dir
 
 ## blast
 echo " NCBI Blast +..."
-ncbi_blast_plus_dir=$section_dir/ncbi_blast_plus
-create_copy_tool_dir $tool_dir/$section_dir/blast/tools/ncbi_blast_plus $galaxy_tool_dir/$ncbi_blast_plus
+#ncbi_blast_plus_dir=$section_dir/ncbi_blast_plus
+#create_copy_tool_dir $tool_dir/$section_dir/blast/tools/ncbi_blast_plus $galaxy_tool_dir/$ncbi_blast_plus
 
 ## diamond
 echo " diamond..."
