@@ -21,6 +21,7 @@ Some tools must be installed before launching any scripts:
 - `git`
 - `python`
 - `pip`
+- `virtualenv`: `pip install --user virtualenv
 - `perl`
 - `scons`
 - `mercurial`
@@ -84,7 +85,9 @@ username@compute:galaxy_tool_dir$ sudo service proftpd start
 Launch script:
 
 ```
-./scripts/launch_galaxy.sh
+virtualenv --no-site-packages venv
+source venv/bin/activate 
+(venv)./scripts/launch_galaxy.sh
 ```
 ## Possible errors
 
