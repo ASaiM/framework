@@ -1,10 +1,34 @@
 #!/bin/bash
-git submodule init
-git submodule update
+galaxy_dir="lib/galaxy/"
+
+reset=false
+for i 
+do 
+    if [ $i = '-reset' ]; then
+        reset=true
+    fi
+done
+
+if [ -d $galaxy_dir ]; then
+    if $reset; then
+        echo "Reset Galaxy"
+        sudo rm -rf $galaxy_dir
+    fi
+fi
+
 
 mkdir tmp
 
-galaxy_dir="lib/galaxy/"
+git submodule init
+if $reset; then
+    git submodule foreach git reset --hard HEAD
+fi
+git submodule update
+if $reset; then
+    git submodule foreach "git checkout master; git pull"
+    git submodule foreach git clean -f
+fi
+
 
 # Prepare environment
 ./src/install_libraries.sh 
