@@ -139,6 +139,22 @@ def write_information(record, output_file_formats, output_sequence_file,
     if "fastq" in output_file_formats:
         write_fastq_record(record, output_sequence_file)
 
+def fast_test_element_in_list(element,list_to_test):
+    to_continue = True
+    i = 0
+    while to_continue:
+        if i == len(list_to_test) or list_to_test[i] >= element:
+            to_continue = False
+        else:
+            i += 1
+
+    found = False
+    if i < len(list_to_test):
+        if list_to_test[i] == element:
+            found = True
+
+    return found
+
 #########################
 # Constraint definition #
 #########################
@@ -294,6 +310,7 @@ class Constraint:
                     self.values.append(value_format(value))
         else:
             self.values = [value_format(value)]
+        self.values.sort()
 
     def get_raw_constraint_type(self):
         return self.raw_constraint_type
@@ -307,9 +324,11 @@ class Constraint:
     def test_constraint(self, similarity_info_value):
         to_conserve = True
         if self.raw_constraint_type == 'in':
-            to_conserve &= (similarity_info_value in self.values)
+            to_conserve &= fast_test_element_in_list(similarity_info_value, 
+                self.values)
         elif self.raw_constraint_type == 'not_in':
-            to_conserve &= (similarity_info_value not in self.values)
+            to_conserve &= (not fast_test_element_in_list(similarity_info_value, 
+                self.values))
         else:
             to_conserve &= self.type(similarity_info_value, self.values[0])
         return to_conserve    
