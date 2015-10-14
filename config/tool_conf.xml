@@ -36,9 +36,6 @@
             <tool file="extract/extract_sequence_file/extract_sequence_file.xml" />
             <tool file="extract/extract_similarity_search_report/extract_similarity_search_report.xml" />
         </section>
-        <section id="concatenate" name="Concatenate files">
-            <tool file="concatenate/file_concatenation/file_concatenation.xml" />
-        </section>
     <label text="PRETREATMENTS" id="pretreatments" />
         <section id="paired_end_assembly" name="Assemble paired-end sequences">
             <tool file="assemble_paired_end/fastq_join/fastq_join.xml" />
@@ -49,11 +46,6 @@
         <!--<section id="de_novo_assembly" name="De novo assembly">
             <tool file="genometools/readjoiner/readjoiner.xml" />
         </section>-->
-        <section id="rna_manipulation" name="Manipulate RNA">
-            <tool file="manipulate_rna/sortmerna/sortmerna.xml" />
-            <tool file="manipulate_rna/reago/reago.xml" />
-            <!--<tool file="rna_manipulation/infernal/infernal.xml" />-->
-        </section>
         <section id="dereplication" name="Dereplicate">
             <tool file="usearch/derep_prefix/derep_prefix.xml" />
         </section>
@@ -65,6 +57,11 @@
         </section>
         <section id="sequence_clustering" name="Cluster sequences">
             <tool file="cluster_sequences/cd-hit/cd-hit.xml" />
+        </section>
+        <section id="rna_manipulation" name="Manipulate RNA">
+            <tool file="manipulate_rna/sortmerna/sortmerna.xml" />
+            <tool file="manipulate_rna/reago/reago.xml" />
+            <!--<tool file="rna_manipulation/infernal/infernal.xml" />-->
         </section>
         <section id="similarity_search" name="Search similarity">
             <tool file="search_similarity/ncbi_blast_plus/ncbi_blastn_wrapper.xml" />
