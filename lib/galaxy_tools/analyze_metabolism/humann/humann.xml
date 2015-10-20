@@ -121,7 +121,7 @@
                 --graphlan_export=no
             #end if
 
-            --delete_tmp_dirpath True
+            --delete_tmp_dirpath no
     </command>
 
     <inputs>
