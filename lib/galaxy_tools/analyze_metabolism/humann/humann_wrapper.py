@@ -349,6 +349,8 @@ if __name__ == '__main__':
     parser.add_argument('--delete_tmp_dirpath', required=True)
     args = parser.parse_args()
 
+    print args
+
     tmp_dirpath, filename = os.path.split(os.path.abspath(args.input))
     filename = filename.split('.')[0]
     tmp_dirpath = tmp_dirpath + '/' + filename + '_humann_files/'
@@ -382,7 +384,7 @@ if __name__ == '__main__':
 
     generate_outputs(tmp_output_dirpath,args)
 
-    if args.delete_tmp_dirpath:
+    if args.delete_tmp_dirpath == 'yes':
         os.system('rm -rf ' + tmp_dirpath)
 
 
