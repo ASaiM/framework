@@ -260,7 +260,7 @@ class Records:
 
     # Other functions
     def save_conserved_records(self,args):
-        if args.custom_extraction_type == 'True':
+        if args.custom_extraction_type == 'yes':
             to_extract = args.to_extract[1:-1].split(',')
             with open(args.output_information, 'w') as output_information_file:
                 output_information_file.write('\t'.join(to_extract) + '\n')
@@ -274,7 +274,7 @@ class Records:
             if args.format == 'fasta':
                 output_file_formats = ['fasta']
             elif args.format == 'fastq':
-                if args.split == 'True':
+                if args.split == 'yes':
                     output_file_formats = ['fasta','qual']
                     qual_format = args.quality_format
                 else:
