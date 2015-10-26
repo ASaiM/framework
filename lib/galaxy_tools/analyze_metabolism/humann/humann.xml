@@ -17,6 +17,10 @@
                source="stderr"
                level="warning"
                description="" />
+        <!--<regex match="not found"
+               source="stderr"
+               level="fatal"
+               description="" />-->
     </stdio>
 
     <version_command></version_command>
@@ -121,7 +125,7 @@
                 --graphlan_export=no
             #end if
 
-            --delete_tmp_dirpath True
+            --delete_tmp_dirpath no
     </command>
 
     <inputs>

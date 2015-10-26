@@ -74,7 +74,7 @@ if [ ! -e $cog_dir/humann_formated_data/map_kegg.txt ]; then
         --raw_data_dir $cog_dir/raw_data/ \
         --extracted_data_dir $cog_dir/extracted_data/ \
         --humann_formated_data_dir $cog_dir/humann_formated_data/ \
-        --humann_dir $humann_dir/humann/
+        --humann_dir $galaxy_tool_dir/$humann_dir/humann/
 fi
 if [ ! -d $galaxy_tool_dir/$humann_dir/humann/cog_data/ ]; then
     mkdir $galaxy_tool_dir/$humann_dir/humann/cog_data/

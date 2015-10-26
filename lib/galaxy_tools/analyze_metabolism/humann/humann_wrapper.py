@@ -39,7 +39,8 @@ def generate_humann_param_file(sconstruct_filepath, args, tmp_input_dirpath,
     #sconstruct_file.write("c_strInputMetadata                  = c_strDirInput + \"/hmp_metadata.dat\"\n")
 
     # Optional: MetaCyc distribution tarball, will be used for pathways if present
-    sconstruct_file.write("c_strInputMetaCyc = \"data/meta.tar.gz\"\n")
+    #sconstruct_file.write("c_strInputMetaCyc = \"data/meta.tar.gz\"\n")
+    sconstruct_file.write("c_strInputMetaCyc = \"\"\n")
     sconstruct_file.write("c_strVersionMetaCyc = \"19.1\"\n")
 
     # Optional: MetaCyc distribution tarball, will be used for pathways if present
@@ -349,6 +350,8 @@ if __name__ == '__main__':
     parser.add_argument('--delete_tmp_dirpath', required=True)
     args = parser.parse_args()
 
+    print args
+
     tmp_dirpath, filename = os.path.split(os.path.abspath(args.input))
     filename = filename.split('.')[0]
     tmp_dirpath = tmp_dirpath + '/' + filename + '_humann_files/'
@@ -382,7 +385,7 @@ if __name__ == '__main__':
 
     generate_outputs(tmp_output_dirpath,args)
 
-    if args.delete_tmp_dirpath:
+    if args.delete_tmp_dirpath == 'yes':
         os.system('rm -rf ' + tmp_dirpath)
 
 
