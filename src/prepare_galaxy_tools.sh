@@ -42,10 +42,6 @@ echo "Prepare tools"
     $galaxy_tool_dir \
     $tool_dir
 
-./src/prepare_galaxy_tools/prepare_search_similarity_tools.sh \
-    $galaxy_tool_dir \
-    $tool_dir
-
 ./src/prepare_galaxy_tools/prepare_assigne_taxonomy_to_non_rRNA_tools.sh \
     $galaxy_tool_dir \
     $tool_dir
