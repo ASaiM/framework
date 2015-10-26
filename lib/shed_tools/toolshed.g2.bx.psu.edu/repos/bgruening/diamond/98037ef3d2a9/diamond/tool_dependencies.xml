@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<tool_dependency>
+  <package name="diamond" version="0.6.13">
+      <repository changeset_revision="47c4dfd5aed5" name="package_diamond_0_6_13" owner="iuc" toolshed="https://toolshed.g2.bx.psu.edu" />
+    </package>
+</tool_dependency>
