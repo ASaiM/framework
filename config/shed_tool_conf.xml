@@ -10,7 +10,7 @@
             <version>2.0.0</version>
         </tool>
     </section>
-    
+
     <section id="dereplication" name="Dereplicate">
         <tool file="toolshed.g2.bx.psu.edu/repos/iuc/vsearch/8c4e2933a17a/vsearch/dereplication.xml" guid="toolshed.g2.bx.psu.edu/repos/iuc/vsearch/vsearch_dereplication/1.1.3.1">
           <tool_shed>toolshed.g2.bx.psu.edu</tool_shed>
@@ -127,6 +127,33 @@
             <installed_changeset_revision>8c4e2933a17a</installed_changeset_revision>
             <id>toolshed.g2.bx.psu.edu/repos/iuc/vsearch/vsearch_search/1.1.3.0</id>
             <version>1.1.3.0</version>
+        </tool>
+    </section>
+
+    <section id="non_rRNA_taxonomic_assignation" name="Assign non rRNA sequences" version="">
+      <tool file="toolshed.g2.bx.psu.edu/repos/dannon/metaphlan/e951f9d38339/metaphlan/metaphlan_to_phyloxml.xml" guid="toolshed.g2.bx.psu.edu/repos/dannon/metaphlan/meta_to_phylo/1.0.0">
+          <tool_shed>toolshed.g2.bx.psu.edu</tool_shed>
+            <repository_name>metaphlan</repository_name>
+            <repository_owner>dannon</repository_owner>
+            <installed_changeset_revision>e951f9d38339</installed_changeset_revision>
+            <id>toolshed.g2.bx.psu.edu/repos/dannon/metaphlan/meta_to_phylo/1.0.0</id>
+            <version>1.0.0</version>
+        </tool>
+        <tool file="toolshed.g2.bx.psu.edu/repos/dannon/metaphlan/e951f9d38339/metaphlan/metaphlan_to_krona.xml" guid="toolshed.g2.bx.psu.edu/repos/dannon/metaphlan/meta_to_krona/1.0.0">
+          <tool_shed>toolshed.g2.bx.psu.edu</tool_shed>
+            <repository_name>metaphlan</repository_name>
+            <repository_owner>dannon</repository_owner>
+            <installed_changeset_revision>e951f9d38339</installed_changeset_revision>
+            <id>toolshed.g2.bx.psu.edu/repos/dannon/metaphlan/meta_to_krona/1.0.0</id>
+            <version>1.0.0</version>
+        </tool>
+        <tool file="toolshed.g2.bx.psu.edu/repos/dannon/metaphlan/e951f9d38339/metaphlan/metaphlan.xml" guid="toolshed.g2.bx.psu.edu/repos/dannon/metaphlan/metaphlan/1.7.0">
+          <tool_shed>toolshed.g2.bx.psu.edu</tool_shed>
+            <repository_name>metaphlan</repository_name>
+            <repository_owner>dannon</repository_owner>
+            <installed_changeset_revision>e951f9d38339</installed_changeset_revision>
+            <id>toolshed.g2.bx.psu.edu/repos/dannon/metaphlan/metaphlan/1.7.0</id>
+            <version>1.7.0</version>
         </tool>
     </section>
 
