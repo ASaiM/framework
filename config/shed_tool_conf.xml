@@ -57,6 +57,24 @@
             <id>toolshed.g2.bx.psu.edu/repos/devteam/ncbi_blast_plus/blastxml_to_tabular/@WRAPPER_VERSION@</id>
             <version>@WRAPPER_VERSION@</version>
         </tool>
+
+
+        <tool file="toolshed.g2.bx.psu.edu/repos/bgruening/diamond/98037ef3d2a9/diamond/diamond_makedb.xml" guid="toolshed.g2.bx.psu.edu/repos/bgruening/diamond/bg_diamond_makedb/0.6.13">
+          <tool_shed>toolshed.g2.bx.psu.edu</tool_shed>
+            <repository_name>diamond</repository_name>
+            <repository_owner>bgruening</repository_owner>
+            <installed_changeset_revision>98037ef3d2a9</installed_changeset_revision>
+            <id>toolshed.g2.bx.psu.edu/repos/bgruening/diamond/bg_diamond_makedb/0.6.13</id>
+            <version>0.6.13</version>
+        </tool>
+        <tool file="toolshed.g2.bx.psu.edu/repos/bgruening/diamond/98037ef3d2a9/diamond/diamond.xml" guid="toolshed.g2.bx.psu.edu/repos/bgruening/diamond/bg_diamond/0.1.6.0">
+          <tool_shed>toolshed.g2.bx.psu.edu</tool_shed>
+            <repository_name>diamond</repository_name>
+            <repository_owner>bgruening</repository_owner>
+            <installed_changeset_revision>98037ef3d2a9</installed_changeset_revision>
+            <id>toolshed.g2.bx.psu.edu/repos/bgruening/diamond/bg_diamond/0.1.6.0</id>
+            <version>0.1.6.0</version>
+        </tool>
     </section>
 
 </toolbox>
