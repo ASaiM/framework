@@ -1,0 +1,119 @@
+<tool id="ncbi_rpstblastn_wrapper" name="NCBI BLAST+ rpstblastn" version="@WRAPPER_VERSION@">
+    <description>Search protein domain database (PSSMs) with translated nucleotide query sequence(s)</description>
+    <macros>
+        <token name="@BINARY@">rpstblastn</token>
+        <import>ncbi_macros.xml</import>
+    </macros>
+    <expand macro="parallelism" />
+    <expand macro="preamble" />
+    <command>
+## The command is a Cheetah template which allows some Python based syntax.
+## Lines starting hash hash are comments. Galaxy will turn newlines into spaces
+rpstblastn
+-query "$query"
+#if $db_opts.db_opts_selector == "db":
+  -db "${db_opts.database.fields.path}"
+#elif $db_opts.db_opts_selector == "histdb":
+  -db "${os.path.join($db_opts.histdb.files_path,'blastdb')}"
+#end if
+-evalue $evalue_cutoff
+@BLAST_OUTPUT@
+## rpstblastn does not support multiple threads up to release 2.2.27+. Added in BLAST 2.2.28+.
+##-num_threads 8
+#if $adv_opts.adv_opts_selector=="advanced":
+@ADV_FILTER_QUERY@
+@ADV_MAX_HITS@
+@ADV_QCOV_HSP_PERC@
+## End of advanced options:
+#end if
+    </command>
+    <inputs>
+        <param name="query" type="data" format="fasta" label="Nucleotide query sequence(s)"/> 
+
+        <expand macro="input_conditional_pssm" />
+
+        <expand macro="input_evalue" />
+
+        <expand macro="input_out_format" />
+
+        <expand macro="advanced_options">
+            <!-- Could use a select (yes, no, other) where other allows setting 'window locut hicut' -->
+            <expand macro="input_filter_query_default_false" />
+            <!-- Why doesn't optional override a validator? I want to accept an empty string OR a non-negative integer -->
+            <expand macro="input_max_hits" />
+            <expand macro="input_parse_deflines" />
+            <expand macro="input_qcov_hsp_perc" />
+        </expand>
+    </inputs>
+    <outputs>
+        <data name="output1" format="tabular" label="rpstblastn on ${on_string}">
+            <expand macro="output_change_format" />
+        </data>
+    </outputs>
+    <tests>
+        <!-- Disable for ToolShed where *.loc tests not yet supported
+             See https://github.com/peterjc/galaxy_blast/issues/53
+        <test>
+            <param name="query" value="rhodopsin_nucs.fasta" ftype="fasta" />
+            <param name="db_opts_selector" value="db" />
+            <param name="database" value="cd00003_and_cd00008" />
+            <param name="evalue_cutoff" value="1e-8" />
+            <param name="out_format" value="6" />
+            <output name="output1" file="empty_file.dat" ftype="tabular" />
+        </test>
+        -->
+    </tests>
+    <help>
+    
+@SEARCH_TIME_WARNING@
+
+**What it does**
+
+Search a *protein domain database* using a *nucleotide query*,
+using the NCBI BLAST+ rpstblastn command line tool.
+
+The protein domain databases use position-specific scoring matrices
+(PSSMs) and are available for a number of domain collections including:
+
+*CDD* - NCBI curarated meta-collection of domains, see
+http://www.ncbi.nlm.nih.gov/Structure/cdd/cdd_help.shtml#NCBI_curated_domains
+
+*Kog* - PSSMs from automatically aligned sequences and sequence
+fragments classified in the KOGs resource, the eukaryotic 
+counterpart to COGs, see http://www.ncbi.nlm.nih.gov/COG/new/
+
+*Cog* - PSSMs from automatically aligned sequences and sequence
+fragments classified in the COGs resource, which focuses primarily
+on prokaryotes, see http://www.ncbi.nlm.nih.gov/COG/new/
+
+*Pfam* - PSSMs from Pfam-A seed alignment database, see
+http://pfam.sanger.ac.uk/
+
+*Smart* - PSSMs from SMART domain alignment database, see
+http://smart.embl-heidelberg.de/
+
+*Tigr* - PSSMs from TIGRFAM database of protein families, see
+http://www.jcvi.org/cms/research/projects/tigrfams/overview/
+
+*Prk* - PSSms from automatically aligned stable clusters in the
+Protein Clusters database, see
+http://www.ncbi.nlm.nih.gov/proteinclusters?cmd=search&amp;db=proteinclusters
+
+The exact list of domain databases offered will depend on how your
+local Galaxy has been configured.
+
+-----
+
+@OUTPUT_FORMAT@
+
+-------
+
+**References**
+
+If you use this Galaxy tool in work leading to a scientific publication please
+cite the following papers:
+
+@REFERENCES@
+    </help>
+    <expand macro="blast_citations" />
+</tool>

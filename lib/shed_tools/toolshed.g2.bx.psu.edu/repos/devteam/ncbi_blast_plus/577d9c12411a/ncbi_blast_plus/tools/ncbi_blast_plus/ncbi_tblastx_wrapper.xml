@@ -1,0 +1,96 @@
+<tool id="ncbi_tblastx_wrapper" name="NCBI BLAST+ tblastx" version="@WRAPPER_VERSION@">
+    <description>Search translated nucleotide database with translated nucleotide query sequence(s)</description>
+    <macros>
+        <token name="@BINARY@">tblastx</token>
+        <import>ncbi_macros.xml</import>
+    </macros>
+    <expand macro="parallelism" />
+    <expand macro="preamble" />
+    <command>
+## The command is a Cheetah template which allows some Python based syntax.
+## Lines starting hash hash are comments. Galaxy will turn newlines into spaces
+tblastx
+-query "$query"
+@BLAST_DB_SUBJECT@
+-query_gencode $query_gencode
+-evalue $evalue_cutoff
+@BLAST_OUTPUT@
+@THREADS@
+#if $adv_opts.adv_opts_selector=="advanced":
+-db_gencode $adv_opts.db_gencode
+$adv_opts.strand
+-matrix $adv_opts.matrix
+@ADV_FILTER_QUERY@
+@ADV_MAX_HITS@
+@ADV_WORD_SIZE@
+@ADV_ID_LIST_FILTER@
+@ADV_QCOV_HSP_PERC@
+## End of advanced options:
+#end if
+    </command>
+    <inputs>
+        <param name="query" type="data" format="fasta" label="Nucleotide query sequence(s)"/> 
+
+        <expand macro="input_conditional_nucleotide_db" />
+        <expand macro="input_query_gencode" />
+        <expand macro="input_evalue" />
+
+        <expand macro="input_out_format" />
+        <expand macro="advanced_options">
+            <expand macro="input_db_gencode" />
+
+            <!-- Could use a select (yes, no, other) where other allows setting 'window locut hicut' -->
+            <expand macro="input_filter_query_default_true" />
+            <expand macro="input_strand" />
+            <expand macro="input_scoring_matrix" />
+            <expand macro="input_max_hits" />
+            <!-- I'd like word_size to be optional, with minimum 2 for tblastx -->
+            <expand macro="input_word_size" />
+            <expand macro="input_parse_deflines" />
+            <expand macro="advanced_optional_id_files" />
+            <expand macro="input_qcov_hsp_perc" />
+        </expand>
+    </inputs>
+    <outputs>
+        <data name="output1" format="tabular" label="tblastx $query.name vs @ON_DB_SUBJECT@">
+            <expand macro="output_change_format" />
+        </data>
+    </outputs>
+    <tests>
+        <test>
+            <param name="query" value="rhodopsin_nucs.fasta" ftype="fasta" />
+            <param name="db_opts_selector" value="file" />
+            <param name="subject" value="three_human_mRNA.fasta" ftype="fasta" />
+            <param name="database" value="" />
+            <param name="evalue_cutoff" value="1e-40" />
+            <param name="out_format" value="6" />
+            <param name="adv_opts_selector" value="basic" />
+            <output name="output1" file="tblastx_rhodopsin_vs_three_human.tabular" ftype="tabular" />
+        </test>
+    </tests>
+    <help>
+    
+@SEARCH_TIME_WARNING@
+
+**What it does**
+
+Search a *translated nucleotide database* using a *translated nucleotide query*,
+using the NCBI BLAST+ tblastx command line tool.
+
+@FASTA_WARNING@
+
+-----
+
+@OUTPUT_FORMAT@
+
+-------
+
+**References**
+
+If you use this Galaxy tool in work leading to a scientific publication please
+cite the following papers:
+
+@REFERENCES@
+    </help>
+    <expand macro="blast_citations" />
+</tool>

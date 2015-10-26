@@ -1,0 +1,154 @@
+<tool id="ncbi_blastp_wrapper" name="NCBI BLAST+ blastp" version="@WRAPPER_VERSION@">
+    <description>Search protein database with protein query sequence(s)</description>
+    <macros>
+        <token name="@BINARY@">blastp</token>
+        <import>ncbi_macros.xml</import>
+    </macros>
+    <expand macro="parallelism" />
+    <expand macro="preamble" />
+    <command>
+## The command is a Cheetah template which allows some Python based syntax.
+## Lines starting hash hash are comments. Galaxy will turn newlines into spaces
+blastp
+-query "$query"
+@BLAST_DB_SUBJECT@
+-task $blast_type
+-evalue $evalue_cutoff
+@BLAST_OUTPUT@
+@THREADS@
+#if $adv_opts.adv_opts_selector=="advanced":
+-matrix $adv_opts.matrix
+@ADV_FILTER_QUERY@
+@ADV_MAX_HITS@
+@ADV_WORD_SIZE@
+##Ungapped disabled for now - see comments below
+##$adv_opts.ungapped
+@ADV_ID_LIST_FILTER@
+@ADV_QCOV_HSP_PERC@
+## End of advanced options:
+#end if
+    </command>
+    <inputs>
+        <param name="query" type="data" format="fasta" label="Protein query sequence(s)"/> 
+
+        <expand macro="input_conditional_protein_db" />
+
+        <param name="blast_type" type="select" display="radio" label="Type of BLAST">
+            <option value="blastp">blastp - Traditional BLASTP to compare a protein query to a protein database</option>
+            <option value="blastp-fast">blastp-fast - Use longer words for seeding, faster but less accurate</option>
+            <option value="blastp-short">blastp-short - BLASTP optimized for queries shorter than 30 residues</option>
+        </param>
+        <expand macro="input_evalue" />
+        <expand macro="input_out_format" />
+        <expand macro="advanced_options">
+            <!-- Could use a select (yes, no, other) where other allows setting 'window locut hicut' -->
+            <expand macro="input_filter_query_default_false" />
+            <expand macro="input_scoring_matrix" />
+            <expand macro="input_max_hits" />
+            <expand macro="input_word_size" />
+            <!--
+            Can't use '-ungapped' on its own, error back is:
+            Composition-adjusted searched are not supported with an ungapped search, please add -comp_based_stats F or do a gapped search
+            Tried using '-ungapped -comp_based_stats F' and blastp crashed with 'Attempt to access NULL pointer.'
+            <param name="ungapped" type="boolean" label="Perform ungapped alignment only?" truevalue="-ungapped -comp_based_stats F" falsevalue="" checked="false" />
+            -->
+            <expand macro="input_parse_deflines" />
+            <expand macro="advanced_optional_id_files" />
+            <expand macro="input_qcov_hsp_perc" />
+        </expand>
+    </inputs>
+    <outputs>
+        <data name="output1" format="tabular" label="${blast_type.value} $query.name vs @ON_DB_SUBJECT@">
+            <expand macro="output_change_format" />
+        </data>
+    </outputs>
+    <tests>
+        <test>
+            <param name="query" value="four_human_proteins.fasta" ftype="fasta" />
+            <param name="db_opts_selector" value="file" />
+            <param name="subject" value="rhodopsin_proteins.fasta" ftype="fasta" />
+            <param name="database" value="" />
+            <param name="evalue_cutoff" value="1e-8" />
+            <param name="blast_type" value="blastp" />
+            <param name="out_format" value="5" />
+            <param name="adv_opts_selector" value="advanced" />
+            <param name="filter_query" value="False" />
+            <param name="matrix" value="BLOSUM62" />
+            <param name="max_hits" value="0" />
+            <param name="word_size" value="0" />
+            <param name="parse_deflines" value="True" />
+            <param name="qcov_hsp_perc" value="25" />
+            <output name="output1" file="blastp_four_human_vs_rhodopsin.xml" ftype="blastxml" />
+        </test>
+        <test>
+            <param name="query" value="four_human_proteins.fasta" ftype="fasta" />
+            <param name="db_opts_selector" value="file" />
+            <param name="subject" value="rhodopsin_proteins.fasta" ftype="fasta" />
+            <param name="database" value="" />
+            <param name="evalue_cutoff" value="1e-8" />
+            <param name="blast_type" value="blastp" />
+            <param name="out_format" value="6" />
+            <param name="adv_opts_selector" value="advanced" />
+            <param name="filter_query" value="False" />
+            <param name="matrix" value="BLOSUM62" />
+            <param name="max_hits" value="0" />
+            <param name="word_size" value="0" />
+            <param name="parse_deflines" value="True" />
+            <param name="qcov_hsp_perc" value="25" />
+            <output name="output1" file="blastp_four_human_vs_rhodopsin.tabular" ftype="tabular" />
+        </test>
+        <test>
+            <param name="query" value="four_human_proteins.fasta" ftype="fasta" />
+            <param name="db_opts_selector" value="file" />
+            <param name="subject" value="rhodopsin_proteins.fasta" ftype="fasta" />
+            <param name="database" value="" />
+            <param name="evalue_cutoff" value="1e-8" />
+            <param name="blast_type" value="blastp" />
+            <param name="out_format" value="ext" />
+            <param name="adv_opts_selector" value="advanced" />
+            <param name="filter_query" value="False" />
+            <param name="matrix" value="BLOSUM62" />
+            <param name="max_hits" value="0" />
+            <param name="word_size" value="0" />
+            <param name="parse_deflines" value="True" />
+            <param name="qcov_hsp_perc" value="25" />
+            <output name="output1" file="blastp_four_human_vs_rhodopsin_ext.tabular" ftype="tabular" />
+        </test>
+        <test>
+            <param name="query" value="rhodopsin_proteins.fasta" ftype="fasta" />
+            <param name="db_opts_selector" value="file" />
+            <param name="subject" value="four_human_proteins.fasta" ftype="fasta" />
+            <param name="database" value="" />
+            <param name="evalue_cutoff" value="1e-8" />
+            <param name="blast_type" value="blastp" />
+            <param name="out_format" value="6" />
+            <param name="adv_opts_selector" value="basic" />
+            <output name="output1" file="blastp_rhodopsin_vs_four_human.tabular" ftype="tabular" />
+        </test>
+    </tests>
+    <help>
+    
+@SEARCH_TIME_WARNING@
+
+**What it does**
+
+Search a *protein database* using a *protein query*,
+using the NCBI BLAST+ blastp command line tool.
+
+@FASTA_WARNING@
+
+-----
+
+@OUTPUT_FORMAT@
+
+-------
+
+**References**
+
+If you use this Galaxy tool in work leading to a scientific publication please
+cite the following papers:
+
+@REFERENCES@
+    </help>
+    <expand macro="blast_citations" />    
+</tool>

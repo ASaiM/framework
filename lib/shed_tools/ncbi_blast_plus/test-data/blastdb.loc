@@ -1,0 +1,7 @@
+# This is a test file distributed with the Galaxy BLAST+ wrapper for
+# defining a list of nucleotide BLAST databases used in functional
+# tests for blastn etc.
+#
+# See the file tool-data/blastdb.loc.sample for more information.
+#
+three_human_mRNA	Three Human mRNAs	${__HERE__}/three_human_mRNA.fasta
