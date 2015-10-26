@@ -64,11 +64,10 @@
         <section id="similarity_search" name="Search similarity">
         </section>
     <label text="TAXONOMIC ASSIGNATION" id="taxonomic" />
-        <section id="non_rRNA_taxonomic_assignation" name="Manipulate non rRNA sequences">
-            <tool file="assigne_taxonomy_to_non_rRNA/metaphlan/metaphlan.xml" />
+        <section id="non_rRNA_taxonomic_assignation" name="Assign non rRNA sequences">
             <tool file="assigne_taxonomy_to_non_rRNA/metaphlan2/metaphlan2.xml" />
         </section>
-        <section id="rRNA_taxonomic_assignation" name="Manipulate rRNA sequences">
+        <section id="rRNA_taxonomic_assignation" name="Assign rRNA sequences">
             <!--<tool file="assigne_taxonomy_to_rRNA/qiime/qiime.xml" />-->
         </section>
     <label text="FUNCTIONAL ASSIGNATION" id="functional" />
