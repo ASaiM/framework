@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<tool_dependency>
+    <package name="metaphlan" version="1.7.0">
+        <install version="1.0">
+            <actions>
+                <action type="shell_command">hg clone https://bitbucket.org/nsegata/metaphlan</action>
+                <action type="move_directory_files">
+                    <source_directory>.</source_directory>
+                    <destination_directory>$INSTALL_DIR</destination_directory>
+                </action>
+                <action type="set_environment">
+                    <environment_variable name="PATH" action="prepend_to">$INSTALL_DIR</environment_variable>
+                </action>
+                <action type="set_environment">
+                    <environment_variable name="METAPHLAN_PATH" action="set_to">$INSTALL_DIR</environment_variable>
+                </action>
+
+            </actions>
+        </install>
+        <readme>
+These links provide information for the metaphlan package:
+http://huttenhower.sph.harvard.edu/metaphlan
+https://groups.google.com/forum/#!forum/metaphlan-users
+        </readme>
+    </package>
+</tool_dependency>
+

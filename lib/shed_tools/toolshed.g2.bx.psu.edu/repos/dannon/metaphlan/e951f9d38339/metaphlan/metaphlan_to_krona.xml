@@ -1,0 +1,17 @@
+<tool id="meta_to_krona" name="MetaPhlAn to Krona" version="1.0.0">
+ <description>Converter</description>
+ <command interpreter="python">
+metaphlan2krona.py -p $input -k $output
+ </command>
+ <inputs>
+  <param name="input" type="data" format="tabular" label="Input MetaPhlAn File"/>
+ </inputs>
+ <outputs>
+    <data format="tabular" name="output" label="${tool.name} on ${on_string}" /> 
+ </outputs>
+ <tests>
+ </tests>
+ <help>
+  MetaPhlAn to Krona Converter
+ </help>
+</tool>
