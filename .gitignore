@@ -39,6 +39,5 @@ tools/extract/extract_similarity_search_report/test-data/blast/extraction_report
 !tools/extract/extract_similarity_search_report/test-data/blast/extraction_reports/list_constraint_on_qseqid/expected.txt
 
 # Blast sources
-lib/galaxy_tools/similarity_search/blast/ncbi-blast-2.2.31+-universal-macosx/
-lib/galaxy_tools/similarity_search/blast/ncbi-blast-2.2.31+-x64-linux/
+
 
