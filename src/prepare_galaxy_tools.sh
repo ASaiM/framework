@@ -14,10 +14,6 @@ echo "Prepare tools"
 #    $galaxy_tool_dir \
 #    $tool_dir
 
-#./src/prepare_galaxy_tools/prepare_control_quality_tools.sh \
-#    $galaxy_tool_dir \
-#    $tool_dir
-
 #./src/prepare_galaxy_tools/prepare_cluster_sequences_tools.sh \
 #    $galaxy_tool_dir \
 #    $tool_dir
