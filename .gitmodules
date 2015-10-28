@@ -22,6 +22,3 @@
 [submodule "lib/galaxy_tools/manipulate_rna/reago/reago"]
 	path = lib/galaxy_tools/manipulate_rna/reago/reago
 	url = https://github.com/chengyuan/reago-1.1.git
-[submodule "lib/galaxytools"]
-	path = lib/galaxytools
-	url = https://github.com/ASaiM/galaxytools.git
