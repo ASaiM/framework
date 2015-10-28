@@ -62,6 +62,17 @@
         </tool>
     </section>
 
+    <section id="rna_manipulation" name="Manipulate RNA">
+        <tool file="testtoolshed.g2.bx.psu.edu/repos/bebatut/sortmerna/87327d15b045/sortmerna/sortmerna.xml" guid="testtoolshed.g2.bx.psu.edu/repos/bebatut/sortmerna/sortmerna/0.1.0">
+          <tool_shed>testtoolshed.g2.bx.psu.edu</tool_shed>
+            <repository_name>sortmerna</repository_name>
+            <repository_owner>bebatut</repository_owner>
+            <installed_changeset_revision>87327d15b045</installed_changeset_revision>
+            <id>testtoolshed.g2.bx.psu.edu/repos/bebatut/sortmerna/sortmerna/0.1.0</id>
+            <version>0.1.0</version>
+        </tool>
+    </section>
+
     <section id="similarity_search" name="Search similarity" version="">
         <tool file="toolshed.g2.bx.psu.edu/repos/devteam/ncbi_blast_plus/577d9c12411a/ncbi_blast_plus/tools/ncbi_blast_plus/ncbi_makeblastdb.xml" guid="toolshed.g2.bx.psu.edu/repos/devteam/ncbi_blast_plus/ncbi_makeblastdb/0.1.06">
           <tool_shed>toolshed.g2.bx.psu.edu</tool_shed>
