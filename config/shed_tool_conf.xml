@@ -34,6 +34,24 @@
     </section>
 
     <section id="sequence_clustering" name="Cluster sequences">
+        <tool file="toolshed.g2.bx.psu.edu/repos/jjohnson/cdhit/88f9e90d9d78/cdhit/cd_hit_est.xml" guid="toolshed.g2.bx.psu.edu/repos/jjohnson/cdhit/cd_hit_est/1.2">
+          <tool_shed>toolshed.g2.bx.psu.edu</tool_shed>
+            <repository_name>cdhit</repository_name>
+            <repository_owner>jjohnson</repository_owner>
+            <installed_changeset_revision>88f9e90d9d78</installed_changeset_revision>
+            <id>toolshed.g2.bx.psu.edu/repos/jjohnson/cdhit/cd_hit_est/1.2</id>
+            <version>1.2</version>
+        </tool>
+
+        <tool file="toolshed.g2.bx.psu.edu/repos/jjohnson/cdhit/88f9e90d9d78/cdhit/cd_hit_protein.xml" guid="toolshed.g2.bx.psu.edu/repos/jjohnson/cdhit/cd_hit_protein/1.2">
+          <tool_shed>toolshed.g2.bx.psu.edu</tool_shed>
+            <repository_name>cdhit</repository_name>
+            <repository_owner>jjohnson</repository_owner>
+            <installed_changeset_revision>88f9e90d9d78</installed_changeset_revision>
+            <id>toolshed.g2.bx.psu.edu/repos/jjohnson/cdhit/cd_hit_protein/1.2</id>
+            <version>1.2</version>
+        </tool>
+
         <tool file="toolshed.g2.bx.psu.edu/repos/iuc/vsearch/8c4e2933a17a/vsearch/clustering.xml" guid="toolshed.g2.bx.psu.edu/repos/iuc/vsearch/vsearch_clustering/1.1.3.1">
           <tool_shed>toolshed.g2.bx.psu.edu</tool_shed>
             <repository_name>vsearch</repository_name>
