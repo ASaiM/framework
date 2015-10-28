@@ -57,7 +57,6 @@
             <tool file="cluster_sequences/cd-hit/cd-hit.xml" />
         </section>
         <section id="rna_manipulation" name="Manipulate RNA">
-            <tool file="manipulate_rna/sortmerna/sortmerna.xml" />
             <tool file="manipulate_rna/reago/reago.xml" />
             <!--<tool file="rna_manipulation/infernal/infernal.xml" />-->
         </section>
