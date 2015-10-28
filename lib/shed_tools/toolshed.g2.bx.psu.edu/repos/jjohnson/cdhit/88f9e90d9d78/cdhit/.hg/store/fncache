@@ -1,0 +1,7 @@
+data/cdhit_macros.xml.i
+data/cd_hit_protein.xml.i
+data/README.i
+data/test-data/cd_hit_est_in.fa.i
+data/cd_hit_est.xml.i
+data/test-data/cd_hit_protein_in.fasta.i
+data/tool_dependencies.xml.i
