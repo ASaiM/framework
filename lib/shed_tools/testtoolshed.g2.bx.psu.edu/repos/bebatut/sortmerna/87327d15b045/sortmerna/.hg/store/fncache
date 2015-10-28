@@ -1,0 +1,14 @@
+data/test-data/sam_alignments.sam.i
+data/test-data/aligned_sequences.fastq.i
+data/tool-data/sortmerna_rRNA_databases.loc.i
+data/test-data/input_sequences.fastq.i
+data/test-data/input_sequences.fastq.d
+data/tool-data/sortmerna_rRNA_databases.loc.sample.i
+data/test-data/rejected_sequences.fastq.d
+data/test-data/blast_output.txt.i
+data/test-data/db.fasta.i
+data/tool_data_table_conf.xml.sample.i
+data/tool_dependencies.xml.i
+data/sortmerna.xml.i
+data/test-data/rejected_sequences.fastq.i
+data/test-data/db.fasta.d

@@ -1,0 +1,336 @@
+<tool id="sortmerna" name="SortMeRNA" version="0.1.0">
+    <description>to filter ribosomal RNAs in metatranscriptomic data</description>
+
+    <requirements>
+        <requirement type="package" version="2.0">sortmerna</requirement>
+    </requirements>
+
+    <stdio>
+        <exit_code range="1:" />
+    </stdio>
+
+    <version_command>
+<![CDATA[
+sortmerna --version 2>&1|grep 'SortMeRNA version'
+]]>
+    </version_command>
+
+    <command>
+<![CDATA[
+    #set $ref = ''
+    #set $sep=''
+
+    #if str( $databases_type.databases_selector ) == 'history':
+        #for $db in $databases_type.database_name
+            #set $ref += $sep + str($db) + ',' + $os.path.splitext($os.path.basename(str($db)))[0]
+            #set $sep = ':'
+        #end for
+    #else:
+        ## databases path is not directly accessible, must match by hand with LOC file contents
+        #set $data_table = dict([(_[0], _[2]) for _ in $databases_type.input_databases.input.options.tool_data_table.data])
+        #for $db in $databases_type.input_databases.value
+            #set $ref += $sep + $data_table[$db] + ',' + $os.path.splitext($data_table[$db])[0]
+            #set $sep = ':'
+        #end for
+    #end if
+
+    indexdb_rna --ref $ref -L $seed_length --max_pos $max_pos
+
+    &&
+
+    sortmerna
+        --ref $ref
+        --reads $input_sequence_file
+        --aligned aligned
+
+        #if $fastx.test:
+            --fastx
+            #if $fastx.rejected:
+                --other other_file
+            #end if
+        #end if
+
+        #if $sam.test:
+            --sam
+            $sam.sq_tag
+        #end if
+
+        #if $blast.test:
+            --blast "$blast.format"
+        #end if
+
+        $log
+
+        #if $report.type == 'best':
+            #if $report.best.type == '0':
+                --best 0
+            #else if $report.best.type == '1':
+                --best 1
+                --min_lis $report.best.min_lis
+            #else
+                --best $report.best.value
+                --min_list $report.best.min_lis
+            #end if
+        #else
+            #if $report.num_alignments.type == '0':
+                --num_alignments 0
+            #else if $report.num_alignments.type == '1':
+                --num_alignments 1
+            #else
+                --num_alignments $report.num_alignments.value
+            #end if
+        #end if
+
+        -e $e_value
+        --match $match
+        --mismatch $mismatch
+        --gap_open $gap_open
+        --gap_ext $gap_ext
+        -N $ambiguous_letter
+
+        #if $strand == 'forward':
+            -F
+        #end if
+        #if $strand == 'reverse':
+            -R
+        #end if
+]]>
+    </command>
+
+    <inputs>
+        <param name="input_sequence_file" type="data" format="fastq,fasta" label="Input sequence file" help=""/>
+
+        <conditional name="databases_type">
+            <param name="databases_selector" type="select" label="Databases to query" help="">
+                <option value="cached" selected="true">Public ribosomal databases</option>
+                <option value="history">Databases from your history</option>
+            </param>
+            <when value="cached">
+                <param name="input_databases" label="rRNA databases" type="select" display="checkboxes" multiple="true">
+                    <options from_data_table="sortmerna_rRNA_databases" />
+                    <validator type="no_options" message="Select at least one database"/>
+                </param>
+            </when>
+            <when value="history">
+                <param name="database_name" type="data" format="fasta" multiple="true" label="rRNA databases"
+                    help=""/>
+            </when>
+        </conditional>
+
+        <conditional name="fastx">
+            <param name="test" type='boolean' checked="true" truevalue='yes' falsevalue='no' label="Output into Fasta/FastQ file?" help="" />
+            <when value="yes">
+                <param name='rejected' type='boolean' checked="true" truevalue='yes' falsevalue='no' label="Conserve rejected reads?" help=""/>
+            </when>
+        </conditional>
+
+        <conditional name="sam">
+            <param name="test" type='boolean' checked="true" truevalue='yes' falsevalue='no' label="Output SAM alignments?" help="" />
+            <when value="yes">
+                <param name='sq_tag' type='boolean' checked="true" truevalue='--SQ' falsevalue='' label="Add SQ tags to SAM file?" help=""/>
+            </when>
+        </conditional>
+
+        <conditional name="blast">
+            <param name='test' type='boolean' checked="true" truevalue='yes' falsevalue='no' label="Output BLAST alignments?" help=""/>
+            <when value="yes">
+                <param name="format" type="select" display="radio" label="Format for BLAST output" help="">
+                    <option value="0">Pairwise</option>
+                    <option value="1">Tabular (Blast -m 8 format)</option>
+                    <option value="1 cigar">Tabular + column for CIGAR</option>
+                    <option value="1 cigar qcov" selected="true">Tabular + columns for CIGAR and query coverage</option>
+                    <option value="1 cigar qcov qstrand">Tabular + columns for CIGAR, query coverage and strand</option>
+                </param>
+            </when>
+        </conditional>
+
+        <param name='log' type='boolean' checked="true" truevalue='--log' falsevalue='' label="Conserve overall statistic output into a log file?" help=""/>
+
+        <conditional name="report">
+            <param name="type" type="select" display="radio" label="Parameters for filtering and read mapping" help="">
+                <option value="best" selected="true">Report best alignments per read reaching E-value</option>
+                <option value="num_alignments">Report first alignements per read reaching E-value</option>
+            </param>
+            <when value="best">
+                <conditional name="best">
+                    <param name="type" type="select" display="radio" label="Number of searched alignments" help="Only the best alignment is reported">
+                        <option value="0">All high-candidate reference sequences are searched for alignments (very slow)</option>
+                        <option value="1" selected="true">Only one high-candidate reference sequence is searched for alignments (fast). The high-candidate sequences are determined heuristically using a LIS of seed matches)</option>
+                        <option value="other_value">A custom number of reference sequences are searched for alignments (speed decrease for high value)</option>
+                    </param>
+                    <when value="other_value">
+                        <param name="value" type="integer" min="0" max="100" value="1" label="Number of alignments to be made" help="Only the best one is reported. The computation speed decrease with high value"/>
+                        <param name="min_lis" type="integer" min="0" max="100" value="2" label="Number of longest LIS an alignement needs to be searched" help="The alignements having the first INT longest LIS. LIS stands for Longest Increasing Subsequence, it is computed using seeds' positions to expand hits into longer matches prior to Smith-Waterman alignment."/>
+                    </when>
+                    <when value="1">
+                        <param name="min_lis" type="integer" min="0" max="100" value="2" label="Number of longest LIS an alignement needs to be searched" help="The alignements having the first INT longest LIS. LIS stands for Longest Increasing Subsequence, it is computed using seeds' positions to expand hits into longer matches prior to Smith-Waterman alignment."/>
+                    </when>
+                </conditional>
+            </when>
+            <when value="num_alignments">
+                <conditional name="num_alignments">
+                    <param name="type" type="select" display="radio" label="Number of output alignments" help="">
+                        <option value="0">All alignments reaching the E-value threshold are reported (very slow, this option is not suggested for high similarity rRNA databases)</option>
+                        <option value="1" selected="true">The first alignment passing E-value threshold are reported (very fast, best choice if only filtering is needed)</option>
+                        <option value="other_value">A custom number of alignments are made and reported (speed decrease for high value)</option>
+                    </param>
+                    <when value="other_value">
+                        <param name="value" type="integer" min="0" max="100" value="1" label="Number of alignments to be made and reported" help=""/>
+                    </when>
+                </conditional>
+            </when>
+        </conditional>
+
+        <param name="e_value" type="float" min="0" max="10" value="1" label="E-value threshold" help=""/>
+        <param name="match" type="integer" min="0" max="10" value="2" label="SW score for a match" help=""/>
+        <param name="mismatch" type="integer" min="-10" max="0" value="-3" label="SW penalty for a mismatch" help=""/>
+        <param name="gap_open" type="integer" min="0" max="10" value="5" label="SW penalty for introducing a gap" help=""/>
+        <param name="gap_ext" type="integer" min="0" max="10" value="2" label="SW penalty for extending a gap" help=""/>
+        <param name="ambiguous_letter" type="integer" min="-10" max="0" value="-3" label="SW penalty for ambiguous letters (N's)" help=""/>
+
+        <param name="strand" type="select" display="radio" label="Search on" help="">
+            <option value="both" selected="true">Both strands</option>
+            <option value="forward" >Only forward strand</option>
+            <option value="reverse" >Only reverse-complementary strand</option>
+        </param>
+
+        <param name="seed_length" type="integer" min="0" max="100" value="18" label="Seed length for database indexing" help=""/>
+        <param name="max_pos" type="integer" min="0" max="100000" value="10000" label="Maximum number of positions to store for each k-mer for database indexing" help="With 0, all positions are stored"/>
+    </inputs>
+    
+    <outputs>
+        <data format_source="input_sequence_file" name="aligned_sequence_file" 
+            metadata="input_sequence_file" from_work_dir="aligned.dat"
+            label="Aligned sequences on ${on_string} (SortMeRNA)">
+            <filter>((fastx['test']))</filter>
+        </data>
+
+        <data format_source="input_sequence_file" name="rejected_sequence_file" 
+            metadata="input_sequence_file" from_work_dir="other_file.dat"
+            label="Rejected sequences on ${on_string} (SortMeRNA)">
+            <filter>((fastx['test'] and fastx['rejected']))</filter>
+        </data>
+
+        <data format="sam" name="sam_alignment_file" metadata="input_sequence_file"
+            from_work_dir="aligned.sam"
+            label="SAM alignments on ${on_string} (SortMeRNA)">
+            <filter>((sam['test']]))</filter>
+        </data>
+
+        <data format="tabular" name="blast_output_file" 
+            metadata="input_sequence_file" from_work_dir="aligned.blast"
+            label="Blast alignments on ${on_string} (SortMeRNA)">
+            <filter>((blast['test']))</filter>
+            <change_format>
+                <when input="blast.format" value="0" format="txt" />
+            </change_format>
+        </data>
+
+        <data format="txt" name="output_log" metadata="input_sequence_file" 
+            from_work_dir="aligned.log" label="Log on ${on_string} (SortMeRNA)">
+            <filter>log</filter>
+        </data>
+    </outputs>
+    
+    <tests>
+        <test>
+            <param name="input_sequence_file" value="input_sequences.fastq"/>
+            <param name="databases_selector" value="history"/>
+            <param name="database_name" value="db.fasta"/>
+            <param name="fastx.test" value="yes"/>
+            <param name="fastx.rejected" value="yes"/>
+            <param name="sam.test" value="yes"/>
+            <param name="blast.test" value="yes"/>
+            <param name="blast.format" value="1 cigar qcov"/>
+            <param name="report.type" value="best"/>
+            <param name="report.best.type" value="1"/>
+            <param name="report.best.min_lis" value="2"/>
+            <param name="e_value" value="1"/>
+            <param name="match" value="2"/>
+            <param name="mismatch" value="-3"/>
+            <param name="gap_open" value="5" />
+            <param name="gap_ext" value="2"/>
+            <param name="ambiguous_letter" value="-3"/>
+            <param name="strand" value="both"/>
+            <param name="seed_length" value="18"/>
+            <param name="max_pos" value="10000"/>
+
+            <output name="aligned_sequence_file" file="aligned_sequences.fastq"/>
+            <output name="rejected_sequence_file" file="rejected_sequences.fastq"/>
+            <output name="blast_output_file" file="blast_output.txt"/>
+            <output name="sam_alignment_file" file="sam_alignments.sam"/>
+        </test>
+    </tests>
+    
+    <help><![CDATA[
+
+**What it does**
+
+SortMeRNA is a tool for RNA filtering based on local sequence alignment against 
+rRNA database
+
+.. _sortmerna user manual: http://bioinfo.lifl.fr/RNA/sortmerna/code/SortMeRNA-user-manual-v1.7.pdf
+
+-----
+
+**Input**
+
+The input is a sequence file in fasta or fastq and databases to search against. 
+These databases have to be indexed before the sequence alignment.
+
+SortMeRNA is distributed with 8 rRNA databases constructed from SILVA SSU,LSU 
+(version 111) and the RFAM 5/5.8S (version 11.0) databases:
+
+    - SILVA 16S bacteria
+    - SILVA 16S archaea
+    - SILVA 18S eukarya
+    - SILVA 23S bacteria
+    - SILVA 23s archaea
+    - SILVA 28S eukarya
+    - Rfam 5S archaea/bacteria
+    - Rfam 5.8S eukarya  
+
+These databases are available as public ribosomal databases. But local databases 
+can also be used.
+
+-----
+
+**Parameters**
+
+The database index can be modulated by:
+
+    - Seed length
+    - Maximum number of positions to store for each k-mer for database indexing
+
+For RNA sorting, the parameters are:
+    
+    - Test to output files in fasta or fastq, in sam and/or in blast format
+    - Test for conservation of rejected sequences
+    - Choice in blast format
+    - Test to add SQ tags in sam file
+    - Filtering and read mapping parameters
+        - Test for conservation of best alignment or first alignment
+        - Number of searched, conserved alignments
+    - E-value threshold
+    - SW score for a match, for a mismatch, for introducing a gap, for extending
+    a gap, for ambigous letters
+    - Strand to search
+
+-----
+
+**Outputs**
+
+Given the choosen parameters, several outputs are possible
+
+    - Sequence file in fasta or fastq with aligned sequences (or conserved)
+    - Sequence file in fasta or fastq with rejected sequences
+    - File with sam alignments
+    - File with blast outputs
+
+
+    ]]></help>
+    
+    <citations>
+        <citation type="doi">10.1093/bioinformatics/bts611</citation>
+    </citations>
+</tool>
