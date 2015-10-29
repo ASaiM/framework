@@ -42,7 +42,6 @@
             <id>toolshed.g2.bx.psu.edu/repos/jjohnson/cdhit/cd_hit_est/1.2</id>
             <version>1.2</version>
         </tool>
-
         <tool file="toolshed.g2.bx.psu.edu/repos/jjohnson/cdhit/88f9e90d9d78/cdhit/cd_hit_protein.xml" guid="toolshed.g2.bx.psu.edu/repos/jjohnson/cdhit/cd_hit_protein/1.2">
           <tool_shed>toolshed.g2.bx.psu.edu</tool_shed>
             <repository_name>cdhit</repository_name>
