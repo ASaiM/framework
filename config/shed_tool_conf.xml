@@ -177,7 +177,7 @@
             <version>1.0.0</version>
         </tool>
         <tool file="toolshed.g2.bx.psu.edu/repos/dannon/metaphlan/e951f9d38339/metaphlan/metaphlan_to_krona.xml" guid="toolshed.g2.bx.psu.edu/repos/dannon/metaphlan/meta_to_krona/1.0.0">
-          <tool_shed>toolshed.g2.bx.psu.edu</tool_shed>
+            <tool_shed>toolshed.g2.bx.psu.edu</tool_shed>
             <repository_name>metaphlan</repository_name>
             <repository_owner>dannon</repository_owner>
             <installed_changeset_revision>e951f9d38339</installed_changeset_revision>
