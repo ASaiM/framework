@@ -89,22 +89,21 @@
         #if $sequence_file_format.extraction.specific_extraction :
             --to_extract="{$sequence_file_format.extraction.to_extract}"
             --output_information=$information_file
-        #else:
-            #if $sequence_file_format.format=="fastq":
-                --split=$sequence_file_format.extraction.split.split_test
-                #if $sequence_file_format.extraction.split.split_test :
-                    --quality_format=$sequence_file_format.extraction.split.quality_format
-                    --output_sequence=$fasta_sequence_file_from_fastq
-                    --output_quality=$quality_file
-                #else:
-                    --output_sequence=$fastq_sequence_file
-                #end if
+        #else if $sequence_file_format.format=="fastq":
+            --split=$sequence_file_format.extraction.split.split_test
+            #if $sequence_file_format.extraction.split.split_test :
+                --quality_format=$sequence_file_format.extraction.split.quality_format
+                --output_sequence=$fasta_sequence_file_from_fastq
+                --output_quality=$quality_file
             #else:
-                --output_sequence=$fasta_sequence_file
+                --output_sequence=$fastq_sequence_file
             #end if
+        #else:
+            --output_sequence=$fasta_sequence_file
         #end if
-		#if $sequence_file_format.constraints.constrained_extraction :
-            #for $i, $constrain in enumerate( $sequence_file_format.constraints.constraint_definition )
+            
+		#if $constraints.constrained_extraction :
+            #for $i, $constrain in enumerate( $constraints.constraint_definition )
             	#set info_to_constrain=$constrain.constrained_information['info_to_constrain']             
                 #if $info_to_constrain in ("id"):
                 	--constraint="$info_to_constrain:
@@ -130,19 +129,6 @@
 	            <option value="fasta">Fasta</option>
                 <option value="fastq">FastQ</option>
 	        </param>
-		    <when value="fasta">
-                <param name="sequence_file" type="data" format="fasta" label="Sequence file" help=""/>
-                <conditional name="extraction">
-                    <param name='specific_extraction' type='boolean' checked="false" truevalue='yes' falsevalue='no' label="Extract specific information?" help="If no is selected, a sequence file is generated. If yes, a text file containing the wanted information is generated"/>
-                    <when value="yes">
-                        <param name="to_extract" type="select" display="checkboxes" multiple="true" label="Information to extract" help="">
-                            <expand macro="fasta_option" />
-                            <validator type="no_options" message="Select at least one information to extract"/>
-                        </param>
-                    </when>
-                </conditional>  
-                <expand macro="constraint_definitions" />
-		    </when>
             <when value="fastq">
                 <param name="sequence_file" type="data" format="fastq" label="Sequence file" help=""/>
                 <conditional name="extraction">
@@ -168,40 +154,59 @@
                         </conditional> 
                     </when>
                 </conditional> 
-                <expand macro="constraint_definitions" />
+            </when>
+            <when value="fasta">
+                <param name="sequence_file" type="data" format="fasta" label="Sequence file" help=""/>
+                <conditional name="extraction">
+                    <param name='specific_extraction' type='boolean' checked="false" truevalue='yes' falsevalue='no' label="Extract specific information?" help="If no is selected, a sequence file is generated. If yes, a text file containing the wanted information is generated"/>
+                    <when value="yes">
+                        <param name="to_extract" type="select" display="checkboxes" multiple="true" label="Information to extract" help="">
+                            <expand macro="fasta_option" />
+                            <validator type="no_options" message="Select at least one information to extract"/>
+                        </param>
+                    </when>
+                </conditional> 
             </when>
         </conditional>
+        
+        <expand macro="constraint_definitions" />
   	</inputs>
 
   	<outputs>
-        <data format="txt" name="information_file" metadata_source="sequence_file" >
+        <data format="txt" name="information_file" metadata_source="sequence_file" 
+        label="Information on sequences in ${on_string}" >
             <filter>((sequence_file_format['extraction']['specific_extraction']))</filter>
         </data>
 
-        <data format="fasta" name="fasta_sequence_file" metadata_source="sequence_file" >
+        <data format="fasta" name="fasta_sequence_file" metadata_source="sequence_file" 
+        label="Extracted sequences from ${on_string}">
             <filter>((sequence_file_format['format'] == 'fasta' and 
                 not sequence_file_format['extraction']['specific_extraction']))</filter>
         </data>
 
-        <data format="fastq" name="fastq_sequence_file" metadata_source="sequence_file" >
+        <data format="fastq" name="fastq_sequence_file" metadata_source="sequence_file" 
+        label="Extracted sequences from ${on_string}">
             <filter>((sequence_file_format['format'] == 'fastq' and 
                 not sequence_file_format['extraction']['specific_extraction'] and
                 not sequence_file_format['extraction']['split']['split_test']))</filter>
         </data>
 
-        <data format="qual" name="quality_file" metadata_source="sequence_file" >
+        <data format="qual" name="quality_file" metadata_source="sequence_file" 
+        label="Extracted quality from ${on_string}">
             <filter>((sequence_file_format['format'] == 'fastq' and 
                 not sequence_file_format['extraction']['specific_extraction'] and
                 sequence_file_format['extraction']['split']['split_test']))</filter>
         </data>
 
-        <data format="fasta" name="fasta_sequence_file_from_fastq" metadata_source="sequence_file" >
+        <data format="fasta" name="fasta_sequence_file_from_fastq" metadata_source="sequence_file" 
+        label="Extracted sequences from ${on_string}">
             <filter>((sequence_file_format['format'] == 'fastq' and 
                 not sequence_file_format['extraction']['specific_extraction'] and
                 sequence_file_format['extraction']['split']['split_test']))</filter>
         </data>
 
-        <data format="txt" name="report_filepath" metadata_source="sequence_file" />
+        <data format="txt" name="report_filepath" metadata_source="sequence_file" 
+        label="Report from extraction on ${on_string}"/>
   	</outputs>
 
   	<tests>
