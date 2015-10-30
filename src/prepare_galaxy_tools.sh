@@ -22,6 +22,10 @@ echo "Prepare tools"
 #    $galaxy_tool_dir \
 #    $tool_dir
 
+./src/prepare_galaxy_tools/prepare_cluster_sequence_tools.sh \
+    $galaxy_tool_dir \
+    $tool_dir
+
 #./src/prepare_galaxy_tools/prepare_manipulate_rna_tools.sh \
 #    $galaxy_tool_dir \
 #    $tool_dir
