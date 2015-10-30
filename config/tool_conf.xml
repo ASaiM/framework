@@ -54,7 +54,7 @@
             <tool file="RDPTools/framebot/framebot.xml" />
         </section>
         <section id="sequence_clustering" name="Cluster sequences">
-            <tool file="cluster_sequences/format_cd-hit_output/format_cd-hit_output.xml" />
+            <tool file="cluster_sequences/format_cd_hit_output/format_cd_hit_output.xml" />
         </section>
         <section id="rna_manipulation" name="Manipulate RNA">
             <tool file="manipulate_rna/reago/reago.xml" />
