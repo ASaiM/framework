@@ -27,11 +27,28 @@ def init_category_distribution(categories = None):
             cluster_category_distribution[category] = 0
     return cluster_category_distribution
 
+def flush_cluster_info(cluster_name, cluster_ref_seq, ref_seq_cluster, 
+    cluster_category_distribution, categories, output_category_distribution_file):
+    if cluster_name != '':
+        if categories != None:
+            output_category_distribution_file.write(cluster_name)
+            for category in categories:
+                output_category_distribution_file.write('\t')
+                output_category_distribution_file.write(str(cluster_category_distribution[category]))
+            output_category_distribution_file.write('\n')
+
+        if cluster_ref_seq == '':
+            string = "No reference sequence found for "
+            string += cluster_name
+            raise ValueError(string)
+
+        ref_seq_cluster.setdefault(cluster_ref_seq, cluster_name)
+
 def extract_cluster_info(args, mapping_info = None, categories = None):
     ref_seq_cluster = {}
 
     if args.output_category_distribution != None:
-        if mapping_info != None or categories != None:
+        if mapping_info == None or categories == None:
             string = "A file with category distribution is expected but "
             string += "no mapping information are available"
             raise ValueError(string)
@@ -49,35 +66,21 @@ def extract_cluster_info(args, mapping_info = None, categories = None):
         cluster_ref_seq = ''
         for line in cluster_info_file.readlines():
             if line[0] == '>':
-                if cluster_name != '':
-                    if categories != None:
-                        output_category_distribution_file.write(cluster_name)
-                        for category in categories:
-                            output_category_distribution_file.write('\t')
-                            output_category_distribution_file.write(str(cluster_category_distribution[category]))
-                        output_category_distribution_file.write('\n')
-
-                    if cluster_ref_seq == '':
-                        string = "No reference sequence found for "
-                        string += cluster_name
-                        raise ValueError(string)
-
-                    ref_seq_cluster.setdefault(cluster_ref_seq, cluster_name)
-
+                flush_cluster_info(cluster_name, cluster_ref_seq, ref_seq_cluster, 
+                    cluster_category_distribution, categories, 
+                    output_category_distribution_file)
                 cluster_name = line[1:-1]
                 cluster_category_distribution = init_category_distribution(categories)
                 cluster_ref_seq = ''
             else:
                 seq_info = line[:-1].split('\t')[1].split(' ')
                 seq_name = seq_info[1][1:-3]
-                print seq_name
 
                 if categories != None:
                     seq_count = 1
                     if args.number_sum == 'False':
                         if seq_name.find('size') != -1:
                             substring = seq_name[seq_name.find('size'):-1]
-                            print substring.split('=')
                             seq_count = int(substring.split('=')[1])
                     if not mapping_info.has_key(seq_name):
                         string = seq_name + " not found in mapping"
@@ -85,13 +88,20 @@ def extract_cluster_info(args, mapping_info = None, categories = None):
                     category = mapping_info[seq_name]
                     cluster_category_distribution[category] += seq_count
 
+                
                 if seq_info[-1] == '*':
+                    print seq_info
                     if cluster_ref_seq != '':
                         string = "A reference sequence (" + cluster_ref_seq
                         string += ") already found for cluster " + cluster_name 
                         string += " (" + seq_name + ")"
                         raise ValueError(string)
                     cluster_ref_seq = seq_name
+                    print '\tRef seq', cluster_name
+
+        flush_cluster_info(cluster_name, cluster_ref_seq, ref_seq_cluster, 
+            cluster_category_distribution, categories, 
+            output_category_distribution_file)
 
     if args.output_category_distribution != None:
         output_category_distribution_file.close()
@@ -112,8 +122,11 @@ def rename_representative_sequences(args, ref_seq_cluster):
                     output_sequences.write(line)
 
 def format_cd_hit_outputs(args):
-    if args.input_mapping_file != None:
-        mapping_info, categories = extract_mapping_info(args.input_mapping_file)
+    if args.input_mapping != None:
+        mapping_info, categories = extract_mapping_info(args.input_mapping)
+    else:
+        mapping_info = None
+        categories = None
 
     ref_seq_cluster = extract_cluster_info(args, mapping_info, categories)
 
