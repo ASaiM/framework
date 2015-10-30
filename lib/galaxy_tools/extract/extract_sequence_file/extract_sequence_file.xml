@@ -81,7 +81,7 @@
     <version_command>python -version</version_command>
 
   	<!--<command>-->
-    <command interpreter="python">
+    <command interpreter="python"><![CDATA[
   		extract_sequence_file.py 
   		--input=$sequence_file_format.sequence_file
 
@@ -121,6 +121,7 @@
 
         --report $report_filepath
         --format=$sequence_file_format.format
+        ]]>
   	</command>
 
   	<inputs>
@@ -219,34 +220,39 @@
   		</test>
   	</tests>
 
-  	<help>
-        **What it does**
+  	<help><![CDATA[
 
-        This tool extracts information from sequence files. 
+**What it does**
 
-        Some constraints could be added to extraction. For example, you choose 
-        to extract only sequences for which the length is greater than 30 bp.
+This tool extracts information from sequence files. 
 
-        More information on ASaiM documentation...
+Some constraints could be added to extraction. For example, you choose 
+to extract only sequences for which the length is greater than 30 bp.
 
+More information on ASaiM documentation...
 
-        **Input**
+-----
 
-        The input is one file in fasta or fastq.
+**Input**
 
+The input is one file in fasta or fastq.
 
-        **Outputs**
+-----
 
-        The tool generates different outputs given the choosen parameters:
+**Outputs**
 
-            - a sequence file
-            - a text file
-            - a sequence file and a quality file
-            ....
+The tool generates different outputs given the choosen parameters:
 
-        **Parameters**
+    - a sequence file
+    - a text file
+    - a sequence file and a quality file
+    ....
 
+-----
 
+**Parameters**
+
+]]>
   	</help>
 
     <citations>
