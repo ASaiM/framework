@@ -1,4 +1,4 @@
-<tool id="format_cd-hit_output" name="Format cd-hit outputs" version="0.1.0">
+<tool id="format_cd_hit_output" name="Format cd-hit outputs" version="0.1.0">
     <requirements>
     </requirements>
 
@@ -7,31 +7,34 @@
     </stdio>
 
     <command interpreter="python"><![CDATA[
-        format_cd-hit_output.py
-            --input_cluster_info $input_cluster_info
+        format_cd_hit_output.py
+            --input_cluster_info=$input_cluster_info
 
-            #if rename_representative_sequences.test:
-                --input_representative_sequences $rename_representative_sequences.input_representative_sequences
-                --output_representative_sequences $output_representative_sequences
+            #if $rename_representative_sequences.test
+                --input_representative_sequences=$rename_representative_sequences.input_representative_sequences
+                --output_representative_sequences=$output_representative_sequences
             #end if
 
-            #if extract_category_distribution.test:
-                --input_mapping $extract_category_distribution.input_mapping_file
-                --output_category_distribution $output_category_distribution
-                --number_sum $extract_category_distribution.number_sum
+            #if $extract_category_distribution.test
+                --input_mapping=$extract_category_distribution.input_mapping
+                --output_category_distribution=$output_category_distribution
+                --number_sum=$extract_category_distribution.number_sum
             #end if
     ]]>
     </command>
 
     <inputs>
-        <data type="data" format="txt" name="input_cluster_info"/>
+        <param type="data" format="txt" name="input_cluster_info" label="Cluster
+            info"/>
 
         <conditional name="rename_representative_sequences">
             <param name='test' type='boolean' checked="true" truevalue='yes' 
                 falsevalue='no' label="Rename representative sequences with the 
                 corresponding cluster name?" help=""/>
             <when value="yes">
-                <data type="data" format="fasta" name="input_representative_sequences"/>
+                <param type="data" format="fasta" 
+                    name="input_representative_sequences"
+                    label="Representative sequences"/>
             </when>
         </conditional>
 
@@ -40,10 +43,10 @@
                 falsevalue='no' label="Extract category distribution of each 
                 cluster?" help=""/>
             <when value="yes">
-                <data type="data" format="tabular" name="input_mapping"
-                    help="The mapping file is a tabular file with 2 columns. First
-                    column contains the sequence names and the second one the
-                    corresponding category"/>
+                <param type="data" format="tabular" name="input_mapping" 
+                    label="Mapping file" help="The mapping file is a tabular 
+                    file with 2 columns. First column contains the sequence 
+                    names and the second one the corresponding category"/>
                 <param name='number_sum' type='boolean' checked="true" 
                     truevalue='yes' falsevalue='no' label="Sum sequence number 
                     for each category?" help="The alternative is the sum of size
@@ -60,7 +63,6 @@
             <filter>((rename_representative_sequences['test']))</filter>
         </data>
         <data name="output_category_distribution" format="tabular" 
-            metadata_source="input_cluster_info" 
             label="Category distribution of ${on_string}">
             <filter>((extract_category_distribution['test']))</filter>
         </data>
@@ -98,9 +100,7 @@ The tool takes as input:
 
     * The cd-hit output file with cluster information
     * The cd-hit output file with representative sequences for each cluster (optional)
-    * A mapping file in tabular format with first column being the sequence names 
-    (corresponding to the ones in cluster information file) and the second column 
-    being the corresponding categories (optional)
+    * A mapping file in tabular format with first column being the sequence names (corresponding to the ones in cluster information file) and the second column being the corresponding categories (optional)
 
 -----
 
@@ -117,7 +117,5 @@ The tool generates different outputs given the choosen parameters:
 ]]>
     </help>
 
-    <citations>
-        <citation type="doi"></citation>
-    </citations>
+    <citations></citations>
 </tool>
