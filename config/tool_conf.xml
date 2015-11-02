@@ -21,6 +21,7 @@
             <tool file="filters/trimmer.xml" />
             <tool file="filters/wc_gnu.xml" />
             <tool file="filters/secure_hash_message_digest.xml" />
+            <tool file="manipulate_text/transform_columns/transform_columns.xml" />
         </section>
         <section id="filter" name="Filter and Sort">
             <tool file="stats/filtering.xml" />
