@@ -57,7 +57,7 @@
     </inputs>
 
     <outputs>
-        <data name="output_representative_sequences" format="data" 
+        <data name="output_representative_sequences" format="fasta" 
             metadata_source="input_representative_sequences" 
             label="Renamed representative sequences of ${on_string}">
             <filter>((rename_representative_sequences['test']))</filter>
