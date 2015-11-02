@@ -6,10 +6,6 @@ db_dir=$3
 
 echo "Prepare tools"
 
-./src/prepare_galaxy_tools/prepare_extract_tools.sh \
-    $galaxy_tool_dir \
-    $tool_dir
-
 #./src/prepare_galaxy_tools/prepare_assemble_paired_end_tools.sh \
 #    $galaxy_tool_dir \
 #    $tool_dir
@@ -22,9 +18,9 @@ echo "Prepare tools"
 #    $galaxy_tool_dir \
 #    $tool_dir
 
-./src/prepare_galaxy_tools/prepare_cluster_sequence_tools.sh \
-    $galaxy_tool_dir \
-    $tool_dir
+#./src/prepare_galaxy_tools/prepare_cluster_sequence_tools.sh \
+#    $galaxy_tool_dir \
+#    $tool_dir
 
 #./src/prepare_galaxy_tools/prepare_manipulate_rna_tools.sh \
 #    $galaxy_tool_dir \
