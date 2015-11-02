@@ -25,8 +25,8 @@ current_dir=$PWD
 # Prepare galaxy tools
 ./src/prepare_galaxy_tools.sh $galaxy_tool_dir $tool_dir $db_dir
 
-$tool_dir=$PWD/$tool_dir
-$galaxy_tool_dir=$PWD/$galaxy_tool_dir
+tool_dir=$PWD/$tool_dir
+galaxy_tool_dir=$PWD/$galaxy_tool_dir
 for i in $( ls ${tool_dir}/ )
 do
     if [ $i == 'extract' ]; then
