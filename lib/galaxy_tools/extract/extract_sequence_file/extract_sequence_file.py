@@ -205,9 +205,11 @@ class SeqRecord:
 
     def get(self, category):
         if category == 'id':
-            return self.id
+            return self.get_id()
         elif category == 'length':
-            return self.length
+            return self.get_length()
+        elif category == 'description':
+            return self.get_description()
         else:
             string = os.path.basename(__file__) + ': '
             string += category + ' can not be extracted from SeqRecord'
