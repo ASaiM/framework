@@ -70,7 +70,7 @@ def extract_cluster_info(args, mapping_info = None, categories = None):
                     cluster_category_distribution, categories, 
                     output_category_distribution_file)
                 cluster_name = line[1:-1]
-                if cluster_name.replace(' ','_') 
+                cluster_name = cluster_name.replace(' ','_') 
                 cluster_category_distribution = init_category_distribution(categories)
                 cluster_ref_seq = ''
             else:
