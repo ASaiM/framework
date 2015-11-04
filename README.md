@@ -1,18 +1,23 @@
 ASaiM framework
 ===============
 
+# Introduction
+
 The ASaiM framework is a Galaxy instance with a local server developed to
 process data from gut microbiota.
 
-# Get the code
+# Folder structure
+
+
+# Installation
+
+## Get the code
 
 Clone the repository
 
 ```
 git clone https://github.com/ASaiM/framework.git
 ```
-
-# If Docker is not used
 
 ## Requirements
 
@@ -38,6 +43,8 @@ when galaxy is launched:
 For Ubuntu
 
 - `libssl-dev`
+
+## Configuration
 
 ### PostgreSQL
 
@@ -80,7 +87,7 @@ Make ProFTPd run as a service
 username@compute:galaxy_tool_dir$ sudo service proftpd start
 ```
 
-## Usage
+# Usage
 
 Launch script:
 
@@ -89,74 +96,12 @@ virtualenv --no-site-packages venv
 source venv/bin/activate 
 (venv)./scripts/launch_galaxy.sh
 ```
-## Possible errors
 
-# If Docker is used
+# Testing
 
-## Installation
+# Bugs
 
-Linux
-
-Mac: install `docker` and `boot2docker`
-
-## Configuration
-
-#### Linux
-
-Configure Docker for Galaxy (`${user}` corresponds to your user id on your 
-computer)
-```
-sudo groupadd -f docker
-sudo gpasswd -a ${user} docker
-sudo service docker restart
-```
-
-#### Mac
-
-First time, configure Docker
-```
-sudo dscl . -create /groups/docker
-sudo dscl . -append /groups/docker GroupMembership cidam
-```
-
-After turn on the computer, launch boot2docker
-```
-boot2docker init
-```
-
-Regularly, 
-```
-boot2docker start
-eval "$(boot2docker shellinit)"
-```
-
-## Usage
-
-Launch script:
-```
-./scripts/launch_galaxy.sh
-```
-
-## Possible errors
-
-### Address already in use
-
-Error:
-```
-socket.error: [Errno 48] Address already in use
-```
-
-A processus is already bound to the default port (8000):
-```
-ps -fA | grep python
-  501 28440 28435   0  3:58   ttys000   80:38.61 python ./scripts/paster.py serve config/galaxy.ini
-  501 31145 23036   0  8:48   ttys001    0:00.00 grep python
-```
-
-The second number is the process number; stop the server by sending it a signal:
-```
-kill 28440
-``` 
+You can file an issue here https://github.com/ASaiM/framework/issues
 
 # License
 
