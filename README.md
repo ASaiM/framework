@@ -8,12 +8,6 @@ process data from gut microbiota.
 
 # Folder structure
 
-`config`
-
-`data`
-
-`lib`
-
 Within the `src` folder, are scripts to configure and launch a Galaxy instance.
 The corresponding configuration files are in `config` folder and the local tools
 in `lib` directory.
@@ -117,7 +111,7 @@ source venv/bin/activate
 
 # Demo
 
-Toy dataset
+Toy dataset?
 
 # Testing
 
