@@ -123,7 +123,7 @@ in `data/demo/metatranscriptomic_data` with the corresponding input files.
 In addition the same functional tests are runned via TravisCI whenever this 
 GitHub repository is updated:
 
-[![Build Status](https://travis-ci.org/ASaiM/galaxytools.svg)](https://travis-ci.org/ASaiM/galaxytools)
+[![Build Status](https://travis-ci.org/ASaiM/framework.svg)](https://travis-ci.org/ASaiM/framework)
 
 See the `.travis.yml` file for more technical details.
 
