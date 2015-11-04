@@ -44,6 +44,7 @@ if [ $REPLY == "y" ]; then
         fi
 
         cd $current_dir
+    fi
 fi
 sudo cp config/proftpd.conf /usr/local/etc/proftpd.conf >> tmp/proftpd_cp
 if grep "Error" tmp/proftpd_cp > /dev/null ; then
