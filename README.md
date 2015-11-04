@@ -8,6 +8,24 @@ process data from gut microbiota.
 
 # Folder structure
 
+`config`
+
+`data`
+
+`lib`
+
+Within the `src` folder, are scripts to configure and launch a Galaxy instance.
+The corresponding configuration files are in `config` folder and the local tools
+in `lib` directory.
+
+Within `data` are folders with data:
+
+- `tool-data` for Galaxy tools
+- `workflows` with predefined workflows
+- `db` with one folder for each database (data and configuration file)
+- `demo` with toy datasets
+
+Each folder contains a README file.
 
 # Installation
 
@@ -97,7 +115,13 @@ source venv/bin/activate
 (venv)./scripts/launch_galaxy.sh
 ```
 
+# Demo
+
+Toy dataset
+
 # Testing
+
+Travis CI
 
 # Bugs
 
