@@ -1,5 +1,8 @@
+# Virtual env
+venv/*
+
 # Galaxy
-galaxy/*
+lib/galaxy-master/*
 
 # Data/db
 data/db/cog/raw_data/*
@@ -37,7 +40,5 @@ tools/extract/extract_similarity_search_report/test-data/blast/extraction_report
 !tools/extract/extract_similarity_search_report/test-data/blast/extraction_reports/double_constraint_on_pident/expected.txt
 tools/extract/extract_similarity_search_report/test-data/blast/extraction_reports/list_constraint_on_qseqid/*
 !tools/extract/extract_similarity_search_report/test-data/blast/extraction_reports/list_constraint_on_qseqid/expected.txt
-
-# Blast sources
 
 
