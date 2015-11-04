@@ -38,7 +38,7 @@ Some tools must be installed before launching any scripts:
 - `git`
 - `python`
 - `pip`
-- `virtualenv`: `pip install --user virtualenv
+- `virtualenv`: `pip install --user virtualenv`
 - `perl`
 - `scons`
 - `mercurial`
@@ -115,11 +115,20 @@ Toy dataset?
 
 # Testing
 
-Travis CI
+The framework can be tested by running `src/run_tests.sh`. This script configure
+ the Galaxy instance, launch Galaxy's `run_tests.sh` and then test the workflow 
+in `data/demo/metatranscriptomic_data` with the corresponding input files. 
+
+In addition the same functional tests are runned via TravisCI whenever this 
+GitHub repository is updated:
+
+[![Build Status](https://travis-ci.org/ASaiM/galaxytools.svg)](https://travis-ci.org/ASaiM/galaxytools.svg)
+
+See the `.travis.yml` file for more technical details.
 
 # Bugs
 
-You can file an issue here https://github.com/ASaiM/framework/issues
+You can file an issue [here](https://github.com/ASaiM/framework/issues).
 
 # License
 
