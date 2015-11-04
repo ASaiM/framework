@@ -91,5 +91,7 @@ cd $galaxy_dir
 if [ $to_do == 'launch' ] ; then
     sh run.sh >> run_galaxy
 elif [ $to_do == 'run_test' ] ; then
-    sh run_tests.sh
+    ./run.sh --stop-daemon || true
+    python scripts/fetch_eggs.py
+    python ./scripts/functional_tests.py -v `python tool_list.py Continuous-Integration-Travis`
 fi
