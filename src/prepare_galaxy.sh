@@ -20,13 +20,17 @@ mkdir tmp
 # Installing Galaxy
 # =================
 # Getting the latest revision with wget from GitHub is faster than cloning it
+galaxy_dir=$lib_dir/galaxy-master
+if [[ $2 == '--reset' & -d galaxy_dir]]; then
+    rm -rf galaxy_dir
+fi
 cd lib/
 wget https://codeload.github.com/galaxyproject/galaxy/tar.gz/master
 tar -zxvf master | tail
 rm master
 cd ../
 
-galaxy_dir=$lib_dir/galaxy-master
+
 galaxy_tool_dir=$galaxy_dir/tools/
 
 # Prepare environment
