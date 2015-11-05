@@ -21,7 +21,7 @@ mkdir tmp
 # =================
 # Getting the latest revision with wget from GitHub is faster than cloning it
 galaxy_dir=$lib_dir/galaxy-master
-if [[ $2 == '--reset' & -d galaxy_dir]]; then
+if [[ $2 == '--reset' && -d galaxy_dir ]]; then
     rm -rf galaxy_dir
 fi
 cd lib/
