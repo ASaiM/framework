@@ -127,9 +127,9 @@ GitHub repository is updated:
 
 See the `.travis.yml` file for more technical details.
 
-# Bugs
+# Bug Reports
 
-You can file an issue [here](https://github.com/ASaiM/framework/issues).
+Any bug can be filed in an issue [here](https://github.com/ASaiM/framework/issues).
 
 # License
 
