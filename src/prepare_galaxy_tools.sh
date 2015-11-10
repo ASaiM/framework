@@ -10,18 +10,6 @@ echo "Prepare tools"
 #    $galaxy_tool_dir \
 #    $tool_dir
 
-#./src/prepare_galaxy_tools/prepare_RDPTools_tools.sh \
-#    $galaxy_tool_dir \
-#    $tool_dir
-
-#./src/prepare_galaxy_tools/prepare_genometools_tools.sh \
-#    $galaxy_tool_dir \
-#    $tool_dir
-
-#./src/prepare_galaxy_tools/prepare_manipulate_rna_tools.sh \
-#    $galaxy_tool_dir \
-#    $tool_dir
-
 #./src/prepare_galaxy_tools/prepare_assigne_taxonomy_to_non_rRNA_tools.sh \
 #    $galaxy_tool_dir \
 #    $tool_dir
