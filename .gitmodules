@@ -7,6 +7,3 @@
 [submodule "lib/ant"]
 	path = lib/ant
 	url = https://git-wip-us.apache.org/repos/asf/ant.git
-[submodule "lib/galaxy_tools/manipulate_rna/reago/reago"]
-	path = lib/galaxy_tools/manipulate_rna/reago/reago
-	url = https://github.com/chengyuan/reago-1.1.git
