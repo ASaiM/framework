@@ -42,30 +42,22 @@
             <tool file="assemble_paired_end/fastq_join/fastq_join.xml" />
         </section>
         <section id="qualityControl" name="Control quality">
-            <tool file="control_quality/prinseq/prinseq.xml" />
         </section>
-        <!--<section id="de_novo_assembly" name="De novo assembly">
-            <tool file="genometools/readjoiner/readjoiner.xml" />
-        </section>-->
         <section id="dereplication" name="Dereplicate">
         </section>
         <section id="chimera_detection" name="Detect chimeric sequences">
         </section>
         <section id="frameshift_detection" name="Detect frameshift">
-            <tool file="RDPTools/framebot/framebot.xml" />
         </section>
         <section id="sequence_clustering" name="Cluster sequences">
             <tool file="cluster_sequences/format_cd_hit_output/format_cd_hit_output.xml" />
         </section>
         <section id="rna_manipulation" name="Manipulate RNA">
-            <tool file="manipulate_rna/reago/reago.xml" />
-            <!--<tool file="rna_manipulation/infernal/infernal.xml" />-->
         </section>
         <section id="similarity_search" name="Search similarity">
         </section>
     <label text="TAXONOMIC ASSIGNATION" id="taxonomic" />
         <section id="non_rRNA_taxonomic_assignation" name="Assign non rRNA sequences">
-            <tool file="assigne_taxonomy_to_non_rRNA/metaphlan2/metaphlan2.xml" />
         </section>
         <section id="rRNA_taxonomic_assignation" name="Assign rRNA sequences">
             <!--<tool file="assigne_taxonomy_to_rRNA/qiime/qiime.xml" />-->
