@@ -4,9 +4,6 @@
 [submodule "lib/git-hg"]
 	path = lib/git-hg
 	url = https://github.com/offbytwo/git-hg.git
-[submodule "lib/galaxy_tools/genometools/genometools"]
-	path = lib/galaxy_tools/genometools/genometools
-	url = https://github.com/genometools/genometools.git
 [submodule "lib/ant"]
 	path = lib/ant
 	url = https://git-wip-us.apache.org/repos/asf/ant.git
