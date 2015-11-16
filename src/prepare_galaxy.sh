@@ -20,17 +20,24 @@ mkdir tmp
 # Installing Galaxy
 # =================
 # Getting the latest revision with wget from GitHub is faster than cloning it
-galaxy_dir=$lib_dir/galaxy-master
-if [[ $2 == '--reset' && -d galaxy_dir ]]; then
-    rm -rf galaxy_dir
+function install_galaxy {
+    wget https://codeload.github.com/galaxyproject/galaxy/tar.gz/master
+    tar -zxvf master | tail
+    rm master
+}
+cd $lib_dir/
+galaxy_dir=galaxy-master
+if [[ -d $galaxy_dir ]]; then
+    if [[ $2 == '--reset' ]]; then
+        rm -rf $galaxy_dir
+        install_galaxy
+    fi
+else
+    install_galaxy
 fi
-cd lib/
-wget https://codeload.github.com/galaxyproject/galaxy/tar.gz/master
-tar -zxvf master | tail
-rm master
 cd ../
 
-
+galaxy_dir=$lib_dir/$galaxy_dir
 galaxy_tool_dir=$galaxy_dir/tools/
 
 # Prepare environment
@@ -88,7 +95,8 @@ if [ ! -d $galaxy_dir/database/ftp ]; then
 fi
 
 # Web interface
-create_symlink $$galaxy_dir/static/welcome.html $PWD/static/welcome.html
+cp $PWD/static/welcome.html $galaxy_dir/static/
+cp $PWD/static/welcome.html $galaxy_dir/static/welcome.html.sample
 for i in $( ls static/images/ )
 do
     create_symlink $galaxy_dir/static/images/$i $PWD/static/images/$i
