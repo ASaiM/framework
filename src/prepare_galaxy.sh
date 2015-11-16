@@ -87,6 +87,13 @@ if [ ! -d $galaxy_dir/database/ftp ]; then
     mkdir $galaxy_dir/database/ftp
 fi
 
+# Web interface
+create_symlink $$galaxy_dir/static/welcome.html $PWD/static/welcome.html
+for i in $( ls static/images/ )
+do
+    create_symlink $galaxy_dir/static/images/$i $PWD/static/images/$i
+done
+
 rm -rf tmp
 
 # Launch Galaxy
