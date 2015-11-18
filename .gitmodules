@@ -1,9 +1,3 @@
 [submodule "lib/proftpd"]
 	path = lib/proftpd
 	url = https://github.com/proftpd/proftpd.git
-[submodule "lib/git-hg"]
-	path = lib/git-hg
-	url = https://github.com/offbytwo/git-hg.git
-[submodule "lib/ant"]
-	path = lib/ant
-	url = https://git-wip-us.apache.org/repos/asf/ant.git
