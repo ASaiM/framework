@@ -40,12 +40,6 @@ cd ../
 galaxy_dir=$lib_dir/$galaxy_dir
 galaxy_tool_dir=$galaxy_dir/tools/
 
-# Prepare environment
-# ===================
-git submodule init
-git submodule update
-./src/install_libraries.sh 
-
 # Prepare databases
 # =================
 db_dir=data/db/
