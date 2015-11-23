@@ -2,5 +2,4 @@ numpy
 networkx
 planemo
 biom-format
-virtualenv
 ansible
