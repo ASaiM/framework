@@ -17,6 +17,7 @@ else
 fi
 
 # Proftpd
+echo "Install proftp..."
 wget https://github.com/proftpd/proftpd/archive/v1.3.5a.tar.gz
 tar -zxvf v1.3.5a.tar.gz | tail
 rm v1.3.5a.tar.gz
@@ -31,8 +32,15 @@ cd proftpd-1.3.5a/
     --with-modules=mod_sql:mod_sql_passwd:mod_sql_postgres
 make
 sudo make install
+cd ../
 rm -rf proftpd-1.3.5a/
 
 # Pip
 pip install --upgrade pip
+pip install virtualenv
+echo "Install pip requirements..."
+if [ ! -d venv ]; then
+    virtualenv --no-site-packages venv
+fi
+source venv/bin/activate
 pip install -r requirements.txt
