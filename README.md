@@ -38,21 +38,21 @@ Some tools must be installed:
 - `git`
 - `python`
 - `pip`
-- `virtualenv`: `pip install --user virtualenv`
 - `perl`
 - `scons`
 - `mercurial`
-- `openssl` > 1.0.0c
+- `openssl`
 - `java` 
 - `wget`
 - `openssl`
-- `proftpd` (with install in `/usr/local`)
+- `proftpd` (installed in `/usr/local`)
 - `postgresql`
 
 After installation, python dependencies have to be installed with pip:
 
 ```
 pip install --upgrade pip
+pip install virtualenv
 pip install -r requirements.txt
 ```
 
@@ -88,13 +88,13 @@ All the configuration (postgresql and proftpd) can be done by running:
 
 # Usage
 
-Launch script:
+To launch the Galaxy instance :
 
 ```
-virtualenv --no-site-packages venv
-source venv/bin/activate 
-(venv)./scripts/launch_galaxy.sh
+./src/launch_galaxy.sh
 ```
+
+The Galaxy instance can be then browse on [http://127.0.0.1:8080/](http://127.0.0.1:8080/).
 
 # Tutorial
 
