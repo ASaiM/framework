@@ -1,6 +1,0 @@
-<?xml version="1.0"?>
-<tool_dependency>
-    <package name="blast+" version="2.2.31">
-        <repository changeset_revision="e36f75574aec" name="package_blast_plus_2_2_31" owner="iuc" toolshed="https://toolshed.g2.bx.psu.edu" />
-    </package>
-</tool_dependency>

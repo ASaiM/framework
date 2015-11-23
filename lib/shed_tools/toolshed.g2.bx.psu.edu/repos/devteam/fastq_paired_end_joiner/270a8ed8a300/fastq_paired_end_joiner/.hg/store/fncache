@@ -1,6 +1,0 @@
-data/fastq_paired_end_joiner.xml.i
-data/fastq_paired_end_joiner.py.i
-data/test-data/split_pair_reads_2.fastqsanger.i
-data/test-data/3.fastqsanger.i
-data/test-data/split_pair_reads_1.fastqsanger.i
-data/tool_dependencies.xml.i
