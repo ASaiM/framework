@@ -48,12 +48,15 @@ Some tools must be installed:
 - `proftpd` (installed in `/usr/local`)
 - `postgresql`
 
-After installation, python dependencies have to be installed with pip:
+After installation, python dependencies have to be installed in a virtual environment
+with pip:
 
 ```
 pip install --upgrade pip
 pip install virtualenv
-pip install -r requirements.txt
+virtualenv --no-site-packages venv
+source venv/bin/activate
+(venv) pip install -r requirements.txt
 ```
 
 For Ubuntu and MacOSX, all dependencies can be installed by running:
