@@ -1,15 +1,10 @@
 #!/bin/bash
 
-function create_symlink {
-    if [ -e $1 ]; then
-        if [ ! -L $1 ]; then
-            rm -rf $1
-            ln -s $2 $1
-        fi
-    else
-        ln -s $2 $1
-    fi 
-}
+if [ ! -d venv ]; then
+    echo "No virtual environment to activate"
+    exit
+fi
+source venv/bin/activate
 
 to_do=$1
 current_dir=$PWD
@@ -66,6 +61,17 @@ done
 
 # Configure Galaxy
 # ================
+function create_symlink {
+    if [ -e $1 ]; then
+        if [ ! -L $1 ]; then
+            rm -rf $1
+            ln -s $2 $1
+        fi
+    else
+        ln -s $2 $1
+    fi 
+}
+
 # Configuration files
 for i in $( ls config/ )
 do
