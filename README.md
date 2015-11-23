@@ -33,7 +33,7 @@ git clone https://github.com/ASaiM/framework.git
 
 ## Requirements
 
-Some tools must be installed before launching any scripts:
+Some tools must be installed:
 
 - `git`
 - `python`
@@ -45,59 +45,45 @@ Some tools must be installed before launching any scripts:
 - `openssl` > 1.0.0c
 - `java` 
 - `wget`
+- `openssl`
+- `proftpd` (with install in `/usr/local`)
+- `postgresql`
 
-Some tools are tested and installed by a custom script executed automatically 
-when galaxy is launched:
+After installation, python dependencies have to be installed with pip:
 
-- `git-hg`
-- `proftpd`
-- python libraries in `requirements.txt` with `pip install -r requirements.txt`
+```
+pip install --upgrade pip
+pip install -r requirements.txt
+```
 
-For Ubuntu
+For Ubuntu and MacOSX, all dependencies can be installed by running:
 
-- `libssl-dev`
+```
+./src/dependencies/install_dependencies.sh
+```
+
+**Note:** `apt-get` is required for Ubuntu and `homebrew` for MacOSX.
 
 ## Configuration
 
-### PostgreSQL
-
-#### Installation
-
-Ubuntu/Debian 
+PostgreSQL is used to manage databases in Galaxy. It must be launched as a background 
+tasks. PostgreSQL database must be then setup for Galaxy (new database and user creation).
+Launch and setup of PostgreSQL is done by running:
 
 ```
-username@compute:galaxy_tool_dir$ sudo apt-get install postgresql-9.4
-username@compute:galaxy_tool_dir$ sudo su - postgres
+./src/postgresql/configure_postgres.sh
 ```
 
-[Installation](http://www.postgresql.org/download/macosx/) for Mac OS X, with Homebrew:
+The FTP server with `proftpd` has to be configured and launched, by running:
 
 ```
-username@compute:galaxy_tool_dir$ brew install postgresql
-username@compute:galaxy_tool_dir$ mkdir -p ~/Library/LaunchAgents
-username@compute:galaxy_tool_dir$ ln -sfv /usr/local/opt/postgresql/*.plist ~/Library/LaunchAgents
-username@compute:galaxy_tool_dir$ launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
+./src/proftpd/configure_proftpd.sh
 ```
 
-#### Configuration for FTP file upload
+All the configuration (postgresql and proftpd) can be done by running:
 
 ```
-postgres@dbserver:~$ createuser -SDR galaxyftp
-postgres@dbserver:~$ createdb galaxydb
-postgres@dbserver:~$ psql galaxydb
-psql (9.4.4)
-Type "help" for help.
-
-galaxydb=# ALTER ROLE galaxyftp PASSWORD 'ftppasswd'
-galaxydb-# GRANT SELECT ON galaxy_user TO galaxyftp
-```
-
-Quit `psql` and `postgres` (`CTRL+D`)
-
-Make ProFTPd run as a service 
-
-```
-username@compute:galaxy_tool_dir$ sudo service proftpd start
+./src/proftpd/configure.sh
 ```
 
 # Usage
@@ -110,9 +96,7 @@ source venv/bin/activate
 (venv)./scripts/launch_galaxy.sh
 ```
 
-# Demo
-
-Toy dataset?
+# Tutorial
 
 # Testing
 
