@@ -97,7 +97,15 @@ To launch the Galaxy instance :
 ./src/launch_galaxy.sh
 ```
 
+This script configure the Galaxy instance, populate it with tools, ... Check the 
+[documentation](http://asaim.readthedocs.org/en/latest/framework/use.html) for more information about 
 The Galaxy instance can be then browse on [http://127.0.0.1:8080/](http://127.0.0.1:8080/).
+
+Galaxy will run in background. To stop it:
+
+```
+./src/stop_galaxy.sh
+```
 
 # Tutorial
 
