@@ -42,6 +42,17 @@ db_dir=data/db/
 
 # Prepare galaxy tools
 # ====================
+function create_symlink {
+    if [ -e $1 ]; then
+        if [ ! -L $1 ]; then
+            rm -rf $1
+            ln -s $2 $1
+        fi
+    else
+        ln -s $2 $1
+    fi 
+}
+
 tool_dir=$lib_dir/galaxy_tools/
 ./src/prepare_galaxy_tools.sh $galaxy_tool_dir $tool_dir $db_dir
 
@@ -61,22 +72,13 @@ done
 
 # Configure Galaxy
 # ================
-function create_symlink {
-    if [ -e $1 ]; then
-        if [ ! -L $1 ]; then
-            rm -rf $1
-            ln -s $2 $1
-        fi
-    else
-        ln -s $2 $1
-    fi 
-}
-
 # Configuration files
+master_api_key="8a099e97b0a83c73ead9f5b0fe19f4be"
 for i in $( ls config/ )
 do
     create_symlink $galaxy_dir/config/$i $PWD/config/$i
 done
+echo "master_api_key = $master_api_key" >> $galaxy_dir/config/galaxy.ini
 
 # Tool data
 for i in $( ls data/tool-data/ )
@@ -110,7 +112,7 @@ cd $galaxy_dir
 if [ $to_do == 'launch' ] ; then
     sh run.sh >> run_galaxy
 elif [ $to_do == 'run_test' ] ; then
-    ./run.sh --stop-daemon || true
+    sh run.sh --stop-daemon || true
     python scripts/fetch_eggs.py
     python ./scripts/functional_tests.py -v `python tool_list.py Continuous-Integration-Travis`
 fi
