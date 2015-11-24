@@ -3,5 +3,6 @@ local_galaxy_dir: galaxy-master
 galaxy_dir: $lib_dir/$local_galaxy_dir
 galaxy_tool_dir: $galaxy_dir/tools/
 tool_dir: $lib_dir/galaxy_tools/
+tool_playbook: $lib_dir/galaxy-tools-playbook/
 data_dir: data
 db_dir: $data_dir/db/
