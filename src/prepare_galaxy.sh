@@ -1,6 +1,7 @@
 #!/bin/bash
 . src/parse_yaml.sh
 . src/misc/generate_galaxy_ini.sh
+. src/misc/generate_tools_yml.sh
 
 eval $(parse_yaml src/misc/config.yml "")
 
@@ -72,8 +73,8 @@ done
 # Configuration files
 for i in $( ls $galaxy_conf_file_dir )
 do
-    if [[ $i != "galaxy.ini" && $i != "tool_list.yaml" ]]; then
-        create_symlink $galaxy_dir/config/$i $PWD/$galaxy_conf_file_dir/$i
+    if [[ $i != "galaxy.ini" ]]; then
+        cp $PWD/$galaxy_conf_file_dir/$i $galaxy_dir/config/$i 
     fi
 done
 generate_galaxy_ini $galaxy_dir/config/galaxy.ini
@@ -115,4 +116,9 @@ elif [ $to_do == 'run_test' ] ; then
     python ./scripts/functional_tests.py -v `python tool_list.py Continuous-Integration-Travis`
 fi
 cd $current_dir
+
+# Populate with tools
+# ===================
+#cd $tool_playbook
+#ansible-playbook tools.yml -i "localhost,"
 
