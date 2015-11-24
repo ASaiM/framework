@@ -9,14 +9,14 @@ generate_galaxy_ini() {
     echo "use_threadpool = True" >> $1
     echo "threadpool_workers = 10" >> $1
     echo "threadpool_kill_thread_limit = 10800" >> $1
-
+    echo "" >> $1
     echo "[filter:gzip]" >> $1
     echo "use = egg:Paste#gzip" >> $1
-
+    echo "" >> $1
     echo "[filter:proxy-prefix]" >> $1
     echo "use = egg:PasteDeploy#prefix" >> $1
     echo "prefix = /galaxy" >> $1
-
+    echo "" >> $1
     echo "[app:main]" >> $1
     echo "use_pbkdf2 = False" >> $1
     echo "paste.app_factory = galaxy.web.buildapp:app_factory" >> $1
@@ -30,14 +30,15 @@ generate_galaxy_ini() {
     echo "shed_tool_data_table_config = config/shed_tool_data_table_conf.xml" >> $1
     echo "tool_data_path = tool-data" >> $1
     echo "shed_tool_data_path = tool-data" >> $1
-
+    echo "" >> $1
     echo "use_nglims = False" >> $1
     echo "nglims_config_file = tool-data/nglims.yaml" >> $1
-
+    echo "" >> $1
     echo "debug = True" >> $1
     echo "use_interactive = True" >> $1
-
+    echo "" >> $1
     echo "admin_users = $admin_users" >> $1
     echo "ftp_upload_dir = database/ftp/" >> $1
     echo "ftp_upload_site = ftp localhost port 21" >> $1
+    echo "master_api_key = $master_api_key" >> $1
 }
