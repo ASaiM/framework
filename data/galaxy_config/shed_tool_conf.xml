@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<toolbox tool_path="../shed_tools">
+    <label text="COMMON TOOLS" id="common" />
+        <section id="getext" name="Get Data">
+        </section>
+        <section id="textutil" name="Manipulate text">
+        </section>
+        <section id="filter" name="Filter and Sort">
+        </section>
+        <section id="group" name="Join, Subtract and Group">
+        </section>
+        <section id="extraction" name="Extract data">
+        </section>
+    <label text="PRETREATMENTS" id="pretreatments" />
+        <section id="paired_end_assembly" name="Assemble paired-end sequences">
+        </section>
+        <section id="qualityControl" name="Control quality">
+        </section>
+        <section id="dereplication" name="Dereplicate">
+        </section>
+        <section id="chimera_detection" name="Detect chimeric sequences">
+        </section>
+        <section id="frameshift_detection" name="Detect frameshift">
+        </section>
+        <section id="sequence_clustering" name="Cluster sequences">
+        </section>
+        <section id="rna_manipulation" name="Manipulate RNA">
+        </section>
+        <section id="similarity_search" name="Search similarity">
+        </section>
+    <label text="TAXONOMIC ASSIGNATION" id="taxonomic" />
+        <section id="non_rRNA_taxonomic_assignation" name="Assign taxonomy on non rRNA sequences">
+        </section>
+        <section id="rRNA_taxonomic_assignation" name="Assign taxonomy on rRNA sequences">
+        </section>
+    <label text="FUNCTIONAL ASSIGNATION" id="functional" />
+        <section id="metabolic_analysis" name="Analyze metabolism">
+        </section>
+</toolbox>
