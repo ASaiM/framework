@@ -22,7 +22,7 @@ function install_galaxy {
     rm master
 }
 cd $lib_dir/
-if [[ -d $galaxy_dir ]]; then
+if [[ -d $local_galaxy_dir ]]; then
     if [[ $2 == '--reset' ]]; then
         rm -rf $local_galaxy_dir
         install_galaxy
@@ -49,7 +49,6 @@ function create_symlink {
         ln -s $2 $1
     fi 
 }
-
 ./src/prepare_galaxy_tools.sh $galaxy_tool_dir $tool_dir $db_dir
 
 tool_dir=$PWD/$tool_dir
@@ -72,9 +71,15 @@ done
 master_api_key="8a099e97b0a83c73ead9f5b0fe19f4be"
 for i in $( ls config/ )
 do
-    create_symlink $galaxy_dir/config/$i $PWD/config/$i
+    if [[ $i != "galaxy.ini" ]]; then
+        create_symlink $galaxy_dir/config/$i $PWD/config/$i
+    fi
 done
-echo "master_api_key = $master_api_key" >> $galaxy_dir/config/galaxy.ini
+cp $PWD/config/galaxy.ini $galaxy_dir/config/galaxy.ini
+if ! grep -q "master_api_key" $galaxy_dir/config/galaxy.ini ; then
+    echo "" >> $galaxy_dir/config/galaxy.ini
+    echo "master_api_key = $master_api_key" >> $galaxy_dir/config/galaxy.ini
+fi
 
 # Tool data
 for i in $( ls data/tool-data/ )
@@ -112,3 +117,7 @@ elif [ $to_do == 'run_test' ] ; then
     python scripts/fetch_eggs.py
     python ./scripts/functional_tests.py -v `python tool_list.py Continuous-Integration-Travis`
 fi
+cd $current_dir
+
+
+
