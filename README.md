@@ -98,13 +98,21 @@ To launch the Galaxy instance :
 ```
 
 This script configure the Galaxy instance, populate it with tools, ... Check the 
-[documentation](http://asaim.readthedocs.org/en/latest/framework/use.html) for more information about 
+[documentation](http://asaim.readthedocs.org/en/latest/framework/use.html) for more 
+information about the configuration. The tool population is a long task.
+
 The Galaxy instance can be then browse on [http://127.0.0.1:8080/](http://127.0.0.1:8080/).
 
 Galaxy will run in background. To stop it:
 
 ```
 ./src/stop_galaxy.sh
+```
+
+To clean the virtual environment and Galaxy:
+
+```
+./src/clean_galaxy.sh
 ```
 
 # Tutorial
