@@ -1,39 +1,96 @@
 <?xml version="1.0"?>
 <toolbox tool_path="../shed_tools">
-    <label text="COMMON TOOLS" id="common" />
-        <section id="getext" name="Get Data">
-        </section>
-        <section id="textutil" name="Manipulate text">
-        </section>
-        <section id="filter" name="Filter and Sort">
-        </section>
-        <section id="group" name="Join, Subtract and Group">
-        </section>
-        <section id="extraction" name="Extract data">
-        </section>
-    <label text="PRETREATMENTS" id="pretreatments" />
-        <section id="paired_end_assembly" name="Assemble paired-end sequences">
-        </section>
-        <section id="qualityControl" name="Control quality">
-        </section>
-        <section id="dereplication" name="Dereplicate">
-        </section>
-        <section id="chimera_detection" name="Detect chimeric sequences">
-        </section>
-        <section id="frameshift_detection" name="Detect frameshift">
-        </section>
-        <section id="sequence_clustering" name="Cluster sequences">
-        </section>
-        <section id="rna_manipulation" name="Manipulate RNA">
-        </section>
-        <section id="similarity_search" name="Search similarity">
-        </section>
-    <label text="TAXONOMIC ASSIGNATION" id="taxonomic" />
-        <section id="non_rRNA_taxonomic_assignation" name="Assign taxonomy on non rRNA sequences">
-        </section>
-        <section id="rRNA_taxonomic_assignation" name="Assign taxonomy on rRNA sequences">
-        </section>
-    <label text="FUNCTIONAL ASSIGNATION" id="functional" />
-        <section id="metabolic_analysis" name="Analyze metabolism">
-        </section>
+<section id="paired_end_assembly" name="Assemble paired-end sequences" />
+    
+
+
+
+<section id="qualityControl" name="Control quality" />
+    
+
+
+
+<section id="dereplication" name="Dereplicate" />
+    
+
+
+
+<section id="chimera_detection" name="Detect chimeric sequences" />
+    
+
+
+
+<section id="frameshift_detection" name="Detect frameshift" />
+    
+
+
+
+<section id="sequence_clustering" name="Cluster sequences" /> 
+    
+
+
+
+<section id="rna_manipulation" name="Manipulate RNA" />
+    
+
+
+
+<section id="similarity_search" name="Search similarity" />
+    
+
+
+
+<section id="non_rRNA_taxonomic_assignation" name="Assign taxonomy on non rRNA sequences" />
+    
+
+
+
+<section id="rRNA_taxonomic_assignation" name="Assign taxonomy on rRNA sequences" />
+    
+
+
+
+<section id="metabolic_analysis" name="Analyze metabolism" />
+
+
+
+
+<section id="textutil" name="Manipulate text" version="">
+  <tool file="toolshed.g2.bx.psu.edu/repos/devteam/column_maker/626658afe4cb/column_maker/column_maker.xml" guid="toolshed.g2.bx.psu.edu/repos/devteam/column_maker/Add_a_column1/1.1.0">
+      <tool_shed>toolshed.g2.bx.psu.edu</tool_shed>
+        <repository_name>column_maker</repository_name>
+        <repository_owner>devteam</repository_owner>
+        <installed_changeset_revision>626658afe4cb</installed_changeset_revision>
+        <id>toolshed.g2.bx.psu.edu/repos/devteam/column_maker/Add_a_column1/1.1.0</id>
+        <version>1.1.0</version>
+    </tool>
+</section>
+
+<tool file="toolshed.g2.bx.psu.edu/repos/devteam/tabular_to_fasta/0b4e36026794/tabular_to_fasta/tabular_to_fasta.xml" guid="toolshed.g2.bx.psu.edu/repos/devteam/tabular_to_fasta/tab2fasta/1.1.0">
+  <tool_shed>toolshed.g2.bx.psu.edu</tool_shed>
+    <repository_name>tabular_to_fasta</repository_name>
+    <repository_owner>devteam</repository_owner>
+    <installed_changeset_revision>0b4e36026794</installed_changeset_revision>
+    <id>toolshed.g2.bx.psu.edu/repos/devteam/tabular_to_fasta/tab2fasta/1.1.0</id>
+    <version>1.1.0</version>
+</tool>
+
+<tool file="toolshed.g2.bx.psu.edu/repos/devteam/fasta_to_tabular/7e801ab2b70e/fasta_to_tabular/fasta_to_tabular.xml" guid="toolshed.g2.bx.psu.edu/repos/devteam/fasta_to_tabular/fasta2tab/1.1.0">
+  <tool_shed>toolshed.g2.bx.psu.edu</tool_shed>
+    <repository_name>fasta_to_tabular</repository_name>
+    <repository_owner>devteam</repository_owner>
+    <installed_changeset_revision>7e801ab2b70e</installed_changeset_revision>
+    <id>toolshed.g2.bx.psu.edu/repos/devteam/fasta_to_tabular/fasta2tab/1.1.0</id>
+    <version>1.1.0</version>
+</tool>
+
+<tool file="toolshed.g2.bx.psu.edu/repos/devteam/fastqtofasta/723b5b38d88a/fastqtofasta/fastq_to_fasta.xml" guid="toolshed.g2.bx.psu.edu/repos/devteam/fastqtofasta/fastq_to_fasta_python/1.0.0">
+  <tool_shed>toolshed.g2.bx.psu.edu</tool_shed>
+    <repository_name>fastqtofasta</repository_name>
+    <repository_owner>devteam</repository_owner>
+    <installed_changeset_revision>723b5b38d88a</installed_changeset_revision>
+    <id>toolshed.g2.bx.psu.edu/repos/devteam/fastqtofasta/fastq_to_fasta_python/1.0.0</id>
+    <version>1.0.0</version>
+</tool>
+
 </toolbox>
