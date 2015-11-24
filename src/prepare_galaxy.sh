@@ -1,4 +1,6 @@
 #!/bin/bash
+. src/parse_yaml.sh
+eval $(parse_yaml src/config.yml "")
 
 if [ ! -d venv ]; then
     echo "No virtual environment to activate"
@@ -8,7 +10,6 @@ source venv/bin/activate
 
 to_do=$1
 current_dir=$PWD
-lib_dir=lib
 
 mkdir tmp
 
@@ -21,10 +22,9 @@ function install_galaxy {
     rm master
 }
 cd $lib_dir/
-galaxy_dir=galaxy-master
 if [[ -d $galaxy_dir ]]; then
     if [[ $2 == '--reset' ]]; then
-        rm -rf $galaxy_dir
+        rm -rf $local_galaxy_dir
         install_galaxy
     fi
 else
@@ -32,12 +32,9 @@ else
 fi
 cd ../
 
-galaxy_dir=$lib_dir/$galaxy_dir
-galaxy_tool_dir=$galaxy_dir/tools/
 
 # Prepare databases
 # =================
-db_dir=data/db/
 ./src/prepare_databases.sh $db_dir
 
 # Prepare galaxy tools
@@ -53,7 +50,6 @@ function create_symlink {
     fi 
 }
 
-tool_dir=$lib_dir/galaxy_tools/
 ./src/prepare_galaxy_tools.sh $galaxy_tool_dir $tool_dir $db_dir
 
 tool_dir=$PWD/$tool_dir
@@ -110,7 +106,7 @@ rm -rf tmp
 # =============
 cd $galaxy_dir
 if [ $to_do == 'launch' ] ; then
-    sh run.sh >> run_galaxy
+    sh run.sh --daemon
 elif [ $to_do == 'run_test' ] ; then
     sh run.sh --stop-daemon || true
     python scripts/fetch_eggs.py
