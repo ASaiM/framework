@@ -1,1 +1,4 @@
 
+[submodule "lib/galaxy-tools-playbook"]
+	path = lib/galaxy-tools-playbook
+	url = https://github.com/afgane/galaxy-tools-playbook.git
