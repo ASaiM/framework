@@ -1,6 +1,9 @@
 #!/bin/bash
 
 generate_galaxy_ini() {
+    if [ -f $1 ]; then
+        rm $1
+    fi
     touch $1
     echo "[server:main]" >> $1
     echo "use = egg:Paste#http" >> $1
@@ -23,7 +26,7 @@ generate_galaxy_ini() {
     echo "database_connection=postgresql://galaxy:password@localhost:5432/asaim_galaxy" >> $1
     echo "file_path = database/files" >> $1
     echo "new_file_path = database/tmp" >> $1
-    echo "tool_config_file = config/tool_conf.xml" >> $1
+    echo "tool_config_file = config/tool_conf.xml,config/shed_tool_conf.xml" >> $1
     echo "tool_dependency_dir = dependency_dir" >> $1
     echo "tool_sheds_config_file = config/tool_sheds_conf.xml" >> $1
     echo "tool_data_table_config_path = config/tool_data_table_conf.xml" >> $1
