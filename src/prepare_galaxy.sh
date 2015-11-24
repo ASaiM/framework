@@ -1,6 +1,8 @@
 #!/bin/bash
 . src/parse_yaml.sh
-eval $(parse_yaml src/config.yml "")
+. src/misc/generate_galaxy_ini.sh
+
+eval $(parse_yaml src/misc/config.yml "")
 
 if [ ! -d venv ]; then
     echo "No virtual environment to activate"
@@ -68,23 +70,18 @@ done
 # Configure Galaxy
 # ================
 # Configuration files
-master_api_key="8a099e97b0a83c73ead9f5b0fe19f4be"
-for i in $( ls config/ )
+for i in $( ls $galaxy_conf_file_dir )
 do
-    if [[ $i != "galaxy.ini" ]]; then
-        create_symlink $galaxy_dir/config/$i $PWD/config/$i
+    if [[ $i != "galaxy.ini" && $i != "tool_list.yaml" ]]; then
+        create_symlink $galaxy_dir/config/$i $PWD/$galaxy_conf_file_dir/$i
     fi
 done
-cp $PWD/config/galaxy.ini $galaxy_dir/config/galaxy.ini
-if ! grep -q "master_api_key" $galaxy_dir/config/galaxy.ini ; then
-    echo "" >> $galaxy_dir/config/galaxy.ini
-    echo "master_api_key = $master_api_key" >> $galaxy_dir/config/galaxy.ini
-fi
+generate_galaxy_ini $galaxy_dir/config/galaxy.ini
 
 # Tool data
-for i in $( ls data/tool-data/ )
+for i in $( ls $tool_data_dir )
 do 
-    create_symlink $galaxy_dir/tool-data/$i $PWD/data/tool-data/$i
+    create_symlink $galaxy_dir/tool-data/$i $PWD/$tool_data_dir/$i
 done
 
 # Dependencies
@@ -118,6 +115,4 @@ elif [ $to_do == 'run_test' ] ; then
     python ./scripts/functional_tests.py -v `python tool_list.py Continuous-Integration-Travis`
 fi
 cd $current_dir
-
-
 
