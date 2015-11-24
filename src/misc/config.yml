@@ -12,6 +12,6 @@ tool_data_dir: $data_dir/tool-data
 db_dir: $data_dir/db/
 
 master_api_key: "8a099e97b0a83c73ead9f5b0fe19f4be"
-port: "8181"
+port: "8282"
 host: "127.0.0.1"
 admin_users: "asaim-admin@asaim.com"
