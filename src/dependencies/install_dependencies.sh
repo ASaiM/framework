@@ -7,10 +7,16 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     echo "OS: MacOSX"
     ./src/dependencies/install_for_mac_os.sh
 elif [[ "$OSTYPE" == "linux-gnu" ]]; then
-    echo -e "Are you using Ubuntu? (y/n) \c"
+    echo -e "Are you using Debian (Ubuntu, ...) ? (y/n) \c"
     read 
     if [ $REPLY == "y" ]; then
-        ./src/dependencies/install_for_ubuntu.sh
+        ./src/dependencies/install_for_debian.sh
+    else
+        echo -e "Are you using RHEL (Fedore, CentOS, ...) ? (y/n) \c"
+        read 
+        if [ $REPLY == "y" ]; then
+            ./src/dependencies/install_for_rhel.sh
+        fi
     fi
 else
     echo "Unknow OS"
