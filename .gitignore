@@ -4,7 +4,7 @@ venv/*
 # Galaxy
 lib/galaxy-master/*
 lib/galaxy_tools_playbook/tools.yml
-
+lib/shed_tools/
 # Data/db
 data/db/cog/raw_data/*
 data/db/cog/extracted_data/*
