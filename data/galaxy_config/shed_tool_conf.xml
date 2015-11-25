@@ -1,14 +1,20 @@
 <?xml version="1.0"?>
-    <toolbox tool_path="dependency_dir/shed_tools/">
-    <section id="paired_end_assembly" name="Assemble paired-end sequences" />
-    <section id="qualityControl" name="Control quality" />
-    <section id="dereplication" name="Dereplicate" />
-    <section id="chimera_detection" name="Detect chimeric sequences" />
-    <section id="frameshift_detection" name="Detect frameshift" />
-    <section id="sequence_clustering" name="Cluster sequences" />
-    <section id="rna_manipulation" name="Manipulate RNA" />
-    <section id="similarity_search" name="Search similarity" />
-    <section id="non_rRNA_taxonomic_assignation" name="Assign taxonomy on non rRNA sequences" />
-    <section id="rRNA_taxonomic_assignation" name="Assign taxonomy on rRNA sequences" />
-    <section id="metabolic_analysis" name="Analyze metabolism" />
+<toolbox tool_path="../shed_tools">
+    <label text="COMMON TOOLS" id="common" />
+        <section id="text_manipulation" name="Manipulate files" />
+        <section id="seq_manipulation" name="Manipulate sequence files" />
+        <section id="filter" name="Filter and Sort" />
+        <section id="group" name="Join, Subtract and Group" />
+    <label text="PRETREATMENTS" id="pretreatments" />
+        <section id="paired_end_assembly" name="Assemble paired-end sequences" />
+        <section id="qualityControl" name="Control quality" />
+        <section id="vsearch_rdp" name="VSEARCH and RDP tools" />
+        <section id="sequence_clustering" name="Cluster sequences" />
+        <section id="rna_manipulation" name="Manipulate RNA" />
+        <section id="similarity_search" name="Search similarity" />
+    <label text="TAXONOMIC ASSIGNATION" id="taxonomic" />
+        <section id="non_rRNA_taxonomic_assignation" name="Assign taxonomy on non rRNA sequences" />
+        <section id="rRNA_taxonomic_assignation" name="Assign taxonomy on rRNA sequences" />
+    <label text="FUNCTIONAL ASSIGNATION" id="functional" />
+        <section id="metabolic_analysis" name="Analyze metabolism" />
 </toolbox>
