@@ -1,0 +1,15 @@
+api_key: <Admin user API key from galaxy_instance>
+galaxy_instance: <Galaxy instance IP>
+tools:
+- name: 'humann'
+  owner: 'bebatut'
+  tool_panel_section_id: 'metabolic_analysis'
+  tool_shed_url: 'https://testtoolshed.g2.bx.psu.edu'
+  install_tool_dependencies: True
+  install_repository_dependencies: True
+- name: 'humann2'
+  owner: 'bebatut'
+  tool_panel_section_id: 'metabolic_analysis'
+  tool_shed_url: 'https://testtoolshed.g2.bx.psu.edu'
+  install_tool_dependencies: True
+  install_repository_dependencies: True
