@@ -25,7 +25,6 @@ current_dir=$PWD
 
 mkdir tmp
 
-
 echo "Installing Galaxy"
 echo "================="
 # Getting the latest revision with wget from GitHub is faster than cloning it
@@ -44,11 +43,12 @@ else
     install_galaxy
 fi
 cd ../
-
+echo ""
 
 echo "Prepare databases"
 echo "================="
 ./src/prepare_databases.sh $db_dir
+echo ""
 
 echo "Prepare galaxy tools"
 echo "===================="
@@ -75,6 +75,7 @@ do
         create_symlink $galaxy_dir/tools/$i $tool_dir/$i
     fi 
 done
+echo ""
 
 echo "Configure Galaxy"
 echo "================"
@@ -112,6 +113,7 @@ do
 done
 
 rm -rf tmp
+echo ""
 
 echo "Launch Galaxy"
 echo "============="
@@ -125,6 +127,7 @@ elif [ $to_do == 'run_test' ] ; then
     python ./scripts/functional_tests.py -v `python tool_list.py Continuous-Integration-Travis`
 fi
 cd $current_dir
+echo ""
 
 echo "Populate with tools"
 echo "==================="
@@ -132,4 +135,5 @@ generate_tools_yml $tool_playbook/tools.yml
 sleep 10
 cd $tool_playbook
 ansible-playbook tools.yml -i "localhost,"
+echo ""
 
