@@ -4,70 +4,32 @@
         <section id="getext" name="Get Data">
             <tool file="data_source/upload.xml" />
         </section>
-        <section id="textutil" name="Manipulate text">
-            <tool file="filters/fixedValueColumn.xml" />
-            <tool file="filters/catWrapper.xml" />
-            <tool file="filters/condense_characters.xml" />
-            <tool file="filters/convert_characters.xml" />
-            <tool file="filters/mergeCols.xml" />
-            <tool file="filters/CreateInterval.xml" />
-            <tool file="filters/cutWrapper.xml" />
-            <tool file="filters/changeCase.xml" />
+        <section id="text_manipulation" name="Manipulate files">
             <tool file="filters/pasteWrapper.xml" />
-            <tool file="filters/remove_beginning.xml" />
             <tool file="filters/randomlines.xml" />
-            <tool file="filters/headWrapper.xml" />
-            <tool file="filters/tailWrapper.xml" />
-            <tool file="filters/trimmer.xml" />
             <tool file="filters/wc_gnu.xml" />
-            <tool file="filters/secure_hash_message_digest.xml" />
-            <tool file="manipulate_text/transform_columns/transform_columns.xml" />
-        </section>
-        <section id="filter" name="Filter and Sort">
             <tool file="stats/filtering.xml" />
             <tool file="filters/sorter.xml" />
             <tool file="filters/grep.xml" />
-        </section>
-        <section id="group" name="Join, Subtract and Group">
             <tool file="filters/joiner.xml" />
             <tool file="filters/compare.xml" />
             <tool file="stats/grouping.xml" />
         </section>
-        <section id="extraction" name="Extract data">
+        <section id="seq_manipulation" name="Manipulate sequence files">
             <tool file="extract/extract_sequence_file/extract_sequence_file.xml" />
-            <tool file="extract/extract_similarity_search_report/extract_similarity_search_report.xml" />
         </section>
     <label text="PRETREATMENTS" id="pretreatments" />
-        <section id="paired_end_assembly" name="Assemble paired-end sequences">
-            <tool file="assemble_paired_end/fastq_join/fastq_join.xml" />
-        </section>
-        <section id="qualityControl" name="Control quality">
-        </section>
-        <section id="dereplication" name="Dereplicate">
-        </section>
-        <section id="chimera_detection" name="Detect chimeric sequences">
-        </section>
-        <section id="frameshift_detection" name="Detect frameshift">
-        </section>
-        <section id="sequence_clustering" name="Cluster sequences">
+        <section id="paired_end_assembly" name="Assemble paired-end sequences" />
+        <section id="qualityControl" name="Control quality" />
+        <section id="vsearch_rdp" name="VSEARCH and RDP tools" />
+        <section id="sequence_clustering" name="Cluster sequences" >
             <tool file="cluster_sequences/format_cd_hit_output/format_cd_hit_output.xml" />
         </section>
-        <section id="rna_manipulation" name="Manipulate RNA">
-        </section>
-        <section id="similarity_search" name="Search similarity">
-        </section>
+        <section id="rna_manipulation" name="Manipulate RNA" />
+        <section id="similarity_search" name="Search similarity" />
     <label text="TAXONOMIC ASSIGNATION" id="taxonomic" />
-        <section id="non_rRNA_taxonomic_assignation" name="Assign taxonomy on non rRNA sequences">
-        </section>
-        <section id="rRNA_taxonomic_assignation" name="Assign taxonomy on rRNA sequences">
-            <!--<tool file="assigne_taxonomy_to_rRNA/qiime/qiime.xml" />-->
-        </section>
+        <section id="non_rRNA_taxonomic_assignation" name="Assign taxonomy on non rRNA sequences" />
+        <section id="rRNA_taxonomic_assignation" name="Assign taxonomy on rRNA sequences" />
     <label text="FUNCTIONAL ASSIGNATION" id="functional" />
-        <section id="metabolic_analysis" name="Analyze metabolism">
-            <tool file="analyze_metabolism/humann/humann.xml" />
-            <!--<tool file="analyze_metabolism/humann2/humann2.xml" />
-            <tool file="analyze_metabolism/humann2/regroup_table/regroup_table.xml" />
-            <tool file="analyze_metabolism/humann2/add_group_description/add_group_description.xml" />
-            <tool file="analyze_metabolism/humann2/simplify_table/simplify_table.xml" />-->
-        </section>
+        <section id="metabolic_analysis" name="Analyze metabolism" />
 </toolbox>
