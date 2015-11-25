@@ -13,7 +13,7 @@ tools:
   tool_shed_url: 'https://testtoolshed.g2.bx.psu.edu'
   install_tool_dependencies: True
   install_repository_dependencies: True
-- name: 'qiime'
+- name: 'qiime1_3_0'
   owner: 'azuzolo'
   tool_panel_section_id: 'rRNA_taxonomic_assignation'
   tool_shed_url: 'https://testtoolshed.g2.bx.psu.edu'

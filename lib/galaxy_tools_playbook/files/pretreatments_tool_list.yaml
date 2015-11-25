@@ -49,12 +49,12 @@ tools:
   tool_shed_url: 'https://testtoolshed.g2.bx.psu.edu'
   install_tool_dependencies: True
   install_repository_dependencies: True
-- name: 'reago'
-  owner: 'bebatut'
-  tool_panel_section_id: 'rna_manipulation'
-  tool_shed_url: 'https://testtoolshed.g2.bx.psu.edu'
-  install_tool_dependencies: True
-  install_repository_dependencies: True
+#- name: 'reago'
+#  owner: 'bebatut'
+#  tool_panel_section_id: 'rna_manipulation'
+#  tool_shed_url: 'https://testtoolshed.g2.bx.psu.edu'
+#  install_tool_dependencies: True
+#  install_repository_dependencies: True
 - name: 'ncbi_blast_plus'
   owner: 'devteam'
   tool_panel_section_id: 'similarity_search'
