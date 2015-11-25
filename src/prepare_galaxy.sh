@@ -7,7 +7,16 @@ eval $(parse_yaml src/misc/config.yml "")
 
 if [ ! -d venv ]; then
     echo "No virtual environment to activate"
-    exit
+    echo -e "Relaunch it? (y/n)"
+    read 
+    if [ $REPLY == "y" ]; then
+        if [ ! -d venv ]; then
+            virtualenv --no-site-packages venv
+        fi
+        source venv/bin/activate
+        pip install -r requirements.txt
+        deactivate
+    fi
 fi
 source venv/bin/activate
 
@@ -16,8 +25,9 @@ current_dir=$PWD
 
 mkdir tmp
 
-# Installing Galaxy
-# =================
+
+echo "Installing Galaxy"
+echo "================="
 # Getting the latest revision with wget from GitHub is faster than cloning it
 function install_galaxy {
     wget https://codeload.github.com/galaxyproject/galaxy/tar.gz/master
@@ -36,12 +46,12 @@ fi
 cd ../
 
 
-# Prepare databases
-# =================
+echo "Prepare databases"
+echo "================="
 ./src/prepare_databases.sh $db_dir
 
-# Prepare galaxy tools
-# ====================
+echo "Prepare galaxy tools"
+echo "===================="
 function create_symlink {
     if [ -e $1 ]; then
         if [ ! -L $1 ]; then
@@ -68,8 +78,8 @@ do
     fi 
 done
 
-# Configure Galaxy
-# ================
+echo "Configure Galaxy"
+echo "================"
 # Configuration files
 for i in $( ls $galaxy_conf_file_dir )
 do
@@ -105,9 +115,10 @@ done
 
 rm -rf tmp
 
-# Launch Galaxy
-# =============
+echo "Launch Galaxy"
+echo "============="
 cd $galaxy_dir
+sh manage_db.sh upgrade
 if [ $to_do == 'launch' ] ; then
     sh run.sh --daemon
 elif [ $to_do == 'run_test' ] ; then
@@ -117,8 +128,10 @@ elif [ $to_do == 'run_test' ] ; then
 fi
 cd $current_dir
 
-# Populate with tools
-# ===================
-#cd $tool_playbook
-#ansible-playbook tools.yml -i "localhost,"
+echo "Populate with tools"
+echo "==================="
+generate_tools_yml $tool_playbook/tools.yml
+sleep 10
+cd $tool_playbook
+ansible-playbook tools.yml -i "localhost,"
 
