@@ -5,7 +5,13 @@
 eval $(parse_yaml src/misc/config.yml "")
 
 generate_tools_yml $tool_playbook/tools.yml
-sleep 10
+
+echo "Wait until http://$host:$port is up"
+until $(curl --output /dev/null --silent --head --fail http://$host:$port); do
+    printf '.'
+    sleep 1
+done
+
 cd $tool_playbook
 ansible-playbook tools.yml -i "localhost,"
 echo ""
