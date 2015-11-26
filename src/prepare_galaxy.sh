@@ -13,7 +13,7 @@ if [ ! -d venv ]; then
             virtualenv --no-site-packages venv
         fi
         source venv/bin/activate
-        pip install -r requirements.txt
+        sudo pip install -r requirements.txt
         deactivate
     fi
 fi
