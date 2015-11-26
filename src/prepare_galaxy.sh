@@ -131,9 +131,5 @@ echo ""
 
 echo "Populate with tools"
 echo "==================="
-generate_tools_yml $tool_playbook/tools.yml
-sleep 10
-cd $tool_playbook
-ansible-playbook tools.yml -i "localhost,"
-echo ""
+./src/populate_galaxy.sh
 

@@ -115,6 +115,13 @@ To clean the virtual environment and Galaxy:
 ./src/clean_galaxy.sh
 ```
 
+To add tools from ToolShed, you can use the web interface but you can also add the
+reference in one file in `lib/galaxy_tools_playbook/files/` and then launch:
+
+```
+./src/populate_galaxy.sh
+```
+
 # Tutorial
 
 # Testing
