@@ -1,28 +1,28 @@
 #!/bin/bash
 
-echo "Update brew..."
-yum update
+echo "Update yum..."
+sudo yum update
 
 echo "Install git..."
-yum install git
+sudo yum install git
 
 echo "Install mercurial..."
-yum install mercurial
+sudo yum install mercurial
 
 echo "Install python..."
-yum install python
+sudo yum install python
 
 echo "Install perl..."
-yum install perl
+sudo yum install perl
 
 echo "Install scons..."
-yum install scons
+sudo yum install scons
 
 echo "Install openssl..."
-yum install openssl
+sudo yum install openssl
 
 echo "Install postgres..."
-yum install postgres*
+sudo yum install postgres*
 
 echo "Install wget..."
-yum install wget
+sudo yum install wget
