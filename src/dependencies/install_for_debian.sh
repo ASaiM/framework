@@ -1,28 +1,28 @@
 #!/bin/bash
 
-echo "Update brew..."
-apt-get update
+echo "Update apt-get..."
+sudo apt-get update
 
 echo "Install git..."
-apt-get install git
+sudo apt-get install git
 
 echo "Install mercurial..."
-apt-get install mercurial
+sudo apt-get install mercurial
 
 echo "Install python..."
-apt-get install python
+sudo apt-get install python
 
 echo "Install perl..."
-apt-get install perl
+sudo apt-get install perl
 
 echo "Install scons..."
-apt-get install scons
+sudo apt-get install scons
 
 echo "Install openssl..."
-apt-get install openssl
+sudo apt-get install openssl
 
 echo "Install postgres..."
-apt-get install postgres
+sudo apt-get install postgres
 
 echo "Install wget..."
-apt-get install wget
+sudo apt-get install wget
