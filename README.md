@@ -59,13 +59,13 @@ source venv/bin/activate
 (venv) pip install -r requirements.txt
 ```
 
-For Ubuntu and MacOSX, all dependencies can be installed by running:
+For Debian, RHEL and MacOSX, all dependencies can be installed by running:
 
 ```
-./src/dependencies/install_dependencies.sh
+./src/install_dependencies.sh
 ```
 
-**Note:** `apt-get` is required for Ubuntu and `homebrew` for MacOSX.
+**Note:** `apt-get` is required for Debian, `yum` for RHEL and `homebrew` for MacOSX.
 
 ## Configuration
 
@@ -86,7 +86,7 @@ The FTP server with `proftpd` has to be configured and launched, by running:
 All the configuration (postgresql and proftpd) can be done by running:
 
 ```
-./src/proftpd/configure.sh
+./src/configure.sh
 ```
 
 # Usage
