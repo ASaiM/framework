@@ -21,9 +21,11 @@ elif [[ "$OSTYPE" == "linux-gnu" ]]; then
 else
     echo "Unknow OS"
 fi
+echo ""
 
 # Proftpd
 echo "Install proftp..."
+echo "================="
 wget https://github.com/proftpd/proftpd/archive/v1.3.5a.tar.gz
 tar -zxvf v1.3.5a.tar.gz | tail
 rm v1.3.5a.tar.gz
@@ -40,17 +42,23 @@ make
 sudo make install
 cd ../
 rm -rf proftpd-1.3.5a/
+echo ""
 
 # Pip
-pip install --upgrade pip
-pip install virtualenv
+echo "Install virtualenv and dependencies with pip..."
+echo "==============================================="
+sudo pip install --upgrade pip
+sudo pip install virtualenv
 echo "Install pip requirements..."
 if [ ! -d venv ]; then
     virtualenv --no-site-packages venv
 fi
 source venv/bin/activate
-pip install -r requirements.txt
+sudo pip install -r requirements.txt
+echo ""
 
 # Submodules
+echo "Update submodule..."
+echo "==================="
 git submodule init
 git submodule update
