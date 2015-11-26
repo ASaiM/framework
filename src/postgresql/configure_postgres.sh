@@ -8,11 +8,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     initdb /usr/local/var/postgres -E utf8
     postgres -D /usr/local/var/postgres
 elif [[ "$OSTYPE" == "linux-gnu" ]]; then
-    echo -e "Are you using Ubuntu? (y/n) \c"
-    read 
-    if [ $REPLY == "y" ]; then
-        echo "TO DO"
-    fi
+    echo "To do"
 else
     echo "Unknow OS"
 fi
