@@ -91,6 +91,8 @@ All the configuration (postgresql and proftpd) can be done by running:
 
 # Usage
 
+## Launch Galaxy
+
 To launch the Galaxy instance :
 
 ```
@@ -102,6 +104,10 @@ This script configure the Galaxy instance, populate it with tools, ... Check the
 information about the configuration. The tool population is a long task.
 
 The Galaxy instance can be then browse on [http://127.0.0.1:8080/](http://127.0.0.1:8080/).
+After registration with admin account (email: `asaim-admin@asaim.com`), you can 
+follow the tool installation in Admin -> Manage installed tools.
+
+## Stop Galaxy
 
 Galaxy will run in background. To stop it:
 
@@ -114,6 +120,8 @@ To clean the virtual environment and Galaxy:
 ```
 ./src/clean_galaxy.sh
 ```
+
+## Add tools from ToolShed to Galaxy
 
 To add tools from ToolShed, you can use the web interface but you can also add the
 reference in one file in `lib/galaxy_tools_playbook/files/` and then launch:
