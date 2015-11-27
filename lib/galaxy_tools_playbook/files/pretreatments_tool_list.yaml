@@ -27,13 +27,13 @@ tools:
   install_repository_dependencies: True
 - name: 'vsearch'
   owner: 'iuc'
-  tool_panel_section_id: 'vsearch_rdp'
+  tool_panel_section_id: 'vsearch'
   tool_shed_url: 'https://toolshed.g2.bx.psu.edu'
   install_tool_dependencies: True
   install_repository_dependencies: True
 - name: 'rdptools'
   owner: 'bebatut'
-  tool_panel_section_id: 'vsearch_rdp'
+  tool_panel_section_id: 'rdp'
   tool_shed_url: 'https://testtoolshed.g2.bx.psu.edu'
   install_tool_dependencies: True
   install_repository_dependencies: True
