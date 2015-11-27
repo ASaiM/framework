@@ -1,0 +1,77 @@
+<tool id="transform_columns" name="Transform column content" version="0.1.0">
+    <description>with regular expression</description>
+
+    <requirements>
+    </requirements>
+
+    <stdio>
+        <exit_code range="1:" />
+    </stdio>
+
+    <command interpreter="python"><![CDATA[
+        transform_columns.py
+            --input_file $input
+            --column_id $column_id
+            --regular_expression "$regular_expression"
+            --output_file $output
+    ]]>
+    </command>
+
+    <inputs>
+        <param type="data" format="txt,tabular" name="input" label="From" help=""/>
+        <param name="column_id" type="integer" value="1" 
+            label="Column to transform" help=""/>
+        <param name="regular_expression" type="text" size="200" 
+            label="Regular expression to transform the column content" help=""/>
+    </inputs>
+
+    <outputs>
+        <data name="output" format_source="input" metadata_source="input" 
+            label="Transformed column on ${on_string}" />
+    </outputs>
+
+    <tests>
+        <test>
+            <param name="input" value="input.txt"/>
+            <param name="column_id" value="2"/>
+            <param name="regular_expression" value="OS=(.+) *GN="/>
+            <output name="output" file="output.txt"/>
+        </test>
+    </tests>
+
+    <help><![CDATA[
+
+.. class:: infomark
+
+**TIP:** If your data is not TAB delimited, use *Text Manipulation-&gt;Convert*
+
+Regular expression with some regex PCRE may not work
+
+-----
+
+**What it does**
+
+This tool transform content of one column given a regular expression.
+The regular expression can be tested on _Pythex: http://pythex.org/
+
+-----
+
+**Example**
+
+Input dataset
+
+    tr|I6T1H7|I6T1H7_9ARCH  Ammonia monooxygenase alpha subunit (Fragment) OS=uncultured ammonia-oxidizing archaeon GN=amoA PE=4 SV=1
+    tr|E2D8J4|E2D8J4_9ARCH  Ammonia monooxygenase (Fragment) OS=uncultured archaeon GN=amoA PE=4 SV=1
+    tr|F8U978|F8U978_9ARCH  Ammonia monooxygenase (Fragment) OS=uncultured archaeon GN=amoA PE=4 SV=1
+
+Regular expression (OS=(.+) *GN=) on the second column will return
+
+    tr|I6T1H7|I6T1H7_9ARCH  uncultured ammonia-oxidizing archaeon 
+    tr|E2D8J4|E2D8J4_9ARCH  uncultured archaeon 
+    tr|F8U978|F8U978_9ARCH  uncultured archaeon 
+
+]]>
+    </help>
+
+    <citations></citations>
+</tool>
