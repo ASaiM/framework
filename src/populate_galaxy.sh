@@ -4,7 +4,7 @@
 
 eval $(parse_yaml src/misc/config.yml "")
 
-generate_tools_yml $tool_playbook/tools.yml
+generate_tools_yml $tool_playbook_dir/tools.yml
 
 echo "Wait until http://$host:$port is up"
 until $(curl --output /dev/null --silent --head --fail http://$host:$port); do
