@@ -12,6 +12,6 @@ until $(curl --output /dev/null --silent --head --fail http://$host:$port); do
     sleep 1
 done
 
-cd $tool_playbook
+cd $tool_playbook_dir
 ansible-playbook tools.yml -i "localhost,"
 echo ""
