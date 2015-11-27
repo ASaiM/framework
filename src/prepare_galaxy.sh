@@ -33,12 +33,7 @@ function install_galaxy {
     rm master
 }
 cd $lib_dir/
-if [[ -d $local_galaxy_dir ]]; then
-    if [[ $2 == '--reset' ]]; then
-        rm -rf $local_galaxy_dir
-        install_galaxy
-    fi
-else
+if [[ ! -d $local_galaxy_dir ]]; then
     install_galaxy
 fi
 cd ../
