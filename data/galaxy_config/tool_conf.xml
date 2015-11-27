@@ -14,6 +14,7 @@
             <tool file="filters/joiner.xml" />
             <tool file="filters/compare.xml" />
             <tool file="stats/grouping.xml" />
+            <tool file="manipulate_text/transform_columns/transform_columns.xml" />
         </section>
         <section id="seq_manipulation" name="Manipulate sequence files">
             <tool file="extract/extract_sequence_file/extract_sequence_file.xml" />
