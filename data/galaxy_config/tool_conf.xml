@@ -5,7 +5,7 @@
             <tool file="data_source/upload.xml" />
         </section>
         <section id="text_manipulation" name="Manipulate files">
-            <!--<tool file="filters/pasteWrapper.xml" />
+            <tool file="filters/pasteWrapper.xml" />
             <tool file="filters/randomlines.xml" />
             <tool file="filters/wc_gnu.xml" />
             <tool file="stats/filtering.xml" />
@@ -13,7 +13,7 @@
             <tool file="filters/grep.xml" />
             <tool file="filters/joiner.xml" />
             <tool file="filters/compare.xml" />
-            <tool file="stats/grouping.xml" />-->
+            <tool file="stats/grouping.xml" />
         </section>
         <section id="seq_manipulation" name="Manipulate sequence files">
             <tool file="extract/extract_sequence_file/extract_sequence_file.xml" />
