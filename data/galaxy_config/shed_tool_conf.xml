@@ -8,8 +8,8 @@
     <label text="PRETREATMENTS" id="pretreatments" />
         <section id="paired_end_assembly" name="Assemble paired-end sequences" />
         <section id="qualityControl" name="Control quality" />
-        <section id="rdp" name="RDP tools (frameshift correction, ...)" />
-        <section id="vsearch" name="VSEARCH tools (chimera detection, dereplication, clustering, ...)" />
+        <section id="rdp" name="Frameshift detection, ... with RDP tools" />
+        <section id="vsearch" name="Chimera detection, dereplication, clustering, ... with VSEARCH" />
         <section id="sequence_clustering" name="Cluster sequences" />
         <section id="rna_manipulation" name="Manipulate RNA" />
         <section id="similarity_search" name="Search similarity" />
