@@ -39,11 +39,6 @@ fi
 cd ../
 echo ""
 
-echo "Prepare databases"
-echo "================="
-./src/prepare_databases.sh $db_dir
-echo ""
-
 echo "Prepare galaxy tools"
 echo "===================="
 function create_symlink {
@@ -127,3 +122,8 @@ echo "Populate with tools"
 echo "==================="
 ./src/populate_galaxy.sh
 
+
+echo "Populate with databases"
+echo "======================="
+./src/prepare_databases.sh $db_dir
+echo ""
