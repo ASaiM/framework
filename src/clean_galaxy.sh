@@ -15,6 +15,8 @@ echo ""
 echo "Remove virtualenv..."
 echo "===================="
 sudo rm -rf venv
+if [[ -d /private/tmp/venv/ ]]; then
+    rm -rf /private/tmp/venv/
 echo ""
 
 echo "Drop database and user..."
