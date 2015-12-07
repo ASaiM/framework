@@ -28,31 +28,33 @@
             info"/>
 
         <conditional name="rename_representative_sequences">
-            <param name='test' type='boolean' checked="true" truevalue='yes' 
-                falsevalue='no' label="Rename representative sequences with the 
+            <param name='test' type='boolean' checked="true" 
+                label="Rename representative sequences with the 
                 corresponding cluster name?" help=""/>
-            <when value="yes">
+            <when value="true">
                 <param type="data" format="fasta" 
                     name="input_representative_sequences"
                     label="Representative sequences"/>
             </when>
+            <when value="false" />
         </conditional>
 
         <conditional name="extract_category_distribution">
-            <param name='test' type='boolean' checked="true" truevalue='yes' 
-                falsevalue='no' label="Extract category distribution of each 
+            <param name='test' type='boolean' checked="true" 
+                label="Extract category distribution of each 
                 cluster?" help=""/>
-            <when value="yes">
+            <when value="true">
                 <param type="data" format="tabular" name="input_mapping" 
                     label="Mapping file" help="The mapping file is a tabular 
                     file with 2 columns. First column contains the sequence 
                     names and the second one the corresponding category"/>
                 <param name='number_sum' type='boolean' checked="true" 
-                    truevalue='yes' falsevalue='no' label="Sum sequence number 
+                    label="Sum sequence number 
                     for each category?" help="The alternative is the sum of size
                     for sequences in each category (if the size information is
                     available in sequence name)"/>
             </when>
+            <when value="false" />
         </conditional>
     </inputs>
 

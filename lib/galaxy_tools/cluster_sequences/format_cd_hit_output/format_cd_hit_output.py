@@ -79,7 +79,7 @@ def extract_cluster_info(args, mapping_info = None, categories = None):
 
                 if categories != None:
                     seq_count = 1
-                    if args.number_sum == 'False':
+                    if args.number_sum == 'false':
                         if seq_name.find('size') != -1:
                             substring = seq_name[seq_name.find('size'):-1]
                             seq_count = int(substring.split('=')[1])
