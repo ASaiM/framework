@@ -1,18 +1,22 @@
 #!/bin/bash
+. src/parse_yaml.sh
+eval $(parse_yaml src/misc/config.yml "")
 
 db_dir=$1
-current_dir=`pwd`
+current_dir=$PWD
 
 echo "Prepare SortMeRNA databases..."
-sortmerna_db_dir = $galaxy_dir/dependency_dir/sortmerna/2.0/bebatut/sortmerna/2df1aeb371fb/rRNA_databases/
-indexdb_rna --ref $sortmerna_dir/rfam-5.8s-id98.fasta,$sortmerna_dir/rfam-5.8s-id98
-indexdb_rna --ref $sortmerna_dir/rfam-5s-database-id98.fasta,$sortmerna_dir/rfam-5s-database-id98
-indexdb_rna --ref $sortmerna_dir/silva-arc-16s-id95.fasta,$sortmerna_dir/silva-arc-16s-id95
-indexdb_rna --ref $sortmerna_dir/silva-arc-23s-id98.fasta,$sortmerna_dir/silva-arc-23s-id98
-indexdb_rna --ref $sortmerna_dir/silva-bac-16s-id90.fasta,$sortmerna_dir/silva-bac-16s-id90
-indexdb_rna --ref $sortmerna_dir/silva-bac-23s-id98.fasta,$sortmerna_dir/silva-bac-23s-id98
-indexdb_rna --ref $sortmerna_dir/silva-euk-18s-id95.fasta,$sortmerna_dir/silva-euk-18s-id95
-indexdb_rna --ref $sortmerna_dir/silva-euk-28s-id98.fasta,$sortmerna_dir/silva-euk-28s-id98
+sortmerna_db_dir=$galaxy_dir/dependency_dir/sortmerna/2.0/bebatut/sortmerna/a6dc642c751a/rRNA_databases/
+cd $sortmerna_db_dir
+indexdb_rna --ref rfam-5.8s-database-id98.fasta,rfam-5.8s-database-id98
+indexdb_rna --ref rfam-5s-database-id98.fasta,rfam-5s-database-id98
+indexdb_rna --ref silva-arc-16s-id95.fasta,silva-arc-16s-id95
+indexdb_rna --ref silva-arc-23s-id98.fasta,silva-arc-23s-id98
+indexdb_rna --ref silva-bac-16s-id90.fasta,silva-bac-16s-id90
+indexdb_rna --ref silva-bac-23s-id98.fasta,silva-bac-23s-id98
+indexdb_rna --ref silva-euk-18s-id95.fasta,silva-euk-18s-id95
+indexdb_rna --ref silva-euk-28s-id98.fasta,silva-euk-28s-id98
+cd $current_dir
 echo ""
 
 
