@@ -28,10 +28,12 @@ def init_category_distribution(categories = None):
     return cluster_category_distribution
 
 def flush_cluster_info(cluster_name, cluster_ref_seq, ref_seq_cluster, 
-    cluster_category_distribution, categories, output_category_distribution_file):
+    cluster_category_distribution, categories, output_category_distribution_file, 
+    cluster_seq_number):
     if cluster_name != '':
         if categories != None:
             output_category_distribution_file.write(cluster_name)
+            output_category_distribution_file.write('\t' + str(cluster_seq_number))
             for category in categories:
                 output_category_distribution_file.write('\t')
                 output_category_distribution_file.write(str(cluster_category_distribution[category]))
@@ -54,28 +56,31 @@ def extract_cluster_info(args, mapping_info = None, categories = None):
             raise ValueError(string)
         output_category_distribution_file = open(
             args.output_category_distribution, 'w')
-        output_category_distribution_file.write('Cluster')
+        output_category_distribution_file.write('Cluster\tSequence_number')
         for category in categories:
             output_category_distribution_file.write('\t' + category)
+
         output_category_distribution_file.write('\n')
 
     with open(args.input_cluster_info,'r') as cluster_info_file:
         cluster_name = ''
         cluster_category_distribution = init_category_distribution(categories)
-        cluster_abundance_number = 0
         cluster_ref_seq = ''
+        cluster_seq_number = 0
         for line in cluster_info_file.readlines():
             if line[0] == '>':
                 flush_cluster_info(cluster_name, cluster_ref_seq, ref_seq_cluster, 
                     cluster_category_distribution, categories, 
-                    output_category_distribution_file)
+                    output_category_distribution_file, cluster_seq_number)
                 cluster_name = line[1:-1]
                 cluster_name = cluster_name.replace(' ','_') 
                 cluster_category_distribution = init_category_distribution(categories)
                 cluster_ref_seq = ''
+                cluster_seq_number = 0
             else:
                 seq_info = line[:-1].split('\t')[1].split(' ')
                 seq_name = seq_info[1][1:-3]
+                cluster_seq_number += 1
 
                 if categories != None:
                     seq_count = 1
@@ -102,7 +107,7 @@ def extract_cluster_info(args, mapping_info = None, categories = None):
 
         flush_cluster_info(cluster_name, cluster_ref_seq, ref_seq_cluster, 
             cluster_category_distribution, categories, 
-            output_category_distribution_file)
+            output_category_distribution_file, cluster_seq_number)
 
     if args.output_category_distribution != None:
         output_category_distribution_file.close()
