@@ -8,17 +8,17 @@
 
     <command interpreter="python"><![CDATA[
         format_cd_hit_output.py
-            --input_cluster_info=$input_cluster_info
+            --input_cluster_info $input_cluster_info
 
             #if $rename_representative_sequences.test
-                --input_representative_sequences=$rename_representative_sequences.input_representative_sequences
-                --output_representative_sequences=$output_representative_sequences
+                --input_representative_sequences $rename_representative_sequences.input_representative_sequences
+                --output_representative_sequences $output_representative_sequences
             #end if
 
             #if $extract_category_distribution.test
-                --input_mapping=$extract_category_distribution.input_mapping
-                --output_category_distribution=$output_category_distribution
-                --number_sum=$extract_category_distribution.number_sum
+                --input_mapping $extract_category_distribution.input_mapping
+                --output_category_distribution $output_category_distribution
+                --number_sum $extract_category_distribution.number_sum
             #end if
     ]]>
     </command>
