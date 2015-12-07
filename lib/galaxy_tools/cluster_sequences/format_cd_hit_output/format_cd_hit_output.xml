@@ -87,12 +87,8 @@
 **What it does**
 
 This tool format cd-hit outputs (cluster information and cluster representative 
-sequences) to:
-
-    * Rename the representative sequences with cluster name
-    * Extract category distribution of each cluster
-
-More information on ASaiM documentation...
+sequences) to rename the representative sequences with cluster name and/or extract 
+category distribution of each cluster
 
 -----
 
@@ -100,9 +96,13 @@ More information on ASaiM documentation...
 
 The tool takes as input:
 
-    * The cd-hit output file with cluster information
-    * The cd-hit output file with representative sequences for each cluster (optional)
-    * A mapping file in tabular format with first column being the sequence names (corresponding to the ones in cluster information file) and the second column being the corresponding categories (optional)
+ - The cd-hit output file with cluster information
+
+ - The cd-hit output file with representative sequences for each cluster (optional)
+
+ - A mapping file in tabular format with first column being the sequence names 
+   (corresponding to the ones in cluster information file) and the second column being 
+   the corresponding categories (optional)
 
 -----
 
@@ -110,11 +110,11 @@ The tool takes as input:
 
 The tool generates different outputs given the choosen parameters:
 
-    * A file with representative sequences of each cluster named with the cluster name
-    * A tabular file with 
-        * Lines: clusters
-        * Columns: categories + 1 one column with sequence number in the cluster
-        * Cases: number of sequences of the given category in the cluster
+ - A file with representative sequences of each cluster named with the cluster name
+
+ - A tabular file with lines corresponding to clusters, columns to categories (and
+   one column with sequence number in the cluster), and cases to number of sequences 
+   of the given category in the cluster
 
 ]]>
     </help>
