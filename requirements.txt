@@ -3,3 +3,5 @@ networkx
 planemo
 biom-format
 ansible
+bioblend
+pyyaml
