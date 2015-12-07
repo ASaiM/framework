@@ -65,7 +65,7 @@ For Debian, RHEL and MacOSX, all dependencies can be installed by running:
 ./src/install_dependencies.sh
 ```
 
-**Note:** `apt-get` is required for Debian, `yum` for RHEL and `homebrew` for MacOSX.
+**Note:** `apt-get` is required for Debian, `yum` for RHEL and `homebrew` and `MacPorts` for MacOSX.
 
 ## Configuration
 

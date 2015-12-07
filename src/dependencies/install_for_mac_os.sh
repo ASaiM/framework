@@ -34,3 +34,7 @@ install_dependency postgres
 
 echo "Install wget..."
 install_dependency wget
+
+echo "Install gcc48..."
+sudo port selfupdate
+sudo port install gcc48
