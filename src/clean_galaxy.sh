@@ -17,6 +17,7 @@ echo "===================="
 sudo rm -rf venv
 if [[ -d /private/tmp/venv/ ]]; then
     rm -rf /private/tmp/venv/
+fi
 echo ""
 
 echo "Drop database and user..."
