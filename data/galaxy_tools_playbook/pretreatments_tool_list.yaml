@@ -44,11 +44,13 @@ tools:
   install_tool_dependencies: True
   install_repository_dependencies: True
 - name: 'sortmerna'
-  owner: 'bebatut'
+  owner: 'rnateam'
   tool_panel_section_id: 'rna_manipulation'
   tool_shed_url: 'https://testtoolshed.g2.bx.psu.edu'
   install_tool_dependencies: True
   install_repository_dependencies: True
+  revision:
+    - 233da82dc31c
 #- name: 'reago'
 #  owner: 'bebatut'
 #  tool_panel_section_id: 'rna_manipulation'
