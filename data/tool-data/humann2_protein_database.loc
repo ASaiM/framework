@@ -10,4 +10,4 @@
 #
 #Since HUMAnN2 comes bundled with 1 nucleotide database (uniref), you can use it
 #by downloading it as explained above and uncommenting the following lines.
-uniref	Uniref	$HUMANN2_DIR/uniref/
+uniref	Uniref	$HUMANN2_DIR/databases/uniref/

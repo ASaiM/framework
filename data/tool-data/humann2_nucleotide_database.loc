@@ -10,4 +10,4 @@
 #
 #Since HUMAnN2 comes bundled with 1 nucleotide database (chocophlan), you can use it
 #by downloading it as explained above and uncommenting the following lines.
-chocophlan	ChocoPhlAn	$HUMANN2_DIR/chocophlan/
+chocophlan	ChocoPhlAn	$HUMANN2_DIR/databases/chocophlan/
