@@ -1,8 +1,7 @@
 #!/bin/bash
-. src/parse_yaml.sh
+. src/misc/parse_yaml.sh
 eval $(parse_yaml src/misc/config.yml "")
 
-db_dir=$1
 current_dir=$PWD
 
 echo "Prepare SortMeRNA databases..."

@@ -1,5 +1,5 @@
 #!/bin/bash
-. src/parse_yaml.sh
+. src/misc/parse_yaml.sh
 eval $(parse_yaml src/misc/config.yml "")
 
 echo "Remove local galaxy dir..."
