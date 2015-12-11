@@ -67,7 +67,7 @@ done
 
 for i in $( ls ${tool_playbook_files_dir}/ )
 do
-    create_symlink $tool_playbook_dir/files/$i $tool_playbook_files_dir/$i
+    cp $tool_playbook_files_dir/$i $tool_playbook_dir/files/$i 
 done
 
 echo ""
