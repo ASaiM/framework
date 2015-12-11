@@ -5,7 +5,15 @@ eval $(parse_yaml src/misc/config.yml "")
 current_dir=$PWD
 
 echo "Prepare SortMeRNA databases..."
-sortmerna_db_dir=$galaxy_dir/dependency_dir/sortmerna/2.0/bebatut/sortmerna/a6dc642c751a/rRNA_databases/
+revision=`python src/misc/parse_tool_playbook_yaml.py \
+    --file $tool_playbook_files_dir/pretreatments_tool_list.yaml \
+    --tool_name sortmerna \
+    --tool_function get_revision_number`
+owner=`python src/misc/parse_tool_playbook_yaml.py \
+    --file $tool_playbook_files_dir/pretreatments_tool_list.yaml \
+    --tool_name sortmerna \
+    --tool_function get_owner`
+sortmerna_db_dir=$galaxy_dir/dependency_dir/sortmerna/2.0/$owner/sortmerna/$revision/rRNA_databases/
 cd $sortmerna_db_dir
 indexdb_rna --ref rfam-5.8s-database-id98.fasta,rfam-5.8s-database-id98
 indexdb_rna --ref rfam-5s-database-id98.fasta,rfam-5s-database-id98
@@ -18,6 +26,21 @@ indexdb_rna --ref silva-euk-28s-id98.fasta,silva-euk-28s-id98
 cd $current_dir
 echo ""
 
+echo "Prepare HUMAnN2 databases..."
+revision=`python src/misc/parse_tool_playbook_yaml.py \
+    --file $tool_playbook_files_dir/functional_assignation_tool_list.yaml \
+    --tool_name humann2 \
+    --tool_function get_revision_number`
+owner=`python src/misc/parse_tool_playbook_yaml.py \
+    --file $tool_playbook_files_dir/functional_assignation_tool_list.yaml \
+    --tool_name humann2 \
+    --tool_function get_owner`
+humann2_db_dir=$galaxy_dir/dependency_dir/humann2/2.0/$owner/humann2/$revision/
+cd $humann2_db_dir
+humann2_databases --download chocophlan full databases/
+humann2_databases --download uniref diamond databases/
+cd $current_dir
+echo ""
 
 ## retrieve cog, extract info and formate for use with humann
 echo "COG downloading, extracting and formating..."
