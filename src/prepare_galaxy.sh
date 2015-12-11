@@ -64,6 +64,12 @@ do
         create_symlink $galaxy_dir/tools/$i $tool_dir/$i
     fi 
 done
+
+for i in $( ls ${tool_playbook_files_dir}/ )
+do
+    create_symlink $tool_playbook_dir/files/$i $tool_playbook_files_dir/$i
+done
+
 echo ""
 
 echo "Configure Galaxy"
