@@ -65,6 +65,7 @@ do
     fi 
 done
 
+mkdir $tool_playbook_dir/files/  
 for i in $( ls ${tool_playbook_files_dir}/ )
 do
     cp $tool_playbook_files_dir/$i $tool_playbook_dir/files/$i 
