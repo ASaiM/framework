@@ -10,8 +10,8 @@ import yaml
 def get_revision_number(yaml_content, tool_name):
     for tool in yaml_content['tools']:
         if tool["name"] == tool_name:
-            if tool.has_key("revision"):
-                print tool["revision"][0]
+            if tool.has_key("revisions"):
+                print tool["revisions"][0]
 
 def get_owner(yaml_content, tool_name):
     for tool in yaml_content['tools']:
