@@ -22,7 +22,10 @@ echo "Install openssl..."
 sudo apt-get install openssl
 
 echo "Install postgres..."
-sudo apt-get install postgres
+sudo apt-get install postgresql
 
 echo "Install wget..."
 sudo apt-get install wget
+
+echo "Install curl..."
+sudo apt-get install curl

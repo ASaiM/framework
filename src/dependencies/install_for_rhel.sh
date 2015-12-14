@@ -26,3 +26,6 @@ sudo yum install postgres*
 
 echo "Install wget..."
 sudo yum install wget
+
+echo "Install curl..."
+sudo yum install curl
