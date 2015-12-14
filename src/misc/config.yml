@@ -14,6 +14,6 @@ tool_playbook_files_dir: $data_dir/galaxy_tools_playbook/
 db_dir: $data_dir/db/
 
 master_api_key: "8a099e97b0a83c73ead9f5b0fe19f4be"
-port: "8080"
-host: "127.0.0.1"
+port: "80"
+host: "0.0.0.0"
 admin_users: "asaim-admin@asaim.com"
