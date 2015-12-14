@@ -1,7 +1,7 @@
 numpy
 networkx
 planemo
-biom-format
 ansible
 bioblend
 pyyaml
+biom-format
