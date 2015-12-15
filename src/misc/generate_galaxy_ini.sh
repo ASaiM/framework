@@ -23,7 +23,7 @@ generate_galaxy_ini() {
     echo "[app:main]" >> $1
     echo "use_pbkdf2 = False" >> $1
     echo "paste.app_factory = galaxy.web.buildapp:app_factory" >> $1
-    echo "database_connection=postgresql://galaxy:password@localhost:5432/asaim_galaxy" >> $1
+    echo "database_connection=postgresql://galaxy:password@localhost:5432/asaim_galaxy?client_encoding=utf8" >> $1
     echo "file_path = database/files" >> $1
     echo "new_file_path = database/tmp" >> $1
     echo "tool_config_file = config/tool_conf.xml,config/shed_tool_conf.xml" >> $1
