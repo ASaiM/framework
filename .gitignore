@@ -3,7 +3,7 @@ venv/*
 
 # Galaxy
 lib/galaxy-master/*
-lib/galaxy_tools_playbook/
+
 lib/galaxy_tools_playbook/files/
 lib/shed_tools/
 # Data/db
