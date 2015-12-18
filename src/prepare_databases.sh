@@ -2,7 +2,10 @@
 . src/misc/parse_yaml.sh
 eval $(parse_yaml src/misc/config.yml "")
 
+source venv/bin/activate
+
 current_dir=$PWD
+
 
 echo "Prepare SortMeRNA databases..."
 revision=`python src/misc/parse_tool_playbook_yaml.py \
