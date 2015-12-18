@@ -41,25 +41,8 @@ owner=`python src/misc/parse_tool_playbook_yaml.py \
 humann2_db_dir=$galaxy_dir/dependency_dir/humann2/2.0/$owner/humann2/$revision/
 cd $humann2_db_dir
 
-#humann2_databases --download chocophlan full databases/
-if [[ ! -d databases/chocophlan/whole_db ]]; then
-    mkdir databases/chocophlan/whole_db
-fi
-
-if [[ -f databases/chocophlan/whole_db/whole_db.ffn ]]; then
-    rm databases/chocophlan/whole_db/g__whole.s__db.ffn
-fi
-touch databases/chocophlan/whole_db/g__whole.s__db.ffn
-
-for i in $( ls databases/chocophlan )
-do
-    if [[ $i =~ \.gz$ ]]; then
-        gunzip databases/chocophlan/$i
-    fi
-    cat databases/chocophlan/$i >> databases/chocophlan/whole_db/g__whole.s__db.ffn
-done
-
-#humann2_databases --download uniref diamond databases/
+humann2_databases --download chocophlan full databases/
+humann2_databases --download uniref diamond databases/
 
 cd $current_dir
 echo ""
