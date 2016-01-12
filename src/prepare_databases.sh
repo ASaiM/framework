@@ -60,3 +60,12 @@ if [ ! -e $cog_dir/extracted_data/genels.gz ]; then
         --extracted_data_dir $cog_dir/extracted_data/
 fi
 echo ""
+
+
+## retrieve Greengenes for QIIME
+echo "Greengenes downloading, extracting and formating..."
+greengenes_dir=$db_dir/greengenes/
+cd $greengenes_dir
+wget ftp://greengenes.microbio.me/greengenes_release/gg_13_5/gg_13_8_otus.tar.gz
+tar xzf gg_13_8_otus.tar.gz
+rm gg_13_8_otus.tar.gz
