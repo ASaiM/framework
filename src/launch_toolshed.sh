@@ -13,7 +13,7 @@ function install_galaxy {
     rm master
 }
 cd $lib_dir/
-if [[ ! -d $local_galaxy_dir ]]; then
+if [[ ! -d $local_toolshed_dir ]]; then
     install_galaxy
 fi
 cd ../
