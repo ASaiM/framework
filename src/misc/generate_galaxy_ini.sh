@@ -33,6 +33,7 @@ generate_galaxy_ini() {
     echo "shed_tool_data_table_config = config/shed_tool_data_table_conf.xml" >> $1
     echo "tool_data_path = tool-data" >> $1
     echo "shed_tool_data_path = tool-data" >> $1
+    echo "sanitize_all_html = False" >> $1
     echo "" >> $1
     echo "use_nglims = False" >> $1
     echo "nglims_config_file = tool-data/nglims.yaml" >> $1
