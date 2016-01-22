@@ -34,6 +34,7 @@ function install_galaxy {
         wget https://codeload.github.com/galaxyproject/galaxy/tar.gz/$galaxy_branch
         tar -zxvf $galaxy_branch | tail
         rm $galaxy_branch
+    fi
 }
 cd $lib_dir/
 if [[ ! -d $local_galaxy_dir ]]; then
@@ -90,6 +91,8 @@ do
 done
 generate_galaxy_ini $galaxy_dir/config/galaxy.ini
 
+#cp data/text.py $galaxy_dir/lib/galaxy/datatypes/text.py
+
 # Tool data
 for i in $( ls $tool_data_dir )
 do 
@@ -121,6 +124,7 @@ echo "Launch Galaxy"
 echo "============="
 cd $galaxy_dir
 sh manage_db.sh upgrade
+#pip install -r requirements.txt
 if [ $to_do == 'launch' ] ; then
     sh run.sh --daemon
 elif [ $to_do == 'run_test' ] ; then
@@ -138,5 +142,5 @@ echo "==================="
 
 echo "Populate with databases"
 echo "======================="
-./src/prepare_databases.sh $db_dir
+#./src/prepare_databases.sh $db_dir
 echo ""
