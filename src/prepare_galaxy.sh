@@ -28,9 +28,12 @@ echo "Installing Galaxy"
 echo "================="
 # Getting the latest revision with wget from GitHub is faster than cloning it
 function install_galaxy {
-    wget https://codeload.github.com/galaxyproject/galaxy/tar.gz/master
-    tar -zxvf master | tail
-    rm master
+    if [[ $galaxy_branch == "dev" ]]; then
+        git clone https://github.com/galaxyproject/galaxy.git $local_galaxy_dir
+    else
+        wget https://codeload.github.com/galaxyproject/galaxy/tar.gz/$galaxy_branch
+        tar -zxvf $galaxy_branch | tail
+        rm $galaxy_branch
 }
 cd $lib_dir/
 if [[ ! -d $local_galaxy_dir ]]; then

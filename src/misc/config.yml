@@ -1,5 +1,6 @@
 lib_dir: lib
-local_galaxy_dir: galaxy-master
+galaxy_branch: dev
+local_galaxy_dir: galaxy-$galaxy_branch
 local_toolshed_dir: galaxy-toolshed
 galaxy_dir: $lib_dir/$local_galaxy_dir
 galaxy_tool_dir: $galaxy_dir/tools/
