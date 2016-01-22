@@ -20,6 +20,6 @@ if __name__ == '__main__':
         owner)[-1])
 
     gi.toolShed.install_repository_revision(ts_url, name, owner, changeset_revision,
-        install_tool_dependencies=True, install_repository_dependencies=False, 
+        install_tool_dependencies=True, install_repository_dependencies=True, 
         tool_panel_section_id=tool_panel_section_id)
 
