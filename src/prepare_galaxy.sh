@@ -1,23 +1,22 @@
 #!/bin/bash
 . src/misc/parse_yaml.sh
 . src/misc/generate_galaxy_ini.sh
+. src/install_galaxy.sh
 
 eval $(parse_yaml src/misc/config.yml "")
 
-if [ ! -d venv ]; then
-    echo "No virtual environment to activate"
-    echo -e "Relaunch it? (y/n)"
-    read 
-    if [ $REPLY == "y" ]; then
-        if [ ! -d venv ]; then
-            virtualenv --no-site-packages venv
-        fi
-        source venv/bin/activate
-        pip install -r requirements.txt
-        deactivate
-    fi
-fi
-source venv/bin/activate
+#if [ ! -d venv ]; then
+#    echo "No virtual environment to activate"
+#    echo -e "Relaunch it? (y/n)"
+#    read 
+#    if [ $REPLY == "y" ]; then
+#        virtualenv venv
+#        source venv/bin/activate
+#        pip --no-cache-dir install -r requirements.txt
+#        deactivate
+#    fi
+#fi
+#source venv/bin/activate
 
 to_do=$1
 current_dir=$PWD
@@ -27,18 +26,10 @@ mkdir tmp
 echo "Installing Galaxy"
 echo "================="
 # Getting the latest revision with wget from GitHub is faster than cloning it
-function install_galaxy {
-    if [[ $galaxy_branch == "dev" ]]; then
-        git clone https://github.com/galaxyproject/galaxy.git $local_galaxy_dir
-    else
-        wget https://codeload.github.com/galaxyproject/galaxy/tar.gz/$galaxy_branch
-        tar -zxvf $galaxy_branch | tail
-        rm $galaxy_branch
-    fi
-}
+
 cd $lib_dir/
 if [[ ! -d $local_galaxy_dir ]]; then
-    install_galaxy
+    install_galaxy $local_galaxy_dir
 fi
 cd ../
 echo ""
@@ -123,7 +114,7 @@ echo ""
 echo "Launch Galaxy"
 echo "============="
 cd $galaxy_dir
-sh manage_db.sh upgrade
+#sh manage_db.sh upgrade
 #pip install -r requirements.txt
 if [ $to_do == 'launch' ] ; then
     sh run.sh --daemon
@@ -132,6 +123,10 @@ elif [ $to_do == 'run_test' ] ; then
     python scripts/fetch_eggs.py
     python ./scripts/functional_tests.py -v `python tool_list.py Continuous-Integration-Travis`
 fi
+
+source .venv/bin/activate
+pip install -r $current_dir/requirements.txt
+
 cd $current_dir
 echo ""
 
