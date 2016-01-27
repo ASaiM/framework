@@ -1,0 +1,230 @@
+{
+    "a_galaxy_workflow": "true", 
+    "annotation": "", 
+    "format-version": "0.1", 
+    "name": "Metabolic assignation of microbiota data", 
+    "steps": {
+        "0": {
+            "annotation": "", 
+            "content_id": null, 
+            "id": 0, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "Input Dataset"
+                }
+            ], 
+            "label": null, 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 125.5, 
+                "top": 368
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"Input Dataset\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "uuid": "e69d1a1a-a65f-48fe-b42e-f85520659d69", 
+            "workflow_outputs": [
+                {
+                    "label": null, 
+                    "output_name": "output", 
+                    "uuid": "bd919324-8f30-40af-bf02-670265a8acd9"
+                }
+            ]
+        }, 
+        "1": {
+            "annotation": "", 
+            "content_id": "testtoolshed.g2.bx.psu.edu/repos/bebatut/humann2/humann2_renorm_table/0.1.0", 
+            "id": 1, 
+            "input_connections": {}, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Renormalize HUMAnN2 table", 
+            "outputs": [
+                {
+                    "name": "output_table", 
+                    "type": "tsv"
+                }
+            ], 
+            "position": {
+                "left": 852, 
+                "top": 451
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "testtoolshed.g2.bx.psu.edu/repos/bebatut/humann2/humann2_renorm_table/0.1.0", 
+            "tool_state": "{\"__page__\": 0, \"input_table\": \"null\", \"__rerun_remap_job_id__\": null, \"norm\": \"\\\"cpm\\\"\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "uuid": "78f70108-ed24-41ec-bca0-e88006ce0fe7", 
+            "workflow_outputs": [
+                {
+                    "label": "Normalized gene family abundance", 
+                    "output_name": "output_table", 
+                    "uuid": "998ffdfc-6756-4a16-a82f-96982ec1b859"
+                }
+            ]
+        }, 
+        "2": {
+            "annotation": "", 
+            "content_id": "testtoolshed.g2.bx.psu.edu/repos/bebatut/humann2/humann2_renorm_table/0.1.0", 
+            "id": 2, 
+            "input_connections": {}, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Renormalize HUMAnN2 table", 
+            "outputs": [
+                {
+                    "name": "output_table", 
+                    "type": "tsv"
+                }
+            ], 
+            "position": {
+                "left": 855, 
+                "top": 588
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "testtoolshed.g2.bx.psu.edu/repos/bebatut/humann2/humann2_renorm_table/0.1.0", 
+            "tool_state": "{\"__page__\": 0, \"input_table\": \"null\", \"__rerun_remap_job_id__\": null, \"norm\": \"\\\"cpm\\\"\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "uuid": "47b0179a-7467-4f99-ac61-23857f08cf25", 
+            "workflow_outputs": [
+                {
+                    "label": "Normalized pathway coverage", 
+                    "output_name": "output_table", 
+                    "uuid": "637d7c28-9847-4733-a086-eaa3b10298cd"
+                }
+            ]
+        }, 
+        "3": {
+            "annotation": "", 
+            "content_id": "testtoolshed.g2.bx.psu.edu/repos/bebatut/humann2/humann2_renorm_table/0.1.0", 
+            "id": 3, 
+            "input_connections": {}, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Renormalize HUMAnN2 table", 
+            "outputs": [
+                {
+                    "name": "output_table", 
+                    "type": "tsv"
+                }
+            ], 
+            "position": {
+                "left": 844, 
+                "top": 730
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "testtoolshed.g2.bx.psu.edu/repos/bebatut/humann2/humann2_renorm_table/0.1.0", 
+            "tool_state": "{\"__page__\": 0, \"input_table\": \"null\", \"__rerun_remap_job_id__\": null, \"norm\": \"\\\"cpm\\\"\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "uuid": "9accad8b-048b-4b42-98e6-f78eb051c5c8", 
+            "workflow_outputs": [
+                {
+                    "label": "Normalized pathway abundance", 
+                    "output_name": "output_table", 
+                    "uuid": "fae33ed4-af06-4527-8174-b9068f62b645"
+                }
+            ]
+        }, 
+        "4": {
+            "annotation": "", 
+            "content_id": "testtoolshed.g2.bx.psu.edu/repos/bebatut/humann2/humann2/0.1.0", 
+            "id": 4, 
+            "input_connections": {
+                "input_file": {
+                    "id": 0, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "HUMAnN2", 
+            "outputs": [
+                {
+                    "name": "gene_families_tsv", 
+                    "type": "tsv"
+                }, 
+                {
+                    "name": "gene_families_biom", 
+                    "type": "biom"
+                }, 
+                {
+                    "name": "pathcoverage_tsv", 
+                    "type": "tsv"
+                }, 
+                {
+                    "name": "pathcoverage_biom", 
+                    "type": "biom"
+                }, 
+                {
+                    "name": "pathabundance_tsv", 
+                    "type": "tsv"
+                }, 
+                {
+                    "name": "pathabundance_biom", 
+                    "type": "biom"
+                }
+            ], 
+            "position": {
+                "left": 484.5, 
+                "top": 430
+            }, 
+            "post_job_actions": {
+                "ChangeDatatypeActionpathabundance_tsv": {
+                    "action_arguments": {
+                        "newtype": "tabular"
+                    }, 
+                    "action_type": "ChangeDatatypeAction", 
+                    "output_name": "pathabundance_tsv"
+                }, 
+                "HideDatasetActiongene_families_biom": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "gene_families_biom"
+                }, 
+                "HideDatasetActiongene_families_tsv": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "gene_families_tsv"
+                }, 
+                "HideDatasetActionpathabundance_biom": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "pathabundance_biom"
+                }, 
+                "HideDatasetActionpathabundance_tsv": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "pathabundance_tsv"
+                }, 
+                "HideDatasetActionpathcoverage_biom": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "pathcoverage_biom"
+                }, 
+                "HideDatasetActionpathcoverage_tsv": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "pathcoverage_tsv"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "testtoolshed.g2.bx.psu.edu/repos/bebatut/humann2/humann2/0.1.0", 
+            "tool_state": "{\"__page__\": 0, \"taxonomic_profile\": \"{\\\"taxonomic_profile_test\\\": \\\"False\\\", \\\"__current_case__\\\": 1}\", \"nucleotide_database\": \"\\\"chocophlan\\\"\", \"prescreen\": \"\\\"0.01\\\"\", \"input_file\": \"null\", \"output_format\": \"\\\"tsv\\\"\", \"protein_database\": \"\\\"uniref\\\"\", \"minpath\": \"\\\"True\\\"\", \"remove_statified_output\": \"\\\"False\\\"\", \"output_max_dec\": \"\\\"10\\\"\", \"xipe\": \"\\\"False\\\"\", \"pick_frames\": \"\\\"True\\\"\", \"e_value\": \"\\\"1.0\\\"\", \"__rerun_remap_job_id__\": null, \"identity\": \"\\\"40\\\"\", \"pathways\": \"\\\"metacyc\\\"\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "uuid": "aff8960a-ef83-4a08-be37-94ebde38a59c", 
+            "workflow_outputs": []
+        }
+    }, 
+    "uuid": "6d324807-61d0-4a36-a593-5e84e72935e9"
+}

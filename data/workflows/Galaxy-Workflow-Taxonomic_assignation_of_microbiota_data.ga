@@ -1,0 +1,297 @@
+{
+    "a_galaxy_workflow": "true", 
+    "annotation": "", 
+    "format-version": "0.1", 
+    "name": "Taxonomic assignation of microbiota data", 
+    "steps": {
+        "0": {
+            "annotation": "", 
+            "content_id": "172.21.23.6:9009/repos/iuc/qiime/qiime_validate_mapping_file/1.9.1", 
+            "id": 0, 
+            "input_connections": {}, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Validate mapping file", 
+            "outputs": [
+                {
+                    "name": "html_report", 
+                    "type": "html"
+                }, 
+                {
+                    "name": "log", 
+                    "type": "txt"
+                }, 
+                {
+                    "name": "mapping_fp_corrected", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 308, 
+                "top": 314
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionhtml_report": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "html_report"
+                }, 
+                "HideDatasetActionlog": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "log"
+                }, 
+                "HideDatasetActionmapping_fp_corrected": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "mapping_fp_corrected"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "172.21.23.6:9009/repos/iuc/qiime/qiime_validate_mapping_file/1.9.1", 
+            "tool_state": "{\"__page__\": 0, \"variable_len_barcodes\": \"\\\"True\\\"\", \"suppress_html\": \"\\\"False\\\"\", \"__rerun_remap_job_id__\": null, \"char_replace\": \"\\\"_\\\"\", \"added_demultiplex_field\": \"\\\"\\\"\", \"mapping_fp\": \"null\", \"not_barcoded\": \"\\\"True\\\"\", \"disable_primer_check\": \"\\\"False\\\"\", \"verbose\": \"\\\"False\\\"\"}", 
+            "tool_version": "1.9.1", 
+            "type": "tool", 
+            "uuid": "3989e532-b4c8-4ee6-a16b-010c730d0c48", 
+            "workflow_outputs": []
+        }, 
+        "1": {
+            "annotation": "", 
+            "content_id": null, 
+            "id": 1, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "Sequences"
+                }
+            ], 
+            "label": null, 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 160, 
+                "top": 498
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"Sequences\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "uuid": "148fba98-3238-4cf2-87df-d2df488e9f53", 
+            "workflow_outputs": []
+        }, 
+        "2": {
+            "annotation": "", 
+            "content_id": "172.21.23.6:9009/repos/iuc/qiime/qiime_split_libraries/1.9.1", 
+            "id": 2, 
+            "input_connections": {
+                "input_files_fasta": {
+                    "id": 1, 
+                    "output_name": "output"
+                }, 
+                "mapping_fp": {
+                    "id": 0, 
+                    "output_name": "html_report"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Split libraries", 
+            "outputs": [
+                {
+                    "name": "sequences", 
+                    "type": "fasta"
+                }, 
+                {
+                    "name": "log", 
+                    "type": "txt"
+                }, 
+                {
+                    "name": "histograms", 
+                    "type": "txt"
+                }, 
+                {
+                    "name": "quality", 
+                    "type": "qual,qual454,qualillumina,qualsolexa,qualsolid"
+                }
+            ], 
+            "position": {
+                "left": 632, 
+                "top": 567
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionhistograms": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "histograms"
+                }, 
+                "HideDatasetActionlog": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "log"
+                }, 
+                "HideDatasetActionquality": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "quality"
+                }, 
+                "HideDatasetActionsequences": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "sequences"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "172.21.23.6:9009/repos/iuc/qiime/qiime_split_libraries/1.9.1", 
+            "tool_state": "{\"max_barcode_errors\": \"\\\"1.5\\\"\", \"max_ambig\": \"\\\"6\\\"\", \"trim_seq_length\": \"\\\"False\\\"\", \"keep_barcode\": \"\\\"False\\\"\", \"max_homopolymer\": \"\\\"6\\\"\", \"barcode_type\": \"{\\\"barcode_selector\\\": \\\"golay_12\\\", \\\"__current_case__\\\": 1}\", \"__page__\": 0, \"start_numbering_at\": \"\\\"1\\\"\", \"__rerun_remap_job_id__\": null, \"truncate_ambi_bases\": \"\\\"False\\\"\", \"min_seq_length\": \"\\\"200\\\"\", \"max_primer_mismatch\": \"\\\"0\\\"\", \"reverse_primers\": \"{\\\"reverse_primers_test\\\": \\\"\\\", \\\"__current_case__\\\": 0}\", \"median_length_filtering\": \"\\\"\\\"\", \"discard_bad_windows\": \"\\\"False\\\"\", \"keep_primer\": \"\\\"False\\\"\", \"retain_unassigned_reads\": \"\\\"False\\\"\", \"added_demultiplex_field\": \"\\\"\\\"\", \"mapping_fp\": \"null\", \"input_files_fasta\": \"null\", \"disable_bc_correction\": \"\\\"False\\\"\", \"disable_primers\": \"\\\"False\\\"\", \"max_seq_length\": \"\\\"1000\\\"\", \"min_qual_score\": \"\\\"25\\\"\", \"qual_score_window\": \"\\\"0\\\"\", \"record_qual_scores\": \"\\\"False\\\"\", \"input_files_qual\": \"null\"}", 
+            "tool_version": "1.9.1", 
+            "type": "tool", 
+            "uuid": "e242a852-c0c5-4941-ae44-c6d4e7de5a16", 
+            "workflow_outputs": []
+        }, 
+        "3": {
+            "annotation": "", 
+            "content_id": "172.21.23.6:9009/repos/iuc/qiime/pick_open_reference_otus/1.9.1", 
+            "id": 3, 
+            "input_connections": {
+                "input_seq_files": {
+                    "id": 2, 
+                    "output_name": "sequences"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Perform open-reference OTU picking", 
+            "outputs": [
+                {
+                    "name": "output_rep_set", 
+                    "type": "fasta"
+                }, 
+                {
+                    "name": "output_ref_set", 
+                    "type": "fasta"
+                }, 
+                {
+                    "name": "output_otu_table", 
+                    "type": "tsv"
+                }, 
+                {
+                    "name": "output_otu_table_taxonomy", 
+                    "type": "tsv"
+                }, 
+                {
+                    "name": "output_otu_table_no_failures", 
+                    "type": "tsv"
+                }, 
+                {
+                    "name": "output_otu_map", 
+                    "type": "txt"
+                }, 
+                {
+                    "name": "output_rep_set_tree", 
+                    "type": "txt"
+                }
+            ], 
+            "position": {
+                "left": 941, 
+                "top": 634
+            }, 
+            "post_job_actions": {
+                "ChangeDatatypeActionoutput_otu_table_taxonomy": {
+                    "action_arguments": {
+                        "newtype": "tabular"
+                    }, 
+                    "action_type": "ChangeDatatypeAction", 
+                    "output_name": "output_otu_table_taxonomy"
+                }, 
+                "HideDatasetActionoutput_otu_map": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_otu_map"
+                }, 
+                "HideDatasetActionoutput_otu_table": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_otu_table"
+                }, 
+                "HideDatasetActionoutput_otu_table_no_failures": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_otu_table_no_failures"
+                }, 
+                "HideDatasetActionoutput_ref_set": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_ref_set"
+                }, 
+                "HideDatasetActionoutput_rep_set": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_rep_set"
+                }, 
+                "HideDatasetActionoutput_rep_set_tree": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_rep_set_tree"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "172.21.23.6:9009/repos/iuc/qiime/pick_open_reference_otus/1.9.1", 
+            "tool_state": "{\"step1_otu_map_fp\": \"null\", \"__page__\": 0, \"minimum_failure_threshold\": \"\\\"100000\\\"\", \"suppress_align_and_tree\": \"\\\"False\\\"\", \"otu_picking_method\": \"\\\"uclust\\\"\", \"reference_sequences\": \"{\\\"cached_database\\\": \\\"\\\", \\\"reference_sequences_selector\\\": \\\"cached\\\", \\\"__current_case__\\\": 0}\", \"min_otu_size\": \"\\\"2\\\"\", \"__rerun_remap_job_id__\": null, \"suppress_taxonomy_assignment\": \"\\\"False\\\"\", \"prefilter_refseqs_fp\": \"{\\\"__current_case__\\\": 1, \\\"difference_test\\\": \\\"False\\\"}\", \"new_ref_set_id\": \"\\\"New\\\"\", \"prefilter_percent_id\": \"\\\"0.0\\\"\", \"step1_failures_fasta_fp\": \"null\", \"input_seq_files\": \"null\", \"suppress_step4\": \"\\\"False\\\"\", \"parallel\": \"\\\"False\\\"\", \"percent_subsample\": \"\\\"0.001\\\"\"}", 
+            "tool_version": "1.9.1", 
+            "type": "tool", 
+            "uuid": "3fb3e6fa-ccbb-4e0a-b867-67acbc25bba0", 
+            "workflow_outputs": [
+                {
+                    "label": "OTU table with taxonomy", 
+                    "output_name": "output_otu_table_taxonomy", 
+                    "uuid": "49715382-d169-4e8a-a1c4-81c573b3afe4"
+                }
+            ]
+        }, 
+        "4": {
+            "annotation": "", 
+            "content_id": "172.21.23.6:9009/repos/iuc/qiime/qiime_core_diversity/1.9.1", 
+            "id": 4, 
+            "input_connections": {
+                "input_biom_fp": {
+                    "id": 3, 
+                    "output_name": "output_otu_table_taxonomy"
+                }, 
+                "mapping_fp": {
+                    "id": 0, 
+                    "output_name": "html_report"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Compute core set of diversity analyses", 
+            "outputs": [
+                {
+                    "name": "html_report", 
+                    "type": "html"
+                }
+            ], 
+            "position": {
+                "left": 1342.5, 
+                "top": 458
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "172.21.23.6:9009/repos/iuc/qiime/qiime_core_diversity/1.9.1", 
+            "tool_state": "{\"__page__\": 0, \"suppress_alpha_diversity\": \"\\\"False\\\"\", \"suppress_taxa_summary\": \"\\\"False\\\"\", \"__rerun_remap_job_id__\": null, \"phylogenetic\": \"{\\\"__current_case__\\\": 3, \\\"nonphylogenetic_diversity\\\": \\\"False\\\"}\", \"input_biom_fp\": \"null\", \"parameter_fp\": \"null\", \"parallel\": \"\\\"True\\\"\", \"sampling_depth\": \"\\\"\\\"\", \"mapping_fp\": \"null\", \"suppress_group_significance\": \"\\\"False\\\"\", \"suppress_beta_diversity\": \"\\\"False\\\"\", \"categories\": \"\\\"\\\"\"}", 
+            "tool_version": "1.9.1", 
+            "type": "tool", 
+            "uuid": "6ae2884c-6013-46c4-a8e5-6fbdc13f82af", 
+            "workflow_outputs": [
+                {
+                    "label": "Core diversity output", 
+                    "output_name": "html_report", 
+                    "uuid": "6f0bac7d-a447-49fd-b720-5d6ec3d99733"
+                }
+            ]
+        }
+    }, 
+    "uuid": "a8927c1a-63c0-4393-be6a-3651553475d5"
+}

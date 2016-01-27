@@ -1,0 +1,1305 @@
+{
+    "a_galaxy_workflow": "true", 
+    "annotation": "", 
+    "format-version": "0.1", 
+    "name": "Analysis of microbiota data", 
+    "steps": {
+        "0": {
+            "annotation": "", 
+            "content_id": null, 
+            "id": 0, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "Input Dataset"
+                }
+            ], 
+            "label": null, 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 200, 
+                "top": 301
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"Input Dataset\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "uuid": "ea53fb16-2e83-4d5b-9703-559a4de07e5c", 
+            "workflow_outputs": [
+                {
+                    "label": null, 
+                    "output_name": "output", 
+                    "uuid": "b4f4e056-63f0-49b4-8858-aaa2a1ef7727"
+                }
+            ]
+        }, 
+        "1": {
+            "annotation": "", 
+            "id": 1, 
+            "input_connections": {
+                "Input Dataset": {
+                    "id": 0, 
+                    "input_subworkflow_step_id": 0, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Pretreatments of microbiota data (paired-end)", 
+            "outputs": [], 
+            "position": {
+                "left": 410, 
+                "top": 284
+            }, 
+            "subworkflow": {
+                "a_galaxy_workflow": "true", 
+                "annotation": "", 
+                "format-version": "0.1", 
+                "name": "Pretreatments of microbiota data (paired-end)", 
+                "steps": {
+                    "0": {
+                        "annotation": "", 
+                        "content_id": null, 
+                        "id": 0, 
+                        "input_connections": {}, 
+                        "inputs": [
+                            {
+                                "description": "", 
+                                "name": "Input Dataset"
+                            }
+                        ], 
+                        "label": null, 
+                        "name": "Input dataset", 
+                        "outputs": [], 
+                        "position": {
+                            "left": 200, 
+                            "top": 380
+                        }, 
+                        "tool_errors": null, 
+                        "tool_id": null, 
+                        "tool_state": "{\"name\": \"Input Dataset\"}", 
+                        "tool_version": null, 
+                        "type": "data_input", 
+                        "uuid": "55179073-c192-44dd-a27c-a5ff17e8ac09", 
+                        "workflow_outputs": [
+                            {
+                                "label": null, 
+                                "output_name": "output", 
+                                "uuid": "32fe5bd7-9321-4b8b-a5b9-1f8fa75c6a6c"
+                            }
+                        ]
+                    }, 
+                    "1": {
+                        "annotation": "", 
+                        "content_id": "toolshed.g2.bx.psu.edu/repos/devteam/fastqc/fastqc/0.64", 
+                        "id": 1, 
+                        "input_connections": {
+                            "input_file": {
+                                "id": 0, 
+                                "output_name": "output"
+                            }
+                        }, 
+                        "inputs": [], 
+                        "label": null, 
+                        "name": "FastQC", 
+                        "outputs": [
+                            {
+                                "name": "html_file", 
+                                "type": "html"
+                            }, 
+                            {
+                                "name": "text_file", 
+                                "type": "txt"
+                            }
+                        ], 
+                        "position": {
+                            "left": 531, 
+                            "top": 227
+                        }, 
+                        "post_job_actions": {
+                            "HideDatasetActiontext_file": {
+                                "action_arguments": {}, 
+                                "action_type": "HideDatasetAction", 
+                                "output_name": "text_file"
+                            }
+                        }, 
+                        "tool_errors": null, 
+                        "tool_id": "toolshed.g2.bx.psu.edu/repos/devteam/fastqc/fastqc/0.64", 
+                        "tool_state": "{\"__page__\": 0, \"contaminants\": \"null\", \"__rerun_remap_job_id__\": null, \"limits\": \"null\", \"input_file\": \"null\"}", 
+                        "tool_version": "0.64", 
+                        "type": "tool", 
+                        "uuid": "3fa1f46f-c339-4c28-9005-0d4fb4acfc74", 
+                        "workflow_outputs": [
+                            {
+                                "label": "Quality report", 
+                                "output_name": "html_file", 
+                                "uuid": "fac54c92-2dc5-41ac-b33c-de6f675fc5ba"
+                            }
+                        ]
+                    }, 
+                    "2": {
+                        "annotation": "", 
+                        "content_id": "testtoolshed.g2.bx.psu.edu/repos/bebatut/prinseq/prinseq/0.1.0", 
+                        "id": 2, 
+                        "input_connections": {
+                            "sequence_to_control_file": {
+                                "id": 0, 
+                                "output_name": "output"
+                            }
+                        }, 
+                        "inputs": [], 
+                        "label": null, 
+                        "name": "PRINSEQ", 
+                        "outputs": [
+                            {
+                                "name": "good_sequence_file", 
+                                "type": "fastq"
+                            }, 
+                            {
+                                "name": "rejected_sequence_file", 
+                                "type": "fastq"
+                            }
+                        ], 
+                        "position": {
+                            "left": 535, 
+                            "top": 526
+                        }, 
+                        "post_job_actions": {
+                            "ChangeDatatypeActiongood_sequence_file": {
+                                "action_arguments": {
+                                    "newtype": "fastqsanger"
+                                }, 
+                                "action_type": "ChangeDatatypeAction", 
+                                "output_name": "good_sequence_file"
+                            }, 
+                            "HideDatasetActiongood_sequence_file": {
+                                "action_arguments": {}, 
+                                "action_type": "HideDatasetAction", 
+                                "output_name": "good_sequence_file"
+                            }, 
+                            "HideDatasetActionrejected_sequence_file": {
+                                "action_arguments": {}, 
+                                "action_type": "HideDatasetAction", 
+                                "output_name": "rejected_sequence_file"
+                            }
+                        }, 
+                        "tool_errors": null, 
+                        "tool_id": "testtoolshed.g2.bx.psu.edu/repos/bebatut/prinseq/prinseq/0.1.0", 
+                        "tool_state": "{\"__page__\": 0, \"__rerun_remap_job_id__\": null, \"filter_treatments\": \"{\\\"complexity_filter_treatments\\\": {\\\"apply_complexity_filter_treatments\\\": \\\"False\\\", \\\"__current_case__\\\": 1}, \\\"length_filter_treatments\\\": {\\\"min_length_filter_treatments\\\": {\\\"min_length_filter_treatment_value\\\": \\\"60\\\", \\\"apply_min_length_filter_treatments\\\": \\\"True\\\", \\\"__current_case__\\\": 0}, \\\"apply_length_filter_treatments\\\": \\\"True\\\", \\\"max_length_filter_treatments\\\": {\\\"apply_max_length_filter_treatments\\\": \\\"False\\\", \\\"__current_case__\\\": 1}, \\\"__current_case__\\\": 0}, \\\"apply_filter_treatments\\\": \\\"True\\\", \\\"__current_case__\\\": 0, \\\"base_content_filter_treatments\\\": {\\\"__current_case__\\\": 0, \\\"N_number_content_filter_treatments\\\": {\\\"apply_N_number_content_filter_treatments\\\": \\\"False\\\", \\\"__current_case__\\\": 1}, \\\"apply_other_base_content_filter_treatments\\\": \\\"False\\\", \\\"N_percentage_content_filter_treatments\\\": {\\\"N_percentage_content_filter_treatment_value\\\": \\\"2\\\", \\\"__current_case__\\\": 0, \\\"apply_N_percentage_content_filter_treatments\\\": \\\"True\\\"}, \\\"GC_perc_content_filter_treatments\\\": {\\\"apply_GC_perc_content_filter_treatments\\\": \\\"False\\\", \\\"__current_case__\\\": 1}, \\\"apply_base_content_filter_treatments\\\": \\\"True\\\"}, \\\"quality_filter_treatments\\\": {\\\"mean_quality_filter_treatments\\\": {\\\"apply_mean_quality_filter_treatments\\\": \\\"True\\\", \\\"max_mean_quality_filter_treatments\\\": {\\\"apply_max_mean_quality_filter_treatments\\\": \\\"False\\\", \\\"__current_case__\\\": 1}, \\\"__current_case__\\\": 0, \\\"min_mean_quality_filter_treatments\\\": {\\\"apply_min_mean_quality_filter_treatments\\\": \\\"True\\\", \\\"__current_case__\\\": 0, \\\"min_mean_quality_filter_treatment_value\\\": \\\"15\\\"}}, \\\"max_quality_filter_treatments\\\": {\\\"apply_max_quality_filter_treatments\\\": \\\"False\\\", \\\"__current_case__\\\": 1}, \\\"min_quality_filter_treatments\\\": {\\\"apply_min_quality_filter_treatments\\\": \\\"False\\\", \\\"__current_case__\\\": 1}, \\\"apply_quality_filter_treatments\\\": \\\"True\\\", \\\"__current_case__\\\": 0}}\", \"sequence_to_control_file\": \"null\", \"trimming_treatments\": \"{\\\"length_trimming_treatments\\\": {\\\"apply_length_trimming_treatments\\\": \\\"False\\\", \\\"__current_case__\\\": 1}, \\\"quality_trimming_treatments\\\": {\\\"type_quality_trimming_treatments\\\": \\\"min\\\", \\\"step_quality_trimming_treatments\\\": \\\"1\\\", \\\"apply_quality_trimming_treatments\\\": \\\"True\\\", \\\"window_quality_trimming_treatments\\\": \\\"1\\\", \\\"__current_case__\\\": 0, \\\"right_quality_trimming_treatments\\\": {\\\"right_quality_trimming_treatment_value\\\": \\\"20\\\", \\\"apply_right_quality_trimming_treatments\\\": \\\"True\\\", \\\"__current_case__\\\": 0}, \\\"rule_quality_trimming_treatments\\\": \\\"lt\\\", \\\"left_quality_trimming_treatments\\\": {\\\"apply_left_quality_trimming_treatments\\\": \\\"False\\\", \\\"__current_case__\\\": 1}}, \\\"apply_trimming_treatments\\\": \\\"True\\\", \\\"tail_trimming_treatments\\\": {\\\"apply_tail_trimming_treatments\\\": \\\"False\\\", \\\"__current_case__\\\": 1}, \\\"__current_case__\\\": 0, \\\"position_trimming_treatments\\\": {\\\"apply_position_trimming_treatments\\\": \\\"False\\\", \\\"__current_case__\\\": 1}}\"}", 
+                        "tool_version": "0.1.0", 
+                        "type": "tool", 
+                        "uuid": "76c7793b-53c0-4432-b5c0-eb777c803633", 
+                        "workflow_outputs": []
+                    }, 
+                    "3": {
+                        "annotation": "", 
+                        "content_id": "testtoolshed.g2.bx.psu.edu/repos/rnateam/sortmerna/bg_sortmerna/2.1.0", 
+                        "id": 3, 
+                        "input_connections": {
+                            "input_reads": {
+                                "id": 2, 
+                                "output_name": "good_sequence_file"
+                            }
+                        }, 
+                        "inputs": [], 
+                        "label": null, 
+                        "name": "Filter with SortMeRNA", 
+                        "outputs": [
+                            {
+                                "name": "output_fastx", 
+                                "type": "fasta"
+                            }, 
+                            {
+                                "name": "output_other", 
+                                "type": "fasta"
+                            }, 
+                            {
+                                "name": "output_sam", 
+                                "type": "sam"
+                            }, 
+                            {
+                                "name": "output_blast", 
+                                "type": "tabular"
+                            }, 
+                            {
+                                "name": "output_log", 
+                                "type": "txt"
+                            }
+                        ], 
+                        "position": {
+                            "left": 843.5, 
+                            "top": 475
+                        }, 
+                        "post_job_actions": {
+                            "HideDatasetActionoutput_blast": {
+                                "action_arguments": {}, 
+                                "action_type": "HideDatasetAction", 
+                                "output_name": "output_blast"
+                            }, 
+                            "HideDatasetActionoutput_log": {
+                                "action_arguments": {}, 
+                                "action_type": "HideDatasetAction", 
+                                "output_name": "output_log"
+                            }, 
+                            "HideDatasetActionoutput_sam": {
+                                "action_arguments": {}, 
+                                "action_type": "HideDatasetAction", 
+                                "output_name": "output_sam"
+                            }
+                        }, 
+                        "tool_errors": null, 
+                        "tool_id": "testtoolshed.g2.bx.psu.edu/repos/rnateam/sortmerna/bg_sortmerna/2.1.0", 
+                        "tool_state": "{\"__page__\": 0, \"aligned_fastx\": \"{\\\"aligned_fastx_selector\\\": \\\"--fastx\\\", \\\"other\\\": \\\"False\\\", \\\"__current_case__\\\": 0}\", \"aligned_sam\": \"{\\\"aligned_sam_selector\\\": \\\"--sam\\\", \\\"sq\\\": \\\"False\\\", \\\"__current_case__\\\": 0}\", \"log\": \"\\\"False\\\"\", \"input_reads\": \"null\", \"__rerun_remap_job_id__\": null, \"mismatch\": \"\\\"-3\\\"\", \"sequencing_type\": \"{\\\"sequencing_type_selector\\\": \\\"not_paired\\\", \\\"__current_case__\\\": 0}\", \"ambiguous_letter\": \"\\\"-3\\\"\", \"aligned_blast\": \"\\\"\\\"\", \"databases_type\": \"{\\\"databases_selector\\\": \\\"cached\\\", \\\"input_databases\\\": [\\\"silva-arc-16s-id95\\\", \\\"silva-arc-23s-id98\\\", \\\"silva-bac-16s-id90\\\", \\\"silva-bac-23s-id98\\\", \\\"silva-euk-18s-id95\\\", \\\"silva-euk-29s-id98\\\"], \\\"__current_case__\\\": 0}\", \"match\": \"\\\"2\\\"\", \"gap_open\": \"\\\"5\\\"\", \"report\": \"{\\\"report_best\\\": {\\\"report_best_min_lis\\\": \\\"2\\\", \\\"report_best_type\\\": \\\"1\\\", \\\"__current_case__\\\": 1}, \\\"report_type\\\": \\\"best\\\", \\\"__current_case__\\\": 0}\", \"e_value\": \"\\\"1.0\\\"\", \"strand_search\": \"\\\"\\\"\", \"gap_ext\": \"\\\"2\\\"\"}", 
+                        "tool_version": "2.1.0", 
+                        "type": "tool", 
+                        "uuid": "27c11067-7a49-481d-a0b1-6c72bf4f6190", 
+                        "workflow_outputs": [
+                            {
+                                "label": "non rRNA sequences", 
+                                "output_name": "output_other", 
+                                "uuid": "11572177-696f-4763-819e-df97fd4ad79c"
+                            }, 
+                            {
+                                "label": "rRNA sequences", 
+                                "output_name": "output_fastx", 
+                                "uuid": "0ea0be3e-1e6d-490c-ad04-5a2a1adeadc5"
+                            }
+                        ]
+                    }, 
+                    "4": {
+                        "annotation": "", 
+                        "content_id": "toolshed.g2.bx.psu.edu/repos/devteam/fastq_to_fasta/cshl_fastq_to_fasta/1.0.0", 
+                        "id": 4, 
+                        "input_connections": {
+                            "input": {
+                                "id": 2, 
+                                "output_name": "good_sequence_file"
+                            }
+                        }, 
+                        "inputs": [], 
+                        "label": null, 
+                        "name": "FASTQ to FASTA", 
+                        "outputs": [
+                            {
+                                "name": "output", 
+                                "type": "fasta"
+                            }
+                        ], 
+                        "position": {
+                            "left": 836, 
+                            "top": 708
+                        }, 
+                        "post_job_actions": {
+                            "HideDatasetActionoutput": {
+                                "action_arguments": {}, 
+                                "action_type": "HideDatasetAction", 
+                                "output_name": "output"
+                            }
+                        }, 
+                        "tool_errors": null, 
+                        "tool_id": "toolshed.g2.bx.psu.edu/repos/devteam/fastq_to_fasta/cshl_fastq_to_fasta/1.0.0", 
+                        "tool_state": "{\"input\": \"null\", \"RENAMESEQ\": \"\\\"-r\\\"\", \"SKIPN\": \"\\\"\\\"\", \"__rerun_remap_job_id__\": null, \"__page__\": 0}", 
+                        "tool_version": "1.0.0", 
+                        "type": "tool", 
+                        "uuid": "61bfabaf-6d23-4cad-b75d-1692e9736116", 
+                        "workflow_outputs": []
+                    }, 
+                    "5": {
+                        "annotation": "", 
+                        "content_id": "testtoolshed.g2.bx.psu.edu/repos/rnateam/reago/reago/0.1.0", 
+                        "id": 5, 
+                        "input_connections": {
+                            "r1_file": {
+                                "id": 4, 
+                                "output_name": "output"
+                            }
+                        }, 
+                        "inputs": [], 
+                        "label": null, 
+                        "name": "Reago", 
+                        "outputs": [
+                            {
+                                "name": "full_genes", 
+                                "type": "fasta"
+                            }, 
+                            {
+                                "name": "fragments", 
+                                "type": "fasta"
+                            }
+                        ], 
+                        "position": {
+                            "left": 1051.5, 
+                            "top": 745
+                        }, 
+                        "post_job_actions": {
+                            "HideDatasetActionfragments": {
+                                "action_arguments": {}, 
+                                "action_type": "HideDatasetAction", 
+                                "output_name": "fragments"
+                            }
+                        }, 
+                        "tool_errors": null, 
+                        "tool_id": "testtoolshed.g2.bx.psu.edu/repos/rnateam/reago/reago/0.1.0", 
+                        "tool_state": "{\"__page__\": 0, \"path_finding_parameter\": \"\\\"10\\\"\", \"read_length\": \"\\\"101\\\"\", \"__rerun_remap_job_id__\": null, \"overlap\": \"\\\"0.8\\\"\", \"r1_file\": \"null\", \"r2_file\": \"null\", \"cm_to_use\": \"\\\"b\\\"\", \"tip_size\": \"\\\"30\\\"\"}", 
+                        "tool_version": "0.1.0", 
+                        "type": "tool", 
+                        "uuid": "e85897b1-ed5b-4094-a38a-ef7cd8b56b7c", 
+                        "workflow_outputs": [
+                            {
+                                "label": "16S sequences", 
+                                "output_name": "full_genes", 
+                                "uuid": "a67f4fbf-8e30-49e2-9702-69055a21eb52"
+                            }
+                        ]
+                    }
+                }, 
+                "uuid": "ae95cdbc-4683-4498-ae96-63e60ae04e69"
+            }, 
+            "tool_id": "f0f309c56aff0025", 
+            "type": "subworkflow", 
+            "uuid": "72badf69-8ff9-4b68-b3c0-c9bd3ee44bbb", 
+            "workflow_outputs": [
+                {
+                    "label": null, 
+                    "output_name": "Quality report", 
+                    "uuid": "68014403-0bf1-479a-91f9-4f2817db2c6c"
+                }
+            ]
+        }, 
+        "2": {
+            "annotation": "", 
+            "id": 2, 
+            "input_connections": {
+                "Input Dataset": {
+                    "id": 1, 
+                    "input_subworkflow_step_id": 0, 
+                    "output_name": "non rRNA sequences"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Metabolic assignation of microbiota data", 
+            "outputs": [], 
+            "position": {
+                "left": 802.5, 
+                "top": 200
+            }, 
+            "subworkflow": {
+                "a_galaxy_workflow": "true", 
+                "annotation": "", 
+                "format-version": "0.1", 
+                "name": "Metabolic assignation of microbiota data", 
+                "steps": {
+                    "0": {
+                        "annotation": "", 
+                        "content_id": null, 
+                        "id": 0, 
+                        "input_connections": {}, 
+                        "inputs": [
+                            {
+                                "description": "", 
+                                "name": "Input Dataset"
+                            }
+                        ], 
+                        "label": null, 
+                        "name": "Input dataset", 
+                        "outputs": [], 
+                        "position": {
+                            "left": 125.5, 
+                            "top": 368
+                        }, 
+                        "tool_errors": null, 
+                        "tool_id": null, 
+                        "tool_state": "{\"name\": \"Input Dataset\"}", 
+                        "tool_version": null, 
+                        "type": "data_input", 
+                        "uuid": "e69d1a1a-a65f-48fe-b42e-f85520659d69", 
+                        "workflow_outputs": [
+                            {
+                                "label": null, 
+                                "output_name": "output", 
+                                "uuid": "bd919324-8f30-40af-bf02-670265a8acd9"
+                            }
+                        ]
+                    }, 
+                    "1": {
+                        "annotation": "", 
+                        "content_id": "testtoolshed.g2.bx.psu.edu/repos/bebatut/humann2/humann2_renorm_table/0.1.0", 
+                        "id": 1, 
+                        "input_connections": {}, 
+                        "inputs": [], 
+                        "label": null, 
+                        "name": "Renormalize HUMAnN2 table", 
+                        "outputs": [
+                            {
+                                "name": "output_table", 
+                                "type": "tsv"
+                            }
+                        ], 
+                        "position": {
+                            "left": 852, 
+                            "top": 451
+                        }, 
+                        "post_job_actions": {}, 
+                        "tool_errors": null, 
+                        "tool_id": "testtoolshed.g2.bx.psu.edu/repos/bebatut/humann2/humann2_renorm_table/0.1.0", 
+                        "tool_state": "{\"__page__\": 0, \"input_table\": \"null\", \"__rerun_remap_job_id__\": null, \"norm\": \"\\\"cpm\\\"\"}", 
+                        "tool_version": "0.1.0", 
+                        "type": "tool", 
+                        "uuid": "78f70108-ed24-41ec-bca0-e88006ce0fe7", 
+                        "workflow_outputs": [
+                            {
+                                "label": "Normalized gene family abundance", 
+                                "output_name": "output_table", 
+                                "uuid": "998ffdfc-6756-4a16-a82f-96982ec1b859"
+                            }
+                        ]
+                    }, 
+                    "2": {
+                        "annotation": "", 
+                        "content_id": "testtoolshed.g2.bx.psu.edu/repos/bebatut/humann2/humann2_renorm_table/0.1.0", 
+                        "id": 2, 
+                        "input_connections": {}, 
+                        "inputs": [], 
+                        "label": null, 
+                        "name": "Renormalize HUMAnN2 table", 
+                        "outputs": [
+                            {
+                                "name": "output_table", 
+                                "type": "tsv"
+                            }
+                        ], 
+                        "position": {
+                            "left": 855, 
+                            "top": 588
+                        }, 
+                        "post_job_actions": {}, 
+                        "tool_errors": null, 
+                        "tool_id": "testtoolshed.g2.bx.psu.edu/repos/bebatut/humann2/humann2_renorm_table/0.1.0", 
+                        "tool_state": "{\"__page__\": 0, \"input_table\": \"null\", \"__rerun_remap_job_id__\": null, \"norm\": \"\\\"cpm\\\"\"}", 
+                        "tool_version": "0.1.0", 
+                        "type": "tool", 
+                        "uuid": "47b0179a-7467-4f99-ac61-23857f08cf25", 
+                        "workflow_outputs": [
+                            {
+                                "label": "Normalized pathway coverage", 
+                                "output_name": "output_table", 
+                                "uuid": "637d7c28-9847-4733-a086-eaa3b10298cd"
+                            }
+                        ]
+                    }, 
+                    "3": {
+                        "annotation": "", 
+                        "content_id": "testtoolshed.g2.bx.psu.edu/repos/bebatut/humann2/humann2_renorm_table/0.1.0", 
+                        "id": 3, 
+                        "input_connections": {}, 
+                        "inputs": [], 
+                        "label": null, 
+                        "name": "Renormalize HUMAnN2 table", 
+                        "outputs": [
+                            {
+                                "name": "output_table", 
+                                "type": "tsv"
+                            }
+                        ], 
+                        "position": {
+                            "left": 844, 
+                            "top": 730
+                        }, 
+                        "post_job_actions": {}, 
+                        "tool_errors": null, 
+                        "tool_id": "testtoolshed.g2.bx.psu.edu/repos/bebatut/humann2/humann2_renorm_table/0.1.0", 
+                        "tool_state": "{\"__page__\": 0, \"input_table\": \"null\", \"__rerun_remap_job_id__\": null, \"norm\": \"\\\"cpm\\\"\"}", 
+                        "tool_version": "0.1.0", 
+                        "type": "tool", 
+                        "uuid": "9accad8b-048b-4b42-98e6-f78eb051c5c8", 
+                        "workflow_outputs": [
+                            {
+                                "label": "Normalized pathway abundance", 
+                                "output_name": "output_table", 
+                                "uuid": "fae33ed4-af06-4527-8174-b9068f62b645"
+                            }
+                        ]
+                    }, 
+                    "4": {
+                        "annotation": "", 
+                        "content_id": "testtoolshed.g2.bx.psu.edu/repos/bebatut/humann2/humann2/0.1.0", 
+                        "id": 4, 
+                        "input_connections": {
+                            "input_file": {
+                                "id": 0, 
+                                "output_name": "output"
+                            }
+                        }, 
+                        "inputs": [], 
+                        "label": null, 
+                        "name": "HUMAnN2", 
+                        "outputs": [
+                            {
+                                "name": "gene_families_tsv", 
+                                "type": "tsv"
+                            }, 
+                            {
+                                "name": "gene_families_biom", 
+                                "type": "biom"
+                            }, 
+                            {
+                                "name": "pathcoverage_tsv", 
+                                "type": "tsv"
+                            }, 
+                            {
+                                "name": "pathcoverage_biom", 
+                                "type": "biom"
+                            }, 
+                            {
+                                "name": "pathabundance_tsv", 
+                                "type": "tsv"
+                            }, 
+                            {
+                                "name": "pathabundance_biom", 
+                                "type": "biom"
+                            }
+                        ], 
+                        "position": {
+                            "left": 484.5, 
+                            "top": 430
+                        }, 
+                        "post_job_actions": {
+                            "ChangeDatatypeActionpathabundance_tsv": {
+                                "action_arguments": {
+                                    "newtype": "tabular"
+                                }, 
+                                "action_type": "ChangeDatatypeAction", 
+                                "output_name": "pathabundance_tsv"
+                            }, 
+                            "HideDatasetActiongene_families_biom": {
+                                "action_arguments": {}, 
+                                "action_type": "HideDatasetAction", 
+                                "output_name": "gene_families_biom"
+                            }, 
+                            "HideDatasetActiongene_families_tsv": {
+                                "action_arguments": {}, 
+                                "action_type": "HideDatasetAction", 
+                                "output_name": "gene_families_tsv"
+                            }, 
+                            "HideDatasetActionpathabundance_biom": {
+                                "action_arguments": {}, 
+                                "action_type": "HideDatasetAction", 
+                                "output_name": "pathabundance_biom"
+                            }, 
+                            "HideDatasetActionpathabundance_tsv": {
+                                "action_arguments": {}, 
+                                "action_type": "HideDatasetAction", 
+                                "output_name": "pathabundance_tsv"
+                            }, 
+                            "HideDatasetActionpathcoverage_biom": {
+                                "action_arguments": {}, 
+                                "action_type": "HideDatasetAction", 
+                                "output_name": "pathcoverage_biom"
+                            }, 
+                            "HideDatasetActionpathcoverage_tsv": {
+                                "action_arguments": {}, 
+                                "action_type": "HideDatasetAction", 
+                                "output_name": "pathcoverage_tsv"
+                            }
+                        }, 
+                        "tool_errors": null, 
+                        "tool_id": "testtoolshed.g2.bx.psu.edu/repos/bebatut/humann2/humann2/0.1.0", 
+                        "tool_state": "{\"__page__\": 0, \"taxonomic_profile\": \"{\\\"taxonomic_profile_test\\\": \\\"False\\\", \\\"__current_case__\\\": 1}\", \"nucleotide_database\": \"\\\"chocophlan\\\"\", \"prescreen\": \"\\\"0.01\\\"\", \"input_file\": \"null\", \"output_format\": \"\\\"tsv\\\"\", \"protein_database\": \"\\\"uniref\\\"\", \"minpath\": \"\\\"True\\\"\", \"remove_statified_output\": \"\\\"False\\\"\", \"output_max_dec\": \"\\\"10\\\"\", \"xipe\": \"\\\"False\\\"\", \"pick_frames\": \"\\\"True\\\"\", \"e_value\": \"\\\"1.0\\\"\", \"__rerun_remap_job_id__\": null, \"identity\": \"\\\"40\\\"\", \"pathways\": \"\\\"metacyc\\\"\"}", 
+                        "tool_version": "0.1.0", 
+                        "type": "tool", 
+                        "uuid": "aff8960a-ef83-4a08-be37-94ebde38a59c", 
+                        "workflow_outputs": []
+                    }
+                }, 
+                "uuid": "6d324807-61d0-4a36-a593-5e84e72935e9"
+            }, 
+            "tool_id": "8237ee2988567c1c", 
+            "type": "subworkflow", 
+            "uuid": "efd6f795-73ef-4ff2-ba34-e24e963c18aa", 
+            "workflow_outputs": [
+                {
+                    "label": null, 
+                    "output_name": "Normalized gene family abundance", 
+                    "uuid": "d9292a50-5174-46dd-b4a6-6a2608286fdf"
+                }, 
+                {
+                    "label": null, 
+                    "output_name": "Normalized pathway coverage", 
+                    "uuid": "89f1c796-a925-40a3-95a8-858d05fcc38d"
+                }, 
+                {
+                    "label": null, 
+                    "output_name": "Normalized pathway abundance", 
+                    "uuid": "521fa010-d442-4a4e-be88-ff924b3b7b39"
+                }
+            ]
+        }, 
+        "3": {
+            "annotation": "", 
+            "id": 3, 
+            "input_connections": {
+                "Sequences": {
+                    "id": 1, 
+                    "input_subworkflow_step_id": 1, 
+                    "output_name": "rRNA sequences"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Taxonomic assignation of microbiota data", 
+            "outputs": [], 
+            "position": {
+                "left": 808.5, 
+                "top": 427
+            }, 
+            "subworkflow": {
+                "a_galaxy_workflow": "true", 
+                "annotation": "", 
+                "format-version": "0.1", 
+                "name": "Taxonomic assignation of microbiota data", 
+                "steps": {
+                    "0": {
+                        "annotation": "", 
+                        "content_id": "172.21.23.6:9009/repos/iuc/qiime/qiime_validate_mapping_file/1.9.1", 
+                        "id": 0, 
+                        "input_connections": {}, 
+                        "inputs": [], 
+                        "label": null, 
+                        "name": "Validate mapping file", 
+                        "outputs": [
+                            {
+                                "name": "html_report", 
+                                "type": "html"
+                            }, 
+                            {
+                                "name": "log", 
+                                "type": "txt"
+                            }, 
+                            {
+                                "name": "mapping_fp_corrected", 
+                                "type": "tabular"
+                            }
+                        ], 
+                        "position": {
+                            "left": 308, 
+                            "top": 314
+                        }, 
+                        "post_job_actions": {
+                            "HideDatasetActionhtml_report": {
+                                "action_arguments": {}, 
+                                "action_type": "HideDatasetAction", 
+                                "output_name": "html_report"
+                            }, 
+                            "HideDatasetActionlog": {
+                                "action_arguments": {}, 
+                                "action_type": "HideDatasetAction", 
+                                "output_name": "log"
+                            }, 
+                            "HideDatasetActionmapping_fp_corrected": {
+                                "action_arguments": {}, 
+                                "action_type": "HideDatasetAction", 
+                                "output_name": "mapping_fp_corrected"
+                            }
+                        }, 
+                        "tool_errors": null, 
+                        "tool_id": "172.21.23.6:9009/repos/iuc/qiime/qiime_validate_mapping_file/1.9.1", 
+                        "tool_state": "{\"__page__\": 0, \"variable_len_barcodes\": \"\\\"True\\\"\", \"suppress_html\": \"\\\"False\\\"\", \"__rerun_remap_job_id__\": null, \"char_replace\": \"\\\"_\\\"\", \"added_demultiplex_field\": \"\\\"\\\"\", \"mapping_fp\": \"null\", \"not_barcoded\": \"\\\"True\\\"\", \"disable_primer_check\": \"\\\"False\\\"\", \"verbose\": \"\\\"False\\\"\"}", 
+                        "tool_version": "1.9.1", 
+                        "type": "tool", 
+                        "uuid": "3989e532-b4c8-4ee6-a16b-010c730d0c48", 
+                        "workflow_outputs": []
+                    }, 
+                    "1": {
+                        "annotation": "", 
+                        "content_id": null, 
+                        "id": 1, 
+                        "input_connections": {}, 
+                        "inputs": [
+                            {
+                                "description": "", 
+                                "name": "Sequences"
+                            }
+                        ], 
+                        "label": null, 
+                        "name": "Input dataset", 
+                        "outputs": [], 
+                        "position": {
+                            "left": 160, 
+                            "top": 498
+                        }, 
+                        "tool_errors": null, 
+                        "tool_id": null, 
+                        "tool_state": "{\"name\": \"Sequences\"}", 
+                        "tool_version": null, 
+                        "type": "data_input", 
+                        "uuid": "148fba98-3238-4cf2-87df-d2df488e9f53", 
+                        "workflow_outputs": []
+                    }, 
+                    "2": {
+                        "annotation": "", 
+                        "content_id": "172.21.23.6:9009/repos/iuc/qiime/qiime_split_libraries/1.9.1", 
+                        "id": 2, 
+                        "input_connections": {
+                            "input_files_fasta": {
+                                "id": 1, 
+                                "output_name": "output"
+                            }, 
+                            "mapping_fp": {
+                                "id": 0, 
+                                "output_name": "html_report"
+                            }
+                        }, 
+                        "inputs": [], 
+                        "label": null, 
+                        "name": "Split libraries", 
+                        "outputs": [
+                            {
+                                "name": "sequences", 
+                                "type": "fasta"
+                            }, 
+                            {
+                                "name": "log", 
+                                "type": "txt"
+                            }, 
+                            {
+                                "name": "histograms", 
+                                "type": "txt"
+                            }, 
+                            {
+                                "name": "quality", 
+                                "type": "qual,qual454,qualillumina,qualsolexa,qualsolid"
+                            }
+                        ], 
+                        "position": {
+                            "left": 632, 
+                            "top": 567
+                        }, 
+                        "post_job_actions": {
+                            "HideDatasetActionhistograms": {
+                                "action_arguments": {}, 
+                                "action_type": "HideDatasetAction", 
+                                "output_name": "histograms"
+                            }, 
+                            "HideDatasetActionlog": {
+                                "action_arguments": {}, 
+                                "action_type": "HideDatasetAction", 
+                                "output_name": "log"
+                            }, 
+                            "HideDatasetActionquality": {
+                                "action_arguments": {}, 
+                                "action_type": "HideDatasetAction", 
+                                "output_name": "quality"
+                            }, 
+                            "HideDatasetActionsequences": {
+                                "action_arguments": {}, 
+                                "action_type": "HideDatasetAction", 
+                                "output_name": "sequences"
+                            }
+                        }, 
+                        "tool_errors": null, 
+                        "tool_id": "172.21.23.6:9009/repos/iuc/qiime/qiime_split_libraries/1.9.1", 
+                        "tool_state": "{\"max_barcode_errors\": \"\\\"1.5\\\"\", \"max_ambig\": \"\\\"6\\\"\", \"trim_seq_length\": \"\\\"False\\\"\", \"keep_barcode\": \"\\\"False\\\"\", \"max_homopolymer\": \"\\\"6\\\"\", \"barcode_type\": \"{\\\"barcode_selector\\\": \\\"golay_12\\\", \\\"__current_case__\\\": 1}\", \"__page__\": 0, \"start_numbering_at\": \"\\\"1\\\"\", \"__rerun_remap_job_id__\": null, \"truncate_ambi_bases\": \"\\\"False\\\"\", \"min_seq_length\": \"\\\"200\\\"\", \"max_primer_mismatch\": \"\\\"0\\\"\", \"reverse_primers\": \"{\\\"reverse_primers_test\\\": \\\"\\\", \\\"__current_case__\\\": 0}\", \"median_length_filtering\": \"\\\"\\\"\", \"discard_bad_windows\": \"\\\"False\\\"\", \"keep_primer\": \"\\\"False\\\"\", \"retain_unassigned_reads\": \"\\\"False\\\"\", \"added_demultiplex_field\": \"\\\"\\\"\", \"mapping_fp\": \"null\", \"input_files_fasta\": \"null\", \"disable_bc_correction\": \"\\\"False\\\"\", \"disable_primers\": \"\\\"False\\\"\", \"max_seq_length\": \"\\\"1000\\\"\", \"min_qual_score\": \"\\\"25\\\"\", \"qual_score_window\": \"\\\"0\\\"\", \"record_qual_scores\": \"\\\"False\\\"\", \"input_files_qual\": \"null\"}", 
+                        "tool_version": "1.9.1", 
+                        "type": "tool", 
+                        "uuid": "e242a852-c0c5-4941-ae44-c6d4e7de5a16", 
+                        "workflow_outputs": []
+                    }, 
+                    "3": {
+                        "annotation": "", 
+                        "content_id": "172.21.23.6:9009/repos/iuc/qiime/pick_open_reference_otus/1.9.1", 
+                        "id": 3, 
+                        "input_connections": {
+                            "input_seq_files": {
+                                "id": 2, 
+                                "output_name": "sequences"
+                            }
+                        }, 
+                        "inputs": [], 
+                        "label": null, 
+                        "name": "Perform open-reference OTU picking", 
+                        "outputs": [
+                            {
+                                "name": "output_rep_set", 
+                                "type": "fasta"
+                            }, 
+                            {
+                                "name": "output_ref_set", 
+                                "type": "fasta"
+                            }, 
+                            {
+                                "name": "output_otu_table", 
+                                "type": "tsv"
+                            }, 
+                            {
+                                "name": "output_otu_table_taxonomy", 
+                                "type": "tsv"
+                            }, 
+                            {
+                                "name": "output_otu_table_no_failures", 
+                                "type": "tsv"
+                            }, 
+                            {
+                                "name": "output_otu_map", 
+                                "type": "txt"
+                            }, 
+                            {
+                                "name": "output_rep_set_tree", 
+                                "type": "txt"
+                            }
+                        ], 
+                        "position": {
+                            "left": 941, 
+                            "top": 634
+                        }, 
+                        "post_job_actions": {
+                            "ChangeDatatypeActionoutput_otu_table_taxonomy": {
+                                "action_arguments": {
+                                    "newtype": "tabular"
+                                }, 
+                                "action_type": "ChangeDatatypeAction", 
+                                "output_name": "output_otu_table_taxonomy"
+                            }, 
+                            "HideDatasetActionoutput_otu_map": {
+                                "action_arguments": {}, 
+                                "action_type": "HideDatasetAction", 
+                                "output_name": "output_otu_map"
+                            }, 
+                            "HideDatasetActionoutput_otu_table": {
+                                "action_arguments": {}, 
+                                "action_type": "HideDatasetAction", 
+                                "output_name": "output_otu_table"
+                            }, 
+                            "HideDatasetActionoutput_otu_table_no_failures": {
+                                "action_arguments": {}, 
+                                "action_type": "HideDatasetAction", 
+                                "output_name": "output_otu_table_no_failures"
+                            }, 
+                            "HideDatasetActionoutput_ref_set": {
+                                "action_arguments": {}, 
+                                "action_type": "HideDatasetAction", 
+                                "output_name": "output_ref_set"
+                            }, 
+                            "HideDatasetActionoutput_rep_set": {
+                                "action_arguments": {}, 
+                                "action_type": "HideDatasetAction", 
+                                "output_name": "output_rep_set"
+                            }, 
+                            "HideDatasetActionoutput_rep_set_tree": {
+                                "action_arguments": {}, 
+                                "action_type": "HideDatasetAction", 
+                                "output_name": "output_rep_set_tree"
+                            }
+                        }, 
+                        "tool_errors": null, 
+                        "tool_id": "172.21.23.6:9009/repos/iuc/qiime/pick_open_reference_otus/1.9.1", 
+                        "tool_state": "{\"step1_otu_map_fp\": \"null\", \"__page__\": 0, \"minimum_failure_threshold\": \"\\\"100000\\\"\", \"suppress_align_and_tree\": \"\\\"False\\\"\", \"otu_picking_method\": \"\\\"uclust\\\"\", \"reference_sequences\": \"{\\\"cached_database\\\": \\\"\\\", \\\"reference_sequences_selector\\\": \\\"cached\\\", \\\"__current_case__\\\": 0}\", \"min_otu_size\": \"\\\"2\\\"\", \"__rerun_remap_job_id__\": null, \"suppress_taxonomy_assignment\": \"\\\"False\\\"\", \"prefilter_refseqs_fp\": \"{\\\"__current_case__\\\": 1, \\\"difference_test\\\": \\\"False\\\"}\", \"new_ref_set_id\": \"\\\"New\\\"\", \"prefilter_percent_id\": \"\\\"0.0\\\"\", \"step1_failures_fasta_fp\": \"null\", \"input_seq_files\": \"null\", \"suppress_step4\": \"\\\"False\\\"\", \"parallel\": \"\\\"False\\\"\", \"percent_subsample\": \"\\\"0.001\\\"\"}", 
+                        "tool_version": "1.9.1", 
+                        "type": "tool", 
+                        "uuid": "3fb3e6fa-ccbb-4e0a-b867-67acbc25bba0", 
+                        "workflow_outputs": [
+                            {
+                                "label": "OTU table with taxonomy", 
+                                "output_name": "output_otu_table_taxonomy", 
+                                "uuid": "49715382-d169-4e8a-a1c4-81c573b3afe4"
+                            }
+                        ]
+                    }, 
+                    "4": {
+                        "annotation": "", 
+                        "content_id": "172.21.23.6:9009/repos/iuc/qiime/qiime_core_diversity/1.9.1", 
+                        "id": 4, 
+                        "input_connections": {
+                            "input_biom_fp": {
+                                "id": 3, 
+                                "output_name": "output_otu_table_taxonomy"
+                            }, 
+                            "mapping_fp": {
+                                "id": 0, 
+                                "output_name": "html_report"
+                            }
+                        }, 
+                        "inputs": [], 
+                        "label": null, 
+                        "name": "Compute core set of diversity analyses", 
+                        "outputs": [
+                            {
+                                "name": "html_report", 
+                                "type": "html"
+                            }
+                        ], 
+                        "position": {
+                            "left": 1342.5, 
+                            "top": 458
+                        }, 
+                        "post_job_actions": {}, 
+                        "tool_errors": null, 
+                        "tool_id": "172.21.23.6:9009/repos/iuc/qiime/qiime_core_diversity/1.9.1", 
+                        "tool_state": "{\"__page__\": 0, \"suppress_alpha_diversity\": \"\\\"False\\\"\", \"suppress_taxa_summary\": \"\\\"False\\\"\", \"__rerun_remap_job_id__\": null, \"phylogenetic\": \"{\\\"__current_case__\\\": 3, \\\"nonphylogenetic_diversity\\\": \\\"False\\\"}\", \"input_biom_fp\": \"null\", \"parameter_fp\": \"null\", \"parallel\": \"\\\"True\\\"\", \"sampling_depth\": \"\\\"\\\"\", \"mapping_fp\": \"null\", \"suppress_group_significance\": \"\\\"False\\\"\", \"suppress_beta_diversity\": \"\\\"False\\\"\", \"categories\": \"\\\"\\\"\"}", 
+                        "tool_version": "1.9.1", 
+                        "type": "tool", 
+                        "uuid": "6ae2884c-6013-46c4-a8e5-6fbdc13f82af", 
+                        "workflow_outputs": [
+                            {
+                                "label": "Core diversity output", 
+                                "output_name": "html_report", 
+                                "uuid": "6f0bac7d-a447-49fd-b720-5d6ec3d99733"
+                            }
+                        ]
+                    }
+                }, 
+                "uuid": "a8927c1a-63c0-4393-be6a-3651553475d5"
+            }, 
+            "tool_id": "f09437b8822035f7", 
+            "type": "subworkflow", 
+            "uuid": "f49fb1c1-9171-4355-bbfa-d1a4f8de670c", 
+            "workflow_outputs": [
+                {
+                    "label": null, 
+                    "output_name": "Core diversity output", 
+                    "uuid": "b6f3cc12-df68-49e5-be6a-4561b8276a7d"
+                }, 
+                {
+                    "label": null, 
+                    "output_name": "OTU table with taxonomy", 
+                    "uuid": "8c7d2b7d-7ac2-4754-8003-53642cae349b"
+                }
+            ]
+        }, 
+        "4": {
+            "annotation": "", 
+            "id": 4, 
+            "input_connections": {
+                "Sequences": {
+                    "id": 1, 
+                    "input_subworkflow_step_id": 1, 
+                    "output_name": "16S sequences"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Taxonomic assignation of microbiota data", 
+            "outputs": [], 
+            "position": {
+                "left": 814, 
+                "top": 590
+            }, 
+            "subworkflow": {
+                "a_galaxy_workflow": "true", 
+                "annotation": "", 
+                "format-version": "0.1", 
+                "name": "Taxonomic assignation of microbiota data", 
+                "steps": {
+                    "0": {
+                        "annotation": "", 
+                        "content_id": "172.21.23.6:9009/repos/iuc/qiime/qiime_validate_mapping_file/1.9.1", 
+                        "id": 0, 
+                        "input_connections": {}, 
+                        "inputs": [], 
+                        "label": null, 
+                        "name": "Validate mapping file", 
+                        "outputs": [
+                            {
+                                "name": "html_report", 
+                                "type": "html"
+                            }, 
+                            {
+                                "name": "log", 
+                                "type": "txt"
+                            }, 
+                            {
+                                "name": "mapping_fp_corrected", 
+                                "type": "tabular"
+                            }
+                        ], 
+                        "position": {
+                            "left": 308, 
+                            "top": 314
+                        }, 
+                        "post_job_actions": {
+                            "HideDatasetActionhtml_report": {
+                                "action_arguments": {}, 
+                                "action_type": "HideDatasetAction", 
+                                "output_name": "html_report"
+                            }, 
+                            "HideDatasetActionlog": {
+                                "action_arguments": {}, 
+                                "action_type": "HideDatasetAction", 
+                                "output_name": "log"
+                            }, 
+                            "HideDatasetActionmapping_fp_corrected": {
+                                "action_arguments": {}, 
+                                "action_type": "HideDatasetAction", 
+                                "output_name": "mapping_fp_corrected"
+                            }
+                        }, 
+                        "tool_errors": null, 
+                        "tool_id": "172.21.23.6:9009/repos/iuc/qiime/qiime_validate_mapping_file/1.9.1", 
+                        "tool_state": "{\"__page__\": 0, \"variable_len_barcodes\": \"\\\"True\\\"\", \"suppress_html\": \"\\\"False\\\"\", \"__rerun_remap_job_id__\": null, \"char_replace\": \"\\\"_\\\"\", \"added_demultiplex_field\": \"\\\"\\\"\", \"mapping_fp\": \"null\", \"not_barcoded\": \"\\\"True\\\"\", \"disable_primer_check\": \"\\\"False\\\"\", \"verbose\": \"\\\"False\\\"\"}", 
+                        "tool_version": "1.9.1", 
+                        "type": "tool", 
+                        "uuid": "3989e532-b4c8-4ee6-a16b-010c730d0c48", 
+                        "workflow_outputs": []
+                    }, 
+                    "1": {
+                        "annotation": "", 
+                        "content_id": null, 
+                        "id": 1, 
+                        "input_connections": {}, 
+                        "inputs": [
+                            {
+                                "description": "", 
+                                "name": "Sequences"
+                            }
+                        ], 
+                        "label": null, 
+                        "name": "Input dataset", 
+                        "outputs": [], 
+                        "position": {
+                            "left": 160, 
+                            "top": 498
+                        }, 
+                        "tool_errors": null, 
+                        "tool_id": null, 
+                        "tool_state": "{\"name\": \"Sequences\"}", 
+                        "tool_version": null, 
+                        "type": "data_input", 
+                        "uuid": "148fba98-3238-4cf2-87df-d2df488e9f53", 
+                        "workflow_outputs": []
+                    }, 
+                    "2": {
+                        "annotation": "", 
+                        "content_id": "172.21.23.6:9009/repos/iuc/qiime/qiime_split_libraries/1.9.1", 
+                        "id": 2, 
+                        "input_connections": {
+                            "input_files_fasta": {
+                                "id": 1, 
+                                "output_name": "output"
+                            }, 
+                            "mapping_fp": {
+                                "id": 0, 
+                                "output_name": "html_report"
+                            }
+                        }, 
+                        "inputs": [], 
+                        "label": null, 
+                        "name": "Split libraries", 
+                        "outputs": [
+                            {
+                                "name": "sequences", 
+                                "type": "fasta"
+                            }, 
+                            {
+                                "name": "log", 
+                                "type": "txt"
+                            }, 
+                            {
+                                "name": "histograms", 
+                                "type": "txt"
+                            }, 
+                            {
+                                "name": "quality", 
+                                "type": "qual,qual454,qualillumina,qualsolexa,qualsolid"
+                            }
+                        ], 
+                        "position": {
+                            "left": 632, 
+                            "top": 567
+                        }, 
+                        "post_job_actions": {
+                            "HideDatasetActionhistograms": {
+                                "action_arguments": {}, 
+                                "action_type": "HideDatasetAction", 
+                                "output_name": "histograms"
+                            }, 
+                            "HideDatasetActionlog": {
+                                "action_arguments": {}, 
+                                "action_type": "HideDatasetAction", 
+                                "output_name": "log"
+                            }, 
+                            "HideDatasetActionquality": {
+                                "action_arguments": {}, 
+                                "action_type": "HideDatasetAction", 
+                                "output_name": "quality"
+                            }, 
+                            "HideDatasetActionsequences": {
+                                "action_arguments": {}, 
+                                "action_type": "HideDatasetAction", 
+                                "output_name": "sequences"
+                            }
+                        }, 
+                        "tool_errors": null, 
+                        "tool_id": "172.21.23.6:9009/repos/iuc/qiime/qiime_split_libraries/1.9.1", 
+                        "tool_state": "{\"max_barcode_errors\": \"\\\"1.5\\\"\", \"max_ambig\": \"\\\"6\\\"\", \"trim_seq_length\": \"\\\"False\\\"\", \"keep_barcode\": \"\\\"False\\\"\", \"max_homopolymer\": \"\\\"6\\\"\", \"barcode_type\": \"{\\\"barcode_selector\\\": \\\"golay_12\\\", \\\"__current_case__\\\": 1}\", \"__page__\": 0, \"start_numbering_at\": \"\\\"1\\\"\", \"__rerun_remap_job_id__\": null, \"truncate_ambi_bases\": \"\\\"False\\\"\", \"min_seq_length\": \"\\\"200\\\"\", \"max_primer_mismatch\": \"\\\"0\\\"\", \"reverse_primers\": \"{\\\"reverse_primers_test\\\": \\\"\\\", \\\"__current_case__\\\": 0}\", \"median_length_filtering\": \"\\\"\\\"\", \"discard_bad_windows\": \"\\\"False\\\"\", \"keep_primer\": \"\\\"False\\\"\", \"retain_unassigned_reads\": \"\\\"False\\\"\", \"added_demultiplex_field\": \"\\\"\\\"\", \"mapping_fp\": \"null\", \"input_files_fasta\": \"null\", \"disable_bc_correction\": \"\\\"False\\\"\", \"disable_primers\": \"\\\"False\\\"\", \"max_seq_length\": \"\\\"1000\\\"\", \"min_qual_score\": \"\\\"25\\\"\", \"qual_score_window\": \"\\\"0\\\"\", \"record_qual_scores\": \"\\\"False\\\"\", \"input_files_qual\": \"null\"}", 
+                        "tool_version": "1.9.1", 
+                        "type": "tool", 
+                        "uuid": "e242a852-c0c5-4941-ae44-c6d4e7de5a16", 
+                        "workflow_outputs": []
+                    }, 
+                    "3": {
+                        "annotation": "", 
+                        "content_id": "172.21.23.6:9009/repos/iuc/qiime/pick_open_reference_otus/1.9.1", 
+                        "id": 3, 
+                        "input_connections": {
+                            "input_seq_files": {
+                                "id": 2, 
+                                "output_name": "sequences"
+                            }
+                        }, 
+                        "inputs": [], 
+                        "label": null, 
+                        "name": "Perform open-reference OTU picking", 
+                        "outputs": [
+                            {
+                                "name": "output_rep_set", 
+                                "type": "fasta"
+                            }, 
+                            {
+                                "name": "output_ref_set", 
+                                "type": "fasta"
+                            }, 
+                            {
+                                "name": "output_otu_table", 
+                                "type": "tsv"
+                            }, 
+                            {
+                                "name": "output_otu_table_taxonomy", 
+                                "type": "tsv"
+                            }, 
+                            {
+                                "name": "output_otu_table_no_failures", 
+                                "type": "tsv"
+                            }, 
+                            {
+                                "name": "output_otu_map", 
+                                "type": "txt"
+                            }, 
+                            {
+                                "name": "output_rep_set_tree", 
+                                "type": "txt"
+                            }
+                        ], 
+                        "position": {
+                            "left": 941, 
+                            "top": 634
+                        }, 
+                        "post_job_actions": {
+                            "ChangeDatatypeActionoutput_otu_table_taxonomy": {
+                                "action_arguments": {
+                                    "newtype": "tabular"
+                                }, 
+                                "action_type": "ChangeDatatypeAction", 
+                                "output_name": "output_otu_table_taxonomy"
+                            }, 
+                            "HideDatasetActionoutput_otu_map": {
+                                "action_arguments": {}, 
+                                "action_type": "HideDatasetAction", 
+                                "output_name": "output_otu_map"
+                            }, 
+                            "HideDatasetActionoutput_otu_table": {
+                                "action_arguments": {}, 
+                                "action_type": "HideDatasetAction", 
+                                "output_name": "output_otu_table"
+                            }, 
+                            "HideDatasetActionoutput_otu_table_no_failures": {
+                                "action_arguments": {}, 
+                                "action_type": "HideDatasetAction", 
+                                "output_name": "output_otu_table_no_failures"
+                            }, 
+                            "HideDatasetActionoutput_ref_set": {
+                                "action_arguments": {}, 
+                                "action_type": "HideDatasetAction", 
+                                "output_name": "output_ref_set"
+                            }, 
+                            "HideDatasetActionoutput_rep_set": {
+                                "action_arguments": {}, 
+                                "action_type": "HideDatasetAction", 
+                                "output_name": "output_rep_set"
+                            }, 
+                            "HideDatasetActionoutput_rep_set_tree": {
+                                "action_arguments": {}, 
+                                "action_type": "HideDatasetAction", 
+                                "output_name": "output_rep_set_tree"
+                            }
+                        }, 
+                        "tool_errors": null, 
+                        "tool_id": "172.21.23.6:9009/repos/iuc/qiime/pick_open_reference_otus/1.9.1", 
+                        "tool_state": "{\"step1_otu_map_fp\": \"null\", \"__page__\": 0, \"minimum_failure_threshold\": \"\\\"100000\\\"\", \"suppress_align_and_tree\": \"\\\"False\\\"\", \"otu_picking_method\": \"\\\"uclust\\\"\", \"reference_sequences\": \"{\\\"cached_database\\\": \\\"\\\", \\\"reference_sequences_selector\\\": \\\"cached\\\", \\\"__current_case__\\\": 0}\", \"min_otu_size\": \"\\\"2\\\"\", \"__rerun_remap_job_id__\": null, \"suppress_taxonomy_assignment\": \"\\\"False\\\"\", \"prefilter_refseqs_fp\": \"{\\\"__current_case__\\\": 1, \\\"difference_test\\\": \\\"False\\\"}\", \"new_ref_set_id\": \"\\\"New\\\"\", \"prefilter_percent_id\": \"\\\"0.0\\\"\", \"step1_failures_fasta_fp\": \"null\", \"input_seq_files\": \"null\", \"suppress_step4\": \"\\\"False\\\"\", \"parallel\": \"\\\"False\\\"\", \"percent_subsample\": \"\\\"0.001\\\"\"}", 
+                        "tool_version": "1.9.1", 
+                        "type": "tool", 
+                        "uuid": "3fb3e6fa-ccbb-4e0a-b867-67acbc25bba0", 
+                        "workflow_outputs": [
+                            {
+                                "label": "OTU table with taxonomy", 
+                                "output_name": "output_otu_table_taxonomy", 
+                                "uuid": "49715382-d169-4e8a-a1c4-81c573b3afe4"
+                            }
+                        ]
+                    }, 
+                    "4": {
+                        "annotation": "", 
+                        "content_id": "172.21.23.6:9009/repos/iuc/qiime/qiime_core_diversity/1.9.1", 
+                        "id": 4, 
+                        "input_connections": {
+                            "input_biom_fp": {
+                                "id": 3, 
+                                "output_name": "output_otu_table_taxonomy"
+                            }, 
+                            "mapping_fp": {
+                                "id": 0, 
+                                "output_name": "html_report"
+                            }
+                        }, 
+                        "inputs": [], 
+                        "label": null, 
+                        "name": "Compute core set of diversity analyses", 
+                        "outputs": [
+                            {
+                                "name": "html_report", 
+                                "type": "html"
+                            }
+                        ], 
+                        "position": {
+                            "left": 1342.5, 
+                            "top": 458
+                        }, 
+                        "post_job_actions": {}, 
+                        "tool_errors": null, 
+                        "tool_id": "172.21.23.6:9009/repos/iuc/qiime/qiime_core_diversity/1.9.1", 
+                        "tool_state": "{\"__page__\": 0, \"suppress_alpha_diversity\": \"\\\"False\\\"\", \"suppress_taxa_summary\": \"\\\"False\\\"\", \"__rerun_remap_job_id__\": null, \"phylogenetic\": \"{\\\"__current_case__\\\": 3, \\\"nonphylogenetic_diversity\\\": \\\"False\\\"}\", \"input_biom_fp\": \"null\", \"parameter_fp\": \"null\", \"parallel\": \"\\\"True\\\"\", \"sampling_depth\": \"\\\"\\\"\", \"mapping_fp\": \"null\", \"suppress_group_significance\": \"\\\"False\\\"\", \"suppress_beta_diversity\": \"\\\"False\\\"\", \"categories\": \"\\\"\\\"\"}", 
+                        "tool_version": "1.9.1", 
+                        "type": "tool", 
+                        "uuid": "6ae2884c-6013-46c4-a8e5-6fbdc13f82af", 
+                        "workflow_outputs": [
+                            {
+                                "label": "Core diversity output", 
+                                "output_name": "html_report", 
+                                "uuid": "6f0bac7d-a447-49fd-b720-5d6ec3d99733"
+                            }
+                        ]
+                    }
+                }, 
+                "uuid": "a8927c1a-63c0-4393-be6a-3651553475d5"
+            }, 
+            "tool_id": "f09437b8822035f7", 
+            "type": "subworkflow", 
+            "uuid": "5bf2b3f5-a361-44bf-a181-8ed7ce868bff", 
+            "workflow_outputs": [
+                {
+                    "label": null, 
+                    "output_name": "Core diversity output", 
+                    "uuid": "876c3840-21c3-47db-81b2-8d7f99b2d81d"
+                }, 
+                {
+                    "label": null, 
+                    "output_name": "OTU table with taxonomy", 
+                    "uuid": "b7cd167c-4f0a-4697-990c-76fecfea198e"
+                }
+            ]
+        }
+    }, 
+    "uuid": "0e35d867-9c92-49e5-bc48-ee30f33e9fa3"
+}
