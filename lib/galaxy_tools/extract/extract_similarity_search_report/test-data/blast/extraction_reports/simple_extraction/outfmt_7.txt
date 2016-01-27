@@ -1,8 +1,0 @@
-Input filepath: test-data/blast//blast_outputs/outfmt_7.txt
-Information to extract:
-	qseqid
-	sseqid
-	pident
-	evalue
-Number of similarity records: 28
-Number of extracted similarity records: 28
