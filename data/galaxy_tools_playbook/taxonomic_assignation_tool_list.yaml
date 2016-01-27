@@ -15,3 +15,5 @@ tools:
   tool_shed_url: 'https://testtoolshed.g2.bx.psu.edu'
   install_tool_dependencies: True
   install_repository_dependencies: True
+  revisions:
+  - '8ec3dfde378b'

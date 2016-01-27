@@ -71,8 +71,8 @@ tools:
   tool_shed_url: 'https://testtoolshed.g2.bx.psu.edu'
   install_tool_dependencies: True
   install_repository_dependencies: True
-  #revisions:
-  #- '233da82dc31c'
+  revisions:
+  - '233da82dc31c'
 - name: 'reago'
   owner: 'rnateam'
   tool_panel_section_id: 'rna_manipulation'
