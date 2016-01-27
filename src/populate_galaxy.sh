@@ -6,7 +6,7 @@ eval $(parse_yaml src/misc/config.yml "")
 
 generate_tools_yml $tool_playbook_dir/tools.yml
 
-source venv/bin/activate
+source $galaxy_dir/.venv/bin/activate
 
 echo "Wait until http://$host:$port is up"
 until $(curl --output /dev/null --silent --head --fail http://$host:$port); do
