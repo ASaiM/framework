@@ -7,65 +7,93 @@ tools:
   tool_shed_url: 'https://toolshed.g2.bx.psu.edu'
   install_tool_dependencies: True
   install_repository_dependencies: True
+  revisions:
+  - '6a7f5da7c76d'
 - name: 'fastq_join'
   owner: 'lparsons'
   tool_panel_section_id: 'paired_end_assembly'
   tool_shed_url: 'https://toolshed.g2.bx.psu.edu'
   install_tool_dependencies: True
   install_repository_dependencies: True
+  revisions:
+  - '8ec3dfde378b'
 - name: 'fastqc'
   owner: 'devteam'
   tool_panel_section_id: 'qualityControl'
   tool_shed_url: 'https://toolshed.g2.bx.psu.edu'
   install_tool_dependencies: True
   install_repository_dependencies: True
+  revisions:
+  - '28d39af2dd06'
 - name: 'prinseq'
   owner: 'bebatut'
   tool_panel_section_id: 'qualityControl'
   tool_shed_url: 'https://testtoolshed.g2.bx.psu.edu'
   install_tool_dependencies: True
   install_repository_dependencies: True
+  #revisions:
+  #- '233da82dc31c'
 - name: 'vsearch'
   owner: 'iuc'
   tool_panel_section_id: 'vsearch'
   tool_shed_url: 'https://toolshed.g2.bx.psu.edu'
   install_tool_dependencies: True
   install_repository_dependencies: True
+  revisions:
+  - 'f29e21388219'
 - name: 'rdptools'
   owner: 'bebatut'
   tool_panel_section_id: 'rdp'
   tool_shed_url: 'https://testtoolshed.g2.bx.psu.edu'
   install_tool_dependencies: True
   install_repository_dependencies: True
+  #revisions:
+  #- '233da82dc31c'
 - name: 'cdhit'
   owner: 'bebatut'
   tool_panel_section_id: 'sequence_clustering'
   tool_shed_url: 'https://testtoolshed.g2.bx.psu.edu'
   install_tool_dependencies: True
   install_repository_dependencies: True
+  #revisions:
+  #- '233da82dc31c'
+- name: 'format_cd_hit_output'
+  owner: 'bebatut'
+  tool_panel_section_id: 'sequence_clustering'
+  tool_shed_url: 'https://testtoolshed.g2.bx.psu.edu'
+  install_tool_dependencies: True
+  install_repository_dependencies: True
+  #revisions:
+  #- '233da82dc31c'
 - name: 'sortmerna'
   owner: 'rnateam'
   tool_panel_section_id: 'rna_manipulation'
   tool_shed_url: 'https://testtoolshed.g2.bx.psu.edu'
   install_tool_dependencies: True
   install_repository_dependencies: True
-  revisions:
-  - '233da82dc31c'
-#- name: 'reago'
-#  owner: 'bebatut'
-#  tool_panel_section_id: 'rna_manipulation'
-#  tool_shed_url: 'https://testtoolshed.g2.bx.psu.edu'
-#  install_tool_dependencies: True
-#  install_repository_dependencies: True
+  #revisions:
+  #- '233da82dc31c'
+- name: 'reago'
+  owner: 'rnateam'
+  tool_panel_section_id: 'rna_manipulation'
+  tool_shed_url: 'https://testtoolshed.g2.bx.psu.edu'
+  install_tool_dependencies: True
+  install_repository_dependencies: True
+  #revisions:
+  #- '715b263db9f3'
 - name: 'ncbi_blast_plus'
   owner: 'devteam'
   tool_panel_section_id: 'similarity_search'
   tool_shed_url: 'https://toolshed.g2.bx.psu.edu'
   install_tool_dependencies: True
   install_repository_dependencies: True
+  revisions:
+  - '7f3c448e119b'
 - name: 'diamond'
   owner: 'bgruening'
   tool_panel_section_id: 'similarity_search'
   tool_shed_url: 'https://toolshed.g2.bx.psu.edu'
   install_tool_dependencies: True
   install_repository_dependencies: True
+  revisions:
+  - '98037ef3d2a9'
