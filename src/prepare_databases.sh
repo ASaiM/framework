@@ -2,10 +2,9 @@
 . src/misc/parse_yaml.sh
 eval $(parse_yaml src/misc/config.yml "")
 
-source venv/bin/activate
+source $galaxy_dir/.venv/bin/activate
 
 current_dir=$PWD
-
 
 echo "Prepare SortMeRNA databases..."
 revision=`python src/misc/parse_tool_playbook_yaml.py \
@@ -47,25 +46,35 @@ humann2_databases --download uniref diamond databases/
 cd $current_dir
 echo ""
 
-## retrieve cog, extract info and formate for use with humann
-echo "COG downloading, extracting and formating..."
-cog_dir=$db_dir/cog/
-if [ ! -e $cog_dir/raw_data/prot2003-2014.fa ]; then
-    python $cog_dir/src/download_database.py \
-        --raw_data_dir $cog_dir/raw_data/
-fi
-if [ ! -e $cog_dir/extracted_data/genels.gz ]; then
-    python $cog_dir/src/extract_cog_data.py \
-        --raw_data_dir $cog_dir/raw_data/ \
-        --extracted_data_dir $cog_dir/extracted_data/
-fi
-echo ""
-
-
 ## retrieve Greengenes for QIIME
 echo "Greengenes downloading, extracting and formating..."
-greengenes_dir=$db_dir/greengenes/
+revision=`python src/misc/parse_tool_playbook_yaml.py \
+    --file $tool_playbook_files_dir/functional_assignation_tool_list.yaml \
+    --tool_name qiime \
+    --tool_function get_revision_number`
+owner=`python src/misc/parse_tool_playbook_yaml.py \
+    --file $tool_playbook_files_dir/functional_assignation_tool_list.yaml \
+    --tool_name qiime \
+    --tool_function get_owner`
+greengenes_dir=$galaxy_dir/dependency_dir/qiime/1.9.1/$owner/qiime/$revision/databases
 cd $greengenes_dir
 wget ftp://greengenes.microbio.me/greengenes_release/gg_13_5/gg_13_8_otus.tar.gz
 tar xzf gg_13_8_otus.tar.gz
 rm gg_13_8_otus.tar.gz
+
+## retrieve SILVA for QIIME
+echo "SILVA downloading, extracting and formating..."
+revision=`python src/misc/parse_tool_playbook_yaml.py \
+    --file $tool_playbook_files_dir/functional_assignation_tool_list.yaml \
+    --tool_name qiime \
+    --tool_function get_revision_number`
+owner=`python src/misc/parse_tool_playbook_yaml.py \
+    --file $tool_playbook_files_dir/functional_assignation_tool_list.yaml \
+    --tool_name qiime \
+    --tool_function get_owner`
+silva_dir=$galaxy_dir/dependency_dir/qiime/1.9.1/$owner/qiime/$revision/databases
+silva_dir=$db_dir/greengenes/
+cd $silva_dir
+#wget ftp://greengenes.microbio.me/greengenes_release/gg_13_5/gg_13_8_otus.tar.gz
+#tar xzf gg_13_8_otus.tar.gz
+#rm gg_13_8_otus.tar.gz
