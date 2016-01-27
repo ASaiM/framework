@@ -1,5 +1,0 @@
-Information to extract:
-	id
-	length
-Number of similarity records: 36
-Number of extracted similarity records: 36
