@@ -46,19 +46,6 @@ function create_symlink {
         ln -s $2 $1
     fi 
 }
-tool_dir=$PWD/$tool_dir
-galaxy_tool_dir=$PWD/$galaxy_tool_dir
-for i in $( ls ${tool_dir}/ )
-do
-    if [ $i == 'extract' ]; then
-        create_symlink $galaxy_dir/tools/$i/extract_sequence_file \
-            $tool_dir/$i/extract_sequence_file
-        create_symlink $galaxy_dir/tools/$i/extract_similarity_search_report \
-            $tool_dir/$i/extract_similarity_search_report
-    else
-        create_symlink $galaxy_dir/tools/$i $tool_dir/$i
-    fi 
-done
 
 if [[ ! -d $tool_playbook_dir/files/ ]]; then
     mkdir $tool_playbook_dir/files/
@@ -130,12 +117,12 @@ pip install -r $current_dir/requirements.txt
 cd $current_dir
 echo ""
 
-echo "Populate with tools"
-echo "==================="
+echo "Populate with tools and workflows"
+echo "================================="
 ./src/populate_galaxy.sh
 
 
 echo "Populate with databases"
 echo "======================="
-#./src/prepare_databases.sh $db_dir
+./src/prepare_databases.sh
 echo ""
