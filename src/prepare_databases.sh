@@ -39,8 +39,12 @@ owner=${RESULT[1]}
 humann2_db_dir=$galaxy_dir/dependency_dir/humann2/2.0/$owner/humann2/$revision/
 
 cd $humann2_db_dir
-humann2_databases --download chocophlan full databases/
-humann2_databases --download uniref diamond databases/
+if [ ! -d "databases/chocophlan" ]; then
+    humann2_databases --download chocophlan full databases/
+fi
+if [ ! -d "databases/uniref" ]; then
+    humann2_databases --download uniref diamond databases/
+fi
 cd $current_dir
 echo ""
 
