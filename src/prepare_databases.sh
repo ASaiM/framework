@@ -56,15 +56,20 @@ declare RESULT=($(python src/get_installed_tool_info.py \
     --api_key $master_api_key))
 revision=${RESULT[0]}
 owner=${RESULT[1]}
-qiime_db_dir=$galaxy_dir/dependency_dir/qiime/1.9.1/$owner/qiime/$revision/databases
-cd $qiime_db_dir
+qiime_dir=$galaxy_dir/dependency_dir/qiime/1.9.1/$owner/qiime/$revision
+cd $qiime_dir
+
+if [ ! -d "databases" ]; then
+    mkdir "databases"
+fi
+cd "databases"
 
 echo "  Greengenes downloading, extracting and formating..."
-#wget ftp://greengenes.microbio.me/greengenes_release/gg_13_5/gg_13_8_otus.tar.gz
-#tar xzf gg_13_8_otus.tar.gz
-#rm gg_13_8_otus.tar.gz
+wget ftp://greengenes.microbio.me/greengenes_release/gg_13_5/gg_13_8_otus.tar.gz
+tar xzf gg_13_8_otus.tar.gz
+rm gg_13_8_otus.tar.gz
 
 echo "  SILVA downloading, extracting and formating..."
-#wget ftp://greengenes.microbio.me/greengenes_release/gg_13_5/gg_13_8_otus.tar.gz
-#tar xzf gg_13_8_otus.tar.gz
-#rm gg_13_8_otus.tar.gz
+wget ftp://greengenes.microbio.me/greengenes_release/gg_13_5/gg_13_8_otus.tar.gz
+tar xzf gg_13_8_otus.tar.gz
+rm gg_13_8_otus.tar.gz
