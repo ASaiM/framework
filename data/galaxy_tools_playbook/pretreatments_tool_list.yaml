@@ -66,7 +66,7 @@ tools:
   #revisions:
   #- '233da82dc31c'
 - name: 'sortmerna'
-  owner: 'rnateam'
+  owner: 'bebatut'
   tool_panel_section_id: 'rna_manipulation'
   tool_shed_url: 'https://testtoolshed.g2.bx.psu.edu'
   install_tool_dependencies: True
