@@ -9,8 +9,9 @@ sudo apt-get install git
 echo "Install mercurial..."
 sudo apt-get install mercurial
 
-echo "Install python..."
+echo "Install python and pip..."
 sudo apt-get install python
+sudo apt-get install python-dev python-pip
 
 echo "Install perl..."
 sudo apt-get install perl
@@ -29,3 +30,5 @@ sudo apt-get install wget
 
 echo "Install curl..."
 sudo apt-get install curl
+
+

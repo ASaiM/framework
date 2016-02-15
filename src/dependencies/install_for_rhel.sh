@@ -11,6 +11,7 @@ sudo yum install mercurial
 
 echo "Install python..."
 sudo yum install python
+sudo yum install python-dev python-pip
 
 echo "Install perl..."
 sudo yum install perl
