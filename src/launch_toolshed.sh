@@ -25,3 +25,4 @@ cd $toolshed_dir
 source .venv/bin/activate
 pip install -r $current_dir/requirements.txt
 
+wait_until_up $toolshed_port $toolshed_dir/tool_shed_webapp

@@ -88,7 +88,7 @@ generate_toolshed_ini() {
     touch $1
     echo "[server:main]" >> $1
     echo "use = egg:Paste#http" >> $1
-    echo "port = 9009" >> $1
+    echo "port = $toolshed_port" >> $1
     echo "host = $host" >> $1
     echo "use_threadpool = True" >> $1
     echo "threadpool_workers = 10" >> $1
@@ -137,4 +137,22 @@ get_postgresql_prefix() {
     elif [[ "$OSTYPE" == "linux-gnu" ]]; then
         command_prefix="sudo -u postgres"
     fi
+}
+
+wait_until_up() {
+    $port = $1
+    $file = $2
+
+    echo "==================================="
+    echo "Wait until http://$host:$port is up"
+    echo "-----------------------------------"
+    echo "Warning: if more than 10 lines of points are written, there may be an issue with Galaxy." 
+    echo "You can check $file.log file to get more information about these errors"
+    echo ""
+    until $(curl --output /dev/null --silent --head --fail http://$host:$port); do
+        printf '.'
+        sleep 1
+    done
+    echo "==================================="
+    echo ""
 }

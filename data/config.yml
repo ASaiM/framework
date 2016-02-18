@@ -25,6 +25,7 @@ db_dir: $data_dir/db/
 
 master_api_key: "8a099e97b0a83c73ead9f5b0fe19f4be"
 port: "8080"
+toolshed_port: "9009"
 host: "0.0.0.0"
 admin_users: "asaim-admin@asaim.com"
 db_name: "asaim_galaxy"
