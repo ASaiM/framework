@@ -1,3 +1,4 @@
 planemo
 ansible
 bioblend
+psycopg2
