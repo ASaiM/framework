@@ -140,8 +140,8 @@ get_postgresql_prefix() {
 }
 
 wait_until_up() {
-    $port = $1
-    $file = $2
+    $port=$1
+    $file=$2
 
     echo "==================================="
     echo "Wait until http://$host:$port is up"
