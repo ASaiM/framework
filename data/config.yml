@@ -3,6 +3,7 @@ galaxy_branch: dev
 local_galaxy_dir: galaxy-$galaxy_branch
 local_toolshed_dir: galaxy-toolshed
 galaxy_dir: $lib_dir/$local_galaxy_dir
+toolshed_dir: $lib_dir/$local_toolshed_dir
 galaxy_tool_dir: $galaxy_dir/tools/
 tool_dir: $lib_dir/galaxy_tools/
 tool_playbook_dir: $lib_dir/galaxy_tools_playbook/

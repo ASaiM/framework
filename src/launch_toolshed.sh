@@ -12,8 +12,6 @@ fi
 cd ../
 echo ""
 
-toolshed_dir=$lib_dir/$local_toolshed_dir
-
 echo "Configure ToolShed"
 echo "=================="
 # Configuration files
