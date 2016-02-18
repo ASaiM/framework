@@ -72,8 +72,8 @@ generate_galaxy_ini() {
     echo "use_nglims = False" >> $1
     echo "nglims_config_file = tool-data/nglims.yaml" >> $1
     echo "" >> $1
-    echo "debug = True" >> $1
-    echo "use_interactive = True" >> $1
+    echo "debug = False" >> $1
+    echo "use_interactive = False" >> $1
     echo "" >> $1
     echo "admin_users = $admin_users" >> $1
     echo "ftp_upload_dir = database/ftp/" >> $1
@@ -95,5 +95,13 @@ install_galaxy() {
         fi
 
         rm $galaxy_branch
+    fi
+}
+
+get_postgresql_prefix() {
+    if [[ "$OSTYPE" == "darwin"* ]]; then
+        command_prefix=""
+    elif [[ "$OSTYPE" == "linux-gnu" ]]; then
+        command_prefix="sudo -u postgres"
     fi
 }
