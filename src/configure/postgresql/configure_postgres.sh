@@ -1,6 +1,8 @@
 #!/bin/bash
 . src/misc.sh
 
+get_postgresql_prefix
+
 echo "Configure PostgreSQL"
 echo "===================="
 

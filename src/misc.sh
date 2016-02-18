@@ -97,3 +97,11 @@ install_galaxy() {
         rm $galaxy_branch
     fi
 }
+
+get_postgresql_prefix() {
+    if [[ "$OSTYPE" == "darwin"* ]]; then
+        command_prefix=""
+    elif [[ "$OSTYPE" == "linux-gnu" ]]; then
+        command_prefix="sudo -u postgres"
+    fi
+}
