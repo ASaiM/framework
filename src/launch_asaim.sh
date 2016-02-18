@@ -3,7 +3,7 @@
 
 $src_prepare/launch_galaxy.sh
 
-wait_until_up $port $galaxy_dir/paster
+wait_until_up $port $galaxy_dir/paster.log
 
 echo "Populate with tools and workflows"
 echo "================================="
