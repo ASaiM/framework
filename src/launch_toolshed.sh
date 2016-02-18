@@ -17,7 +17,7 @@ toolshed_dir=$lib_dir/$local_toolshed_dir
 echo "Configure ToolShed"
 echo "=================="
 # Configuration files
-cp $PWD/$galaxy_conf_file_dir/tool_shed.ini $toolshed_dir/config/tool_shed.ini
+generate_toolshed_ini $toolshed_dir/config/tool_shed.ini
 
 cd $toolshed_dir
 ./run_tool_shed.sh --daemon

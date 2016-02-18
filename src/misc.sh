@@ -81,6 +81,39 @@ generate_galaxy_ini() {
     echo "master_api_key = $master_api_key" >> $1
 }
 
+generate_toolshed_ini() {
+    if [ -f $1 ]; then
+        rm $1
+    fi
+    touch $1
+    echo "[server:main]" >> $1
+    echo "use = egg:Paste#http" >> $1
+    echo "port = 9009" >> $1
+    echo "host = $host" >> $1
+    echo "use_threadpool = True" >> $1
+    echo "threadpool_workers = 10" >> $1
+    echo "threadpool_kill_thread_limit = 10800" >> $1
+    echo "" >> $1
+    echo "[app:main]" >> $1
+    echo "paste.app_factory = galaxy.webapps.tool_shed.buildapp:app_factory" >> $1
+    echo "log_level = DEBUG" >> $1
+    echo "database_connection = postgres://$db_role:$db_password@$host:5432/$toolshed_db_name" >> $1
+
+    echo "new_file_path = database/tmp" >> $1
+    echo "se_beaker_session = True" >> $1
+    echo "session_type = memory" >> $1
+    echo "session_data_dir = %(here)s/database/beaker_sessions" >> $1
+    echo "session_key = galaxysessions" >> $1
+    echo "session_secret = changethisinproduction" >> $1
+    echo "id_secret = changethisinproductiontoo" >> $1
+    echo "debug = true" >> $1
+    echo "use_lint = false" >> $1
+    echo "admin_users = $admin_users" >> $1
+    echo "require_login = False" >> $1
+    echo "sendmail_path = /usr/sbin/sendmail" >> $1
+}
+
+
 install_galaxy() {
 
     if [[ $galaxy_branch == "dev" ]]; then
