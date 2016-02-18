@@ -57,7 +57,7 @@ generate_galaxy_ini() {
     echo "[app:main]" >> $1
     echo "use_pbkdf2 = False" >> $1
     echo "paste.app_factory = galaxy.web.buildapp:app_factory" >> $1
-    echo "database_connection = postgres://$db_role:$db_password@$host:5432/$db_name" >> $1
+    echo "database_connection = postgres://$db_role:$db_password@$host:5432/$db_name?client_encoding=utf8" >> $1
     echo "file_path = database/files" >> $1
     echo "new_file_path = database/tmp" >> $1
     echo "tool_config_file = config/tool_conf.xml,config/shed_tool_conf.xml" >> $1
@@ -73,7 +73,7 @@ generate_galaxy_ini() {
     echo "nglims_config_file = tool-data/nglims.yaml" >> $1
     echo "" >> $1
     echo "debug = True" >> $1
-    echo "use_interactive = True" >> $1
+    echo "use_interactive = False" >> $1
     echo "" >> $1
     echo "admin_users = $admin_users" >> $1
     echo "ftp_upload_dir = database/ftp/" >> $1
