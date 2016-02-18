@@ -21,8 +21,4 @@ echo ""
 
 echo "Drop database and user..."
 echo "========================="
-echo -e "drop database and users? (y/n)"
-read 
-if [ $REPLY == "y" ]; then
-    $src_postgresql/clean_postgres_db.sh
-fi
+$src_postgresql/clean_postgres_db.sh
