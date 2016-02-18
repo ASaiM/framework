@@ -1,4 +1,5 @@
 #!/bin/bash
+. src/misc.sh
 
-./src/postgresql/configure_postgres.sh
-./src/proftpd/configure_proftpd.sh
+./$src_postgresql/configure_postgres.sh
+./$src_proftpd/configure_proftpd.sh

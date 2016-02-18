@@ -1,6 +1,5 @@
 #!/bin/bash
-. src/misc/parse_yaml.sh
-eval $(parse_yaml src/misc/config.yml "")
+. src/misc.sh
 
 source $galaxy_dir/.venv/bin/activate
 

@@ -1,10 +1,7 @@
 #!/bin/bash
-. src/misc/parse_yaml.sh
-. src/install_galaxy.sh
+. src/misc.sh
 
 current_dir=$PWD
-
-eval $(parse_yaml src/misc/config.yml "")
 
 echo "Installing Galaxy"
 echo "================="

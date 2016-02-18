@@ -1,4 +1,5 @@
 #!/bin/bash
+. src/misc.sh
 
 echo "Configure PostgreSQL"
 echo "===================="
@@ -13,4 +14,4 @@ else
     echo "Unknow OS"
 fi
 
-./src/postgresql/setup_postgre_db.sh
+./$src_postgresql/setup_postgre_db.sh

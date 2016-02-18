@@ -1,6 +1,5 @@
 #!/bin/bash
-. src/misc/parse_yaml.sh
-eval $(parse_yaml src/misc/config.yml "")
+. src/misc.sh
 
 echo "Remove local galaxy dir..."
 echo "=========================="
@@ -25,5 +24,5 @@ echo "========================="
 echo -e "drop database and users? (y/n)"
 read 
 if [ $REPLY == "y" ]; then
-    ./src/postgresql/clean_postgres_db.sh
+    $src_postgresql/clean_postgres_db.sh
 fi

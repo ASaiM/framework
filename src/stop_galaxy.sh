@@ -1,5 +1,4 @@
 #!/bin/bash
-. src/misc/parse_yaml.sh
-eval $(parse_yaml src/misc/config.yml "")
+. src/misc.sh
 
 sh $galaxy_dir/run.sh --stop-daemon

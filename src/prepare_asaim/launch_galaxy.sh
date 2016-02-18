@@ -1,22 +1,5 @@
 #!/bin/bash
-. src/misc/parse_yaml.sh
-. src/misc/generate_galaxy_ini.sh
-. src/install_galaxy.sh
-
-eval $(parse_yaml src/misc/config.yml "")
-
-#if [ ! -d venv ]; then
-#    echo "No virtual environment to activate"
-#    echo -e "Relaunch it? (y/n)"
-#    read 
-#    if [ $REPLY == "y" ]; then
-#        virtualenv venv
-#        source venv/bin/activate
-#        pip --no-cache-dir install -r requirements.txt
-#        deactivate
-#    fi
-#fi
-#source venv/bin/activate
+. src/misc.sh
 
 to_do=$1
 current_dir=$PWD
@@ -101,15 +84,7 @@ echo ""
 echo "Launch Galaxy"
 echo "============="
 cd $galaxy_dir
-#sh manage_db.sh upgrade
-#pip install -r requirements.txt
-if [ $to_do == 'launch' ] ; then
-    sh run.sh --daemon
-elif [ $to_do == 'run_test' ] ; then
-    sh run.sh --stop-daemon || true
-    python scripts/fetch_eggs.py
-    python ./scripts/functional_tests.py -v `python tool_list.py Continuous-Integration-Travis`
-fi
+sh run.sh --daemon
 
 source .venv/bin/activate
 pip install -r $current_dir/requirements.txt
@@ -117,12 +92,4 @@ pip install -r $current_dir/requirements.txt
 cd $current_dir
 echo ""
 
-echo "Populate with tools and workflows"
-echo "================================="
-./src/populate_galaxy.sh
 
-
-echo "Populate with databases"
-echo "======================="
-./src/prepare_databases.sh
-echo ""
