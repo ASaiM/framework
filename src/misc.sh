@@ -165,6 +165,19 @@ wait_until_up() {
         printf '.'
         sleep 1
     done
-    echo "===================================="
     echo ""
+    echo ""
+}
+
+launch_virtual_env() {
+    echo "Install virtualenv and dependencies with pip..."
+    echo "==============================================="
+    sudo pip install --upgrade pip
+    sudo pip install virtualenv
+    if [ ! -d .venv ]; then
+        virtualenv --no-site-packages .venv
+    fi
+    source .venv/bin/activate
+    #sudo pip install -r requirements.txt
+    #echo ""
 }
