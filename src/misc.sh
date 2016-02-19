@@ -115,20 +115,33 @@ generate_toolshed_ini() {
 
 
 install_galaxy() {
+    wget https://github.com/galaxyproject/galaxy/archive/v15.10.1.tar.gz
+    tar -zxvf v15.10.1 
 
-    if [[ $galaxy_branch == "dev" ]]; then
-        git clone https://github.com/galaxyproject/galaxy.git $1
+    if [[ $2 == "toolshed" ]]; then
+        mv galaxy-15.10.1 $local_toolshed_dir
     else
-        wget https://codeload.github.com/galaxyproject/galaxy/tar.gz/$galaxy_branch
+        mv galaxy-15.10.1 $local_galaxy_dir
+    fi 
+    #if [[ $2 == "toolshed" ]]; then
         
-        if [[ $2 == "toolshed" ]]; then
-            tar -zxvf master --transform 's/'$local_galaxy_dir'/'$local_toolshed_dir'/' | tail
-        else    
-            tar -zxvf $galaxy_branch | tail
-        fi
-
-        rm $galaxy_branch
-    fi
+        # --transform 's/'$local_galaxy_dir'/'$local_toolshed_dir'/' | tail
+    #rm v15.10.1.tar.gz
+    #else
+    #    if [[ $galaxy_branch == "dev" ]]; then
+    #        git clone https://github.com/galaxyproject/galaxy.git $1
+    #    else
+    #        wget https://codeload.github.com/galaxyproject/galaxy/tar.gz/$galaxy_branch
+    #        
+    #        if [[ $2 == "toolshed" ]]; then
+    #            tar -zxvf master --transform 's/'$local_galaxy_dir'/'$local_toolshed_dir'/' | tail
+    #        else    
+    #            tar -zxvf $galaxy_branch | tail
+    #        fi
+#
+    #        rm $galaxy_branch
+    #    fi
+    #fi
 }
 
 get_postgresql_prefix() {
