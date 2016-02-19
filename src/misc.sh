@@ -116,7 +116,7 @@ generate_toolshed_ini() {
 
 install_galaxy() {
     wget "https://github.com/galaxyproject/galaxy/archive/v"$galaxy_release".tar.gz"
-    tar -zxvf "v"$galaxy_release".tar.gz"
+    tar -zxf "v"$galaxy_release".tar.gz"
 
     if [[ $2 == "toolshed" ]]; then
         mv "galaxy-"$galaxy_release $local_toolshed_dir
