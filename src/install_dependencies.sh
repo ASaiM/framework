@@ -44,19 +44,6 @@ cd ../
 rm -rf proftpd-1.3.5a/
 echo ""
 
-# Pip
-echo "Install virtualenv and dependencies with pip..."
-echo "==============================================="
-sudo pip install --upgrade pip
-sudo pip install virtualenv
-echo "Install pip requirements..."
-if [ ! -d venv ]; then
-    virtualenv --no-site-packages venv
-fi
-source venv/bin/activate
-sudo pip install -r requirements.txt
-echo ""
-
 # Submodules
 echo "Update submodule..."
 echo "==================="

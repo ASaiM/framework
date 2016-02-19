@@ -18,9 +18,12 @@ echo "=================="
 generate_toolshed_ini $toolshed_dir/config/tool_shed.ini
 
 cd $toolshed_dir
-./run_tool_shed.sh --daemon
 
-source .venv/bin/activate
+launch_virtual_env
 pip install -r $current_dir/requirements.txt
+
+echo "Launch ToolShed"
+echo "==============="
+./run_tool_shed.sh --daemon
 
 wait_until_up $toolshed_port $toolshed_dir/tool_shed_webapp.log

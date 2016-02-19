@@ -81,13 +81,17 @@ done
 rm -rf tmp
 echo ""
 
+echo "Move to Galaxy repository"
+echo "========================="
+cd $galaxy_dir
+echo ""
+
+launch_virtual_env
+pip install -r $current_dir/requirements.txt
+
 echo "Launch Galaxy"
 echo "============="
-cd $galaxy_dir
 sh run.sh --daemon
-
-source .venv/bin/activate
-pip install -r $current_dir/requirements.txt
 
 cd $current_dir
 echo ""
