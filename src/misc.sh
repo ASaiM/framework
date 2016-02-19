@@ -115,14 +115,16 @@ generate_toolshed_ini() {
 
 
 install_galaxy() {
-    wget "https://github.com/galaxyproject/galaxy/archive/"$galaxy_release".tar.gz"
-    tar -zxvf $galaxy_release".tar.gz"
+    wget "https://github.com/galaxyproject/galaxy/archive/v"$galaxy_release".tar.gz"
+    tar -zxvf "v"$galaxy_release".tar.gz"
 
     if [[ $2 == "toolshed" ]]; then
         mv "galaxy-"$galaxy_release $local_toolshed_dir
     else
         mv "galaxy-"$galaxy_release $local_galaxy_dir
     fi 
+
+    rm "v"$galaxy_release".tar.gz"
     #if [[ $2 == "toolshed" ]]; then
         
         # --transform 's/'$local_galaxy_dir'/'$local_toolshed_dir'/' | tail
@@ -153,9 +155,9 @@ get_postgresql_prefix() {
 }
 
 wait_until_up() {
-    echo "==================================="
+    echo "===================================="
     echo "Wait until http://$host:$1 is up"
-    echo "-----------------------------------"
+    echo "------------------------------------"
     echo "Warning: if more than 10 lines of points are written, there may be an issue with Galaxy." 
     echo "You can check $2 file to get more information about these errors"
     echo ""
@@ -163,6 +165,6 @@ wait_until_up() {
         printf '.'
         sleep 1
     done
-    echo "==================================="
+    echo "===================================="
     echo ""
 }
