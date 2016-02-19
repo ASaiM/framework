@@ -24,6 +24,7 @@ sudo apt-get install openssl
 
 echo "Install postgres..."
 sudo apt-get install postgresql postgresql-contrib
+sudo apt-get install libpq-dev
 
 echo "Install wget..."
 sudo apt-get install wget

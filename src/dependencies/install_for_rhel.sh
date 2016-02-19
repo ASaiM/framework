@@ -24,6 +24,7 @@ sudo yum install openssl
 
 echo "Install postgres..."
 sudo yum install postgres*
+sudo yum install libpq-dev
 
 echo "Install wget..."
 sudo yum install wget
