@@ -41,8 +41,8 @@ if __name__ == '__main__':
         args.tool_owner)
     print changeset_revision
 
-    #gi.toolShed.install_repository_revision(ts_url, args.tool_name, args.tool_owner, 
-    #    changeset_revision, install_tool_dependencies=True, 
-    #    install_repository_dependencies=True, 
-    #    tool_panel_section_id=args.tool_panel_section_id)
+    gi.toolShed.install_repository_revision(args.ts_url, args.tool_name, args.tool_owner, 
+        changeset_revision, install_tool_dependencies=True, 
+        install_repository_dependencies=True, 
+        tool_panel_section_id=args.tool_panel_section_id)
 
