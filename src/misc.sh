@@ -140,16 +140,13 @@ get_postgresql_prefix() {
 }
 
 wait_until_up() {
-    $current_port=$1
-    $log_file=$2
-
     echo "==================================="
-    echo "Wait until http://$host:$current_port is up"
+    echo "Wait until http://$host:$1 is up"
     echo "-----------------------------------"
     echo "Warning: if more than 10 lines of points are written, there may be an issue with Galaxy." 
-    echo "You can check $log_file file to get more information about these errors"
+    echo "You can check $2 file to get more information about these errors"
     echo ""
-    until $(curl --output /dev/null --silent --head --fail http://$host:$current_port); do
+    until $(curl --output /dev/null --silent --head --fail http://$host:$1); do
         printf '.'
         sleep 1
     done
