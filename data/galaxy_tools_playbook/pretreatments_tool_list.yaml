@@ -40,7 +40,7 @@ tools:
   install_tool_dependencies: True
   install_repository_dependencies: True
   revisions:
-  - 'f29e21388219'
+  - '4258854759ba'
 - name: 'rdptools'
   owner: 'bebatut'
   tool_panel_section_id: 'rdp'
