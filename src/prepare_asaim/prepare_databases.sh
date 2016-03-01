@@ -10,6 +10,7 @@ gi_url="http://"$host":"$port
 echo "Prepare SortMeRNA databases..."
 declare RESULT=($(python $src_prepare/get_installed_tool_info.py \
     --tool_name "sortmerna" \
+    --tool_shed "testtoolshed.g2.bx.psu.edu" \
     --gi_url $gi_url \
     --api_key $master_api_key))
 revision=${RESULT[0]}
@@ -30,12 +31,13 @@ echo ""
 
 echo "Prepare HUMAnN2 databases..."
 declare RESULT=($(python $src_prepare/get_installed_tool_info.py \
-    --tool_name "humann2" \
+    --tool_name "package_humann_2_0" \
+    --tool_shed "testtoolshed.g2.bx.psu.edu" \
     --gi_url $gi_url \
     --api_key $master_api_key))
 revision=${RESULT[0]}
 owner=${RESULT[1]}
-humann2_db_dir=$galaxy_dir/dependency_dir/humann2/2.0/$owner/humann2/$revision/
+humann2_db_dir=$galaxy_dir/dependency_dir/humann2/2.0/$owner/package_humann_2_0/$revision/
 
 cd $humann2_db_dir
 if [ ! -d "databases/chocophlan" ]; then
