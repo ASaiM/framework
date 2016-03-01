@@ -8,7 +8,7 @@ current_dir=$PWD
 gi_url="http://"$host":"$port
 
 echo "Prepare SortMeRNA databases..."
-declare RESULT=($(python src/get_installed_tool_info.py \
+declare RESULT=($(python $src_prepare/get_installed_tool_info.py \
     --tool_name "sortmerna" \
     --gi_url $gi_url \
     --api_key $master_api_key))
@@ -29,7 +29,7 @@ cd $current_dir
 echo ""
 
 echo "Prepare HUMAnN2 databases..."
-declare RESULT=($(python src/get_installed_tool_info.py \
+declare RESULT=($(python $src_prepare/get_installed_tool_info.py \
     --tool_name "humann2" \
     --gi_url $gi_url \
     --api_key $master_api_key))
@@ -49,7 +49,7 @@ echo ""
 
 ## retrieve Greengenes for QIIME
 echo "Prepare QIIME databases..."
-declare RESULT=($(python src/get_installed_tool_info.py \
+declare RESULT=($(python $src_prepare/get_installed_tool_info.py \
     --tool_name "qiime" \
     --gi_url $gi_url \
     --api_key $master_api_key))
