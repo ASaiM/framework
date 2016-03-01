@@ -18,14 +18,38 @@ owner=${RESULT[1]}
 sortmerna_db_dir=$galaxy_dir/dependency_dir/sortmerna/2.0/$owner/sortmerna/$revision/rRNA_databases/
 
 cd $sortmerna_db_dir
-../bin/indexdb_rna --ref rfam-5.8s-database-id98.fasta,rfam-5.8s-database-id98
-../bin/indexdb_rna --ref rfam-5s-database-id98.fasta,rfam-5s-database-id98
-../bin/indexdb_rna --ref silva-arc-16s-id95.fasta,silva-arc-16s-id95
-../bin/indexdb_rna --ref silva-arc-23s-id98.fasta,silva-arc-23s-id98
-../bin/indexdb_rna --ref silva-bac-16s-id90.fasta,silva-bac-16s-id90
-../bin/indexdb_rna --ref silva-bac-23s-id98.fasta,silva-bac-23s-id98
-../bin/indexdb_rna --ref silva-euk-18s-id95.fasta,silva-euk-18s-id95
-../bin/indexdb_rna --ref silva-euk-28s-id98.fasta,silva-euk-28s-id98
+if [[ ! -f rfam-5.8s-database-id98.stats ]]; then
+    echo "  rfam-5.8s-database-id98"
+    ../bin/indexdb_rna --ref rfam-5.8s-database-id98.fasta,rfam-5.8s-database-id98
+fi
+if [[ ! -f rfam-5s-database-id98.stats ]]; then
+    echo "  rfam-5s-database-id98"
+    ../bin/indexdb_rna --ref rfam-5s-database-id98.fasta,rfam-5s-database-id98
+fi
+if [[ ! -f silva-arc-16s-id95.stats ]]; then
+    echo "  silva-arc-16s-id95"
+    ../bin/indexdb_rna --ref silva-arc-16s-id95.fasta,silva-arc-16s-id95
+fi
+if [[ ! -f silva-arc-23s-id98.stats ]]; then
+    echo "  silva-arc-23s-id98"
+    ../bin/indexdb_rna --ref silva-arc-23s-id98.fasta,silva-arc-23s-id98
+fi
+if [[ ! -f silva-bac-16s-id90.stats ]]; then
+    echo "  silva-bac-16s-id90"
+    ../bin/indexdb_rna --ref silva-bac-16s-id90.fasta,silva-bac-16s-id90
+fi
+if [[ ! -f silva-bac-23s-id98.stats ]]; then
+    echo "  silva-bac-23s-id98"
+    ../bin/indexdb_rna --ref silva-bac-23s-id98.fasta,silva-bac-23s-id98
+fi
+if [[ ! -f silva-euk-18s-id95.stats ]]; then
+    echo "  silva-euk-18s-id95"
+    ../bin/indexdb_rna --ref silva-euk-18s-id95.fasta,silva-euk-18s-id95
+fi
+if [[ ! -f silva-euk-28s-id98.stats ]]; then
+    echo "  silva-euk-28s-id98"
+    ../bin/indexdb_rna --ref silva-euk-28s-id98.fasta,silva-euk-28s-id98
+fi
 cd $current_dir
 echo ""
 
