@@ -25,3 +25,11 @@ tools:
   install_repository_dependencies: True
   #revisions:
   #- '6a7f5da7c76d'
+- name: 'plot_barplot'
+  owner: 'bebatut'
+  tool_panel_section_id: 'data_visualization'
+  tool_shed_url: 'http://testtoolshed.g2.bx.psu.edu/'
+  install_tool_dependencies: True
+  install_repository_dependencies: True
+  #revisions:
+  #- 'd084f63fbf30'
