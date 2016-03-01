@@ -95,6 +95,28 @@ tar xzf gg_13_8_otus.tar.gz
 rm gg_13_8_otus.tar.gz
 
 echo "  SILVA downloading, extracting and formating..."
-wget ftp://greengenes.microbio.me/greengenes_release/gg_13_5/gg_13_8_otus.tar.gz
-tar xzf gg_13_8_otus.tar.gz
-rm gg_13_8_otus.tar.gz
+db_version="119"
+silva_db_name="Silva_"$db_version
+wget "http://www.arb-silva.de/fileadmin/silva_databases/qiime/"$silva_db_name"_release_aligned_rep_files.tar.gz"
+tar xzf $silva_db_name"_release_aligned_rep_files.tar.gz"
+rm $silva_db_name"_release_aligned_rep_files.tar.gz"
+
+function gunzip_and_move {
+    gunzip "Silva"$db_version"_release_aligned_rep_files/$1/"$silva_db_name"_"$2".fna.gz"
+    mv "Silva"$db_version"_release_aligned_rep_files/$1/"$silva_db_name"_"$2".fna" .
+}
+
+gunzip_and_move "90" "rep_set90_aligned"
+gunzip_and_move "90_16S_only" "rep_set90_aligned_16S_only"
+gunzip_and_move "90_18S_only" "rep_set90_aligned_18S_only"
+gunzip_and_move "94" "rep_set94_aligned"
+gunzip_and_move "94_16S_only" "rep_set94_aligned_16S_only"
+gunzip_and_move "94_18S_only" "rep_set94_aligned_18S_only"
+gunzip_and_move "97" "rep_set97_aligned"
+gunzip_and_move "97_16S_only" "rep_set97_aligned_16S_only"
+gunzip_and_move "97_18S_only" "rep_set97_aligned_18S_only"
+gunzip_and_move "99" "rep_set99_aligned"
+gunzip_and_move "99_16S_only" "rep_set99_aligned_16S_only"
+gunzip_and_move "99_18S_only" "rep_set99_aligned_18S_only"
+
+rm -rf "Silva"$db_version"release_aligned_rep_files"
