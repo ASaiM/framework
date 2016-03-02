@@ -18,13 +18,13 @@ tools:
   #revisions:
   #- '6a7f5da7c76d'
 - name: 'taxonomy_krona_chart'
-  owner: 'iuc'
+  owner: 'crs4'
   tool_panel_section_id: 'data_visualization'
-  tool_shed_url: 'https://testtoolshed.g2.bx.psu.edu/'
+  tool_shed_url: 'https://toolshed.g2.bx.psu.edu/'
   install_tool_dependencies: True
   install_repository_dependencies: True
-  #revisions:
-  #- '6a7f5da7c76d'
+  revisions:
+  - '50f204c82159'
 - name: 'plot_barplot'
   owner: 'bebatut'
   tool_panel_section_id: 'data_visualization'
