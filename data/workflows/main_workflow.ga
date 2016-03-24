@@ -1,0 +1,1671 @@
+{
+    "a_galaxy_workflow": "true", 
+    "annotation": "", 
+    "format-version": "0.1", 
+    "name": "Single-end workflow", 
+    "steps": {
+        "0": {
+            "annotation": "", 
+            "id": 0, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "raw sequences"
+                }
+            ], 
+            "label": null, 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 164, 
+                "top": 614.71875
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"raw sequences\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "user_outputs": [], 
+            "uuid": "1a6c9bce-5a77-43a0-a39f-f07d8d53b235"
+        }, 
+        "1": {
+            "annotation": "", 
+            "id": 1, 
+            "input_connections": {
+                "seq_type|input_singles": {
+                    "id": 0, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "PRINSEQ", 
+            "outputs": [
+                {
+                    "name": "good_sequence_file", 
+                    "type": "fastq"
+                }, 
+                {
+                    "name": "rejected_sequence_file", 
+                    "type": "fastq"
+                }, 
+                {
+                    "name": "good_sequences_1_file", 
+                    "type": "fastq"
+                }, 
+                {
+                    "name": "good_sequences_1_singletons_file", 
+                    "type": "fastq"
+                }, 
+                {
+                    "name": "rejected_sequence_1_file", 
+                    "type": "fastq"
+                }, 
+                {
+                    "name": "good_sequences_2_file", 
+                    "type": "fastq"
+                }, 
+                {
+                    "name": "good_sequences_2_singletons_file", 
+                    "type": "fastq"
+                }, 
+                {
+                    "name": "rejected_sequence_2_file", 
+                    "type": "fastq"
+                }, 
+                {
+                    "name": "html_file", 
+                    "type": "html"
+                }
+            ], 
+            "position": {
+                "left": 345, 
+                "top": 609.71875
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "172.21.23.6:9009/repos/bebatut/prinseq/prinseq/0.1.0", 
+            "tool_state": "{\"seq_type\": \"{\\\"seq_type_opt\\\": \\\"single\\\", \\\"input_singles\\\": null, \\\"__current_case__\\\": 0}\", \"__page__\": 0, \"filter_treatments\": \"{\\\"complexity_filter_treatments\\\": {\\\"apply_complexity_filter_treatments\\\": \\\"true\\\", \\\"method_complexity_filter_treatments\\\": \\\"dust\\\", \\\"__current_case__\\\": 0, \\\"threshold_complexity_filter_treatments\\\": \\\"7\\\"}, \\\"length_filter_treatments\\\": {\\\"min_length_filter_treatments\\\": {\\\"min_length_filter_treatment_value\\\": \\\"60\\\", \\\"apply_min_length_filter_treatments\\\": \\\"true\\\", \\\"__current_case__\\\": 0}, \\\"apply_length_filter_treatments\\\": \\\"true\\\", \\\"max_length_filter_treatments\\\": {\\\"apply_max_length_filter_treatments\\\": \\\"false\\\", \\\"__current_case__\\\": 1}, \\\"__current_case__\\\": 0}, \\\"apply_filter_treatments\\\": \\\"true\\\", \\\"__current_case__\\\": 0, \\\"base_content_filter_treatments\\\": {\\\"__current_case__\\\": 0, \\\"N_number_content_filter_treatments\\\": {\\\"apply_N_number_content_filter_treatments\\\": \\\"false\\\", \\\"__current_case__\\\": 1}, \\\"apply_other_base_content_filter_treatments\\\": \\\"False\\\", \\\"N_percentage_content_filter_treatments\\\": {\\\"N_percentage_content_filter_treatment_value\\\": \\\"2\\\", \\\"__current_case__\\\": 0, \\\"apply_N_percentage_content_filter_treatments\\\": \\\"true\\\"}, \\\"GC_perc_content_filter_treatments\\\": {\\\"apply_GC_perc_content_filter_treatments\\\": \\\"false\\\", \\\"__current_case__\\\": 1}, \\\"apply_base_content_filter_treatments\\\": \\\"true\\\"}, \\\"quality_filter_treatments\\\": {\\\"mean_quality_filter_treatments\\\": {\\\"apply_mean_quality_filter_treatments\\\": \\\"true\\\", \\\"max_mean_quality_filter_treatments\\\": {\\\"apply_max_mean_quality_filter_treatments\\\": \\\"false\\\", \\\"__current_case__\\\": 1}, \\\"__current_case__\\\": 0, \\\"min_mean_quality_filter_treatments\\\": {\\\"apply_min_mean_quality_filter_treatments\\\": \\\"true\\\", \\\"__current_case__\\\": 0, \\\"min_mean_quality_filter_treatment_value\\\": \\\"15\\\"}}, \\\"max_quality_filter_treatments\\\": {\\\"apply_max_quality_filter_treatments\\\": \\\"false\\\", \\\"__current_case__\\\": 1}, \\\"min_quality_filter_treatments\\\": {\\\"apply_min_quality_filter_treatments\\\": \\\"false\\\", \\\"__current_case__\\\": 1}, \\\"apply_quality_filter_treatments\\\": \\\"true\\\", \\\"__current_case__\\\": 0}}\", \"__rerun_remap_job_id__\": null, \"graph_stats\": \"[\\\"ld\\\", \\\"gc\\\", \\\"qd\\\", \\\"ns\\\", \\\"pt\\\", \\\"ts\\\", \\\"aq\\\", \\\"de\\\", \\\"da\\\", \\\"sc\\\", \\\"dn\\\"]\", \"trimming_treatments\": \"{\\\"length_trimming_treatments\\\": {\\\"apply_length_trimming_treatments\\\": \\\"false\\\", \\\"__current_case__\\\": 1}, \\\"quality_trimming_treatments\\\": {\\\"type_quality_trimming_treatments\\\": \\\"mean\\\", \\\"step_quality_trimming_treatments\\\": \\\"5\\\", \\\"apply_quality_trimming_treatments\\\": \\\"true\\\", \\\"window_quality_trimming_treatments\\\": \\\"5\\\", \\\"__current_case__\\\": 0, \\\"right_quality_trimming_treatments\\\": {\\\"right_quality_trimming_treatment_value\\\": \\\"20\\\", \\\"apply_right_quality_trimming_treatments\\\": \\\"true\\\", \\\"__current_case__\\\": 0}, \\\"rule_quality_trimming_treatments\\\": \\\"lt\\\", \\\"left_quality_trimming_treatments\\\": {\\\"apply_left_quality_trimming_treatments\\\": \\\"false\\\", \\\"__current_case__\\\": 1}}, \\\"apply_trimming_treatments\\\": \\\"true\\\", \\\"tail_trimming_treatments\\\": {\\\"apply_tail_trimming_treatments\\\": \\\"false\\\", \\\"__current_case__\\\": 1}, \\\"__current_case__\\\": 0, \\\"position_trimming_treatments\\\": {\\\"apply_position_trimming_treatments\\\": \\\"false\\\", \\\"__current_case__\\\": 1}}\", \"chromInfo\": \"\\\"/home/cidam/Berenice/asaim/framework/lib/galaxy-dev/tool-data/shared/ucsc/chrom/?.len\\\"\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "04a5e4e7-b5ea-4d65-8062-f947e9ce0b48"
+        }, 
+        "2": {
+            "annotation": "", 
+            "id": 2, 
+            "input_connections": {
+                "sequence_file_format|sequence_file": {
+                    "id": 1, 
+                    "output_name": "good_sequence_file"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Extract", 
+            "outputs": [
+                {
+                    "name": "information_file", 
+                    "type": "txt"
+                }, 
+                {
+                    "name": "fasta_sequence_file", 
+                    "type": "fasta"
+                }, 
+                {
+                    "name": "fastq_sequence_file", 
+                    "type": "fastq"
+                }, 
+                {
+                    "name": "quality_file", 
+                    "type": "qual"
+                }, 
+                {
+                    "name": "fasta_sequence_file_from_fastq", 
+                    "type": "fasta"
+                }, 
+                {
+                    "name": "report_filepath", 
+                    "type": "txt"
+                }
+            ], 
+            "position": {
+                "left": 627, 
+                "top": 637.71875
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "testtoolshed.g2.bx.psu.edu/repos/bebatut/extract_sequence_file/extract_sequence_file/0.1.0", 
+            "tool_state": "{\"__page__\": 0, \"sequence_file_format\": \"{\\\"extraction\\\": {\\\"specific_extraction\\\": \\\"False\\\", \\\"split\\\": {\\\"split_test\\\": \\\"True\\\", \\\"__current_case__\\\": 0, \\\"quality_format\\\": \\\"illumina_1_8\\\"}, \\\"__current_case__\\\": 1}, \\\"sequence_file\\\": null, \\\"__current_case__\\\": 0, \\\"format\\\": \\\"fastq\\\"}\", \"chromInfo\": \"\\\"/home/cidam/Berenice/asaim/framework/lib/galaxy-dev/tool-data/shared/ucsc/chrom/?.len\\\"\", \"__rerun_remap_job_id__\": null, \"constraints\": \"{\\\"constrained_extraction\\\": \\\"False\\\", \\\"__current_case__\\\": 1}\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "9c20a63e-88b6-4f4d-b272-79b097ced009"
+        }, 
+        "3": {
+            "annotation": "", 
+            "id": 3, 
+            "input_connections": {
+                "infile": {
+                    "id": 2, 
+                    "output_name": "fasta_sequence_file_from_fastq"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "VSearch dereplication", 
+            "outputs": [
+                {
+                    "name": "outfile", 
+                    "type": "fasta"
+                }, 
+                {
+                    "name": "uc_outfile", 
+                    "type": "fasta"
+                }
+            ], 
+            "position": {
+                "left": 907, 
+                "top": 773.71875
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/vsearch/vsearch_dereplication/1.9.7.0", 
+            "tool_state": "{\"sizein\": \"\\\"False\\\"\", \"__page__\": 0, \"maxuniquesize\": \"\\\"\\\"\", \"__rerun_remap_job_id__\": null, \"minuniquesize\": \"\\\"\\\"\", \"topn\": \"\\\"\\\"\", \"sizeout\": \"\\\"True\\\"\", \"chromInfo\": \"\\\"/home/cidam/Berenice/asaim/framework/lib/galaxy-dev/tool-data/shared/ucsc/chrom/?.len\\\"\", \"infile\": \"null\", \"strand\": \"\\\"both\\\"\", \"uc\": \"\\\"False\\\"\"}", 
+            "tool_version": "1.9.7.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "7cfcc3ef-4142-49dc-900d-de079b706a14"
+        }, 
+        "4": {
+            "annotation": "", 
+            "id": 4, 
+            "input_connections": {
+                "input_file": {
+                    "id": 3, 
+                    "output_name": "outfile"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "MetaPhlAn2", 
+            "outputs": [
+                {
+                    "name": "output_file", 
+                    "type": "txt"
+                }, 
+                {
+                    "name": "sam_output_file", 
+                    "type": "sam"
+                }, 
+                {
+                    "name": "biom_output_file", 
+                    "type": "biom"
+                }
+            ], 
+            "position": {
+                "left": 1079, 
+                "top": 430.71875
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "172.21.23.6:9009/repos/bebatut/metaphlan_2/metaphlan_2/0.1.0", 
+            "tool_state": "{\"min_cu_len\": \"\\\"2000\\\"\", \"biom_output\": \"\\\"False\\\"\", \"min_alignment_len\": \"\\\"0\\\"\", \"sam_output\": \"\\\"False\\\"\", \"input_file\": \"null\", \"__page__\": 0, \"__rerun_remap_job_id__\": null, \"ignore_eukaryotes\": \"\\\"True\\\"\", \"stat_q\": \"\\\"0.1\\\"\", \"ignore_viruses\": \"\\\"True\\\"\", \"ignore_archaea\": \"\\\"True\\\"\", \"analysis_type\": \"{\\\"analysis_type_select\\\": \\\"rel_ab_w_read_stats\\\", \\\"__current_case__\\\": 1}\", \"ignore_bacteria\": \"\\\"True\\\"\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "10dce28e-a734-4ae6-9b5a-c010d8f3d441"
+        }, 
+        "5": {
+            "annotation": "", 
+            "id": 5, 
+            "input_connections": {
+                "input_file": {
+                    "id": 3, 
+                    "output_name": "outfile"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "MetaPhlAn2", 
+            "outputs": [
+                {
+                    "name": "output_file", 
+                    "type": "txt"
+                }, 
+                {
+                    "name": "sam_output_file", 
+                    "type": "sam"
+                }, 
+                {
+                    "name": "biom_output_file", 
+                    "type": "biom"
+                }
+            ], 
+            "position": {
+                "left": 1292, 
+                "top": 538.71875
+            }, 
+            "post_job_actions": {
+                "ChangeDatatypeActionoutput_file": {
+                    "action_arguments": {
+                        "newtype": "tabular"
+                    }, 
+                    "action_type": "ChangeDatatypeAction", 
+                    "output_name": "output_file"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "172.21.23.6:9009/repos/bebatut/metaphlan_2/metaphlan_2/0.1.0", 
+            "tool_state": "{\"min_cu_len\": \"\\\"2000\\\"\", \"biom_output\": \"\\\"False\\\"\", \"min_alignment_len\": \"\\\"0\\\"\", \"sam_output\": \"\\\"False\\\"\", \"input_file\": \"null\", \"__page__\": 0, \"__rerun_remap_job_id__\": null, \"ignore_eukaryotes\": \"\\\"True\\\"\", \"stat_q\": \"\\\"0.1\\\"\", \"ignore_viruses\": \"\\\"True\\\"\", \"ignore_archaea\": \"\\\"True\\\"\", \"analysis_type\": \"{\\\"taxonomic_level\\\": \\\"a\\\", \\\"analysis_type_select\\\": \\\"rel_ab\\\", \\\"__current_case__\\\": 0}\", \"ignore_bacteria\": \"\\\"True\\\"\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "cce09f89-107f-4058-8358-53b0c2fcf526"
+        }, 
+        "6": {
+            "annotation": "", 
+            "id": 6, 
+            "input_connections": {
+                "input_reads": {
+                    "id": 3, 
+                    "output_name": "outfile"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Filter with SortMeRNA", 
+            "outputs": [
+                {
+                    "name": "output_fastx", 
+                    "type": "fasta"
+                }, 
+                {
+                    "name": "output_other", 
+                    "type": "fasta"
+                }, 
+                {
+                    "name": "output_sam", 
+                    "type": "sam"
+                }, 
+                {
+                    "name": "output_blast", 
+                    "type": "tabular"
+                }, 
+                {
+                    "name": "output_log", 
+                    "type": "txt"
+                }
+            ], 
+            "position": {
+                "left": 1222, 
+                "top": 1002.71875
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "testtoolshed.g2.bx.psu.edu/repos/bebatut/sortmerna/bg_sortmerna/2.1.0", 
+            "tool_state": "{\"__page__\": 0, \"aligned_fastx\": \"{\\\"aligned_fastx_selector\\\": \\\"--fastx\\\", \\\"other\\\": \\\"True\\\", \\\"__current_case__\\\": 0}\", \"aligned_sam\": \"{\\\"aligned_sam_selector\\\": \\\"--sam\\\", \\\"sq\\\": \\\"False\\\", \\\"__current_case__\\\": 0}\", \"log\": \"\\\"False\\\"\", \"input_reads\": \"null\", \"e_value\": \"\\\"1.0\\\"\", \"mismatch\": \"\\\"-3\\\"\", \"sequencing_type\": \"{\\\"sequencing_type_selector\\\": \\\"not_paired\\\", \\\"__current_case__\\\": 0}\", \"ambiguous_letter\": \"\\\"-3\\\"\", \"aligned_blast\": \"\\\"\\\"\", \"databases_type\": \"{\\\"databases_selector\\\": \\\"cached\\\", \\\"input_databases\\\": {\\\"__class__\\\": \\\"UnvalidatedValue\\\", \\\"value\\\": [\\\"rfam-5.8s-id98\\\", \\\"rfam-5s-id98\\\", \\\"silva-arc-16s-id95\\\", \\\"silva-arc-23s-id98\\\", \\\"silva-bac-16s-id90\\\", \\\"silva-bac-23s-id98\\\", \\\"silva-euk-18s-id95\\\", \\\"silva-euk-29s-id98\\\"]}, \\\"__current_case__\\\": 0}\", \"match\": \"\\\"2\\\"\", \"gap_open\": \"\\\"5\\\"\", \"report\": \"{\\\"report_best\\\": {\\\"report_best_min_lis\\\": \\\"2\\\", \\\"report_best_type\\\": \\\"1\\\", \\\"__current_case__\\\": 0}, \\\"report_type\\\": \\\"best\\\", \\\"__current_case__\\\": 0}\", \"chromInfo\": \"\\\"/home/cidam/Berenice/asaim/framework/lib/galaxy-dev/tool-data/shared/ucsc/chrom/?.len\\\"\", \"__rerun_remap_job_id__\": null, \"strand_search\": \"\\\"\\\"\", \"gap_ext\": \"\\\"2\\\"\"}", 
+            "tool_version": "2.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "514484c5-52d9-41d2-9ad7-c54be0bd2818"
+        }, 
+        "7": {
+            "annotation": "", 
+            "id": 7, 
+            "input_connections": {
+                "input_file": {
+                    "id": 5, 
+                    "output_name": "output_file"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Format MetaPhlAn2", 
+            "outputs": [
+                {
+                    "name": "all_taxo_level_abundance_file", 
+                    "type": "tabular"
+                }, 
+                {
+                    "name": "kingdom_abundance_file", 
+                    "type": "tabular"
+                }, 
+                {
+                    "name": "phylum_abundance_file", 
+                    "type": "tabular"
+                }, 
+                {
+                    "name": "class_abundance_file", 
+                    "type": "tabular"
+                }, 
+                {
+                    "name": "order_abundance_file", 
+                    "type": "tabular"
+                }, 
+                {
+                    "name": "family_abundance_file", 
+                    "type": "tabular"
+                }, 
+                {
+                    "name": "genus_abundance_file", 
+                    "type": "tabular"
+                }, 
+                {
+                    "name": "species_abundance_file", 
+                    "type": "tabular"
+                }, 
+                {
+                    "name": "strains_abundance_file", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 1633, 
+                "top": 129
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "172.21.23.6:9009/repos/bebatut/format_metaphlan2_output/format_metaphlan2_output/0.1.0", 
+            "tool_state": "{\"__page__\": 0, \"__rerun_remap_job_id__\": null, \"input_file\": \"null\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "c09110d3-ccff-4552-818b-25dca5d64ce0"
+        }, 
+        "8": {
+            "annotation": "", 
+            "id": 8, 
+            "input_connections": {
+                "input_file": {
+                    "id": 5, 
+                    "output_name": "output_file"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Format MetaPhlAn2", 
+            "outputs": [
+                {
+                    "name": "krona", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 1654, 
+                "top": 497.71875
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "172.21.23.6:9009/repos/bebatut/metaphlan_2/metaphlan2krona/0.1.0", 
+            "tool_state": "{\"__page__\": 0, \"__rerun_remap_job_id__\": null, \"chromInfo\": \"\\\"/home/cidam/Berenice/asaim/framework/lib/galaxy-dev/tool-data/shared/ucsc/chrom/?.len\\\"\", \"input_file\": \"null\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "e2f19d1d-8d8f-481f-af93-b4d1271a38f9"
+        }, 
+        "9": {
+            "annotation": "", 
+            "id": 9, 
+            "input_connections": {
+                "lefse_input": {
+                    "id": 5, 
+                    "output_name": "output_file"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Export to GraPhlAn", 
+            "outputs": [
+                {
+                    "name": "tree", 
+                    "type": "txt"
+                }, 
+                {
+                    "name": "annotation", 
+                    "type": "txt"
+                }
+            ], 
+            "position": {
+                "left": 1813, 
+                "top": 635.71875
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "testtoolshed.g2.bx.psu.edu/repos/bebatut/export2graphlan/export2graphlan/0.1.0", 
+            "tool_state": "{\"ftop\": \"\\\"\\\"\", \"background_clades\": \"\\\"\\\"\", \"max_clade_size\": \"\\\"250\\\"\", \"def_font_size\": \"\\\"10\\\"\", \"external_annotations\": \"\\\"6,7\\\"\", \"sperc\": \"\\\"\\\"\", \"__page__\": 0, \"skip_rows\": \"\\\"\\\"\", \"title\": \"\\\"\\\"\", \"__rerun_remap_job_id__\": null, \"metadata_rows\": \"\\\"\\\"\", \"least_biomarkers\": \"\\\"\\\"\", \"min_clade_size\": \"\\\"0\\\"\", \"annotation_legend_font_size\": \"\\\"11\\\"\", \"fperc\": \"\\\"\\\"\", \"annotations\": \"\\\"5\\\"\", \"lefse_input\": \"null\", \"background_colors\": \"\\\"\\\"\", \"def_clade_size\": \"\\\"10\\\"\", \"stop\": \"\\\"\\\"\", \"sname_row\": \"\\\"0\\\"\", \"max_font_size\": \"\\\"12\\\"\", \"fname_row\": \"\\\"0\\\"\", \"abundance_threshold\": \"\\\"0.0\\\"\", \"title_font_size\": \"\\\"15\\\"\", \"background_levels\": \"\\\"\\\"\", \"chromInfo\": \"\\\"/home/cidam/Berenice/asaim/framework/lib/galaxy-dev/tool-data/shared/ucsc/chrom/?.len\\\"\", \"min_font_size\": \"\\\"8\\\"\", \"most_abundant\": \"\\\"100\\\"\", \"lefse_output\": \"null\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "ab871e2d-14a0-41c9-a364-4038ef359a23"
+        }, 
+        "10": {
+            "annotation": "", 
+            "id": 10, 
+            "input_connections": {
+                "input_reads": {
+                    "id": 6, 
+                    "output_name": "output_fastx"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Filter with SortMeRNA", 
+            "outputs": [
+                {
+                    "name": "output_fastx", 
+                    "type": "fasta"
+                }, 
+                {
+                    "name": "output_other", 
+                    "type": "fasta"
+                }, 
+                {
+                    "name": "output_sam", 
+                    "type": "sam"
+                }, 
+                {
+                    "name": "output_blast", 
+                    "type": "tabular"
+                }, 
+                {
+                    "name": "output_log", 
+                    "type": "txt"
+                }
+            ], 
+            "position": {
+                "left": 1554, 
+                "top": 895.71875
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "testtoolshed.g2.bx.psu.edu/repos/bebatut/sortmerna/bg_sortmerna/2.1.0", 
+            "tool_state": "{\"__page__\": 0, \"aligned_fastx\": \"{\\\"aligned_fastx_selector\\\": \\\"--fastx\\\", \\\"other\\\": \\\"True\\\", \\\"__current_case__\\\": 0}\", \"aligned_sam\": \"{\\\"aligned_sam_selector\\\": \\\"--sam\\\", \\\"sq\\\": \\\"False\\\", \\\"__current_case__\\\": 0}\", \"log\": \"\\\"False\\\"\", \"input_reads\": \"null\", \"e_value\": \"\\\"1.0\\\"\", \"mismatch\": \"\\\"-3\\\"\", \"sequencing_type\": \"{\\\"sequencing_type_selector\\\": \\\"not_paired\\\", \\\"__current_case__\\\": 0}\", \"ambiguous_letter\": \"\\\"-3\\\"\", \"aligned_blast\": \"\\\"\\\"\", \"databases_type\": \"{\\\"databases_selector\\\": \\\"cached\\\", \\\"input_databases\\\": {\\\"__class__\\\": \\\"UnvalidatedValue\\\", \\\"value\\\": [\\\"silva-arc-16s-id95\\\", \\\"silva-bac-16s-id90\\\"]}, \\\"__current_case__\\\": 0}\", \"match\": \"\\\"2\\\"\", \"gap_open\": \"\\\"5\\\"\", \"report\": \"{\\\"report_best\\\": {\\\"report_best_min_lis\\\": \\\"2\\\", \\\"report_best_type\\\": \\\"1\\\", \\\"__current_case__\\\": 0}, \\\"report_type\\\": \\\"best\\\", \\\"__current_case__\\\": 0}\", \"chromInfo\": \"\\\"/home/cidam/Berenice/asaim/framework/lib/galaxy-dev/tool-data/shared/ucsc/chrom/?.len\\\"\", \"__rerun_remap_job_id__\": null, \"strand_search\": \"\\\"\\\"\", \"gap_ext\": \"\\\"2\\\"\"}", 
+            "tool_version": "2.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "74c2481e-a604-4e21-8e84-de53741735e8"
+        }, 
+        "11": {
+            "annotation": "", 
+            "id": 11, 
+            "input_connections": {
+                "input_file": {
+                    "id": 6, 
+                    "output_name": "output_other"
+                }, 
+                "taxonomic_profile|taxonomic_profile_file": {
+                    "id": 5, 
+                    "output_name": "output_file"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "HUMAnN2", 
+            "outputs": [
+                {
+                    "name": "gene_families_tsv", 
+                    "type": "tsv"
+                }, 
+                {
+                    "name": "gene_families_biom", 
+                    "type": "biom"
+                }, 
+                {
+                    "name": "pathcoverage_tsv", 
+                    "type": "tsv"
+                }, 
+                {
+                    "name": "pathcoverage_biom", 
+                    "type": "biom"
+                }, 
+                {
+                    "name": "pathabundance_tsv", 
+                    "type": "tsv"
+                }, 
+                {
+                    "name": "pathabundance_biom", 
+                    "type": "biom"
+                }
+            ], 
+            "position": {
+                "left": 1516, 
+                "top": 1551.71875
+            }, 
+            "post_job_actions": {
+                "ChangeDatatypeActiongene_families_tsv": {
+                    "action_arguments": {
+                        "newtype": "tabular"
+                    }, 
+                    "action_type": "ChangeDatatypeAction", 
+                    "output_name": "gene_families_tsv"
+                }, 
+                "ChangeDatatypeActionpathabundance_tsv": {
+                    "action_arguments": {
+                        "newtype": "tabular"
+                    }, 
+                    "action_type": "ChangeDatatypeAction", 
+                    "output_name": "pathabundance_tsv"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "172.21.23.6:9009/repos/bebatut/humann2/humann2/0.1.0", 
+            "tool_state": "{\"__page__\": 0, \"taxonomic_profile\": \"{\\\"taxonomic_profile_file\\\": null, \\\"taxonomic_profile_test\\\": \\\"True\\\", \\\"__current_case__\\\": 0}\", \"nucleotide_database\": \"\\\"chocophlan\\\"\", \"prescreen\": \"\\\"0.01\\\"\", \"input_file\": \"null\", \"output_format\": \"\\\"tsv\\\"\", \"protein_database\": \"\\\"uniref\\\"\", \"minpath\": \"\\\"True\\\"\", \"remove_statified_output\": \"\\\"False\\\"\", \"output_max_dec\": \"\\\"10\\\"\", \"xipe\": \"\\\"False\\\"\", \"pick_frames\": \"\\\"True\\\"\", \"e_value\": \"\\\"1.0\\\"\", \"__rerun_remap_job_id__\": null, \"identity\": \"\\\"40\\\"\", \"pathways\": \"\\\"metacyc\\\"\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "d6cbf083-360c-4d08-9339-d65018d5688f"
+        }, 
+        "12": {
+            "annotation": "", 
+            "id": 12, 
+            "input_connections": {
+                "type_of_data|input": {
+                    "id": 8, 
+                    "output_name": "krona"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Krona pie chart", 
+            "outputs": [
+                {
+                    "name": "output", 
+                    "type": "html"
+                }
+            ], 
+            "position": {
+                "left": 2008, 
+                "top": 477
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "testtoolshed.g2.bx.psu.edu/repos/iuc/taxonomy_krona_chart/taxonomy_krona_chart/2.0.0", 
+            "tool_state": "{\"__page__\": 0, \"__rerun_remap_job_id__\": null, \"combine_inputs\": \"\\\"False\\\"\", \"type_of_data\": \"{\\\"input\\\": null, \\\"type_of_data_selector\\\": \\\"text\\\", \\\"__current_case__\\\": 1}\", \"root_name\": \"\\\"Root\\\"\"}", 
+            "tool_version": "2.0.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "a87540e7-84be-4fbc-92b6-18c3da59b27c"
+        }, 
+        "13": {
+            "annotation": "", 
+            "id": 13, 
+            "input_connections": {
+                "annot": {
+                    "id": 9, 
+                    "output_name": "annotation"
+                }, 
+                "input_tree": {
+                    "id": 9, 
+                    "output_name": "tree"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Modify an input tree for GraPhlAn", 
+            "outputs": [
+                {
+                    "name": "output_tree", 
+                    "type": "text"
+                }
+            ], 
+            "position": {
+                "left": 2172, 
+                "top": 621.71875
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "testtoolshed.g2.bx.psu.edu/repos/bebatut/graphlan/graphlan_annotate/0.1.0", 
+            "tool_state": "{\"input_tree\": \"null\", \"__rerun_remap_job_id__\": null, \"chromInfo\": \"\\\"/home/cidam/Berenice/asaim/framework/lib/galaxy-dev/tool-data/shared/ucsc/chrom/?.len\\\"\", \"annot\": \"null\", \"__page__\": 0}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "5d048fb7-5307-46ae-8170-3731549eb104"
+        }, 
+        "14": {
+            "annotation": "", 
+            "id": 14, 
+            "input_connections": {
+                "input_reads": {
+                    "id": 10, 
+                    "output_name": "output_other"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Filter with SortMeRNA", 
+            "outputs": [
+                {
+                    "name": "output_fastx", 
+                    "type": "fasta"
+                }, 
+                {
+                    "name": "output_other", 
+                    "type": "fasta"
+                }, 
+                {
+                    "name": "output_sam", 
+                    "type": "sam"
+                }, 
+                {
+                    "name": "output_blast", 
+                    "type": "tabular"
+                }, 
+                {
+                    "name": "output_log", 
+                    "type": "txt"
+                }
+            ], 
+            "position": {
+                "left": 1881, 
+                "top": 833.71875
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "testtoolshed.g2.bx.psu.edu/repos/bebatut/sortmerna/bg_sortmerna/2.1.0", 
+            "tool_state": "{\"__page__\": 0, \"aligned_fastx\": \"{\\\"aligned_fastx_selector\\\": \\\"--fastx\\\", \\\"other\\\": \\\"True\\\", \\\"__current_case__\\\": 0}\", \"aligned_sam\": \"{\\\"aligned_sam_selector\\\": \\\"--sam\\\", \\\"sq\\\": \\\"False\\\", \\\"__current_case__\\\": 0}\", \"log\": \"\\\"False\\\"\", \"input_reads\": \"null\", \"e_value\": \"\\\"1.0\\\"\", \"mismatch\": \"\\\"-3\\\"\", \"sequencing_type\": \"{\\\"sequencing_type_selector\\\": \\\"not_paired\\\", \\\"__current_case__\\\": 0}\", \"ambiguous_letter\": \"\\\"-3\\\"\", \"aligned_blast\": \"\\\"\\\"\", \"databases_type\": \"{\\\"databases_selector\\\": \\\"cached\\\", \\\"input_databases\\\": {\\\"__class__\\\": \\\"UnvalidatedValue\\\", \\\"value\\\": [\\\"silva-euk-18s-id95\\\"]}, \\\"__current_case__\\\": 0}\", \"match\": \"\\\"2\\\"\", \"gap_open\": \"\\\"5\\\"\", \"report\": \"{\\\"report_best\\\": {\\\"report_best_min_lis\\\": \\\"2\\\", \\\"report_best_type\\\": \\\"1\\\", \\\"__current_case__\\\": 0}, \\\"report_type\\\": \\\"best\\\", \\\"__current_case__\\\": 0}\", \"chromInfo\": \"\\\"/home/cidam/Berenice/asaim/framework/lib/galaxy-dev/tool-data/shared/ucsc/chrom/?.len\\\"\", \"__rerun_remap_job_id__\": null, \"strand_search\": \"\\\"\\\"\", \"gap_ext\": \"\\\"2\\\"\"}", 
+            "tool_version": "2.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "8da3c81c-001f-4526-a4a9-614feacfb499"
+        }, 
+        "15": {
+            "annotation": "", 
+            "id": 15, 
+            "input_connections": {
+                "humann2_file": {
+                    "id": 11, 
+                    "output_name": "gene_families_tsv"
+                }, 
+                "metaphlan2_file": {
+                    "id": 5, 
+                    "output_name": "output_file"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Combine MetaPhlAn2 and HUMAnN2 outputs", 
+            "outputs": [
+                {
+                    "name": "gene_families_output_file", 
+                    "type": "tabular"
+                }, 
+                {
+                    "name": "pathway_output_file", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 1997.140625, 
+                "top": 1036.328125
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "172.21.23.6:9009/repos/bebatut/combine_metaphlan2_humann2/combine_metaphlan2_humann2/0.1.0", 
+            "tool_state": "{\"metaphlan2_file\": \"null\", \"humann2_file\": \"null\", \"__rerun_remap_job_id__\": null, \"type\": \"\\\"gene_families\\\"\", \"__page__\": 0}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "f3ff8b84-d9e1-4241-9229-cdf1e34ea707"
+        }, 
+        "16": {
+            "annotation": "", 
+            "id": 16, 
+            "input_connections": {
+                "humann2_file": {
+                    "id": 11, 
+                    "output_name": "pathabundance_tsv"
+                }, 
+                "metaphlan2_file": {
+                    "id": 5, 
+                    "output_name": "output_file"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Combine MetaPhlAn2 and HUMAnN2 outputs", 
+            "outputs": [
+                {
+                    "name": "gene_families_output_file", 
+                    "type": "tabular"
+                }, 
+                {
+                    "name": "pathway_output_file", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 1927.140625, 
+                "top": 1252.328125
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "172.21.23.6:9009/repos/bebatut/combine_metaphlan2_humann2/combine_metaphlan2_humann2/0.1.0", 
+            "tool_state": "{\"metaphlan2_file\": \"null\", \"humann2_file\": \"null\", \"__rerun_remap_job_id__\": null, \"type\": \"\\\"pathways\\\"\", \"__page__\": 0}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "6fcf1415-ff46-4dca-9cbb-aa6fe0d7092b"
+        }, 
+        "17": {
+            "annotation": "", 
+            "id": 17, 
+            "input_connections": {
+                "input": {
+                    "id": 11, 
+                    "output_name": "gene_families_tsv"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Select", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "input"
+                }
+            ], 
+            "position": {
+                "left": 1840.5, 
+                "top": 1546
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "Grep1", 
+            "tool_state": "{\"__page__\": 0, \"input\": \"null\", \"invert\": \"\\\"false\\\"\", \"__rerun_remap_job_id__\": null, \"pattern\": \"\\\"\\\\\\\\|\\\"\"}", 
+            "tool_version": "1.0.1", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "47f559ce-c401-4b2c-b687-eababd8bf9f4"
+        }, 
+        "18": {
+            "annotation": "", 
+            "id": 18, 
+            "input_connections": {
+                "input": {
+                    "id": 11, 
+                    "output_name": "gene_families_tsv"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Select", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "input"
+                }
+            ], 
+            "position": {
+                "left": 1845.5, 
+                "top": 1657
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "Grep1", 
+            "tool_state": "{\"__page__\": 0, \"input\": \"null\", \"invert\": \"\\\"true\\\"\", \"__rerun_remap_job_id__\": null, \"pattern\": \"\\\"\\\\\\\\|\\\"\"}", 
+            "tool_version": "1.0.1", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "7dc48a62-6534-43aa-9ab3-1532d86d1166"
+        }, 
+        "19": {
+            "annotation": "", 
+            "id": 19, 
+            "input_connections": {
+                "input": {
+                    "id": 11, 
+                    "output_name": "pathabundance_tsv"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Select", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "input"
+                }
+            ], 
+            "position": {
+                "left": 1842.5, 
+                "top": 1766
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "Grep1", 
+            "tool_state": "{\"__page__\": 0, \"input\": \"null\", \"invert\": \"\\\"true\\\"\", \"__rerun_remap_job_id__\": null, \"pattern\": \"\\\"\\\\\\\\|\\\"\"}", 
+            "tool_version": "1.0.1", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "56b2f313-ca1d-4551-aec9-8d3c0a5513cb"
+        }, 
+        "20": {
+            "annotation": "", 
+            "id": 20, 
+            "input_connections": {
+                "input": {
+                    "id": 11, 
+                    "output_name": "pathabundance_tsv"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Select", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "input"
+                }
+            ], 
+            "position": {
+                "left": 1806.5, 
+                "top": 1872
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "Grep1", 
+            "tool_state": "{\"__page__\": 0, \"input\": \"null\", \"invert\": \"\\\"true\\\"\", \"__rerun_remap_job_id__\": null, \"pattern\": \"\\\"\\\\\\\\|\\\"\"}", 
+            "tool_version": "1.0.1", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "8d0d9166-88af-41cf-8604-54b510b645d6"
+        }, 
+        "21": {
+            "annotation": "", 
+            "id": 21, 
+            "input_connections": {
+                "input_tree": {
+                    "id": 13, 
+                    "output_name": "output_tree"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "GraPhlAn", 
+            "outputs": [
+                {
+                    "name": "png_output_image", 
+                    "type": "png"
+                }, 
+                {
+                    "name": "pdf_output_image", 
+                    "type": "pdf"
+                }, 
+                {
+                    "name": "ps_output_image", 
+                    "type": "ps"
+                }, 
+                {
+                    "name": "eps_output_image", 
+                    "type": "eps"
+                }, 
+                {
+                    "name": "svg_output_image", 
+                    "type": "svg"
+                }
+            ], 
+            "position": {
+                "left": 2511, 
+                "top": 611.71875
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "testtoolshed.g2.bx.psu.edu/repos/bebatut/graphlan/graphlan/0.1.0", 
+            "tool_state": "{\"__page__\": 0, \"format\": \"\\\"png\\\"\", \"input_tree\": \"null\", \"__rerun_remap_job_id__\": null, \"pad\": \"\\\"2\\\"\", \"chromInfo\": \"\\\"/home/cidam/Berenice/asaim/framework/lib/galaxy-dev/tool-data/shared/ucsc/chrom/?.len\\\"\", \"dpi\": \"\\\"\\\"\", \"size\": \"\\\"7\\\"\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "f0061fc3-7d02-402f-a33f-a1cb40cf4b7f"
+        }, 
+        "22": {
+            "annotation": "", 
+            "id": 22, 
+            "input_connections": {
+                "input_file": {
+                    "id": 15, 
+                    "output_name": "gene_families_output_file"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Plot generic X-Y plot", 
+            "outputs": [
+                {
+                    "name": "output_pdf_file", 
+                    "type": "pdf"
+                }, 
+                {
+                    "name": "output_png_file", 
+                    "type": "png"
+                }, 
+                {
+                    "name": "output_svg_file", 
+                    "type": "svg"
+                }
+            ], 
+            "position": {
+                "left": 2337.640625, 
+                "top": 987.328125
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "172.21.23.6:9009/repos/bebatut/plot_generic_x_y_plot/plot_generic_x_y_plot/0.1.0", 
+            "tool_state": "{\"xlab\": \"\\\"Relative abundance of species (percentage)\\\"\", \"__page__\": 0, \"bottom_margin\": \"\\\"5\\\"\", \"abline\": \"\\\"False\\\"\", \"input_file\": \"null\", \"color\": \"\\\"grey25\\\"\", \"lim\": \"\\\"False\\\"\", \"output_format\": \"\\\"pdf\\\"\", \"right_margin\": \"\\\"1\\\"\", \"top_margin\": \"\\\"1\\\"\", \"ylog\": \"\\\"True\\\"\", \"y_column_id\": \"\\\"7\\\"\", \"left_margin\": \"\\\"5\\\"\", \"pch\": \"\\\"21\\\"\", \"__rerun_remap_job_id__\": null, \"ylab\": \"\\\"Relative abundances of found gene families for species (percentage)\\\"\", \"x_column_id\": \"\\\"4\\\"\", \"xlog\": \"\\\"True\\\"\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "2c45f06e-fb1f-4454-84f0-37316101bb96"
+        }, 
+        "23": {
+            "annotation": "", 
+            "id": 23, 
+            "input_connections": {
+                "input": {
+                    "id": 15, 
+                    "output_name": "gene_families_output_file"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Remove beginning", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "input"
+                }
+            ], 
+            "position": {
+                "left": 2565.140625, 
+                "top": 1126.328125
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/devteam/remove_beginning/Remove beginning1/1.0.0", 
+            "tool_state": "{\"input\": \"null\", \"__rerun_remap_job_id__\": null, \"num_lines\": \"\\\"1\\\"\", \"__page__\": 0}", 
+            "tool_version": "1.0.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "e99e9621-ee58-4ea2-8b34-abb56f01c55f"
+        }, 
+        "24": {
+            "annotation": "", 
+            "id": 24, 
+            "input_connections": {
+                "input_file": {
+                    "id": 16, 
+                    "output_name": "pathway_output_file"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Plot generic X-Y plot", 
+            "outputs": [
+                {
+                    "name": "output_pdf_file", 
+                    "type": "pdf"
+                }, 
+                {
+                    "name": "output_png_file", 
+                    "type": "png"
+                }, 
+                {
+                    "name": "output_svg_file", 
+                    "type": "svg"
+                }
+            ], 
+            "position": {
+                "left": 2291.640625, 
+                "top": 1236.328125
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "172.21.23.6:9009/repos/bebatut/plot_generic_x_y_plot/plot_generic_x_y_plot/0.1.0", 
+            "tool_state": "{\"xlab\": \"\\\"Relative abundance of species (percentage)\\\"\", \"__page__\": 0, \"bottom_margin\": \"\\\"5\\\"\", \"abline\": \"\\\"False\\\"\", \"input_file\": \"null\", \"color\": \"\\\"grey25\\\"\", \"lim\": \"\\\"False\\\"\", \"output_format\": \"\\\"pdf\\\"\", \"right_margin\": \"\\\"1\\\"\", \"top_margin\": \"\\\"1\\\"\", \"ylog\": \"\\\"True\\\"\", \"y_column_id\": \"\\\"7\\\"\", \"left_margin\": \"\\\"5\\\"\", \"pch\": \"\\\"21\\\"\", \"__rerun_remap_job_id__\": null, \"ylab\": \"\\\"Relative abundances of found pathways for species (percentage)\\\"\", \"x_column_id\": \"\\\"4\\\"\", \"xlog\": \"\\\"True\\\"\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "1333b84c-662f-4d6c-a716-a403732ac741"
+        }, 
+        "25": {
+            "annotation": "", 
+            "id": 25, 
+            "input_connections": {
+                "input": {
+                    "id": 16, 
+                    "output_name": "pathway_output_file"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Remove beginning", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "input"
+                }
+            ], 
+            "position": {
+                "left": 2539.140625, 
+                "top": 1339.328125
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/devteam/remove_beginning/Remove beginning1/1.0.0", 
+            "tool_state": "{\"input\": \"null\", \"__rerun_remap_job_id__\": null, \"num_lines\": \"\\\"1\\\"\", \"__page__\": 0}", 
+            "tool_version": "1.0.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "bc0102e2-8785-41d3-90cd-5e711fa0a1d9"
+        }, 
+        "26": {
+            "annotation": "", 
+            "id": 26, 
+            "input_connections": {
+                "humann2_gene_families_abundance": {
+                    "id": 18, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Group HUMAnN2 UniRef50 abundances", 
+            "outputs": [
+                {
+                    "name": "molecular_function_abundance", 
+                    "type": "tabular"
+                }, 
+                {
+                    "name": "biological_process_abundance", 
+                    "type": "tabular"
+                }, 
+                {
+                    "name": "cellular_component_abundance", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 2048, 
+                "top": 1477.71875
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "testtoolshed.g2.bx.psu.edu/repos/bebatut/group_humann2_uniref_abundances_to_go/group_humann2_uniref_abundances_to_go/1.0.0", 
+            "tool_state": "{\"__page__\": 0, \"gene_ontology\": \"{\\\"gene_ontology_test\\\": \\\"False\\\", \\\"__current_case__\\\": 1}\", \"slim_gene_ontology\": \"{\\\"slim_gene_ontology_test\\\": \\\"False\\\", \\\"__current_case__\\\": 1}\", \"humann2_gene_families_abundance\": \"null\", \"__rerun_remap_job_id__\": null, \"uniref50_go\": \"{\\\"uniref50_go_test\\\": \\\"False\\\", \\\"__current_case__\\\": 1}\", \"chromInfo\": \"\\\"/home/cidam/Berenice/asaim/framework/lib/galaxy-dev/tool-data/shared/ucsc/chrom/?.len\\\"\"}", 
+            "tool_version": "1.0.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "a13e1a91-b4a9-457a-b713-cd69f4eb8b9f"
+        }, 
+        "27": {
+            "annotation": "", 
+            "id": 27, 
+            "input_connections": {
+                "input_file": {
+                    "id": 18, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Normalize a dataset by", 
+            "outputs": [
+                {
+                    "name": "output_file", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 2104.5, 
+                "top": 1736
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "172.21.23.6:9009/repos/bebatut/normalize_dataset/normalize_dataset/0.1.0", 
+            "tool_state": "{\"__page__\": 0, \"__rerun_remap_job_id__\": null, \"format\": \"\\\"proportion\\\"\", \"normalization\": \"\\\"column\\\"\", \"input_file\": \"null\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "cd30ba08-286e-484b-a6c5-cda6c37c961c"
+        }, 
+        "28": {
+            "annotation": "", 
+            "id": 28, 
+            "input_connections": {
+                "input_file": {
+                    "id": 19, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Normalize a dataset by", 
+            "outputs": [
+                {
+                    "name": "output_file", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 2113.5, 
+                "top": 1832
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "172.21.23.6:9009/repos/bebatut/normalize_dataset/normalize_dataset/0.1.0", 
+            "tool_state": "{\"__page__\": 0, \"__rerun_remap_job_id__\": null, \"format\": \"\\\"proportion\\\"\", \"normalization\": \"\\\"column\\\"\", \"input_file\": \"null\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "f8f590c4-9807-41d2-9dab-965f28b54936"
+        }, 
+        "29": {
+            "annotation": "", 
+            "id": 29, 
+            "input_connections": {
+                "input1": {
+                    "id": 23, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Group", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 2861.140625, 
+                "top": 1065.328125
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "Grouping1", 
+            "tool_state": "{\"operations\": \"[{\\\"opcol\\\": \\\"4\\\", \\\"__index__\\\": 0, \\\"optype\\\": \\\"mean\\\", \\\"opround\\\": \\\"no\\\"}, {\\\"opcol\\\": \\\"7\\\", \\\"__index__\\\": 1, \\\"optype\\\": \\\"mean\\\", \\\"opround\\\": \\\"no\\\"}, {\\\"opcol\\\": \\\"7\\\", \\\"__index__\\\": 2, \\\"optype\\\": \\\"median\\\", \\\"opround\\\": \\\"no\\\"}, {\\\"opcol\\\": \\\"7\\\", \\\"__index__\\\": 3, \\\"optype\\\": \\\"std\\\", \\\"opround\\\": \\\"no\\\"}, {\\\"opcol\\\": \\\"5\\\", \\\"__index__\\\": 4, \\\"optype\\\": \\\"length\\\", \\\"opround\\\": \\\"no\\\"}]\", \"__page__\": 0, \"input1\": \"null\", \"ignorelines\": \"null\", \"groupcol\": \"\\\"3\\\"\", \"__rerun_remap_job_id__\": null, \"ignorecase\": \"\\\"False\\\"\"}", 
+            "tool_version": "2.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "1ca6eeff-e657-40af-a785-dd53f1b77e58"
+        }, 
+        "30": {
+            "annotation": "", 
+            "id": 30, 
+            "input_connections": {
+                "input1": {
+                    "id": 25, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Group", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 2818.140625, 
+                "top": 1349.328125
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "Grouping1", 
+            "tool_state": "{\"operations\": \"[{\\\"opcol\\\": \\\"4\\\", \\\"__index__\\\": 0, \\\"optype\\\": \\\"mean\\\", \\\"opround\\\": \\\"no\\\"}, {\\\"opcol\\\": \\\"7\\\", \\\"__index__\\\": 1, \\\"optype\\\": \\\"mean\\\", \\\"opround\\\": \\\"no\\\"}, {\\\"opcol\\\": \\\"7\\\", \\\"__index__\\\": 2, \\\"optype\\\": \\\"median\\\", \\\"opround\\\": \\\"no\\\"}, {\\\"opcol\\\": \\\"7\\\", \\\"__index__\\\": 3, \\\"optype\\\": \\\"std\\\", \\\"opround\\\": \\\"no\\\"}, {\\\"opcol\\\": \\\"5\\\", \\\"__index__\\\": 4, \\\"optype\\\": \\\"length\\\", \\\"opround\\\": \\\"no\\\"}]\", \"__page__\": 0, \"input1\": \"null\", \"ignorelines\": \"null\", \"groupcol\": \"\\\"3\\\"\", \"__rerun_remap_job_id__\": null, \"ignorecase\": \"\\\"False\\\"\"}", 
+            "tool_version": "2.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "fbf9fb0c-bbc6-402f-ba5b-c9ae1d00e38d"
+        }, 
+        "31": {
+            "annotation": "", 
+            "id": 31, 
+            "input_connections": {
+                "input_file": {
+                    "id": 26, 
+                    "output_name": "molecular_function_abundance"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Normalize a dataset by", 
+            "outputs": [
+                {
+                    "name": "output_file", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 2407.5, 
+                "top": 1484
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "172.21.23.6:9009/repos/bebatut/normalize_dataset/normalize_dataset/0.1.0", 
+            "tool_state": "{\"__page__\": 0, \"__rerun_remap_job_id__\": null, \"format\": \"\\\"percentage\\\"\", \"normalization\": \"\\\"column\\\"\", \"input_file\": \"null\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "3c589af0-db33-43ac-b492-4feb4849d81a"
+        }, 
+        "32": {
+            "annotation": "", 
+            "id": 32, 
+            "input_connections": {
+                "input_file": {
+                    "id": 26, 
+                    "output_name": "biological_process_abundance"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Normalize a dataset by", 
+            "outputs": [
+                {
+                    "name": "output_file", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 2421.5, 
+                "top": 1611
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "172.21.23.6:9009/repos/bebatut/normalize_dataset/normalize_dataset/0.1.0", 
+            "tool_state": "{\"__page__\": 0, \"__rerun_remap_job_id__\": null, \"format\": \"\\\"percentage\\\"\", \"normalization\": \"\\\"column\\\"\", \"input_file\": \"null\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "aa447f4a-7ae0-4400-a94d-be26c2d79b9a"
+        }, 
+        "33": {
+            "annotation": "", 
+            "id": 33, 
+            "input_connections": {
+                "input_file": {
+                    "id": 26, 
+                    "output_name": "cellular_component_abundance"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Normalize a dataset by", 
+            "outputs": [
+                {
+                    "name": "output_file", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 2374.5, 
+                "top": 1726
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "172.21.23.6:9009/repos/bebatut/normalize_dataset/normalize_dataset/0.1.0", 
+            "tool_state": "{\"__page__\": 0, \"__rerun_remap_job_id__\": null, \"format\": \"\\\"percentage\\\"\", \"normalization\": \"\\\"column\\\"\", \"input_file\": \"null\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "9675e803-fa84-461c-9371-38ea8a2ed3de"
+        }, 
+        "34": {
+            "annotation": "", 
+            "id": 34, 
+            "input_connections": {
+                "input_file": {
+                    "id": 29, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Plot generic X-Y plot", 
+            "outputs": [
+                {
+                    "name": "output_pdf_file", 
+                    "type": "pdf"
+                }, 
+                {
+                    "name": "output_png_file", 
+                    "type": "png"
+                }, 
+                {
+                    "name": "output_svg_file", 
+                    "type": "svg"
+                }
+            ], 
+            "position": {
+                "left": 3123.640625, 
+                "top": 914.328125
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "172.21.23.6:9009/repos/bebatut/plot_generic_x_y_plot/plot_generic_x_y_plot/0.1.0", 
+            "tool_state": "{\"xlab\": \"\\\"Relative abundance of species (percentage)\\\"\", \"__page__\": 0, \"bottom_margin\": \"\\\"5\\\"\", \"abline\": \"\\\"False\\\"\", \"input_file\": \"null\", \"color\": \"\\\"grey25\\\"\", \"lim\": \"\\\"False\\\"\", \"output_format\": \"\\\"pdf\\\"\", \"right_margin\": \"\\\"1\\\"\", \"top_margin\": \"\\\"1\\\"\", \"ylog\": \"\\\"True\\\"\", \"y_column_id\": \"\\\"3\\\"\", \"left_margin\": \"\\\"5\\\"\", \"pch\": \"\\\"21\\\"\", \"__rerun_remap_job_id__\": null, \"ylab\": \"\\\"Mean relative abundance of found gene families for these species (percentage)\\\"\", \"x_column_id\": \"\\\"2\\\"\", \"xlog\": \"\\\"True\\\"\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "d2c3a7ac-27ba-42a7-a64f-18685a5dcc66"
+        }, 
+        "35": {
+            "annotation": "", 
+            "id": 35, 
+            "input_connections": {
+                "input_file": {
+                    "id": 29, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Plot generic X-Y plot", 
+            "outputs": [
+                {
+                    "name": "output_pdf_file", 
+                    "type": "pdf"
+                }, 
+                {
+                    "name": "output_png_file", 
+                    "type": "png"
+                }, 
+                {
+                    "name": "output_svg_file", 
+                    "type": "svg"
+                }
+            ], 
+            "position": {
+                "left": 3159.640625, 
+                "top": 1059.328125
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "172.21.23.6:9009/repos/bebatut/plot_generic_x_y_plot/plot_generic_x_y_plot/0.1.0", 
+            "tool_state": "{\"xlab\": \"\\\"Relative abundance of species (percentage)\\\"\", \"__page__\": 0, \"bottom_margin\": \"\\\"5\\\"\", \"abline\": \"\\\"False\\\"\", \"input_file\": \"null\", \"color\": \"\\\"grey25\\\"\", \"lim\": \"\\\"False\\\"\", \"output_format\": \"\\\"pdf\\\"\", \"right_margin\": \"\\\"1\\\"\", \"top_margin\": \"\\\"1\\\"\", \"ylog\": \"\\\"True\\\"\", \"y_column_id\": \"\\\"4\\\"\", \"left_margin\": \"\\\"5\\\"\", \"pch\": \"\\\"21\\\"\", \"__rerun_remap_job_id__\": null, \"ylab\": \"\\\"Median relative abundance of found gene families for these species (percentage)\\\"\", \"x_column_id\": \"\\\"2\\\"\", \"xlog\": \"\\\"True\\\"\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "47f58384-1a1b-4e16-a45b-b64f06c2a956"
+        }, 
+        "36": {
+            "annotation": "", 
+            "id": 36, 
+            "input_connections": {
+                "input_file": {
+                    "id": 29, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Plot generic X-Y plot", 
+            "outputs": [
+                {
+                    "name": "output_pdf_file", 
+                    "type": "pdf"
+                }, 
+                {
+                    "name": "output_png_file", 
+                    "type": "png"
+                }, 
+                {
+                    "name": "output_svg_file", 
+                    "type": "svg"
+                }
+            ], 
+            "position": {
+                "left": 3337.5, 
+                "top": 1242
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "172.21.23.6:9009/repos/bebatut/plot_generic_x_y_plot/plot_generic_x_y_plot/0.1.0", 
+            "tool_state": "{\"xlab\": \"\\\"Relative abundance of species (percentage)\\\"\", \"__page__\": 0, \"bottom_margin\": \"\\\"5\\\"\", \"abline\": \"\\\"False\\\"\", \"input_file\": \"null\", \"color\": \"\\\"grey25\\\"\", \"lim\": \"\\\"False\\\"\", \"output_format\": \"\\\"pdf\\\"\", \"right_margin\": \"\\\"1\\\"\", \"top_margin\": \"\\\"1\\\"\", \"ylog\": \"\\\"False\\\"\", \"y_column_id\": \"\\\"6\\\"\", \"left_margin\": \"\\\"5\\\"\", \"pch\": \"\\\"21\\\"\", \"__rerun_remap_job_id__\": null, \"ylab\": \"\\\"Number of found gene families for these species\\\"\", \"x_column_id\": \"\\\"2\\\"\", \"xlog\": \"\\\"True\\\"\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "a64db69d-3625-4bf7-8b59-3abc579783f6"
+        }, 
+        "37": {
+            "annotation": "", 
+            "id": 37, 
+            "input_connections": {
+                "input_file": {
+                    "id": 30, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Plot generic X-Y plot", 
+            "outputs": [
+                {
+                    "name": "output_pdf_file", 
+                    "type": "pdf"
+                }, 
+                {
+                    "name": "output_png_file", 
+                    "type": "png"
+                }, 
+                {
+                    "name": "output_svg_file", 
+                    "type": "svg"
+                }
+            ], 
+            "position": {
+                "left": 3051.640625, 
+                "top": 1266.328125
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "172.21.23.6:9009/repos/bebatut/plot_generic_x_y_plot/plot_generic_x_y_plot/0.1.0", 
+            "tool_state": "{\"xlab\": \"\\\"Relative abundance of species (percentage)\\\"\", \"__page__\": 0, \"bottom_margin\": \"\\\"5\\\"\", \"abline\": \"\\\"False\\\"\", \"input_file\": \"null\", \"color\": \"\\\"grey25\\\"\", \"lim\": \"\\\"False\\\"\", \"output_format\": \"\\\"pdf\\\"\", \"right_margin\": \"\\\"1\\\"\", \"top_margin\": \"\\\"1\\\"\", \"ylog\": \"\\\"True\\\"\", \"y_column_id\": \"\\\"3\\\"\", \"left_margin\": \"\\\"5\\\"\", \"pch\": \"\\\"21\\\"\", \"__rerun_remap_job_id__\": null, \"ylab\": \"\\\"Mean relative abundance of found pathways for these species (percentage)\\\"\", \"x_column_id\": \"\\\"2\\\"\", \"xlog\": \"\\\"True\\\"\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "c1669aa2-78e4-4599-808a-7469f37e5925"
+        }, 
+        "38": {
+            "annotation": "", 
+            "id": 38, 
+            "input_connections": {
+                "input_file": {
+                    "id": 30, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Plot generic X-Y plot", 
+            "outputs": [
+                {
+                    "name": "output_pdf_file", 
+                    "type": "pdf"
+                }, 
+                {
+                    "name": "output_png_file", 
+                    "type": "png"
+                }, 
+                {
+                    "name": "output_svg_file", 
+                    "type": "svg"
+                }
+            ], 
+            "position": {
+                "left": 3014.5, 
+                "top": 1505
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "172.21.23.6:9009/repos/bebatut/plot_generic_x_y_plot/plot_generic_x_y_plot/0.1.0", 
+            "tool_state": "{\"xlab\": \"\\\"Relative abundance of species (percentage)\\\"\", \"__page__\": 0, \"bottom_margin\": \"\\\"5\\\"\", \"abline\": \"\\\"False\\\"\", \"input_file\": \"null\", \"color\": \"\\\"grey25\\\"\", \"lim\": \"\\\"False\\\"\", \"output_format\": \"\\\"pdf\\\"\", \"right_margin\": \"\\\"1\\\"\", \"top_margin\": \"\\\"1\\\"\", \"ylog\": \"\\\"False\\\"\", \"y_column_id\": \"\\\"6\\\"\", \"left_margin\": \"\\\"5\\\"\", \"pch\": \"\\\"21\\\"\", \"__rerun_remap_job_id__\": null, \"ylab\": \"\\\"Number of found pathways for these species\\\"\", \"x_column_id\": \"\\\"2\\\"\", \"xlog\": \"\\\"True\\\"\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "03f8c3ca-70ae-4648-acae-59c9543eeb10"
+        }, 
+        "39": {
+            "annotation": "", 
+            "id": 39, 
+            "input_connections": {
+                "input_file": {
+                    "id": 30, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Plot generic X-Y plot", 
+            "outputs": [
+                {
+                    "name": "output_pdf_file", 
+                    "type": "pdf"
+                }, 
+                {
+                    "name": "output_png_file", 
+                    "type": "png"
+                }, 
+                {
+                    "name": "output_svg_file", 
+                    "type": "svg"
+                }
+            ], 
+            "position": {
+                "left": 3202.640625, 
+                "top": 1422.328125
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "172.21.23.6:9009/repos/bebatut/plot_generic_x_y_plot/plot_generic_x_y_plot/0.1.0", 
+            "tool_state": "{\"xlab\": \"\\\"Relative abundance of species (percentage)\\\"\", \"__page__\": 0, \"bottom_margin\": \"\\\"5\\\"\", \"abline\": \"\\\"False\\\"\", \"input_file\": \"null\", \"color\": \"\\\"grey25\\\"\", \"lim\": \"\\\"False\\\"\", \"output_format\": \"\\\"pdf\\\"\", \"right_margin\": \"\\\"1\\\"\", \"top_margin\": \"\\\"1\\\"\", \"ylog\": \"\\\"True\\\"\", \"y_column_id\": \"\\\"4\\\"\", \"left_margin\": \"\\\"5\\\"\", \"pch\": \"\\\"21\\\"\", \"__rerun_remap_job_id__\": null, \"ylab\": \"\\\"Median relative abundance of found pathways for these species (percentage)\\\"\", \"x_column_id\": \"\\\"2\\\"\", \"xlog\": \"\\\"True\\\"\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "ac9667e3-8d73-4e4b-b85a-c808f55d0967"
+        }, 
+        "40": {
+            "annotation": "", 
+            "id": 40, 
+            "input_connections": {
+                "input_file": {
+                    "id": 31, 
+                    "output_name": "output_file"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Plot barplot", 
+            "outputs": [
+                {
+                    "name": "output_pdf_file", 
+                    "type": "pdf"
+                }, 
+                {
+                    "name": "output_png_file", 
+                    "type": "png"
+                }, 
+                {
+                    "name": "output_svg_file", 
+                    "type": "svg"
+                }
+            ], 
+            "position": {
+                "left": 2667, 
+                "top": 1458.71875
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "172.21.23.6:9009/repos/bebatut/plot_barplot/plot_barplot/0.1.0", 
+            "tool_state": "{\"xlab\": \"\\\"Abundance of molecular functions\\\"\", \"bottom_margin\": \"\\\"5\\\"\", \"right_margin\": \"\\\"1\\\"\", \"__page__\": 0, \"names_column\": \"{\\\"__class__\\\": \\\"UnvalidatedValue\\\", \\\"value\\\": \\\"2\\\"}\", \"output_format\": \"\\\"pdf\\\"\", \"input_file\": \"null\", \"top_margin\": \"\\\"1\\\"\", \"left_margin\": \"\\\"19\\\"\", \"column_with_data\": \"{\\\"__class__\\\": \\\"UnvalidatedValue\\\", \\\"value\\\": \\\"3\\\"}\", \"__rerun_remap_job_id__\": null, \"chromInfo\": \"\\\"/home/cidam/Berenice/asaim/framework/lib/galaxy-dev/tool-data/shared/ucsc/chrom/?.len\\\"\", \"col\": \"\\\"blue3\\\"\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "a44d81df-386b-4c19-b941-86b621716cfe"
+        }, 
+        "41": {
+            "annotation": "", 
+            "id": 41, 
+            "input_connections": {
+                "input_file": {
+                    "id": 32, 
+                    "output_name": "output_file"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Plot barplot", 
+            "outputs": [
+                {
+                    "name": "output_pdf_file", 
+                    "type": "pdf"
+                }, 
+                {
+                    "name": "output_png_file", 
+                    "type": "png"
+                }, 
+                {
+                    "name": "output_svg_file", 
+                    "type": "svg"
+                }
+            ], 
+            "position": {
+                "left": 2686, 
+                "top": 1647.71875
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "172.21.23.6:9009/repos/bebatut/plot_barplot/plot_barplot/0.1.0", 
+            "tool_state": "{\"xlab\": \"\\\"Abundance of biological processes\\\"\", \"bottom_margin\": \"\\\"5\\\"\", \"right_margin\": \"\\\"1\\\"\", \"__page__\": 0, \"names_column\": \"{\\\"__class__\\\": \\\"UnvalidatedValue\\\", \\\"value\\\": \\\"2\\\"}\", \"output_format\": \"\\\"pdf\\\"\", \"input_file\": \"null\", \"top_margin\": \"\\\"1\\\"\", \"left_margin\": \"\\\"15\\\"\", \"column_with_data\": \"{\\\"__class__\\\": \\\"UnvalidatedValue\\\", \\\"value\\\": \\\"3\\\"}\", \"__rerun_remap_job_id__\": null, \"chromInfo\": \"\\\"/home/cidam/Berenice/asaim/framework/lib/galaxy-dev/tool-data/shared/ucsc/chrom/?.len\\\"\", \"col\": \"\\\"forestgreen\\\"\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "769b9791-8cce-4373-865f-e28caaa818f8"
+        }, 
+        "42": {
+            "annotation": "", 
+            "id": 42, 
+            "input_connections": {
+                "input_file": {
+                    "id": 33, 
+                    "output_name": "output_file"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Plot barplot", 
+            "outputs": [
+                {
+                    "name": "output_pdf_file", 
+                    "type": "pdf"
+                }, 
+                {
+                    "name": "output_png_file", 
+                    "type": "png"
+                }, 
+                {
+                    "name": "output_svg_file", 
+                    "type": "svg"
+                }
+            ], 
+            "position": {
+                "left": 2660, 
+                "top": 1822.71875
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "172.21.23.6:9009/repos/bebatut/plot_barplot/plot_barplot/0.1.0", 
+            "tool_state": "{\"xlab\": \"\\\"Abundance of cellular components\\\"\", \"bottom_margin\": \"\\\"5\\\"\", \"right_margin\": \"\\\"1\\\"\", \"__page__\": 0, \"names_column\": \"{\\\"__class__\\\": \\\"UnvalidatedValue\\\", \\\"value\\\": \\\"2\\\"}\", \"output_format\": \"\\\"pdf\\\"\", \"input_file\": \"null\", \"top_margin\": \"\\\"1\\\"\", \"left_margin\": \"\\\"15\\\"\", \"column_with_data\": \"{\\\"__class__\\\": \\\"UnvalidatedValue\\\", \\\"value\\\": \\\"3\\\"}\", \"__rerun_remap_job_id__\": null, \"chromInfo\": \"\\\"/home/cidam/Berenice/asaim/framework/lib/galaxy-dev/tool-data/shared/ucsc/chrom/?.len\\\"\", \"col\": \"\\\"tomato\\\"\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "de4a7906-86af-4119-a125-a39911fa5f1c"
+        }
+    }, 
+    "uuid": "e75bca63-0f5f-497b-8352-ba182b20302e"
+}

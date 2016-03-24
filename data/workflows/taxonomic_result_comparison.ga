@@ -1,0 +1,2639 @@
+{
+    "a_galaxy_workflow": "true", 
+    "annotation": "", 
+    "format-version": "0.1", 
+    "name": "Compare taxonomic results between two samples", 
+    "steps": {
+        "0": {
+            "annotation": "Taxonomic assignations with all taxonomic level in column and abundance in last column (output of formatting steps on MetaPhlAn2 output)", 
+            "id": 0, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "Taxonomic assignations with all taxonomic level in column and abundance in last column (output of formatting steps on MetaPhlAn2 output)", 
+                    "name": "First dataset"
+                }
+            ], 
+            "label": null, 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 200, 
+                "top": 1207
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"First dataset\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "user_outputs": [], 
+            "uuid": "a6cf3ddd-75fa-4e1f-873b-7bb572b51ba9"
+        }, 
+        "1": {
+            "annotation": "Taxonomic assignations with all taxonomic level in column and abundance in last column (output of formatting steps on MetaPhlAn2 output)", 
+            "id": 1, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "Taxonomic assignations with all taxonomic level in column and abundance in last column (output of formatting steps on MetaPhlAn2 output)", 
+                    "name": "Second dataset"
+                }
+            ], 
+            "label": null, 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 244, 
+                "top": 1440
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"Second dataset\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "user_outputs": [], 
+            "uuid": "a8d4e061-138a-47fc-b337-3c374d4c6284"
+        }, 
+        "2": {
+            "annotation": "", 
+            "id": 2, 
+            "input_connections": {
+                "input": {
+                    "id": 0, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Filter", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "input"
+                }
+            ], 
+            "position": {
+                "left": 485, 
+                "top": 1260
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionout_file1": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "Filter1", 
+            "tool_state": "{\"input\": \"null\", \"__rerun_remap_job_id__\": null, \"header_lines\": \"\\\"0\\\"\", \"cond\": \"\\\"c2!='' and c3!='' and c4 != '' and c5 != '' and c6 != '' and c7 != '' and c8==''\\\"\", \"__page__\": 0}", 
+            "tool_version": "1.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "11d94298-25a5-462a-8675-36910d0ffa7c"
+        }, 
+        "3": {
+            "annotation": "", 
+            "id": 3, 
+            "input_connections": {
+                "input": {
+                    "id": 1, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Filter", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "input"
+                }
+            ], 
+            "position": {
+                "left": 483, 
+                "top": 1356
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionout_file1": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "Filter1", 
+            "tool_state": "{\"input\": \"null\", \"__rerun_remap_job_id__\": null, \"header_lines\": \"\\\"0\\\"\", \"cond\": \"\\\"c2!='' and c3!='' and c4 != '' and c5 != '' and c6 != '' and c7 != '' and c8==''\\\"\", \"__page__\": 0}", 
+            "tool_version": "1.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "bdcf1c1d-6e9e-427f-9bf9-eb6cab0388b6"
+        }, 
+        "4": {
+            "annotation": "", 
+            "id": 4, 
+            "input_connections": {
+                "input1": {
+                    "id": 2, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Group", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 915, 
+                "top": 242
+            }, 
+            "post_job_actions": {
+                "RenameDatasetActionout_file1": {
+                    "action_arguments": {
+                        "newname": "Kingdoms for first dataset"
+                    }, 
+                    "action_type": "RenameDatasetAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "Grouping1", 
+            "tool_state": "{\"operations\": \"[{\\\"opcol\\\": \\\"9\\\", \\\"__index__\\\": 0, \\\"optype\\\": \\\"sum\\\", \\\"opround\\\": \\\"no\\\"}]\", \"__page__\": 0, \"input1\": \"null\", \"ignorelines\": \"null\", \"groupcol\": \"\\\"1\\\"\", \"__rerun_remap_job_id__\": null, \"ignorecase\": \"\\\"False\\\"\"}", 
+            "tool_version": "2.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "d320d559-9c63-42bd-9654-0e8cd3112cb7"
+        }, 
+        "5": {
+            "annotation": "", 
+            "id": 5, 
+            "input_connections": {
+                "input1": {
+                    "id": 2, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Group", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 931, 
+                "top": 586
+            }, 
+            "post_job_actions": {
+                "RenameDatasetActionout_file1": {
+                    "action_arguments": {
+                        "newname": "Phyla for first dataset"
+                    }, 
+                    "action_type": "RenameDatasetAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "Grouping1", 
+            "tool_state": "{\"operations\": \"[{\\\"opcol\\\": \\\"9\\\", \\\"__index__\\\": 0, \\\"optype\\\": \\\"sum\\\", \\\"opround\\\": \\\"no\\\"}]\", \"__page__\": 0, \"input1\": \"null\", \"ignorelines\": \"null\", \"groupcol\": \"\\\"2\\\"\", \"__rerun_remap_job_id__\": null, \"ignorecase\": \"\\\"False\\\"\"}", 
+            "tool_version": "2.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "3ffa500f-40d6-4732-9dac-2599095de324"
+        }, 
+        "6": {
+            "annotation": "", 
+            "id": 6, 
+            "input_connections": {
+                "input1": {
+                    "id": 2, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Group", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 933, 
+                "top": 931
+            }, 
+            "post_job_actions": {
+                "RenameDatasetActionout_file1": {
+                    "action_arguments": {
+                        "newname": "Classes for first dataset"
+                    }, 
+                    "action_type": "RenameDatasetAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "Grouping1", 
+            "tool_state": "{\"operations\": \"[{\\\"opcol\\\": \\\"9\\\", \\\"__index__\\\": 0, \\\"optype\\\": \\\"sum\\\", \\\"opround\\\": \\\"no\\\"}]\", \"__page__\": 0, \"input1\": \"null\", \"ignorelines\": \"null\", \"groupcol\": \"\\\"3\\\"\", \"__rerun_remap_job_id__\": null, \"ignorecase\": \"\\\"False\\\"\"}", 
+            "tool_version": "2.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "e6eade1c-b12f-479a-909b-e88da2207cfb"
+        }, 
+        "7": {
+            "annotation": "", 
+            "id": 7, 
+            "input_connections": {
+                "input1": {
+                    "id": 2, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Group", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 939, 
+                "top": 1258
+            }, 
+            "post_job_actions": {
+                "RenameDatasetActionout_file1": {
+                    "action_arguments": {
+                        "newname": "Orders for first dataset"
+                    }, 
+                    "action_type": "RenameDatasetAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "Grouping1", 
+            "tool_state": "{\"operations\": \"[{\\\"opcol\\\": \\\"9\\\", \\\"__index__\\\": 0, \\\"optype\\\": \\\"sum\\\", \\\"opround\\\": \\\"no\\\"}]\", \"__page__\": 0, \"input1\": \"null\", \"ignorelines\": \"null\", \"groupcol\": \"\\\"4\\\"\", \"__rerun_remap_job_id__\": null, \"ignorecase\": \"\\\"False\\\"\"}", 
+            "tool_version": "2.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "154d8ba3-2921-45e6-a3cb-d1322c6f6051"
+        }, 
+        "8": {
+            "annotation": "", 
+            "id": 8, 
+            "input_connections": {
+                "input1": {
+                    "id": 2, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Group", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 942, 
+                "top": 1588
+            }, 
+            "post_job_actions": {
+                "RenameDatasetActionout_file1": {
+                    "action_arguments": {
+                        "newname": "Families for first dataset"
+                    }, 
+                    "action_type": "RenameDatasetAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "Grouping1", 
+            "tool_state": "{\"operations\": \"[{\\\"opcol\\\": \\\"9\\\", \\\"__index__\\\": 0, \\\"optype\\\": \\\"sum\\\", \\\"opround\\\": \\\"no\\\"}]\", \"__page__\": 0, \"input1\": \"null\", \"ignorelines\": \"null\", \"groupcol\": \"\\\"5\\\"\", \"__rerun_remap_job_id__\": null, \"ignorecase\": \"\\\"False\\\"\"}", 
+            "tool_version": "2.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "2a68c2e3-74d5-4ccf-940f-219159625b1c"
+        }, 
+        "9": {
+            "annotation": "", 
+            "id": 9, 
+            "input_connections": {
+                "input1": {
+                    "id": 2, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Group", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 917, 
+                "top": 1913
+            }, 
+            "post_job_actions": {
+                "RenameDatasetActionout_file1": {
+                    "action_arguments": {
+                        "newname": "Genus for first dataset"
+                    }, 
+                    "action_type": "RenameDatasetAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "Grouping1", 
+            "tool_state": "{\"operations\": \"[{\\\"opcol\\\": \\\"9\\\", \\\"__index__\\\": 0, \\\"optype\\\": \\\"sum\\\", \\\"opround\\\": \\\"no\\\"}]\", \"__page__\": 0, \"input1\": \"null\", \"ignorelines\": \"null\", \"groupcol\": \"\\\"6\\\"\", \"__rerun_remap_job_id__\": null, \"ignorecase\": \"\\\"False\\\"\"}", 
+            "tool_version": "2.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "18f06a7f-ea6b-498f-97b6-48265619a98d"
+        }, 
+        "10": {
+            "annotation": "", 
+            "id": 10, 
+            "input_connections": {
+                "input1": {
+                    "id": 2, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Group", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 967, 
+                "top": 2257
+            }, 
+            "post_job_actions": {
+                "RenameDatasetActionout_file1": {
+                    "action_arguments": {
+                        "newname": "Species for first dataset"
+                    }, 
+                    "action_type": "RenameDatasetAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "Grouping1", 
+            "tool_state": "{\"operations\": \"[{\\\"opcol\\\": \\\"9\\\", \\\"__index__\\\": 0, \\\"optype\\\": \\\"sum\\\", \\\"opround\\\": \\\"no\\\"}]\", \"__page__\": 0, \"input1\": \"null\", \"ignorelines\": \"null\", \"groupcol\": \"\\\"7\\\"\", \"__rerun_remap_job_id__\": null, \"ignorecase\": \"\\\"False\\\"\"}", 
+            "tool_version": "2.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "5d05979a-893d-4f7f-96f8-8b2cbb036765"
+        }, 
+        "11": {
+            "annotation": "", 
+            "id": 11, 
+            "input_connections": {
+                "input1": {
+                    "id": 3, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Group", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 918, 
+                "top": 335
+            }, 
+            "post_job_actions": {
+                "RenameDatasetActionout_file1": {
+                    "action_arguments": {
+                        "newname": "Kingdoms for second dataset"
+                    }, 
+                    "action_type": "RenameDatasetAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "Grouping1", 
+            "tool_state": "{\"operations\": \"[{\\\"opcol\\\": \\\"9\\\", \\\"__index__\\\": 0, \\\"optype\\\": \\\"sum\\\", \\\"opround\\\": \\\"no\\\"}]\", \"__page__\": 0, \"input1\": \"null\", \"ignorelines\": \"null\", \"groupcol\": \"\\\"1\\\"\", \"__rerun_remap_job_id__\": null, \"ignorecase\": \"\\\"False\\\"\"}", 
+            "tool_version": "2.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "11e2e714-cb7d-4c94-991e-5910430bf818"
+        }, 
+        "12": {
+            "annotation": "", 
+            "id": 12, 
+            "input_connections": {
+                "input1": {
+                    "id": 3, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Group", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 933, 
+                "top": 681
+            }, 
+            "post_job_actions": {
+                "RenameDatasetActionout_file1": {
+                    "action_arguments": {
+                        "newname": "Phyla for second dataset"
+                    }, 
+                    "action_type": "RenameDatasetAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "Grouping1", 
+            "tool_state": "{\"operations\": \"[{\\\"opcol\\\": \\\"9\\\", \\\"__index__\\\": 0, \\\"optype\\\": \\\"sum\\\", \\\"opround\\\": \\\"no\\\"}]\", \"__page__\": 0, \"input1\": \"null\", \"ignorelines\": \"null\", \"groupcol\": \"\\\"2\\\"\", \"__rerun_remap_job_id__\": null, \"ignorecase\": \"\\\"False\\\"\"}", 
+            "tool_version": "2.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "27491483-966f-4269-b577-f162002664bf"
+        }, 
+        "13": {
+            "annotation": "", 
+            "id": 13, 
+            "input_connections": {
+                "input1": {
+                    "id": 3, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Group", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 937, 
+                "top": 1027
+            }, 
+            "post_job_actions": {
+                "RenameDatasetActionout_file1": {
+                    "action_arguments": {
+                        "newname": "Classes for second dataset"
+                    }, 
+                    "action_type": "RenameDatasetAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "Grouping1", 
+            "tool_state": "{\"operations\": \"[{\\\"opcol\\\": \\\"9\\\", \\\"__index__\\\": 0, \\\"optype\\\": \\\"sum\\\", \\\"opround\\\": \\\"no\\\"}]\", \"__page__\": 0, \"input1\": \"null\", \"ignorelines\": \"null\", \"groupcol\": \"\\\"3\\\"\", \"__rerun_remap_job_id__\": null, \"ignorecase\": \"\\\"False\\\"\"}", 
+            "tool_version": "2.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "49a6d0b0-0ecd-411a-b5a7-7938c437ff62"
+        }, 
+        "14": {
+            "annotation": "", 
+            "id": 14, 
+            "input_connections": {
+                "input1": {
+                    "id": 3, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Group", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 939, 
+                "top": 1359
+            }, 
+            "post_job_actions": {
+                "RenameDatasetActionout_file1": {
+                    "action_arguments": {
+                        "newname": "Orders for second dataset"
+                    }, 
+                    "action_type": "RenameDatasetAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "Grouping1", 
+            "tool_state": "{\"operations\": \"[{\\\"opcol\\\": \\\"9\\\", \\\"__index__\\\": 0, \\\"optype\\\": \\\"sum\\\", \\\"opround\\\": \\\"no\\\"}]\", \"__page__\": 0, \"input1\": \"null\", \"ignorelines\": \"null\", \"groupcol\": \"\\\"4\\\"\", \"__rerun_remap_job_id__\": null, \"ignorecase\": \"\\\"False\\\"\"}", 
+            "tool_version": "2.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "e578d922-6e72-4dd6-a33c-145c93086374"
+        }, 
+        "15": {
+            "annotation": "", 
+            "id": 15, 
+            "input_connections": {
+                "input1": {
+                    "id": 3, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Group", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 949, 
+                "top": 1684
+            }, 
+            "post_job_actions": {
+                "RenameDatasetActionout_file1": {
+                    "action_arguments": {
+                        "newname": "Families for second dataset"
+                    }, 
+                    "action_type": "RenameDatasetAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "Grouping1", 
+            "tool_state": "{\"operations\": \"[{\\\"opcol\\\": \\\"9\\\", \\\"__index__\\\": 0, \\\"optype\\\": \\\"sum\\\", \\\"opround\\\": \\\"no\\\"}]\", \"__page__\": 0, \"input1\": \"null\", \"ignorelines\": \"null\", \"groupcol\": \"\\\"5\\\"\", \"__rerun_remap_job_id__\": null, \"ignorecase\": \"\\\"False\\\"\"}", 
+            "tool_version": "2.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "05ddaac2-22cc-4044-aaaa-ef5724149ad9"
+        }, 
+        "16": {
+            "annotation": "", 
+            "id": 16, 
+            "input_connections": {
+                "input1": {
+                    "id": 3, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Group", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 922, 
+                "top": 2012
+            }, 
+            "post_job_actions": {
+                "RenameDatasetActionout_file1": {
+                    "action_arguments": {
+                        "newname": "Genus for second dataset"
+                    }, 
+                    "action_type": "RenameDatasetAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "Grouping1", 
+            "tool_state": "{\"operations\": \"[{\\\"opcol\\\": \\\"9\\\", \\\"__index__\\\": 0, \\\"optype\\\": \\\"sum\\\", \\\"opround\\\": \\\"no\\\"}]\", \"__page__\": 0, \"input1\": \"null\", \"ignorelines\": \"null\", \"groupcol\": \"\\\"6\\\"\", \"__rerun_remap_job_id__\": null, \"ignorecase\": \"\\\"False\\\"\"}", 
+            "tool_version": "2.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "36e44e4c-f81f-4ae4-ab02-8873fa047cbc"
+        }, 
+        "17": {
+            "annotation": "", 
+            "id": 17, 
+            "input_connections": {
+                "input1": {
+                    "id": 3, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Group", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 968, 
+                "top": 2352
+            }, 
+            "post_job_actions": {
+                "RenameDatasetActionout_file1": {
+                    "action_arguments": {
+                        "newname": "Species for second dataset"
+                    }, 
+                    "action_type": "RenameDatasetAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "Grouping1", 
+            "tool_state": "{\"operations\": \"[{\\\"opcol\\\": \\\"9\\\", \\\"__index__\\\": 0, \\\"optype\\\": \\\"sum\\\", \\\"opround\\\": \\\"no\\\"}]\", \"__page__\": 0, \"input1\": \"null\", \"ignorelines\": \"null\", \"groupcol\": \"\\\"7\\\"\", \"__rerun_remap_job_id__\": null, \"ignorecase\": \"\\\"False\\\"\"}", 
+            "tool_version": "2.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "2751b617-fa8f-4145-93b9-ab07ec3ec697"
+        }, 
+        "18": {
+            "annotation": "", 
+            "id": 18, 
+            "input_connections": {
+                "input1": {
+                    "id": 4, 
+                    "output_name": "out_file1"
+                }, 
+                "input2": {
+                    "id": 11, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Compare two Datasets", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "input"
+                }
+            ], 
+            "position": {
+                "left": 1223, 
+                "top": 207
+            }, 
+            "post_job_actions": {
+                "RenameDatasetActionout_file1": {
+                    "action_arguments": {
+                        "newname": "Kingdoms specific to first dataset"
+                    }, 
+                    "action_type": "RenameDatasetAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "comp1", 
+            "tool_state": "{\"input2\": \"null\", \"__page__\": 0, \"input1\": \"null\", \"field2\": \"\\\"1\\\"\", \"__rerun_remap_job_id__\": null, \"field1\": \"\\\"1\\\"\", \"mode\": \"\\\"V\\\"\"}", 
+            "tool_version": "1.0.2", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "b1fe06f6-9ae6-4f31-8221-22b80bd22c3e"
+        }, 
+        "19": {
+            "annotation": "", 
+            "id": 19, 
+            "input_connections": {
+                "input1": {
+                    "id": 11, 
+                    "output_name": "out_file1"
+                }, 
+                "input2": {
+                    "id": 4, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Compare two Datasets", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "input"
+                }
+            ], 
+            "position": {
+                "left": 1220, 
+                "top": 406
+            }, 
+            "post_job_actions": {
+                "RenameDatasetActionout_file1": {
+                    "action_arguments": {
+                        "newname": "Kingdoms specific to second dataset"
+                    }, 
+                    "action_type": "RenameDatasetAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "comp1", 
+            "tool_state": "{\"input2\": \"null\", \"__page__\": 0, \"input1\": \"null\", \"field2\": \"\\\"1\\\"\", \"__rerun_remap_job_id__\": null, \"field1\": \"\\\"1\\\"\", \"mode\": \"\\\"V\\\"\"}", 
+            "tool_version": "1.0.2", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "ebffbfc3-c139-4850-abff-991633d80c57"
+        }, 
+        "20": {
+            "annotation": "", 
+            "id": 20, 
+            "input_connections": {
+                "input1": {
+                    "id": 4, 
+                    "output_name": "out_file1"
+                }, 
+                "input2": {
+                    "id": 11, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Join two Datasets", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "input"
+                }
+            ], 
+            "position": {
+                "left": 1406, 
+                "top": 316
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionout_file1": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "join1", 
+            "tool_state": "{\"input2\": \"null\", \"__page__\": 0, \"field1\": \"\\\"1\\\"\", \"partial\": \"\\\"\\\"\", \"field2\": \"\\\"1\\\"\", \"__rerun_remap_job_id__\": null, \"fill_empty_columns\": \"{\\\"fill_empty_columns_switch\\\": \\\"no_fill\\\", \\\"__current_case__\\\": 0}\", \"unmatched\": \"\\\"\\\"\", \"input1\": \"null\"}", 
+            "tool_version": "2.0.2", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "fe6cfc64-278c-48a9-b50b-4b9d1e8413b2"
+        }, 
+        "21": {
+            "annotation": "", 
+            "id": 21, 
+            "input_connections": {
+                "input1": {
+                    "id": 5, 
+                    "output_name": "out_file1"
+                }, 
+                "input2": {
+                    "id": 12, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Compare two Datasets", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "input"
+                }
+            ], 
+            "position": {
+                "left": 1228, 
+                "top": 548
+            }, 
+            "post_job_actions": {
+                "RenameDatasetActionout_file1": {
+                    "action_arguments": {
+                        "newname": "Phyla specific to first dataset"
+                    }, 
+                    "action_type": "RenameDatasetAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "comp1", 
+            "tool_state": "{\"input2\": \"null\", \"__page__\": 0, \"input1\": \"null\", \"field2\": \"\\\"1\\\"\", \"__rerun_remap_job_id__\": null, \"field1\": \"\\\"1\\\"\", \"mode\": \"\\\"V\\\"\"}", 
+            "tool_version": "1.0.2", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "e85a4b54-c7a1-49e5-9b71-77c437c5528a"
+        }, 
+        "22": {
+            "annotation": "", 
+            "id": 22, 
+            "input_connections": {
+                "input1": {
+                    "id": 12, 
+                    "output_name": "out_file1"
+                }, 
+                "input2": {
+                    "id": 5, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Compare two Datasets", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "input"
+                }
+            ], 
+            "position": {
+                "left": 1225, 
+                "top": 746
+            }, 
+            "post_job_actions": {
+                "RenameDatasetActionout_file1": {
+                    "action_arguments": {
+                        "newname": "Phyla specific to second dataset"
+                    }, 
+                    "action_type": "RenameDatasetAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "comp1", 
+            "tool_state": "{\"input2\": \"null\", \"__page__\": 0, \"input1\": \"null\", \"field2\": \"\\\"1\\\"\", \"__rerun_remap_job_id__\": null, \"field1\": \"\\\"1\\\"\", \"mode\": \"\\\"V\\\"\"}", 
+            "tool_version": "1.0.2", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "6d7e03c2-c3b2-4f74-a446-7a119418a206"
+        }, 
+        "23": {
+            "annotation": "", 
+            "id": 23, 
+            "input_connections": {
+                "input1": {
+                    "id": 5, 
+                    "output_name": "out_file1"
+                }, 
+                "input2": {
+                    "id": 12, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Join two Datasets", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "input"
+                }
+            ], 
+            "position": {
+                "left": 1413, 
+                "top": 649
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionout_file1": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "join1", 
+            "tool_state": "{\"input2\": \"null\", \"__page__\": 0, \"field1\": \"\\\"1\\\"\", \"partial\": \"\\\"\\\"\", \"field2\": \"\\\"1\\\"\", \"__rerun_remap_job_id__\": null, \"fill_empty_columns\": \"{\\\"fill_empty_columns_switch\\\": \\\"no_fill\\\", \\\"__current_case__\\\": 0}\", \"unmatched\": \"\\\"\\\"\", \"input1\": \"null\"}", 
+            "tool_version": "2.0.2", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "48f068bb-35b2-481e-8d34-dbf4ccef3904"
+        }, 
+        "24": {
+            "annotation": "", 
+            "id": 24, 
+            "input_connections": {
+                "input1": {
+                    "id": 6, 
+                    "output_name": "out_file1"
+                }, 
+                "input2": {
+                    "id": 13, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Compare two Datasets", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "input"
+                }
+            ], 
+            "position": {
+                "left": 1226, 
+                "top": 872
+            }, 
+            "post_job_actions": {
+                "RenameDatasetActionout_file1": {
+                    "action_arguments": {
+                        "newname": "Classes specific to first dataset"
+                    }, 
+                    "action_type": "RenameDatasetAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "comp1", 
+            "tool_state": "{\"input2\": \"null\", \"__page__\": 0, \"input1\": \"null\", \"field2\": \"\\\"1\\\"\", \"__rerun_remap_job_id__\": null, \"field1\": \"\\\"1\\\"\", \"mode\": \"\\\"V\\\"\"}", 
+            "tool_version": "1.0.2", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "5de542af-9c9f-411d-8e04-4b6f33c4dcfa"
+        }, 
+        "25": {
+            "annotation": "", 
+            "id": 25, 
+            "input_connections": {
+                "input1": {
+                    "id": 13, 
+                    "output_name": "out_file1"
+                }, 
+                "input2": {
+                    "id": 6, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Compare two Datasets", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "input"
+                }
+            ], 
+            "position": {
+                "left": 1212, 
+                "top": 1098
+            }, 
+            "post_job_actions": {
+                "RenameDatasetActionout_file1": {
+                    "action_arguments": {
+                        "newname": "Classes specific to second dataset"
+                    }, 
+                    "action_type": "RenameDatasetAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "comp1", 
+            "tool_state": "{\"input2\": \"null\", \"__page__\": 0, \"input1\": \"null\", \"field2\": \"\\\"1\\\"\", \"__rerun_remap_job_id__\": null, \"field1\": \"\\\"1\\\"\", \"mode\": \"\\\"V\\\"\"}", 
+            "tool_version": "1.0.2", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "63be363e-7d1f-48c6-9473-4d3562e0eeca"
+        }, 
+        "26": {
+            "annotation": "", 
+            "id": 26, 
+            "input_connections": {
+                "input1": {
+                    "id": 6, 
+                    "output_name": "out_file1"
+                }, 
+                "input2": {
+                    "id": 13, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Join two Datasets", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "input"
+                }
+            ], 
+            "position": {
+                "left": 1410, 
+                "top": 986
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionout_file1": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "join1", 
+            "tool_state": "{\"input2\": \"null\", \"__page__\": 0, \"field1\": \"\\\"1\\\"\", \"partial\": \"\\\"\\\"\", \"field2\": \"\\\"1\\\"\", \"__rerun_remap_job_id__\": null, \"fill_empty_columns\": \"{\\\"fill_empty_columns_switch\\\": \\\"no_fill\\\", \\\"__current_case__\\\": 0}\", \"unmatched\": \"\\\"\\\"\", \"input1\": \"null\"}", 
+            "tool_version": "2.0.2", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "85375af5-298c-45cf-900a-92462387a55b"
+        }, 
+        "27": {
+            "annotation": "", 
+            "id": 27, 
+            "input_connections": {
+                "input1": {
+                    "id": 7, 
+                    "output_name": "out_file1"
+                }, 
+                "input2": {
+                    "id": 14, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Compare two Datasets", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "input"
+                }
+            ], 
+            "position": {
+                "left": 1215, 
+                "top": 1224
+            }, 
+            "post_job_actions": {
+                "RenameDatasetActionout_file1": {
+                    "action_arguments": {
+                        "newname": "Orders specific to first dataset"
+                    }, 
+                    "action_type": "RenameDatasetAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "comp1", 
+            "tool_state": "{\"input2\": \"null\", \"__page__\": 0, \"input1\": \"null\", \"field2\": \"\\\"1\\\"\", \"__rerun_remap_job_id__\": null, \"field1\": \"\\\"1\\\"\", \"mode\": \"\\\"V\\\"\"}", 
+            "tool_version": "1.0.2", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "a91256bd-2fa0-4a22-a5f3-3276e6ae6e62"
+        }, 
+        "28": {
+            "annotation": "", 
+            "id": 28, 
+            "input_connections": {
+                "input1": {
+                    "id": 14, 
+                    "output_name": "out_file1"
+                }, 
+                "input2": {
+                    "id": 7, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Compare two Datasets", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "input"
+                }
+            ], 
+            "position": {
+                "left": 1216, 
+                "top": 1426
+            }, 
+            "post_job_actions": {
+                "RenameDatasetActionout_file1": {
+                    "action_arguments": {
+                        "newname": "Orders specific to second dataset"
+                    }, 
+                    "action_type": "RenameDatasetAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "comp1", 
+            "tool_state": "{\"input2\": \"null\", \"__page__\": 0, \"input1\": \"null\", \"field2\": \"\\\"1\\\"\", \"__rerun_remap_job_id__\": null, \"field1\": \"\\\"1\\\"\", \"mode\": \"\\\"V\\\"\"}", 
+            "tool_version": "1.0.2", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "fbfc9777-c7b6-41cb-bd9a-a6b7d37c3916"
+        }, 
+        "29": {
+            "annotation": "", 
+            "id": 29, 
+            "input_connections": {
+                "input1": {
+                    "id": 7, 
+                    "output_name": "out_file1"
+                }, 
+                "input2": {
+                    "id": 14, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Join two Datasets", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "input"
+                }
+            ], 
+            "position": {
+                "left": 1404, 
+                "top": 1315
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionout_file1": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "join1", 
+            "tool_state": "{\"input2\": \"null\", \"__page__\": 0, \"field1\": \"\\\"1\\\"\", \"partial\": \"\\\"\\\"\", \"field2\": \"\\\"1\\\"\", \"__rerun_remap_job_id__\": null, \"fill_empty_columns\": \"{\\\"fill_empty_columns_switch\\\": \\\"no_fill\\\", \\\"__current_case__\\\": 0}\", \"unmatched\": \"\\\"\\\"\", \"input1\": \"null\"}", 
+            "tool_version": "2.0.2", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "28fdc3f6-f136-416a-ad7f-0bdafd91e42d"
+        }, 
+        "30": {
+            "annotation": "", 
+            "id": 30, 
+            "input_connections": {
+                "input1": {
+                    "id": 8, 
+                    "output_name": "out_file1"
+                }, 
+                "input2": {
+                    "id": 15, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Compare two Datasets", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "input"
+                }
+            ], 
+            "position": {
+                "left": 1222, 
+                "top": 1545
+            }, 
+            "post_job_actions": {
+                "RenameDatasetActionout_file1": {
+                    "action_arguments": {
+                        "newname": "Families specific to first dataset"
+                    }, 
+                    "action_type": "RenameDatasetAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "comp1", 
+            "tool_state": "{\"input2\": \"null\", \"__page__\": 0, \"input1\": \"null\", \"field2\": \"\\\"1\\\"\", \"__rerun_remap_job_id__\": null, \"field1\": \"\\\"1\\\"\", \"mode\": \"\\\"V\\\"\"}", 
+            "tool_version": "1.0.2", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "0f189d4d-50ca-463e-99fc-0b8e18ac39ea"
+        }, 
+        "31": {
+            "annotation": "", 
+            "id": 31, 
+            "input_connections": {
+                "input1": {
+                    "id": 15, 
+                    "output_name": "out_file1"
+                }, 
+                "input2": {
+                    "id": 8, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Compare two Datasets", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "input"
+                }
+            ], 
+            "position": {
+                "left": 1218, 
+                "top": 1759
+            }, 
+            "post_job_actions": {
+                "RenameDatasetActionout_file1": {
+                    "action_arguments": {
+                        "newname": "Families specific to second dataset"
+                    }, 
+                    "action_type": "RenameDatasetAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "comp1", 
+            "tool_state": "{\"input2\": \"null\", \"__page__\": 0, \"input1\": \"null\", \"field2\": \"\\\"1\\\"\", \"__rerun_remap_job_id__\": null, \"field1\": \"\\\"1\\\"\", \"mode\": \"\\\"V\\\"\"}", 
+            "tool_version": "1.0.2", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "f7ac3b8d-ca09-4e37-97a0-422fa6cbbecb"
+        }, 
+        "32": {
+            "annotation": "", 
+            "id": 32, 
+            "input_connections": {
+                "input1": {
+                    "id": 8, 
+                    "output_name": "out_file1"
+                }, 
+                "input2": {
+                    "id": 15, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Join two Datasets", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "input"
+                }
+            ], 
+            "position": {
+                "left": 1411, 
+                "top": 1650
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionout_file1": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "join1", 
+            "tool_state": "{\"input2\": \"null\", \"__page__\": 0, \"field1\": \"\\\"1\\\"\", \"partial\": \"\\\"\\\"\", \"field2\": \"\\\"1\\\"\", \"__rerun_remap_job_id__\": null, \"fill_empty_columns\": \"{\\\"fill_empty_columns_switch\\\": \\\"no_fill\\\", \\\"__current_case__\\\": 0}\", \"unmatched\": \"\\\"\\\"\", \"input1\": \"null\"}", 
+            "tool_version": "2.0.2", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "4e419b93-dc62-4a99-b008-4e0bdc96f19f"
+        }, 
+        "33": {
+            "annotation": "", 
+            "id": 33, 
+            "input_connections": {
+                "input1": {
+                    "id": 9, 
+                    "output_name": "out_file1"
+                }, 
+                "input2": {
+                    "id": 16, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Compare two Datasets", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "input"
+                }
+            ], 
+            "position": {
+                "left": 1222, 
+                "top": 1885
+            }, 
+            "post_job_actions": {
+                "RenameDatasetActionout_file1": {
+                    "action_arguments": {
+                        "newname": "Genus specific to first dataset"
+                    }, 
+                    "action_type": "RenameDatasetAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "comp1", 
+            "tool_state": "{\"input2\": \"null\", \"__page__\": 0, \"input1\": \"null\", \"field2\": \"\\\"1\\\"\", \"__rerun_remap_job_id__\": null, \"field1\": \"\\\"1\\\"\", \"mode\": \"\\\"V\\\"\"}", 
+            "tool_version": "1.0.2", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "679cf21f-3e72-458d-ab2a-ed7be09e9d34"
+        }, 
+        "34": {
+            "annotation": "", 
+            "id": 34, 
+            "input_connections": {
+                "input1": {
+                    "id": 16, 
+                    "output_name": "out_file1"
+                }, 
+                "input2": {
+                    "id": 9, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Compare two Datasets", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "input"
+                }
+            ], 
+            "position": {
+                "left": 1223, 
+                "top": 2086
+            }, 
+            "post_job_actions": {
+                "RenameDatasetActionout_file1": {
+                    "action_arguments": {
+                        "newname": "Genus specific to second dataset"
+                    }, 
+                    "action_type": "RenameDatasetAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "comp1", 
+            "tool_state": "{\"input2\": \"null\", \"__page__\": 0, \"input1\": \"null\", \"field2\": \"\\\"1\\\"\", \"__rerun_remap_job_id__\": null, \"field1\": \"\\\"1\\\"\", \"mode\": \"\\\"V\\\"\"}", 
+            "tool_version": "1.0.2", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "9bdfe602-8c0b-4789-a0c1-9699d1e2eaa8"
+        }, 
+        "35": {
+            "annotation": "", 
+            "id": 35, 
+            "input_connections": {
+                "input1": {
+                    "id": 9, 
+                    "output_name": "out_file1"
+                }, 
+                "input2": {
+                    "id": 16, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Join two Datasets", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "input"
+                }
+            ], 
+            "position": {
+                "left": 1417, 
+                "top": 1987
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionout_file1": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "join1", 
+            "tool_state": "{\"input2\": \"null\", \"__page__\": 0, \"field1\": \"\\\"1\\\"\", \"partial\": \"\\\"\\\"\", \"field2\": \"\\\"1\\\"\", \"__rerun_remap_job_id__\": null, \"fill_empty_columns\": \"{\\\"fill_empty_columns_switch\\\": \\\"no_fill\\\", \\\"__current_case__\\\": 0}\", \"unmatched\": \"\\\"\\\"\", \"input1\": \"null\"}", 
+            "tool_version": "2.0.2", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "307c81c1-f845-42cf-a9e9-febf88dc7734"
+        }, 
+        "36": {
+            "annotation": "", 
+            "id": 36, 
+            "input_connections": {
+                "input1": {
+                    "id": 10, 
+                    "output_name": "out_file1"
+                }, 
+                "input2": {
+                    "id": 17, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Compare two Datasets", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "input"
+                }
+            ], 
+            "position": {
+                "left": 1224, 
+                "top": 2210
+            }, 
+            "post_job_actions": {
+                "RenameDatasetActionout_file1": {
+                    "action_arguments": {
+                        "newname": "Species specific to first dataset"
+                    }, 
+                    "action_type": "RenameDatasetAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "comp1", 
+            "tool_state": "{\"input2\": \"null\", \"__page__\": 0, \"input1\": \"null\", \"field2\": \"\\\"1\\\"\", \"__rerun_remap_job_id__\": null, \"field1\": \"\\\"1\\\"\", \"mode\": \"\\\"V\\\"\"}", 
+            "tool_version": "1.0.2", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "f4f2d527-7f66-461c-83bc-f9da92be13a7"
+        }, 
+        "37": {
+            "annotation": "", 
+            "id": 37, 
+            "input_connections": {
+                "input1": {
+                    "id": 10, 
+                    "output_name": "out_file1"
+                }, 
+                "input2": {
+                    "id": 17, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Join two Datasets", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "input"
+                }
+            ], 
+            "position": {
+                "left": 1405, 
+                "top": 2304
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionout_file1": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "join1", 
+            "tool_state": "{\"input2\": \"null\", \"__page__\": 0, \"field1\": \"\\\"1\\\"\", \"partial\": \"\\\"\\\"\", \"field2\": \"\\\"1\\\"\", \"__rerun_remap_job_id__\": null, \"fill_empty_columns\": \"{\\\"fill_empty_columns_switch\\\": \\\"no_fill\\\", \\\"__current_case__\\\": 0}\", \"unmatched\": \"\\\"\\\"\", \"input1\": \"null\"}", 
+            "tool_version": "2.0.2", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "24e2167b-1226-4a72-9a97-dd0552dae111"
+        }, 
+        "38": {
+            "annotation": "", 
+            "id": 38, 
+            "input_connections": {
+                "input1": {
+                    "id": 17, 
+                    "output_name": "out_file1"
+                }, 
+                "input2": {
+                    "id": 10, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Compare two Datasets", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "input"
+                }
+            ], 
+            "position": {
+                "left": 1215, 
+                "top": 2432
+            }, 
+            "post_job_actions": {
+                "RenameDatasetActionout_file1": {
+                    "action_arguments": {
+                        "newname": "Species specific to second dataset"
+                    }, 
+                    "action_type": "RenameDatasetAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "comp1", 
+            "tool_state": "{\"input2\": \"null\", \"__page__\": 0, \"input1\": \"null\", \"field2\": \"\\\"1\\\"\", \"__rerun_remap_job_id__\": null, \"field1\": \"\\\"1\\\"\", \"mode\": \"\\\"V\\\"\"}", 
+            "tool_version": "1.0.2", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "aa60435f-fae3-4f76-b788-8c82bcb6c77b"
+        }, 
+        "39": {
+            "annotation": "", 
+            "id": 39, 
+            "input_connections": {
+                "input": {
+                    "id": 20, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Cut", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 1651, 
+                "top": 337
+            }, 
+            "post_job_actions": {
+                "RenameDatasetActionout_file1": {
+                    "action_arguments": {
+                        "newname": "Similar kingdoms to both datasets"
+                    }, 
+                    "action_type": "RenameDatasetAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/devteam/cut_columns/Cut1/1.0.1", 
+            "tool_state": "{\"columnList\": \"\\\"c1,c2,c4\\\"\", \"input\": \"null\", \"delimiter\": \"\\\"T\\\"\", \"__rerun_remap_job_id__\": null, \"__page__\": 0}", 
+            "tool_version": "1.0.1", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "ada15565-8e45-4651-8000-7d5eca3ba90a"
+        }, 
+        "40": {
+            "annotation": "", 
+            "id": 40, 
+            "input_connections": {
+                "input": {
+                    "id": 23, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Cut", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 1646, 
+                "top": 669
+            }, 
+            "post_job_actions": {
+                "RenameDatasetActionout_file1": {
+                    "action_arguments": {
+                        "newname": "Similar phyla to both datasets"
+                    }, 
+                    "action_type": "RenameDatasetAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/devteam/cut_columns/Cut1/1.0.1", 
+            "tool_state": "{\"columnList\": \"\\\"c1,c2,c4\\\"\", \"input\": \"null\", \"delimiter\": \"\\\"T\\\"\", \"__rerun_remap_job_id__\": null, \"__page__\": 0}", 
+            "tool_version": "1.0.1", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "e37e970f-6b1d-47bf-a118-6297a60cda9b"
+        }, 
+        "41": {
+            "annotation": "", 
+            "id": 41, 
+            "input_connections": {
+                "input": {
+                    "id": 26, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Cut", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 1638, 
+                "top": 992
+            }, 
+            "post_job_actions": {
+                "RenameDatasetActionout_file1": {
+                    "action_arguments": {
+                        "newname": "Similar classes to both datasets"
+                    }, 
+                    "action_type": "RenameDatasetAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/devteam/cut_columns/Cut1/1.0.1", 
+            "tool_state": "{\"columnList\": \"\\\"c1,c2,c4\\\"\", \"input\": \"null\", \"delimiter\": \"\\\"T\\\"\", \"__rerun_remap_job_id__\": null, \"__page__\": 0}", 
+            "tool_version": "1.0.1", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "16efff10-98e4-41be-8c24-a9266dfc04b4"
+        }, 
+        "42": {
+            "annotation": "", 
+            "id": 42, 
+            "input_connections": {
+                "input": {
+                    "id": 29, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Cut", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 1622, 
+                "top": 1301
+            }, 
+            "post_job_actions": {
+                "RenameDatasetActionout_file1": {
+                    "action_arguments": {
+                        "newname": "Similar orders to both datasets"
+                    }, 
+                    "action_type": "RenameDatasetAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/devteam/cut_columns/Cut1/1.0.1", 
+            "tool_state": "{\"columnList\": \"\\\"c1,c2,c4\\\"\", \"input\": \"null\", \"delimiter\": \"\\\"T\\\"\", \"__rerun_remap_job_id__\": null, \"__page__\": 0}", 
+            "tool_version": "1.0.1", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "4e8f5481-ed6b-4ecf-80d4-5c73419524c8"
+        }, 
+        "43": {
+            "annotation": "", 
+            "id": 43, 
+            "input_connections": {
+                "input": {
+                    "id": 32, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Cut", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 1637, 
+                "top": 1637
+            }, 
+            "post_job_actions": {
+                "RenameDatasetActionout_file1": {
+                    "action_arguments": {
+                        "newname": "Similar families to both datasets"
+                    }, 
+                    "action_type": "RenameDatasetAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/devteam/cut_columns/Cut1/1.0.1", 
+            "tool_state": "{\"columnList\": \"\\\"c1,c2,c4\\\"\", \"input\": \"null\", \"delimiter\": \"\\\"T\\\"\", \"__rerun_remap_job_id__\": null, \"__page__\": 0}", 
+            "tool_version": "1.0.1", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "079ef5fa-47d5-4a86-ad4d-64dae3d96f55"
+        }, 
+        "44": {
+            "annotation": "", 
+            "id": 44, 
+            "input_connections": {
+                "input": {
+                    "id": 35, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Cut", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 1647, 
+                "top": 1975
+            }, 
+            "post_job_actions": {
+                "RenameDatasetActionout_file1": {
+                    "action_arguments": {
+                        "newname": "Similar genus to both datasets"
+                    }, 
+                    "action_type": "RenameDatasetAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/devteam/cut_columns/Cut1/1.0.1", 
+            "tool_state": "{\"columnList\": \"\\\"c1,c2,c4\\\"\", \"input\": \"null\", \"delimiter\": \"\\\"T\\\"\", \"__rerun_remap_job_id__\": null, \"__page__\": 0}", 
+            "tool_version": "1.0.1", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "2d04d636-1d38-4040-a19d-34c1acb8c63d"
+        }, 
+        "45": {
+            "annotation": "", 
+            "id": 45, 
+            "input_connections": {
+                "input": {
+                    "id": 37, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Cut", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 1645, 
+                "top": 2376
+            }, 
+            "post_job_actions": {
+                "RenameDatasetActionout_file1": {
+                    "action_arguments": {
+                        "newname": "Similar species to both datasets"
+                    }, 
+                    "action_type": "RenameDatasetAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/devteam/cut_columns/Cut1/1.0.1", 
+            "tool_state": "{\"columnList\": \"\\\"c1,c2,c4\\\"\", \"input\": \"null\", \"delimiter\": \"\\\"T\\\"\", \"__rerun_remap_job_id__\": null, \"__page__\": 0}", 
+            "tool_version": "1.0.1", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "df8f3896-3f7f-408b-be49-6dd3da2d6277"
+        }, 
+        "46": {
+            "annotation": "", 
+            "id": 46, 
+            "input_connections": {
+                "input_file": {
+                    "id": 39, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Plot grouped barplot", 
+            "outputs": [
+                {
+                    "name": "output_pdf_file", 
+                    "type": "pdf"
+                }, 
+                {
+                    "name": "output_png_file", 
+                    "type": "png"
+                }, 
+                {
+                    "name": "output_svg_file", 
+                    "type": "svg"
+                }
+            ], 
+            "position": {
+                "left": 1871.5, 
+                "top": 202
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionoutput_png_file": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_png_file"
+                }, 
+                "HideDatasetActionoutput_svg_file": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_svg_file"
+                }, 
+                "RenameDatasetActionoutput_pdf_file": {
+                    "action_arguments": {
+                        "newname": "Barplot for kingdoms similar in both datasets"
+                    }, 
+                    "action_type": "RenameDatasetAction", 
+                    "output_name": "output_pdf_file"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "172.21.23.6:9009/repos/bebatut/plot_grouped_barplot/plot_grouped_barplot/0.1.0", 
+            "tool_state": "{\"replace_null\": \"\\\"False\\\"\", \"xlab\": \"\\\"Kingdom abundance\\\"\", \"bottom_margin\": \"\\\"5\\\"\", \"log\": \"\\\"False\\\"\", \"input_file\": \"null\", \"__page__\": 0, \"names_column\": \"\\\"1\\\"\", \"output_format\": \"\\\"pdf\\\"\", \"right_margin\": \"\\\"1\\\"\", \"top_margin\": \"\\\"1\\\"\", \"left_margin\": \"\\\"5\\\"\", \"header\": \"\\\"False\\\"\", \"__rerun_remap_job_id__\": null, \"samples\": \"[{\\\"color\\\": \\\"blue3\\\", \\\"__index__\\\": 0, \\\"name\\\": \\\"First dataset\\\", \\\"column_id\\\": \\\"2\\\"}, {\\\"color\\\": \\\"red\\\", \\\"__index__\\\": 1, \\\"name\\\": \\\"Second dataset\\\", \\\"column_id\\\": \\\"3\\\"}]\", \"legend_pos\": \"\\\"topright\\\"\", \"order\": \"\\\"False\\\"\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "4e4c6529-0279-43fd-a2b8-b5be1e452241"
+        }, 
+        "47": {
+            "annotation": "", 
+            "id": 47, 
+            "input_connections": {
+                "input_file": {
+                    "id": 39, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Plot generic X-Y plot", 
+            "outputs": [
+                {
+                    "name": "output_pdf_file", 
+                    "type": "pdf"
+                }, 
+                {
+                    "name": "output_png_file", 
+                    "type": "png"
+                }, 
+                {
+                    "name": "output_svg_file", 
+                    "type": "svg"
+                }
+            ], 
+            "position": {
+                "left": 1885.5, 
+                "top": 410
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionoutput_png_file": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_png_file"
+                }, 
+                "HideDatasetActionoutput_svg_file": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_svg_file"
+                }, 
+                "RenameDatasetActionoutput_pdf_file": {
+                    "action_arguments": {
+                        "newname": "X-Y plot for kingdoms similar in both datasets"
+                    }, 
+                    "action_type": "RenameDatasetAction", 
+                    "output_name": "output_pdf_file"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "172.21.23.6:9009/repos/bebatut/plot_generic_x_y_plot/plot_generic_x_y_plot/0.1.0", 
+            "tool_state": "{\"xlab\": \"\\\"Kingdom abundance for first dataset\\\"\", \"__page__\": 0, \"bottom_margin\": \"\\\"5\\\"\", \"abline\": \"\\\"False\\\"\", \"input_file\": \"null\", \"color\": \"\\\"grey25\\\"\", \"lim\": \"\\\"False\\\"\", \"output_format\": \"\\\"pdf\\\"\", \"right_margin\": \"\\\"1\\\"\", \"top_margin\": \"\\\"1\\\"\", \"ylog\": \"\\\"False\\\"\", \"y_column_id\": \"\\\"3\\\"\", \"left_margin\": \"\\\"5\\\"\", \"header\": \"\\\"False\\\"\", \"pch\": \"\\\"21\\\"\", \"__rerun_remap_job_id__\": null, \"ylab\": \"\\\"Kingdom abundance for second dataset\\\"\", \"x_column_id\": \"\\\"2\\\"\", \"xlog\": \"\\\"False\\\"\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "98dfe52e-1344-4f6d-8bb2-fe46e9d783aa"
+        }, 
+        "48": {
+            "annotation": "", 
+            "id": 48, 
+            "input_connections": {
+                "input_file": {
+                    "id": 40, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Plot grouped barplot", 
+            "outputs": [
+                {
+                    "name": "output_pdf_file", 
+                    "type": "pdf"
+                }, 
+                {
+                    "name": "output_png_file", 
+                    "type": "png"
+                }, 
+                {
+                    "name": "output_svg_file", 
+                    "type": "svg"
+                }
+            ], 
+            "position": {
+                "left": 1900.5, 
+                "top": 583
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionoutput_png_file": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_png_file"
+                }, 
+                "HideDatasetActionoutput_svg_file": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_svg_file"
+                }, 
+                "RenameDatasetActionoutput_pdf_file": {
+                    "action_arguments": {
+                        "newname": "Barplot for phyla similar in both datasets"
+                    }, 
+                    "action_type": "RenameDatasetAction", 
+                    "output_name": "output_pdf_file"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "172.21.23.6:9009/repos/bebatut/plot_grouped_barplot/plot_grouped_barplot/0.1.0", 
+            "tool_state": "{\"replace_null\": \"\\\"False\\\"\", \"xlab\": \"\\\"Phylum abundance\\\"\", \"bottom_margin\": \"\\\"5\\\"\", \"log\": \"\\\"False\\\"\", \"input_file\": \"null\", \"__page__\": 0, \"names_column\": \"\\\"1\\\"\", \"output_format\": \"\\\"pdf\\\"\", \"right_margin\": \"\\\"1\\\"\", \"top_margin\": \"\\\"1\\\"\", \"left_margin\": \"\\\"8\\\"\", \"header\": \"\\\"False\\\"\", \"__rerun_remap_job_id__\": null, \"samples\": \"[{\\\"color\\\": \\\"blue\\\", \\\"__index__\\\": 0, \\\"name\\\": \\\"First dataset\\\", \\\"column_id\\\": \\\"2\\\"}, {\\\"color\\\": \\\"blue\\\", \\\"__index__\\\": 1, \\\"name\\\": \\\"Second dataset\\\", \\\"column_id\\\": \\\"3\\\"}]\", \"legend_pos\": \"\\\"topright\\\"\", \"order\": \"\\\"False\\\"\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "d0347e5b-eac8-43bb-8e08-141cbe2dddd6"
+        }, 
+        "49": {
+            "annotation": "", 
+            "id": 49, 
+            "input_connections": {
+                "input_file": {
+                    "id": 40, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Plot generic X-Y plot", 
+            "outputs": [
+                {
+                    "name": "output_pdf_file", 
+                    "type": "pdf"
+                }, 
+                {
+                    "name": "output_png_file", 
+                    "type": "png"
+                }, 
+                {
+                    "name": "output_svg_file", 
+                    "type": "svg"
+                }
+            ], 
+            "position": {
+                "left": 1902.5, 
+                "top": 743
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionoutput_png_file": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_png_file"
+                }, 
+                "HideDatasetActionoutput_svg_file": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_svg_file"
+                }, 
+                "RenameDatasetActionoutput_pdf_file": {
+                    "action_arguments": {
+                        "newname": "X-Y plot for phyla similar in both datasets"
+                    }, 
+                    "action_type": "RenameDatasetAction", 
+                    "output_name": "output_pdf_file"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "172.21.23.6:9009/repos/bebatut/plot_generic_x_y_plot/plot_generic_x_y_plot/0.1.0", 
+            "tool_state": "{\"xlab\": \"\\\"Phylum abundance for first dataset\\\"\", \"__page__\": 0, \"bottom_margin\": \"\\\"5\\\"\", \"abline\": \"\\\"False\\\"\", \"input_file\": \"null\", \"color\": \"\\\"grey25\\\"\", \"lim\": \"\\\"False\\\"\", \"output_format\": \"\\\"pdf\\\"\", \"right_margin\": \"\\\"1\\\"\", \"top_margin\": \"\\\"1\\\"\", \"ylog\": \"\\\"False\\\"\", \"y_column_id\": \"\\\"3\\\"\", \"left_margin\": \"\\\"5\\\"\", \"header\": \"\\\"False\\\"\", \"pch\": \"\\\"21\\\"\", \"__rerun_remap_job_id__\": null, \"ylab\": \"\\\"Phylum abundance for second dataset\\\"\", \"x_column_id\": \"\\\"2\\\"\", \"xlog\": \"\\\"False\\\"\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "0137c5b6-131d-4698-9d50-76a0355e7edd"
+        }, 
+        "50": {
+            "annotation": "", 
+            "id": 50, 
+            "input_connections": {
+                "input_file": {
+                    "id": 41, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Plot grouped barplot", 
+            "outputs": [
+                {
+                    "name": "output_pdf_file", 
+                    "type": "pdf"
+                }, 
+                {
+                    "name": "output_png_file", 
+                    "type": "png"
+                }, 
+                {
+                    "name": "output_svg_file", 
+                    "type": "svg"
+                }
+            ], 
+            "position": {
+                "left": 1903.5, 
+                "top": 906
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionoutput_png_file": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_png_file"
+                }, 
+                "HideDatasetActionoutput_svg_file": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_svg_file"
+                }, 
+                "RenameDatasetActionoutput_pdf_file": {
+                    "action_arguments": {
+                        "newname": "Barplot for classes similar in both datasets"
+                    }, 
+                    "action_type": "RenameDatasetAction", 
+                    "output_name": "output_pdf_file"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "172.21.23.6:9009/repos/bebatut/plot_grouped_barplot/plot_grouped_barplot/0.1.0", 
+            "tool_state": "{\"replace_null\": \"\\\"False\\\"\", \"xlab\": \"\\\"Class abundance\\\"\", \"bottom_margin\": \"\\\"5\\\"\", \"log\": \"\\\"False\\\"\", \"input_file\": \"null\", \"__page__\": 0, \"names_column\": \"\\\"1\\\"\", \"output_format\": \"\\\"pdf\\\"\", \"right_margin\": \"\\\"1\\\"\", \"top_margin\": \"\\\"1\\\"\", \"left_margin\": \"\\\"8\\\"\", \"header\": \"\\\"False\\\"\", \"__rerun_remap_job_id__\": null, \"samples\": \"[{\\\"color\\\": \\\"blue3\\\", \\\"__index__\\\": 0, \\\"name\\\": \\\"First dataset\\\", \\\"column_id\\\": \\\"2\\\"}, {\\\"color\\\": \\\"red\\\", \\\"__index__\\\": 1, \\\"name\\\": \\\"Second dataset\\\", \\\"column_id\\\": \\\"3\\\"}]\", \"legend_pos\": \"\\\"topright\\\"\", \"order\": \"\\\"False\\\"\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "145f39bf-f23a-40d0-9332-25cfc9a34b02"
+        }, 
+        "51": {
+            "annotation": "", 
+            "id": 51, 
+            "input_connections": {
+                "input_file": {
+                    "id": 41, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Plot generic X-Y plot", 
+            "outputs": [
+                {
+                    "name": "output_pdf_file", 
+                    "type": "pdf"
+                }, 
+                {
+                    "name": "output_png_file", 
+                    "type": "png"
+                }, 
+                {
+                    "name": "output_svg_file", 
+                    "type": "svg"
+                }
+            ], 
+            "position": {
+                "left": 1904.5, 
+                "top": 1060
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionoutput_png_file": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_png_file"
+                }, 
+                "HideDatasetActionoutput_svg_file": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_svg_file"
+                }, 
+                "RenameDatasetActionoutput_pdf_file": {
+                    "action_arguments": {
+                        "newname": "X-Y plot for classes similar in both datasets"
+                    }, 
+                    "action_type": "RenameDatasetAction", 
+                    "output_name": "output_pdf_file"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "172.21.23.6:9009/repos/bebatut/plot_generic_x_y_plot/plot_generic_x_y_plot/0.1.0", 
+            "tool_state": "{\"xlab\": \"\\\"Class abundance for first dataset\\\"\", \"__page__\": 0, \"bottom_margin\": \"\\\"5\\\"\", \"abline\": \"\\\"False\\\"\", \"input_file\": \"null\", \"color\": \"\\\"grey25\\\"\", \"lim\": \"\\\"False\\\"\", \"output_format\": \"\\\"pdf\\\"\", \"right_margin\": \"\\\"1\\\"\", \"top_margin\": \"\\\"1\\\"\", \"ylog\": \"\\\"False\\\"\", \"y_column_id\": \"\\\"3\\\"\", \"left_margin\": \"\\\"5\\\"\", \"header\": \"\\\"False\\\"\", \"pch\": \"\\\"21\\\"\", \"__rerun_remap_job_id__\": null, \"ylab\": \"\\\"Class abundance for second dataset\\\"\", \"x_column_id\": \"\\\"2\\\"\", \"xlog\": \"\\\"False\\\"\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "6a123215-b486-4709-b391-ee98b6f6f6a9"
+        }, 
+        "52": {
+            "annotation": "", 
+            "id": 52, 
+            "input_connections": {
+                "input_file": {
+                    "id": 42, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Plot grouped barplot", 
+            "outputs": [
+                {
+                    "name": "output_pdf_file", 
+                    "type": "pdf"
+                }, 
+                {
+                    "name": "output_png_file", 
+                    "type": "png"
+                }, 
+                {
+                    "name": "output_svg_file", 
+                    "type": "svg"
+                }
+            ], 
+            "position": {
+                "left": 1907.5, 
+                "top": 1220
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionoutput_png_file": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_png_file"
+                }, 
+                "HideDatasetActionoutput_svg_file": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_svg_file"
+                }, 
+                "RenameDatasetActionoutput_pdf_file": {
+                    "action_arguments": {
+                        "newname": "Barplot for orders similar in both datasets"
+                    }, 
+                    "action_type": "RenameDatasetAction", 
+                    "output_name": "output_pdf_file"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "172.21.23.6:9009/repos/bebatut/plot_grouped_barplot/plot_grouped_barplot/0.1.0", 
+            "tool_state": "{\"replace_null\": \"\\\"False\\\"\", \"xlab\": \"\\\"Order abundance\\\"\", \"bottom_margin\": \"\\\"5\\\"\", \"log\": \"\\\"False\\\"\", \"input_file\": \"null\", \"__page__\": 0, \"names_column\": \"\\\"1\\\"\", \"output_format\": \"\\\"pdf\\\"\", \"right_margin\": \"\\\"1\\\"\", \"top_margin\": \"\\\"1\\\"\", \"left_margin\": \"\\\"8\\\"\", \"header\": \"\\\"False\\\"\", \"__rerun_remap_job_id__\": null, \"samples\": \"[{\\\"color\\\": \\\"blue3\\\", \\\"__index__\\\": 0, \\\"name\\\": \\\"First dataset\\\", \\\"column_id\\\": \\\"2\\\"}, {\\\"color\\\": \\\"red\\\", \\\"__index__\\\": 1, \\\"name\\\": \\\"Second dataset\\\", \\\"column_id\\\": \\\"3\\\"}]\", \"legend_pos\": \"\\\"topright\\\"\", \"order\": \"\\\"False\\\"\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "a7045ce6-7924-408d-9ed1-c7bfc949c2f4"
+        }, 
+        "53": {
+            "annotation": "", 
+            "id": 53, 
+            "input_connections": {
+                "input_file": {
+                    "id": 42, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Plot generic X-Y plot", 
+            "outputs": [
+                {
+                    "name": "output_pdf_file", 
+                    "type": "pdf"
+                }, 
+                {
+                    "name": "output_png_file", 
+                    "type": "png"
+                }, 
+                {
+                    "name": "output_svg_file", 
+                    "type": "svg"
+                }
+            ], 
+            "position": {
+                "left": 1908.5, 
+                "top": 1373
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionoutput_png_file": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_png_file"
+                }, 
+                "HideDatasetActionoutput_svg_file": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_svg_file"
+                }, 
+                "RenameDatasetActionoutput_pdf_file": {
+                    "action_arguments": {
+                        "newname": "X-Y plot for orders similar in both datasets"
+                    }, 
+                    "action_type": "RenameDatasetAction", 
+                    "output_name": "output_pdf_file"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "172.21.23.6:9009/repos/bebatut/plot_generic_x_y_plot/plot_generic_x_y_plot/0.1.0", 
+            "tool_state": "{\"xlab\": \"\\\"Order abundance for first dataset\\\"\", \"__page__\": 0, \"bottom_margin\": \"\\\"5\\\"\", \"abline\": \"\\\"False\\\"\", \"input_file\": \"null\", \"color\": \"\\\"grey25\\\"\", \"lim\": \"\\\"False\\\"\", \"output_format\": \"\\\"pdf\\\"\", \"right_margin\": \"\\\"1\\\"\", \"top_margin\": \"\\\"1\\\"\", \"ylog\": \"\\\"False\\\"\", \"y_column_id\": \"\\\"3\\\"\", \"left_margin\": \"\\\"5\\\"\", \"header\": \"\\\"False\\\"\", \"pch\": \"\\\"21\\\"\", \"__rerun_remap_job_id__\": null, \"ylab\": \"\\\"Order abundance for second dataset\\\"\", \"x_column_id\": \"\\\"2\\\"\", \"xlog\": \"\\\"False\\\"\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "94bdf016-9eb2-40bd-84bb-43508b82a28e"
+        }, 
+        "54": {
+            "annotation": "", 
+            "id": 54, 
+            "input_connections": {
+                "input_file": {
+                    "id": 43, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Plot grouped barplot", 
+            "outputs": [
+                {
+                    "name": "output_pdf_file", 
+                    "type": "pdf"
+                }, 
+                {
+                    "name": "output_png_file", 
+                    "type": "png"
+                }, 
+                {
+                    "name": "output_svg_file", 
+                    "type": "svg"
+                }
+            ], 
+            "position": {
+                "left": 1913.5, 
+                "top": 1524
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionoutput_png_file": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_png_file"
+                }, 
+                "HideDatasetActionoutput_svg_file": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_svg_file"
+                }, 
+                "RenameDatasetActionoutput_pdf_file": {
+                    "action_arguments": {
+                        "newname": "Barplot for families similar in both datasets"
+                    }, 
+                    "action_type": "RenameDatasetAction", 
+                    "output_name": "output_pdf_file"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "172.21.23.6:9009/repos/bebatut/plot_grouped_barplot/plot_grouped_barplot/0.1.0", 
+            "tool_state": "{\"replace_null\": \"\\\"False\\\"\", \"xlab\": \"\\\"Family abundance\\\"\", \"bottom_margin\": \"\\\"5\\\"\", \"log\": \"\\\"False\\\"\", \"input_file\": \"null\", \"__page__\": 0, \"names_column\": \"\\\"1\\\"\", \"output_format\": \"\\\"pdf\\\"\", \"right_margin\": \"\\\"1\\\"\", \"top_margin\": \"\\\"1\\\"\", \"left_margin\": \"\\\"10\\\"\", \"header\": \"\\\"False\\\"\", \"__rerun_remap_job_id__\": null, \"samples\": \"[{\\\"color\\\": \\\"blue3\\\", \\\"__index__\\\": 0, \\\"name\\\": \\\"First dataset\\\", \\\"column_id\\\": \\\"2\\\"}, {\\\"color\\\": \\\"red\\\", \\\"__index__\\\": 1, \\\"name\\\": \\\"Second dataset\\\", \\\"column_id\\\": \\\"3\\\"}]\", \"legend_pos\": \"\\\"topright\\\"\", \"order\": \"\\\"False\\\"\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "8aaffae5-e050-4c06-bd6f-6b935a964881"
+        }, 
+        "55": {
+            "annotation": "", 
+            "id": 55, 
+            "input_connections": {
+                "input_file": {
+                    "id": 43, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Plot generic X-Y plot", 
+            "outputs": [
+                {
+                    "name": "output_pdf_file", 
+                    "type": "pdf"
+                }, 
+                {
+                    "name": "output_png_file", 
+                    "type": "png"
+                }, 
+                {
+                    "name": "output_svg_file", 
+                    "type": "svg"
+                }
+            ], 
+            "position": {
+                "left": 1921.5, 
+                "top": 1693
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionoutput_png_file": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_png_file"
+                }, 
+                "HideDatasetActionoutput_svg_file": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_svg_file"
+                }, 
+                "RenameDatasetActionoutput_pdf_file": {
+                    "action_arguments": {
+                        "newname": "X-Y plot for families similar in both datasets"
+                    }, 
+                    "action_type": "RenameDatasetAction", 
+                    "output_name": "output_pdf_file"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "172.21.23.6:9009/repos/bebatut/plot_generic_x_y_plot/plot_generic_x_y_plot/0.1.0", 
+            "tool_state": "{\"xlab\": \"\\\"Family abundance for first dataset\\\"\", \"__page__\": 0, \"bottom_margin\": \"\\\"5\\\"\", \"abline\": \"\\\"False\\\"\", \"input_file\": \"null\", \"color\": \"\\\"grey25\\\"\", \"lim\": \"\\\"False\\\"\", \"output_format\": \"\\\"pdf\\\"\", \"right_margin\": \"\\\"1\\\"\", \"top_margin\": \"\\\"1\\\"\", \"ylog\": \"\\\"False\\\"\", \"y_column_id\": \"\\\"3\\\"\", \"left_margin\": \"\\\"5\\\"\", \"header\": \"\\\"False\\\"\", \"pch\": \"\\\"21\\\"\", \"__rerun_remap_job_id__\": null, \"ylab\": \"\\\"Family abundance for second dataset\\\"\", \"x_column_id\": \"\\\"2\\\"\", \"xlog\": \"\\\"False\\\"\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "fb55cf09-8ed3-4037-a491-f8ffce57b12f"
+        }, 
+        "56": {
+            "annotation": "", 
+            "id": 56, 
+            "input_connections": {
+                "input_file": {
+                    "id": 44, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Plot grouped barplot", 
+            "outputs": [
+                {
+                    "name": "output_pdf_file", 
+                    "type": "pdf"
+                }, 
+                {
+                    "name": "output_png_file", 
+                    "type": "png"
+                }, 
+                {
+                    "name": "output_svg_file", 
+                    "type": "svg"
+                }
+            ], 
+            "position": {
+                "left": 1915.5, 
+                "top": 1890
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionoutput_png_file": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_png_file"
+                }, 
+                "HideDatasetActionoutput_svg_file": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_svg_file"
+                }, 
+                "RenameDatasetActionoutput_pdf_file": {
+                    "action_arguments": {
+                        "newname": "Barplot for genus similar in both datasets"
+                    }, 
+                    "action_type": "RenameDatasetAction", 
+                    "output_name": "output_pdf_file"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "172.21.23.6:9009/repos/bebatut/plot_grouped_barplot/plot_grouped_barplot/0.1.0", 
+            "tool_state": "{\"replace_null\": \"\\\"False\\\"\", \"xlab\": \"\\\"Genus abundance\\\"\", \"bottom_margin\": \"\\\"5\\\"\", \"log\": \"\\\"False\\\"\", \"input_file\": \"null\", \"__page__\": 0, \"names_column\": \"\\\"1\\\"\", \"output_format\": \"\\\"pdf\\\"\", \"right_margin\": \"\\\"1\\\"\", \"top_margin\": \"\\\"1\\\"\", \"left_margin\": \"\\\"10\\\"\", \"header\": \"\\\"False\\\"\", \"__rerun_remap_job_id__\": null, \"samples\": \"[{\\\"color\\\": \\\"blue3\\\", \\\"__index__\\\": 0, \\\"name\\\": \\\"First dataset\\\", \\\"column_id\\\": \\\"2\\\"}, {\\\"color\\\": \\\"red\\\", \\\"__index__\\\": 1, \\\"name\\\": \\\"Second dataset\\\", \\\"column_id\\\": \\\"3\\\"}]\", \"legend_pos\": \"\\\"topright\\\"\", \"order\": \"\\\"False\\\"\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "6748f7bd-b043-4579-b2e9-99e199a3188f"
+        }, 
+        "57": {
+            "annotation": "", 
+            "id": 57, 
+            "input_connections": {
+                "input_file": {
+                    "id": 44, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Plot generic X-Y plot", 
+            "outputs": [
+                {
+                    "name": "output_pdf_file", 
+                    "type": "pdf"
+                }, 
+                {
+                    "name": "output_png_file", 
+                    "type": "png"
+                }, 
+                {
+                    "name": "output_svg_file", 
+                    "type": "svg"
+                }
+            ], 
+            "position": {
+                "left": 1923.5, 
+                "top": 2098
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionoutput_png_file": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_png_file"
+                }, 
+                "HideDatasetActionoutput_svg_file": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_svg_file"
+                }, 
+                "RenameDatasetActionoutput_pdf_file": {
+                    "action_arguments": {
+                        "newname": "X-Y plot for genus similar in both datasets"
+                    }, 
+                    "action_type": "RenameDatasetAction", 
+                    "output_name": "output_pdf_file"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "172.21.23.6:9009/repos/bebatut/plot_generic_x_y_plot/plot_generic_x_y_plot/0.1.0", 
+            "tool_state": "{\"xlab\": \"\\\"Genus abundance for first dataset\\\"\", \"__page__\": 0, \"bottom_margin\": \"\\\"5\\\"\", \"abline\": \"\\\"False\\\"\", \"input_file\": \"null\", \"color\": \"\\\"grey25\\\"\", \"lim\": \"\\\"False\\\"\", \"output_format\": \"\\\"pdf\\\"\", \"right_margin\": \"\\\"1\\\"\", \"top_margin\": \"\\\"1\\\"\", \"ylog\": \"\\\"False\\\"\", \"y_column_id\": \"\\\"3\\\"\", \"left_margin\": \"\\\"5\\\"\", \"header\": \"\\\"False\\\"\", \"pch\": \"\\\"21\\\"\", \"__rerun_remap_job_id__\": null, \"ylab\": \"\\\"Genus abundance for second dataset\\\"\", \"x_column_id\": \"\\\"2\\\"\", \"xlog\": \"\\\"False\\\"\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "775555da-6ffb-4fb5-b67d-6ffd7f8ba891"
+        }, 
+        "58": {
+            "annotation": "", 
+            "id": 58, 
+            "input_connections": {
+                "input_file": {
+                    "id": 45, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Plot grouped barplot", 
+            "outputs": [
+                {
+                    "name": "output_pdf_file", 
+                    "type": "pdf"
+                }, 
+                {
+                    "name": "output_png_file", 
+                    "type": "png"
+                }, 
+                {
+                    "name": "output_svg_file", 
+                    "type": "svg"
+                }
+            ], 
+            "position": {
+                "left": 1927.5, 
+                "top": 2253
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionoutput_png_file": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_png_file"
+                }, 
+                "HideDatasetActionoutput_svg_file": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_svg_file"
+                }, 
+                "RenameDatasetActionoutput_pdf_file": {
+                    "action_arguments": {
+                        "newname": "Barplot for species similar in both datasets"
+                    }, 
+                    "action_type": "RenameDatasetAction", 
+                    "output_name": "output_pdf_file"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "172.21.23.6:9009/repos/bebatut/plot_grouped_barplot/plot_grouped_barplot/0.1.0", 
+            "tool_state": "{\"replace_null\": \"\\\"False\\\"\", \"xlab\": \"\\\"Species abundance\\\"\", \"bottom_margin\": \"\\\"5\\\"\", \"log\": \"\\\"False\\\"\", \"input_file\": \"null\", \"__page__\": 0, \"names_column\": \"\\\"1\\\"\", \"output_format\": \"\\\"pdf\\\"\", \"right_margin\": \"\\\"1\\\"\", \"top_margin\": \"\\\"1\\\"\", \"left_margin\": \"\\\"10\\\"\", \"header\": \"\\\"False\\\"\", \"__rerun_remap_job_id__\": null, \"samples\": \"[{\\\"color\\\": \\\"blue3\\\", \\\"__index__\\\": 0, \\\"name\\\": \\\"First dataset\\\", \\\"column_id\\\": \\\"2\\\"}, {\\\"color\\\": \\\"red\\\", \\\"__index__\\\": 1, \\\"name\\\": \\\"Second dataset\\\", \\\"column_id\\\": \\\"3\\\"}]\", \"legend_pos\": \"\\\"topright\\\"\", \"order\": \"\\\"False\\\"\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "fbfdd203-3b53-41e1-9d8e-950388c283a0"
+        }, 
+        "59": {
+            "annotation": "", 
+            "id": 59, 
+            "input_connections": {
+                "input_file": {
+                    "id": 45, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Plot generic X-Y plot", 
+            "outputs": [
+                {
+                    "name": "output_pdf_file", 
+                    "type": "pdf"
+                }, 
+                {
+                    "name": "output_png_file", 
+                    "type": "png"
+                }, 
+                {
+                    "name": "output_svg_file", 
+                    "type": "svg"
+                }
+            ], 
+            "position": {
+                "left": 1938.5, 
+                "top": 2433
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionoutput_png_file": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_png_file"
+                }, 
+                "HideDatasetActionoutput_svg_file": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_svg_file"
+                }, 
+                "RenameDatasetActionoutput_pdf_file": {
+                    "action_arguments": {
+                        "newname": "X-Y plot for species similar in both datasets"
+                    }, 
+                    "action_type": "RenameDatasetAction", 
+                    "output_name": "output_pdf_file"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "172.21.23.6:9009/repos/bebatut/plot_generic_x_y_plot/plot_generic_x_y_plot/0.1.0", 
+            "tool_state": "{\"xlab\": \"\\\"Species abundance for first dataset\\\"\", \"__page__\": 0, \"bottom_margin\": \"\\\"5\\\"\", \"abline\": \"\\\"False\\\"\", \"input_file\": \"null\", \"color\": \"\\\"grey25\\\"\", \"lim\": \"\\\"False\\\"\", \"output_format\": \"\\\"pdf\\\"\", \"right_margin\": \"\\\"1\\\"\", \"top_margin\": \"\\\"1\\\"\", \"ylog\": \"\\\"False\\\"\", \"y_column_id\": \"\\\"3\\\"\", \"left_margin\": \"\\\"5\\\"\", \"header\": \"\\\"False\\\"\", \"pch\": \"\\\"21\\\"\", \"__rerun_remap_job_id__\": null, \"ylab\": \"\\\"Species abundance for second dataset\\\"\", \"x_column_id\": \"\\\"2\\\"\", \"xlog\": \"\\\"False\\\"\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "8dea890b-adcb-4d85-ab81-9eaff58edb4d"
+        }
+    }, 
+    "uuid": "2530754a-6cde-4dc1-ba51-ce7368b58712"
+}

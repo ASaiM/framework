@@ -1,0 +1,734 @@
+{
+    "a_galaxy_workflow": "true", 
+    "annotation": "", 
+    "format-version": "0.1", 
+    "name": "Compare functional results between two datasets", 
+    "steps": {
+        "0": {
+            "annotation": "Abundance of gene families or pathways (HUMAnN2 output after normalization)", 
+            "id": 0, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "Abundance of gene families or pathways (HUMAnN2 output after normalization)", 
+                    "name": "First dataset"
+                }
+            ], 
+            "label": null, 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 200, 
+                "top": 264
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"First dataset\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "user_outputs": [], 
+            "uuid": "f32b9866-f9fa-4af4-9b3a-248e1ee467a3"
+        }, 
+        "1": {
+            "annotation": "Abundance of gene families or pathways (HUMAnN2 output after normalization)", 
+            "id": 1, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "Abundance of gene families or pathways (HUMAnN2 output after normalization)", 
+                    "name": "Second dataset"
+                }
+            ], 
+            "label": null, 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 200, 
+                "top": 349
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"Second dataset\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "user_outputs": [], 
+            "uuid": "4ed5fef8-94ad-490d-b380-1e58cdac157c"
+        }, 
+        "2": {
+            "annotation": "", 
+            "id": 2, 
+            "input_connections": {
+                "samples_0|input": {
+                    "id": 0, 
+                    "output_name": "output"
+                }, 
+                "samples_1|input": {
+                    "id": 1, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Compare outputs of HUMAnN2 for several samples", 
+            "outputs": [
+                {
+                    "name": "specific_files", 
+                    "type": "input"
+                }, 
+                {
+                    "name": "more_abundant_output_file", 
+                    "type": "tabular"
+                }, 
+                {
+                    "name": "similar_output_file", 
+                    "type": "tabular"
+                }, 
+                {
+                    "name": "log", 
+                    "type": "txt"
+                }
+            ], 
+            "position": {
+                "left": 440.5, 
+                "top": 214
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionlog": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "log"
+                }, 
+                "HideDatasetActionmore_abundant_output_file": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "more_abundant_output_file"
+                }, 
+                "HideDatasetActionsimilar_output_file": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "similar_output_file"
+                }, 
+                "RenameDatasetActionsimilar_output_file": {
+                    "action_arguments": {
+                        "newname": "Gene families/pathways similar to both dataset"
+                    }, 
+                    "action_type": "RenameDatasetAction", 
+                    "output_name": "similar_output_file"
+                }, 
+                "RenameDatasetActionspecific_files": {
+                    "action_arguments": {
+                        "newname": "Gene families/pathways specific to each dataset"
+                    }, 
+                    "action_type": "RenameDatasetAction", 
+                    "output_name": "specific_files"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "172.21.23.6:9009/repos/bebatut/compare_humann2_output/compare_humann2_output/0.1.0", 
+            "tool_state": "{\"charact_nb\": \"\\\"10\\\"\", \"__rerun_remap_job_id__\": null, \"samples\": \"[{\\\"__index__\\\": 0, \\\"input\\\": null, \\\"sample_name\\\": \\\"First dataset\\\"}, {\\\"__index__\\\": 1, \\\"input\\\": null, \\\"sample_name\\\": \\\"Second dataset\\\"}]\", \"__page__\": 0}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "a1c1e297-b897-4b2c-8dbc-e264f89b7b1b"
+        }, 
+        "3": {
+            "annotation": "", 
+            "id": 3, 
+            "input_connections": {
+                "input_file": {
+                    "id": 2, 
+                    "output_name": "similar_output_file"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Normalize a dataset by", 
+            "outputs": [
+                {
+                    "name": "output_file", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 747, 
+                "top": 350
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionoutput_file": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_file"
+                }, 
+                "RenameDatasetActionoutput_file": {
+                    "action_arguments": {
+                        "newname": "Gene families/pathways similar to both datasets (after normalization)"
+                    }, 
+                    "action_type": "RenameDatasetAction", 
+                    "output_name": "output_file"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "172.21.23.6:9009/repos/bebatut/normalize_dataset/normalize_dataset/0.1.0", 
+            "tool_state": "{\"__page__\": 0, \"__rerun_remap_job_id__\": null, \"format\": \"\\\"percentage\\\"\", \"normalization\": \"\\\"column\\\"\", \"input_file\": \"null\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "1b808d26-c7ee-4285-aa14-2630cf6acf7f"
+        }, 
+        "4": {
+            "annotation": "", 
+            "id": 4, 
+            "input_connections": {
+                "input_file": {
+                    "id": 3, 
+                    "output_name": "output_file"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Plot generic X-Y plot", 
+            "outputs": [
+                {
+                    "name": "output_pdf_file", 
+                    "type": "pdf"
+                }, 
+                {
+                    "name": "output_png_file", 
+                    "type": "png"
+                }, 
+                {
+                    "name": "output_svg_file", 
+                    "type": "svg"
+                }
+            ], 
+            "position": {
+                "left": 1026, 
+                "top": 200
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionoutput_png_file": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_png_file"
+                }, 
+                "HideDatasetActionoutput_svg_file": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_svg_file"
+                }, 
+                "RenameDatasetActionoutput_pdf_file": {
+                    "action_arguments": {
+                        "newname": "X-Y plot of abundance of similar gene families/pathways for both datasets"
+                    }, 
+                    "action_type": "RenameDatasetAction", 
+                    "output_name": "output_pdf_file"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "172.21.23.6:9009/repos/bebatut/plot_generic_x_y_plot/plot_generic_x_y_plot/0.1.0", 
+            "tool_state": "{\"xlab\": \"\\\"Relative abundance for SRR072232\\\"\", \"__page__\": 0, \"bottom_margin\": \"\\\"5\\\"\", \"abline\": \"\\\"True\\\"\", \"input_file\": \"null\", \"color\": \"\\\"grey25\\\"\", \"lim\": \"\\\"True\\\"\", \"output_format\": \"\\\"pdf\\\"\", \"right_margin\": \"\\\"1\\\"\", \"top_margin\": \"\\\"1\\\"\", \"ylog\": \"\\\"True\\\"\", \"y_column_id\": \"\\\"4\\\"\", \"left_margin\": \"\\\"5\\\"\", \"header\": \"\\\"True\\\"\", \"pch\": \"\\\"21\\\"\", \"__rerun_remap_job_id__\": null, \"ylab\": \"\\\"Relative abundance for SRR072233\\\"\", \"x_column_id\": \"\\\"3\\\"\", \"xlog\": \"\\\"True\\\"\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "9cc8afe3-daff-4347-b215-1501a55fbe4e"
+        }, 
+        "5": {
+            "annotation": "", 
+            "id": 5, 
+            "input_connections": {
+                "input_file": {
+                    "id": 3, 
+                    "output_name": "output_file"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Compute Wilcoxon test", 
+            "outputs": [
+                {
+                    "name": "output_file", 
+                    "type": "text"
+                }
+            ], 
+            "position": {
+                "left": 1042, 
+                "top": 405
+            }, 
+            "post_job_actions": {
+                "RenameDatasetActionoutput_file": {
+                    "action_arguments": {
+                        "newname": "Wilcoxon test of different normalized abundance of similar gene families/pathways"
+                    }, 
+                    "action_type": "RenameDatasetAction", 
+                    "output_name": "output_file"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "172.21.23.6:9009/repos/bebatut/compute_wilcoxon_test/compute_wilcoxon_test/0.1.0", 
+            "tool_state": "{\"__page__\": 0, \"column1_id\": \"\\\"3\\\"\", \"__rerun_remap_job_id__\": null, \"input_file\": \"null\", \"add_data\": \"{\\\"test\\\": \\\"true\\\", \\\"paired\\\": \\\"True\\\", \\\"column2_id\\\": \\\"4\\\", \\\"__current_case__\\\": 0}\", \"mu\": \"\\\"0\\\"\", \"alternative\": \"\\\"two.sided\\\"\", \"exact\": \"\\\"False\\\"\", \"correct\": \"\\\"True\\\"\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "03b62c21-b498-4a50-bbe1-54affd20bb4d"
+        }, 
+        "6": {
+            "annotation": "", 
+            "id": 6, 
+            "input_connections": {
+                "input": {
+                    "id": 3, 
+                    "output_name": "output_file"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Compute", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "input"
+                }
+            ], 
+            "position": {
+                "left": 990, 
+                "top": 542
+            }, 
+            "post_job_actions": {
+                "RenameDatasetActionout_file1": {
+                    "action_arguments": {
+                        "newname": "Gene families/pathways similar to both datasets (after normalization and with abundance difference)"
+                    }, 
+                    "action_type": "RenameDatasetAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/devteam/column_maker/Add_a_column1/1.1.0", 
+            "tool_state": "{\"input\": \"null\", \"__rerun_remap_job_id__\": null, \"cond\": \"\\\"c4-c3\\\"\", \"round\": \"\\\"no\\\"\", \"__page__\": 0}", 
+            "tool_version": "1.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "73d980ad-384e-4ada-ada9-2f79f4d3ea2b"
+        }, 
+        "7": {
+            "annotation": "", 
+            "id": 7, 
+            "input_connections": {
+                "input": {
+                    "id": 6, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Histogram", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "pdf"
+                }
+            ], 
+            "position": {
+                "left": 1263, 
+                "top": 481
+            }, 
+            "post_job_actions": {
+                "RenameDatasetActionout_file1": {
+                    "action_arguments": {
+                        "newname": "Histogram with abundance difference after normalization"
+                    }, 
+                    "action_type": "RenameDatasetAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/devteam/histogram/histogram_rpy/1.0.3", 
+            "tool_state": "{\"xlab\": \"\\\"Difference of normalized abundance between SRR072233 and SRR072232\\\"\", \"title\": \"\\\"Histogram\\\"\", \"__page__\": 0, \"density\": \"\\\"True\\\"\", \"breaks\": \"\\\"100\\\"\", \"numerical_column\": \"\\\"5\\\"\", \"frequency\": \"\\\"False\\\"\", \"input\": \"null\", \"__rerun_remap_job_id__\": null}", 
+            "tool_version": "1.0.3", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "dcfe8de6-c46b-4b3e-af33-cd10ee6286db"
+        }, 
+        "8": {
+            "annotation": "", 
+            "id": 8, 
+            "input_connections": {
+                "input_file": {
+                    "id": 6, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Extract lines corresponding", 
+            "outputs": [
+                {
+                    "name": "output_file", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 1277, 
+                "top": 622
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionoutput_file": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_file"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "172.21.23.6:9009/repos/bebatut/extract_min_max_lines/extract_min_max_lines/0.1.0", 
+            "tool_state": "{\"__page__\": 0, \"extraction_nb\": \"\\\"10\\\"\", \"extraction_type\": \"\\\"min\\\"\", \"__rerun_remap_job_id__\": null, \"input_file\": \"null\", \"column_id\": \"\\\"5\\\"\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "a9b33451-4780-4df2-9c00-ad15e2dd4b86"
+        }, 
+        "9": {
+            "annotation": "", 
+            "id": 9, 
+            "input_connections": {
+                "input_file": {
+                    "id": 6, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Extract lines corresponding", 
+            "outputs": [
+                {
+                    "name": "output_file", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 1273, 
+                "top": 758
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionoutput_file": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_file"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "172.21.23.6:9009/repos/bebatut/extract_min_max_lines/extract_min_max_lines/0.1.0", 
+            "tool_state": "{\"__page__\": 0, \"extraction_nb\": \"\\\"10\\\"\", \"extraction_type\": \"\\\"max\\\"\", \"__rerun_remap_job_id__\": null, \"input_file\": \"null\", \"column_id\": \"\\\"5\\\"\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "c655ee40-1319-40b7-901d-2cb2ba0cdfc8"
+        }, 
+        "10": {
+            "annotation": "", 
+            "id": 10, 
+            "input_connections": {
+                "input": {
+                    "id": 8, 
+                    "output_name": "output_file"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Cut", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 1520, 
+                "top": 651
+            }, 
+            "post_job_actions": {
+                "RenameDatasetActionout_file1": {
+                    "action_arguments": {
+                        "newname": "Gene families/pathways more abundant in first dataset"
+                    }, 
+                    "action_type": "RenameDatasetAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/devteam/cut_columns/Cut1/1.0.1", 
+            "tool_state": "{\"columnList\": \"\\\"c1,c2,c3,c4\\\"\", \"input\": \"null\", \"delimiter\": \"\\\"T\\\"\", \"__rerun_remap_job_id__\": null, \"__page__\": 0}", 
+            "tool_version": "1.0.1", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "1d5e1bd0-2d6e-4fad-95a5-7c5d39abe789"
+        }, 
+        "11": {
+            "annotation": "", 
+            "id": 11, 
+            "input_connections": {
+                "input": {
+                    "id": 9, 
+                    "output_name": "output_file"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Cut", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 1546, 
+                "top": 787
+            }, 
+            "post_job_actions": {
+                "RenameDatasetActionout_file1": {
+                    "action_arguments": {
+                        "newname": "Gene families/pathways more abundant in second dataset"
+                    }, 
+                    "action_type": "RenameDatasetAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/devteam/cut_columns/Cut1/1.0.1", 
+            "tool_state": "{\"columnList\": \"\\\"c1,c2,c3,c4\\\"\", \"input\": \"null\", \"delimiter\": \"\\\"T\\\"\", \"__rerun_remap_job_id__\": null, \"__page__\": 0}", 
+            "tool_version": "1.0.1", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "989f3a00-00f7-4433-94cf-22d6933c8111"
+        }, 
+        "12": {
+            "annotation": "", 
+            "id": 12, 
+            "input_connections": {
+                "input_file": {
+                    "id": 10, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Plot grouped barplot", 
+            "outputs": [
+                {
+                    "name": "output_pdf_file", 
+                    "type": "pdf"
+                }, 
+                {
+                    "name": "output_png_file", 
+                    "type": "png"
+                }, 
+                {
+                    "name": "output_svg_file", 
+                    "type": "svg"
+                }
+            ], 
+            "position": {
+                "left": 1780.5, 
+                "top": 401
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionoutput_png_file": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_png_file"
+                }, 
+                "HideDatasetActionoutput_svg_file": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_svg_file"
+                }, 
+                "RenameDatasetActionoutput_pdf_file": {
+                    "action_arguments": {
+                        "newname": "Grouped barplot of abundance of gene families/pathways more abundant in first dataset"
+                    }, 
+                    "action_type": "RenameDatasetAction", 
+                    "output_name": "output_pdf_file"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "172.21.23.6:9009/repos/bebatut/plot_grouped_barplot/plot_grouped_barplot/0.1.0", 
+            "tool_state": "{\"replace_null\": \"\\\"False\\\"\", \"xlab\": \"\\\"Abundance\\\"\", \"bottom_margin\": \"\\\"5\\\"\", \"log\": \"\\\"False\\\"\", \"input_file\": \"null\", \"__page__\": 0, \"names_column\": \"\\\"1\\\"\", \"output_format\": \"\\\"pdf\\\"\", \"right_margin\": \"\\\"1\\\"\", \"top_margin\": \"\\\"1\\\"\", \"left_margin\": \"\\\"8\\\"\", \"header\": \"\\\"False\\\"\", \"__rerun_remap_job_id__\": null, \"samples\": \"[{\\\"color\\\": \\\"blue3\\\", \\\"__index__\\\": 0, \\\"name\\\": \\\"First dataset\\\", \\\"column_id\\\": \\\"3\\\"}, {\\\"color\\\": \\\"red\\\", \\\"__index__\\\": 1, \\\"name\\\": \\\"Second dataset\\\", \\\"column_id\\\": \\\"4\\\"}]\", \"legend_pos\": \"\\\"topright\\\"\", \"order\": \"\\\"False\\\"\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "9a782da6-5142-48a3-81b2-ed37829e8868"
+        }, 
+        "13": {
+            "annotation": "", 
+            "id": 13, 
+            "input_connections": {
+                "input_file": {
+                    "id": 10, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Plot barplot", 
+            "outputs": [
+                {
+                    "name": "output_pdf_file", 
+                    "type": "pdf"
+                }, 
+                {
+                    "name": "output_png_file", 
+                    "type": "png"
+                }, 
+                {
+                    "name": "output_svg_file", 
+                    "type": "svg"
+                }
+            ], 
+            "position": {
+                "left": 1790, 
+                "top": 575
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionoutput_png_file": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_png_file"
+                }, 
+                "HideDatasetActionoutput_svg_file": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_svg_file"
+                }, 
+                "RenameDatasetActionoutput_pdf_file": {
+                    "action_arguments": {
+                        "newname": "Barplot of abundance of gene families/pathways more abundant in first dataset"
+                    }, 
+                    "action_type": "RenameDatasetAction", 
+                    "output_name": "output_pdf_file"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "172.21.23.6:9009/repos/bebatut/plot_barplot/plot_barplot/0.1.0", 
+            "tool_state": "{\"xlab\": \"\\\"Abundance\\\"\", \"bottom_margin\": \"\\\"5\\\"\", \"right_margin\": \"\\\"1\\\"\", \"__page__\": 0, \"names_column\": \"\\\"1\\\"\", \"output_format\": \"\\\"pdf\\\"\", \"input_file\": \"null\", \"top_margin\": \"\\\"1\\\"\", \"left_margin\": \"\\\"8\\\"\", \"column_with_data\": \"\\\"3\\\"\", \"header\": \"\\\"False\\\"\", \"__rerun_remap_job_id__\": null, \"col\": \"\\\"blue3\\\"\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "c6f6c5b0-05c1-4672-9d7f-3c02cbfd2258"
+        }, 
+        "14": {
+            "annotation": "", 
+            "id": 14, 
+            "input_connections": {
+                "input_file": {
+                    "id": 11, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Plot grouped barplot", 
+            "outputs": [
+                {
+                    "name": "output_pdf_file", 
+                    "type": "pdf"
+                }, 
+                {
+                    "name": "output_png_file", 
+                    "type": "png"
+                }, 
+                {
+                    "name": "output_svg_file", 
+                    "type": "svg"
+                }
+            ], 
+            "position": {
+                "left": 1786.5, 
+                "top": 745
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionoutput_png_file": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_png_file"
+                }, 
+                "HideDatasetActionoutput_svg_file": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_svg_file"
+                }, 
+                "RenameDatasetActionoutput_pdf_file": {
+                    "action_arguments": {
+                        "newname": "Grouped barplot of abundance of gene families/pathways more abundant in second dataset"
+                    }, 
+                    "action_type": "RenameDatasetAction", 
+                    "output_name": "output_pdf_file"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "172.21.23.6:9009/repos/bebatut/plot_grouped_barplot/plot_grouped_barplot/0.1.0", 
+            "tool_state": "{\"replace_null\": \"\\\"False\\\"\", \"xlab\": \"\\\"Abundance\\\"\", \"bottom_margin\": \"\\\"5\\\"\", \"log\": \"\\\"False\\\"\", \"input_file\": \"null\", \"__page__\": 0, \"names_column\": \"\\\"1\\\"\", \"output_format\": \"\\\"pdf\\\"\", \"right_margin\": \"\\\"1\\\"\", \"top_margin\": \"\\\"1\\\"\", \"left_margin\": \"\\\"8\\\"\", \"header\": \"\\\"False\\\"\", \"__rerun_remap_job_id__\": null, \"samples\": \"[{\\\"color\\\": \\\"blue3\\\", \\\"__index__\\\": 0, \\\"name\\\": \\\"First dataset\\\", \\\"column_id\\\": \\\"3\\\"}, {\\\"color\\\": \\\"red\\\", \\\"__index__\\\": 1, \\\"name\\\": \\\"Second dataset\\\", \\\"column_id\\\": \\\"4\\\"}]\", \"legend_pos\": \"\\\"topright\\\"\", \"order\": \"\\\"False\\\"\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "b8c71089-7e86-4e8b-93c7-b31c824303c5"
+        }, 
+        "15": {
+            "annotation": "", 
+            "id": 15, 
+            "input_connections": {
+                "input_file": {
+                    "id": 11, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Plot barplot", 
+            "outputs": [
+                {
+                    "name": "output_pdf_file", 
+                    "type": "pdf"
+                }, 
+                {
+                    "name": "output_png_file", 
+                    "type": "png"
+                }, 
+                {
+                    "name": "output_svg_file", 
+                    "type": "svg"
+                }
+            ], 
+            "position": {
+                "left": 1782, 
+                "top": 934
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionoutput_png_file": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_png_file"
+                }, 
+                "HideDatasetActionoutput_svg_file": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_svg_file"
+                }, 
+                "RenameDatasetActionoutput_pdf_file": {
+                    "action_arguments": {
+                        "newname": "Barplot of abundance of gene families/pathways more abundant in second dataset"
+                    }, 
+                    "action_type": "RenameDatasetAction", 
+                    "output_name": "output_pdf_file"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "172.21.23.6:9009/repos/bebatut/plot_barplot/plot_barplot/0.1.0", 
+            "tool_state": "{\"xlab\": \"\\\"Abundace\\\"\", \"bottom_margin\": \"\\\"5\\\"\", \"right_margin\": \"\\\"1\\\"\", \"__page__\": 0, \"names_column\": \"\\\"1\\\"\", \"output_format\": \"\\\"pdf\\\"\", \"input_file\": \"null\", \"top_margin\": \"\\\"1\\\"\", \"left_margin\": \"\\\"8\\\"\", \"column_with_data\": \"\\\"4\\\"\", \"header\": \"\\\"False\\\"\", \"__rerun_remap_job_id__\": null, \"col\": \"\\\"red\\\"\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "315254f3-d488-4ede-8ed2-fabbbc6ba349"
+        }
+    }, 
+    "uuid": "1581f670-21f9-434a-a163-0f83998b0cea"
+}
