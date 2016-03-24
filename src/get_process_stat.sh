@@ -12,7 +12,7 @@ fi
 touch $stat_file
 echo "Time %CPU Size" >> $stat_file
 while true; do
-    echo -n $(date +%r) >> $stat_file
+    echo -n $(date +"%Y-%m-%d %T") >> $stat_file
     echo -n " " >> $stat_file
     echo -n `ps --format pcpu,size --no-headers $pid` >> $stat_file
     echo >> $stat_file
