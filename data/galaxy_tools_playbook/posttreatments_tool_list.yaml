@@ -33,3 +33,43 @@ tools:
   install_repository_dependencies: True
   #revisions:
   #- 'd084f63fbf30'
+- name: 'plot_grouped_barplot'
+  owner: 'bebatut'
+  tool_panel_section_id: 'data_visualization'
+  tool_shed_url: 'http://testtoolshed.g2.bx.psu.edu/'
+  install_tool_dependencies: True
+  install_repository_dependencies: True
+  #revisions:
+  #- 'd084f63fbf30'
+- name: 'plot_generic_x_y_plot'
+  owner: 'bebatut'
+  tool_panel_section_id: 'data_visualization'
+  tool_shed_url: 'http://testtoolshed.g2.bx.psu.edu/'
+  install_tool_dependencies: True
+  install_repository_dependencies: True
+  #revisions:
+  #- 'd084f63fbf30'
+- name: 'histogram'
+  owner: 'devteam'
+  tool_panel_section_id: 'data_visualization'
+  tool_shed_url: 'http://toolshed.g2.bx.psu.edu/'
+  install_tool_dependencies: True
+  install_repository_dependencies: True
+  revisions:
+  - 'cdb9e89e2970'
+- name: 'correlation'
+  owner: 'devteam'
+  tool_panel_section_id: 'statistical_tests'
+  tool_shed_url: 'http://toolshed.g2.bx.psu.edu/'
+  install_tool_dependencies: True
+  install_repository_dependencies: True
+  revisions:
+  - '24e01abf9e34'
+- name: 'compute_wilcoxon_test'
+  owner: 'bebatut'
+  tool_panel_section_id: 'statistical_tests'
+  tool_shed_url: 'http://testtoolshed.g2.bx.psu.edu/'
+  install_tool_dependencies: True
+  install_repository_dependencies: True
+  #revisions:
+  #- 'd084f63fbf30'
