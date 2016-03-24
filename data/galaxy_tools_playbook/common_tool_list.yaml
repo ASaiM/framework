@@ -113,6 +113,22 @@ tools:
   install_repository_dependencies: True
   revisions:
   - '7ce75adb93be'
+- name: 'normalize_dataset'
+  owner: 'bebatut'
+  tool_panel_section_id: 'text_manipulation'
+  tool_shed_url: 'https://testtoolshed.g2.bx.psu.edu'
+  install_tool_dependencies: True
+  install_repository_dependencies: True
+  #revisions:
+  #- '7ce75adb93be'
+- name: 'extract_min_max_lines'
+  owner: 'bebatut'
+  tool_panel_section_id: 'text_manipulation'
+  tool_shed_url: 'https://testtoolshed.g2.bx.psu.edu'
+  install_tool_dependencies: True
+  install_repository_dependencies: True
+  #revisions:
+  #- '7ce75adb93be'
 - name: 'seq_filter_by_id'
   owner: 'peterjc'
   tool_panel_section_id: 'seq_manipulation'
