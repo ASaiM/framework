@@ -1,0 +1,858 @@
+{
+    "a_galaxy_workflow": "true", 
+    "annotation": "", 
+    "format-version": "0.1", 
+    "name": "Compare functional results (related to species) between two datasets", 
+    "steps": {
+        "0": {
+            "annotation": "Gene families/pathways with corresponding species", 
+            "id": 0, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "Gene families/pathways with corresponding species", 
+                    "name": "First dataset"
+                }
+            ], 
+            "label": null, 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 197, 
+                "top": 332
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"First dataset\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "user_outputs": [], 
+            "uuid": "cc952742-b97f-49cc-9caa-b86b210377d0"
+        }, 
+        "1": {
+            "annotation": "Gene families/pathways with corresponding species", 
+            "id": 1, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "Gene families/pathways with corresponding species", 
+                    "name": "Second dataset"
+                }
+            ], 
+            "label": null, 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 250, 
+                "top": 977
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"Second dataset\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "user_outputs": [], 
+            "uuid": "2d568733-aa5d-493c-bde6-eb8d8aa7172e"
+        }, 
+        "2": {
+            "annotation": "", 
+            "id": 2, 
+            "input_connections": {
+                "input": {
+                    "id": 0, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Remove beginning", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "input"
+                }
+            ], 
+            "position": {
+                "left": 419, 
+                "top": 330
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionout_file1": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/devteam/remove_beginning/Remove beginning1/1.0.0", 
+            "tool_state": "{\"input\": \"null\", \"__rerun_remap_job_id__\": null, \"num_lines\": \"\\\"1\\\"\", \"__page__\": 0}", 
+            "tool_version": "1.0.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "5970e4df-3610-4c80-979e-03918ab88068"
+        }, 
+        "3": {
+            "annotation": "", 
+            "id": 3, 
+            "input_connections": {
+                "input": {
+                    "id": 1, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Remove beginning", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "input"
+                }
+            ], 
+            "position": {
+                "left": 445, 
+                "top": 977
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionout_file1": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/devteam/remove_beginning/Remove beginning1/1.0.0", 
+            "tool_state": "{\"input\": \"null\", \"__rerun_remap_job_id__\": null, \"num_lines\": \"\\\"1\\\"\", \"__page__\": 0}", 
+            "tool_version": "1.0.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "e02db70f-1707-42d1-8f12-b1b1fe95e2e9"
+        }, 
+        "4": {
+            "annotation": "", 
+            "id": 4, 
+            "input_connections": {
+                "input1": {
+                    "id": 2, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Group", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 840, 
+                "top": 236
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionout_file1": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "Grouping1", 
+            "tool_state": "{\"operations\": \"[{\\\"opcol\\\": \\\"4\\\", \\\"__index__\\\": 0, \\\"optype\\\": \\\"mean\\\", \\\"opround\\\": \\\"no\\\"}, {\\\"opcol\\\": \\\"5\\\", \\\"__index__\\\": 1, \\\"optype\\\": \\\"length\\\", \\\"opround\\\": \\\"no\\\"}]\", \"__page__\": 0, \"input1\": \"null\", \"ignorelines\": \"null\", \"groupcol\": \"\\\"3\\\"\", \"__rerun_remap_job_id__\": null, \"ignorecase\": \"\\\"False\\\"\"}", 
+            "tool_version": "2.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "4c7ceb7e-d58a-43d5-a782-0ab51d24e0d4"
+        }, 
+        "5": {
+            "annotation": "", 
+            "id": 5, 
+            "input_connections": {
+                "input1": {
+                    "id": 3, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Group", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 878, 
+                "top": 359
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionout_file1": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "Grouping1", 
+            "tool_state": "{\"operations\": \"[{\\\"opcol\\\": \\\"4\\\", \\\"__index__\\\": 0, \\\"optype\\\": \\\"mean\\\", \\\"opround\\\": \\\"no\\\"}, {\\\"opcol\\\": \\\"5\\\", \\\"__index__\\\": 1, \\\"optype\\\": \\\"length\\\", \\\"opround\\\": \\\"no\\\"}]\", \"__page__\": 0, \"input1\": \"null\", \"ignorelines\": \"null\", \"groupcol\": \"\\\"3\\\"\", \"__rerun_remap_job_id__\": null, \"ignorecase\": \"\\\"False\\\"\"}", 
+            "tool_version": "2.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "565d03e1-119b-4af9-84c0-cd5a48768479"
+        }, 
+        "6": {
+            "annotation": "", 
+            "id": 6, 
+            "input_connections": {
+                "input1": {
+                    "id": 2, 
+                    "output_name": "out_file1"
+                }, 
+                "input2": {
+                    "id": 3, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Join two Datasets", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "input"
+                }
+            ], 
+            "position": {
+                "left": 844, 
+                "top": 975
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "join1", 
+            "tool_state": "{\"input2\": \"null\", \"__page__\": 0, \"field1\": \"\\\"5\\\"\", \"partial\": \"\\\"\\\"\", \"field2\": \"\\\"5\\\"\", \"__rerun_remap_job_id__\": null, \"fill_empty_columns\": \"{\\\"fill_empty_columns_switch\\\": \\\"no_fill\\\", \\\"__current_case__\\\": 0}\", \"unmatched\": \"\\\"\\\"\", \"input1\": \"null\"}", 
+            "tool_version": "2.0.2", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "ba999795-13ce-4322-8645-772cab3023bb"
+        }, 
+        "7": {
+            "annotation": "", 
+            "id": 7, 
+            "input_connections": {
+                "input1": {
+                    "id": 4, 
+                    "output_name": "out_file1"
+                }, 
+                "input2": {
+                    "id": 5, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Join two Datasets", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "input"
+                }
+            ], 
+            "position": {
+                "left": 1098, 
+                "top": 277
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "join1", 
+            "tool_state": "{\"input2\": \"null\", \"__page__\": 0, \"field1\": \"\\\"1\\\"\", \"partial\": \"\\\"\\\"\", \"field2\": \"\\\"1\\\"\", \"__rerun_remap_job_id__\": null, \"fill_empty_columns\": \"{\\\"fill_empty_columns_switch\\\": \\\"no_fill\\\", \\\"__current_case__\\\": 0}\", \"unmatched\": \"\\\"\\\"\", \"input1\": \"null\"}", 
+            "tool_version": "2.0.2", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "908c0a5b-0971-46ea-bd5d-4520876bfc4a"
+        }, 
+        "8": {
+            "annotation": "", 
+            "id": 8, 
+            "input_connections": {
+                "input": {
+                    "id": 6, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Filter", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "input"
+                }
+            ], 
+            "position": {
+                "left": 1049, 
+                "top": 1029
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "Filter1", 
+            "tool_state": "{\"input\": \"null\", \"__rerun_remap_job_id__\": null, \"header_lines\": \"\\\"0\\\"\", \"cond\": \"\\\"c3==c10\\\"\", \"__page__\": 0}", 
+            "tool_version": "1.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "5396e754-a6ad-4c68-b76a-bf6b42ce29ae"
+        }, 
+        "9": {
+            "annotation": "", 
+            "id": 9, 
+            "input_connections": {
+                "input": {
+                    "id": 7, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Compute", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "input"
+                }
+            ], 
+            "position": {
+                "left": 1298, 
+                "top": 332
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionout_file1": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/devteam/column_maker/Add_a_column1/1.1.0", 
+            "tool_state": "{\"input\": \"null\", \"__rerun_remap_job_id__\": null, \"cond\": \"\\\"c5-c2\\\"\", \"round\": \"\\\"no\\\"\", \"__page__\": 0}", 
+            "tool_version": "1.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "ccfc3769-e96a-41de-964b-ccc688a68deb"
+        }, 
+        "10": {
+            "annotation": "", 
+            "id": 10, 
+            "input_connections": {
+                "input1": {
+                    "id": 8, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Group", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 1336, 
+                "top": 981
+            }, 
+            "post_job_actions": {
+                "RenameDatasetActionout_file1": {
+                    "action_arguments": {
+                        "newname": "similar_families_with_taxo_before_normalization"
+                    }, 
+                    "action_type": "RenameDatasetAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "Grouping1", 
+            "tool_state": "{\"operations\": \"[{\\\"opcol\\\": \\\"7\\\", \\\"__index__\\\": 0, \\\"optype\\\": \\\"sum\\\", \\\"opround\\\": \\\"no\\\"}, {\\\"opcol\\\": \\\"14\\\", \\\"__index__\\\": 1, \\\"optype\\\": \\\"sum\\\", \\\"opround\\\": \\\"no\\\"}]\", \"__page__\": 0, \"input1\": \"null\", \"ignorelines\": \"null\", \"groupcol\": \"\\\"5\\\"\", \"__rerun_remap_job_id__\": null, \"ignorecase\": \"\\\"False\\\"\"}", 
+            "tool_version": "2.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "5c31ef4a-a0d4-4019-82c8-0c9d7cb36655"
+        }, 
+        "11": {
+            "annotation": "", 
+            "id": 11, 
+            "input_connections": {
+                "input": {
+                    "id": 8, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Cut", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 1337, 
+                "top": 1137
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/devteam/cut_columns/Cut1/1.0.1", 
+            "tool_state": "{\"columnList\": \"\\\"c5,c6,c7,c14,c3\\\"\", \"input\": \"null\", \"delimiter\": \"\\\"T\\\"\", \"__rerun_remap_job_id__\": null, \"__page__\": 0}", 
+            "tool_version": "1.0.1", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "264bd8c2-d9eb-4bdb-8b76-575876dbd5c7"
+        }, 
+        "12": {
+            "annotation": "", 
+            "id": 12, 
+            "input_connections": {
+                "input": {
+                    "id": 9, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Compute", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "input"
+                }
+            ], 
+            "position": {
+                "left": 1497, 
+                "top": 360
+            }, 
+            "post_job_actions": {
+                "RenameDatasetActionout_file1": {
+                    "action_arguments": {
+                        "newname": "orga_abundances_charact_nb"
+                    }, 
+                    "action_type": "RenameDatasetAction", 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/devteam/column_maker/Add_a_column1/1.1.0", 
+            "tool_state": "{\"input\": \"null\", \"__rerun_remap_job_id__\": null, \"cond\": \"\\\"c6-c3\\\"\", \"round\": \"\\\"no\\\"\", \"__page__\": 0}", 
+            "tool_version": "1.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "53d66666-61f7-4311-bd9e-e7b6b438f058"
+        }, 
+        "13": {
+            "annotation": "", 
+            "id": 13, 
+            "input_connections": {
+                "input_file": {
+                    "id": 11, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Normalize a dataset by", 
+            "outputs": [
+                {
+                    "name": "output_file", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 1558, 
+                "top": 1163
+            }, 
+            "post_job_actions": {
+                "RenameDatasetActionoutput_file": {
+                    "action_arguments": {
+                        "newname": "similar_charact_with_taxo_and_diff"
+                    }, 
+                    "action_type": "RenameDatasetAction", 
+                    "output_name": "output_file"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "172.21.23.6:9009/repos/bebatut/normalize_dataset/normalize_dataset/0.1.0", 
+            "tool_state": "{\"__page__\": 0, \"__rerun_remap_job_id__\": null, \"format\": \"\\\"percentage\\\"\", \"normalization\": \"\\\"column\\\"\", \"input_file\": \"null\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "4b5df1a3-b1bc-4678-9afc-273aa991e5ec"
+        }, 
+        "14": {
+            "annotation": "", 
+            "id": 14, 
+            "input_connections": {
+                "input": {
+                    "id": 12, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Cut", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 1691, 
+                "top": 388
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/devteam/cut_columns/Cut1/1.0.1", 
+            "tool_state": "{\"columnList\": \"\\\"c1,c7,c8\\\"\", \"input\": \"null\", \"delimiter\": \"\\\"T\\\"\", \"__rerun_remap_job_id__\": null, \"__page__\": 0}", 
+            "tool_version": "1.0.1", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "8b950efa-5f91-412f-943f-4627a1f8e566"
+        }, 
+        "15": {
+            "annotation": "", 
+            "id": 15, 
+            "input_connections": {
+                "input": {
+                    "id": 13, 
+                    "output_name": "output_file"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Compute", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "input"
+                }
+            ], 
+            "position": {
+                "left": 2026, 
+                "top": 707
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/devteam/column_maker/Add_a_column1/1.1.0", 
+            "tool_state": "{\"input\": \"null\", \"__rerun_remap_job_id__\": null, \"cond\": \"\\\"c4-c3\\\"\", \"round\": \"\\\"no\\\"\", \"__page__\": 0}", 
+            "tool_version": "1.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "ed3a7964-b8b7-4e1f-9bde-4d60765366c4"
+        }, 
+        "16": {
+            "annotation": "", 
+            "id": 16, 
+            "input_connections": {
+                "input_file": {
+                    "id": 14, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Plot generic X-Y plot", 
+            "outputs": [
+                {
+                    "name": "output_pdf_file", 
+                    "type": "pdf"
+                }, 
+                {
+                    "name": "output_png_file", 
+                    "type": "png"
+                }, 
+                {
+                    "name": "output_svg_file", 
+                    "type": "svg"
+                }
+            ], 
+            "position": {
+                "left": 2112.5, 
+                "top": 229
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionoutput_png_file": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_png_file"
+                }, 
+                "HideDatasetActionoutput_svg_file": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_svg_file"
+                }, 
+                "RenameDatasetActionoutput_pdf_file": {
+                    "action_arguments": {
+                        "newname": "plot_diff_orga_abund_diff_charact_nb"
+                    }, 
+                    "action_type": "RenameDatasetAction", 
+                    "output_name": "output_pdf_file"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "172.21.23.6:9009/repos/bebatut/plot_generic_x_y_plot/plot_generic_x_y_plot/0.1.0", 
+            "tool_state": "{\"xlab\": \"\\\"Difference of relative species abundance between SRR072233 and SRR072233\\\"\", \"__page__\": 0, \"bottom_margin\": \"\\\"5\\\"\", \"abline\": \"\\\"False\\\"\", \"input_file\": \"null\", \"color\": \"\\\"grey25\\\"\", \"lim\": \"\\\"False\\\"\", \"output_format\": \"\\\"pdf\\\"\", \"right_margin\": \"\\\"1\\\"\", \"top_margin\": \"\\\"1\\\"\", \"ylog\": \"\\\"False\\\"\", \"y_column_id\": \"\\\"3\\\"\", \"left_margin\": \"\\\"5\\\"\", \"header\": \"\\\"False\\\"\", \"pch\": \"\\\"21\\\"\", \"__rerun_remap_job_id__\": null, \"ylab\": \"\\\"Difference of number of found characteristics between SRR072233 and SRR072232\\\"\", \"x_column_id\": \"\\\"2\\\"\", \"xlog\": \"\\\"False\\\"\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "f2e80bc0-35f9-4198-bda3-cd81ff4f0be4"
+        }, 
+        "17": {
+            "annotation": "", 
+            "id": 17, 
+            "input_connections": {
+                "input1": {
+                    "id": 14, 
+                    "output_name": "out_file1"
+                }, 
+                "input2": {
+                    "id": 13, 
+                    "output_name": "output_file"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Join two Datasets", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "input"
+                }
+            ], 
+            "position": {
+                "left": 2053, 
+                "top": 936
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "join1", 
+            "tool_state": "{\"input2\": \"null\", \"__page__\": 0, \"field1\": \"\\\"1\\\"\", \"partial\": \"\\\"\\\"\", \"field2\": \"\\\"5\\\"\", \"__rerun_remap_job_id__\": null, \"fill_empty_columns\": \"{\\\"fill_empty_columns_switch\\\": \\\"no_fill\\\", \\\"__current_case__\\\": 0}\", \"unmatched\": \"\\\"\\\"\", \"input1\": \"null\"}", 
+            "tool_version": "2.0.2", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "c1a6cd55-cc94-4276-bb2b-083bb66cc53f"
+        }, 
+        "18": {
+            "annotation": "", 
+            "id": 18, 
+            "input_connections": {
+                "input1": {
+                    "id": 15, 
+                    "output_name": "out_file1"
+                }, 
+                "input2": {
+                    "id": 14, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Join two Datasets", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "input"
+                }
+            ], 
+            "position": {
+                "left": 2285, 
+                "top": 593
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "join1", 
+            "tool_state": "{\"input2\": \"null\", \"__page__\": 0, \"field1\": \"\\\"5\\\"\", \"partial\": \"\\\"\\\"\", \"field2\": \"\\\"1\\\"\", \"__rerun_remap_job_id__\": null, \"fill_empty_columns\": \"{\\\"fill_empty_columns_switch\\\": \\\"no_fill\\\", \\\"__current_case__\\\": 0}\", \"unmatched\": \"\\\"\\\"\", \"input1\": \"null\"}", 
+            "tool_version": "2.0.2", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "02105af7-d8c7-40d1-87b9-8ab64744a973"
+        }, 
+        "19": {
+            "annotation": "", 
+            "id": 19, 
+            "input_connections": {
+                "input1": {
+                    "id": 17, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Group", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 2251, 
+                "top": 991
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "Grouping1", 
+            "tool_state": "{\"operations\": \"[{\\\"opcol\\\": \\\"2\\\", \\\"__index__\\\": 0, \\\"optype\\\": \\\"mean\\\", \\\"opround\\\": \\\"no\\\"}, {\\\"opcol\\\": \\\"3\\\", \\\"__index__\\\": 1, \\\"optype\\\": \\\"mean\\\", \\\"opround\\\": \\\"no\\\"}, {\\\"opcol\\\": \\\"6\\\", \\\"__index__\\\": 2, \\\"optype\\\": \\\"mean\\\", \\\"opround\\\": \\\"no\\\"}, {\\\"opcol\\\": \\\"7\\\", \\\"__index__\\\": 3, \\\"optype\\\": \\\"mean\\\", \\\"opround\\\": \\\"no\\\"}]\", \"__page__\": 0, \"input1\": \"null\", \"ignorelines\": \"null\", \"groupcol\": \"\\\"1\\\"\", \"__rerun_remap_job_id__\": null, \"ignorecase\": \"\\\"False\\\"\"}", 
+            "tool_version": "2.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "76d24d0b-93d1-41ec-8dcc-94033c628a18"
+        }, 
+        "20": {
+            "annotation": "", 
+            "id": 20, 
+            "input_connections": {
+                "input_file": {
+                    "id": 18, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Plot generic X-Y plot", 
+            "outputs": [
+                {
+                    "name": "output_pdf_file", 
+                    "type": "pdf"
+                }, 
+                {
+                    "name": "output_png_file", 
+                    "type": "png"
+                }, 
+                {
+                    "name": "output_svg_file", 
+                    "type": "svg"
+                }
+            ], 
+            "position": {
+                "left": 2474.5, 
+                "top": 646
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionoutput_png_file": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_png_file"
+                }, 
+                "HideDatasetActionoutput_svg_file": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_svg_file"
+                }, 
+                "RenameDatasetActionoutput_pdf_file": {
+                    "action_arguments": {
+                        "newname": "plot_diff_orga_abund_diff_charact_abund"
+                    }, 
+                    "action_type": "RenameDatasetAction", 
+                    "output_name": "output_pdf_file"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "172.21.23.6:9009/repos/bebatut/plot_generic_x_y_plot/plot_generic_x_y_plot/0.1.0", 
+            "tool_state": "{\"xlab\": \"\\\"Difference of relative species abundance between SRR072233 and SRR072232\\\"\", \"__page__\": 0, \"bottom_margin\": \"\\\"5\\\"\", \"abline\": \"\\\"False\\\"\", \"input_file\": \"null\", \"color\": \"\\\"grey25\\\"\", \"lim\": \"\\\"False\\\"\", \"output_format\": \"\\\"pdf\\\"\", \"right_margin\": \"\\\"1\\\"\", \"top_margin\": \"\\\"1\\\"\", \"ylog\": \"\\\"False\\\"\", \"y_column_id\": \"\\\"6\\\"\", \"left_margin\": \"\\\"5\\\"\", \"header\": \"\\\"False\\\"\", \"pch\": \"\\\"21\\\"\", \"__rerun_remap_job_id__\": null, \"ylab\": \"\\\"Difference of relative abundance of found characteristics\\\"\", \"x_column_id\": \"\\\"8\\\"\", \"xlog\": \"\\\"False\\\"\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "b4626232-6ede-4c3a-a50c-30fa3981def1"
+        }, 
+        "21": {
+            "annotation": "", 
+            "id": 21, 
+            "input_connections": {
+                "input": {
+                    "id": 19, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Compute", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "input"
+                }
+            ], 
+            "position": {
+                "left": 2443, 
+                "top": 1021
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/devteam/column_maker/Add_a_column1/1.1.0", 
+            "tool_state": "{\"input\": \"null\", \"__rerun_remap_job_id__\": null, \"cond\": \"\\\"c5-c4\\\"\", \"round\": \"\\\"no\\\"\", \"__page__\": 0}", 
+            "tool_version": "1.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "904b4de2-2345-4ab6-96d6-e6938ed7c854"
+        }, 
+        "22": {
+            "annotation": "", 
+            "id": 22, 
+            "input_connections": {
+                "input_file": {
+                    "id": 21, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Plot generic X-Y plot", 
+            "outputs": [
+                {
+                    "name": "output_pdf_file", 
+                    "type": "pdf"
+                }, 
+                {
+                    "name": "output_png_file", 
+                    "type": "png"
+                }, 
+                {
+                    "name": "output_svg_file", 
+                    "type": "svg"
+                }
+            ], 
+            "position": {
+                "left": 2639.5, 
+                "top": 1050
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionoutput_png_file": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_png_file"
+                }, 
+                "HideDatasetActionoutput_svg_file": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_svg_file"
+                }, 
+                "RenameDatasetActionoutput_pdf_file": {
+                    "action_arguments": {
+                        "newname": "plot_diff_orga_abund_diff_charat_mean_abund"
+                    }, 
+                    "action_type": "RenameDatasetAction", 
+                    "output_name": "output_pdf_file"
+                }
+            }, 
+            "tool_errors": null, 
+            "tool_id": "172.21.23.6:9009/repos/bebatut/plot_generic_x_y_plot/plot_generic_x_y_plot/0.1.0", 
+            "tool_state": "{\"xlab\": \"\\\"Difference of relative species abundance between SRR072233 and SRR072232\\\"\", \"__page__\": 0, \"bottom_margin\": \"\\\"5\\\"\", \"abline\": \"\\\"False\\\"\", \"input_file\": \"null\", \"color\": \"\\\"grey25\\\"\", \"lim\": \"\\\"False\\\"\", \"output_format\": \"\\\"pdf\\\"\", \"right_margin\": \"\\\"1\\\"\", \"top_margin\": \"\\\"1\\\"\", \"ylog\": \"\\\"False\\\"\", \"y_column_id\": \"\\\"6\\\"\", \"left_margin\": \"\\\"5\\\"\", \"header\": \"\\\"False\\\"\", \"pch\": \"\\\"21\\\"\", \"__rerun_remap_job_id__\": null, \"ylab\": \"\\\"Difference of mean abundance of found characteristics\\\"\", \"x_column_id\": \"\\\"2\\\"\", \"xlog\": \"\\\"False\\\"\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "460870de-001a-4d8d-8af3-fb3ef5b46c17"
+        }
+    }, 
+    "uuid": "ba531b5a-f426-41c4-a38d-897869ef01d9"
+}
