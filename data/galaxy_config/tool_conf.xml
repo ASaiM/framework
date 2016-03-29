@@ -34,4 +34,5 @@
         <section id="metabolic_analysis" name="Analyze metabolism" />
     <label text="POST TREATMENTS" id="posttreatments" />
         <section id="data_visualization" name="Visualize data" />
+        <section id="statistical_tests" name="Compute statistics" />
 </toolbox>
