@@ -73,10 +73,11 @@ fi
 cd $current_dir
 echo ""
 
-## retrieve Greengenes for QIIME
+## retrieve Greengenes and Silva for QIIME
 echo "Prepare QIIME databases..."
 declare RESULT=($(python $src_prepare/get_installed_tool_info.py \
     --tool_name "qiime" \
+    --tool_shed "testtoolshed.g2.bx.psu.edu" \
     --gi_url $gi_url \
     --api_key $master_api_key))
 revision=${RESULT[0]}
