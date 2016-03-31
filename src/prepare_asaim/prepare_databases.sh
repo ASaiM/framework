@@ -61,7 +61,7 @@ declare RESULT=($(python $src_prepare/get_installed_tool_info.py \
     --api_key $master_api_key))
 revision=${RESULT[0]}
 owner=${RESULT[1]}
-humann2_db_dir=$galaxy_dir/dependency_dir/humann2/2.0/$owner/package_humann_2_0/$revision/
+humann2_db_dir=$galaxy_dir/dependency_dir/humann2/2.0/$owner/package_humann2_0_5_0/$revision/
 
 cd $humann2_db_dir
 if [ ! -d "databases/chocophlan" ]; then
