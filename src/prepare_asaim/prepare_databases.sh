@@ -55,7 +55,7 @@ echo ""
 
 echo "Prepare HUMAnN2 databases..."
 declare RESULT=($(python $src_prepare/get_installed_tool_info.py \
-    --tool_name "package_humann_2_0" \
+    --tool_name "package_humann2_0_5_0" \
     --tool_shed "testtoolshed.g2.bx.psu.edu" \
     --gi_url $gi_url \
     --api_key $master_api_key))
