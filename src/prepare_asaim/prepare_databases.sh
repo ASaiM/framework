@@ -53,6 +53,21 @@ fi
 cd $current_dir
 echo ""
 
+echo "Prepare MetaPhlAn2 databases..."
+declare RESULT=($(python $src_prepare/get_installed_tool_info.py \
+    --tool_name "package_metaphlan2_2_2_0" \
+    --tool_shed "testtoolshed.g2.bx.psu.edu" \
+    --gi_url $gi_url \
+    --api_key $master_api_key))
+revision=${RESULT[0]}
+owner=${RESULT[1]}
+metaphlan2_db_dir=$galaxy_dir/dependency_dir/metaphlan2/2.2.0/$owner/package_metaphlan2_2_2_0/$revision/
+
+wget https://bitbucket.org/biobakery/metaphlan2/get/2.2.0.zip
+unzip 2.2.0.zip
+cp -r biobakery-metaphlan2-0ef29ae841f5/db_v20 $metaphlan2_db_dir/ 
+
+
 echo "Prepare HUMAnN2 databases..."
 declare RESULT=($(python $src_prepare/get_installed_tool_info.py \
     --tool_name "package_humann2_0_5_0" \
