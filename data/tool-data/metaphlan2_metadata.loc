@@ -2,4 +2,4 @@
 #
 #Since MetaPhlAn comes bundled with 1 metadata database, you can use it
 #by downloading it as explained above and uncommenting the following lines.
-db_v20	Defaut MetaPhlAn2 metadata	$METAPHLAN2_DIR/db_v20/mpa_v20_m200.pkl
+metadata_db_v20	Defaut MetaPhlAn2 metadata	$METAPHLAN2_DIR/db_v20/mpa_v20_m200.pkl
