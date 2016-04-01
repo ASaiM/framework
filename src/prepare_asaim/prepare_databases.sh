@@ -10,7 +10,7 @@ gi_url="http://"$host":"$port
 echo "Prepare SortMeRNA databases..."
 declare RESULT=($(python $src_prepare/get_installed_tool_info.py \
     --tool_name "sortmerna" \
-    --tool_shed "testtoolshed.g2.bx.psu.edu" \
+    --tool_shed "toolshed.g2.bx.psu.edu" \
     --gi_url $gi_url \
     --api_key $master_api_key))
 revision=${RESULT[0]}
