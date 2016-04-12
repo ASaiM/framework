@@ -9,7 +9,7 @@ function install_mac_dependency {
 }
 
 # From https://gist.github.com/pkuczynski/8665367
-parse_yaml() {
+function parse_yaml {
    local prefix=$2
    local s='[[:space:]]*' w='[a-zA-Z0-9_]*' fs=$(echo @|tr @ '\034')
    sed -ne "s|^\($s\)\($w\)$s:$s\"\(.*\)\"$s\$|\1$fs\2$fs\3|p" \
@@ -27,7 +27,7 @@ parse_yaml() {
 
 eval $(parse_yaml data/config.yml "")
 
-generate_tools_yml(){
+function generate_tools_yml {
     if [ -f $1 ]; then
         rm $1
     fi
@@ -42,7 +42,7 @@ generate_tools_yml(){
     echo "        galaxy_server_dir: $PWD/$galaxy_dir/" >> $1
 }
 
-generate_galaxy_ini() {
+function generate_galaxy_ini {
     if [ -f $1 ]; then
         rm $1
     fi
@@ -89,7 +89,7 @@ generate_galaxy_ini() {
     echo "master_api_key = $master_api_key" >> $1
 }
 
-generate_toolshed_ini() {
+function generate_toolshed_ini {
     if [ -f $1 ]; then
         rm $1
     fi
@@ -122,7 +122,7 @@ generate_toolshed_ini() {
 }
 
 
-install_galaxy() {
+function install_galaxy {
     wget "https://github.com/galaxyproject/galaxy/archive/v"$galaxy_release".tar.gz"
     tar -zxf "v"$galaxy_release".tar.gz"
 
@@ -154,7 +154,7 @@ install_galaxy() {
     #fi
 }
 
-get_postgresql_prefix() {
+function get_postgresql_prefix {
     if [[ "$OSTYPE" == "darwin"* ]]; then
         command_prefix=""
     elif [[ "$OSTYPE" == "linux-gnu" ]]; then
@@ -162,7 +162,7 @@ get_postgresql_prefix() {
     fi
 }
 
-wait_until_up() {
+function wait_until_up {
     echo "===================================="
     echo "Wait until http://$host:$1 is up"
     echo "------------------------------------"
@@ -177,7 +177,7 @@ wait_until_up() {
     echo ""
 }
 
-launch_virtual_env() {
+function launch_virtual_env {
     echo "Install virtualenv and dependencies with pip..."
     echo "==============================================="
     sudo pip install --upgrade pip
