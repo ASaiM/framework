@@ -11,8 +11,7 @@ shed_dir: $lib_dir/shed_tools/
 
 data_dir: data
 galaxy_conf_file_dir: $data_dir/galaxy_config/
-tool_data_dir: $data_dir/tool-data
-tool_playbook_files_dir: $data_dir/galaxy_tools_playbook/
+chosen_tool_dir: $data_dir/chosen_tools/
 workflow_dir: $data_dir/workflows
 
 src_dir: src
