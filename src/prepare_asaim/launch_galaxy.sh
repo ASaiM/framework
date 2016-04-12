@@ -23,13 +23,24 @@ echo ""
 
 echo "Prepare galaxy tools playbook"
 echo "============================="
+if [[ ! -d $tool_playbook_dir ]]; then
+    mkdir $tool_playbook_dir
+fi
+if [[ ! -d $tool_playbook_dir/roles ]]; then
+    mkdir $tool_playbook_dir/roles
+fi
+if [[ ! -d $tool_playbook_dir/files ]]; then
+    mkdir $tool_playbook_dir/files
+fi
+
 cd $lib_dir/
 wget https://github.com/galaxyproject/ansible-galaxy-tools/archive/v0.2.0.zip
 unzip v0.2.0.zip
 rm v0.2.0.zip
+mv ansible-galaxy-tools-0.2.0 ansible-galaxy-tools
 cd $current_dir
 
-mv $lib_dir/ansible-galaxy-tools-0.2.0 $tool_playbook_dir
+mv $lib_dir/ansible-galaxy-tools $tool_playbook_dir/roles/
 cp $chosen_tool_dir/common_tool_list.yaml $tool_playbook_dir/files/
 cp $chosen_tool_dir/functional_assignation_tool_list.yaml $tool_playbook_dir/files/
 cp $chosen_tool_dir/posttreatments_tool_list.yaml $tool_playbook_dir/files/
