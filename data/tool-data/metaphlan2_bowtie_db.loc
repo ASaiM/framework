@@ -1,5 +1,0 @@
-# Bowtie2 db have to be downloaded from https://bitbucket.org/biobakery/metaphlan2/src/5424bb911dfc/db_v20/?at=default (whole directory)
-#
-#Since MetaPhlAn comes bundled with 1 Bowtie2 database, you can use it
-#by downloading it as explained above and uncommenting the following lines.
-bowtie_db_v20	Default BowTie2 database	$METAPHLAN2_DIR/db_v20/mpa_v20_m200

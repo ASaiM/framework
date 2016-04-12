@@ -1,5 +1,0 @@
-#Metadata have to be downloaded from https://bitbucket.org/biobakery/metaphlan2/raw/5424bb911dfcdb7212ea0949d4faeb6e69cfa61f/db_v20/mpa_v20_m200.pkl
-#
-#Since MetaPhlAn comes bundled with 1 metadata database, you can use it
-#by downloading it as explained above and uncommenting the following lines.
-metadata_db_v20	Defaut MetaPhlAn2 metadata	$METAPHLAN2_DIR/db_v20/mpa_v20_m200.pkl
