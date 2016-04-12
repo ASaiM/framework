@@ -1,46 +1,14 @@
 # Virtual env
-venv/*
+.venv/*
 
-# Galaxy
-lib/galaxy-master/*
-lib/galaxy_tools_playbook/tools.yml
-lib/galaxy_tools_playbook/files/
-lib/shed_tools/
+# Config 
+proftpd.conf
+
+# Lib (galaxy, ansible playbook, ...)
+lib/*
+
 # Data/db
 data/db/cog/raw_data/*
 data/db/cog/extracted_data/*
 data/db/cog/humann_formated_data/*
-
-# Tests for extract_sequence_file
-tools/extract/extract_sequence_file/test-data/data/ouble_constraint_fasta_file/output_*
-tools/extract/extract_sequence_file/test-data/data/double_constraint_fastq_file/output*
-tools/extract/extract_sequence_file/test-data/data/read_write_fasta_file/output*
-tools/extract/extract_sequence_file/test-data/data/read_write_fastq_file/output*
-tools/extract/extract_sequence_file/test-data/data/simple_constraint_fasta_file/output*
-tools/extract/extract_sequence_file/test-data/data/simple_constraint_fastq_file/output*
-tools/extract/extract_sequence_file/test-data/data/simple_extraction_fasta_file/output*
-tools/extract/extract_sequence_file/test-data/data/simple_extraction_fastq_file/output*
-tools/extract/extract_sequence_file/test-data/data/split_fastq_file/output*
-
-# Tests for extract_similarity_search_report
-tools/extract/extract_similarity_search_report/test-data/db/*
-!tools/extract/extract_similarity_search_report/test-data/db/db.fasta
-tools/extract/extract_similarity_search_report/test-data/blast/blast_outputs/*
-tools/extract/extract_similarity_search_report/test-data/blast/extraction_outputs/simple_extraction/*
-!tools/extract/extract_similarity_search_report/test-data/blast/extraction_outputs/simple_extraction/expected.txt
-tools/extract/extract_similarity_search_report/test-data/blast/extraction_outputs/simple_constraint_on_pident/*
-!tools/extract/extract_similarity_search_report/test-data/blast/extraction_outputs/simple_constraint_on_pident/expected.txt
-tools/extract/extract_similarity_search_report/test-data/blast/extraction_outputs/double_constraint_on_pident/*
-!tools/extract/extract_similarity_search_report/test-data/blast/extraction_outputs/double_constraint_on_pident/expected.txt
-tools/extract/extract_similarity_search_report/test-data/blast/extraction_outputs/list_constraint_on_qseqid/*
-!tools/extract/extract_similarity_search_report/test-data/blast/extraction_outputs/list_constraint_on_qseqid/expected.txt
-tools/extract/extract_similarity_search_report/test-data/blast/extraction_reports/simple_extraction/*
-!tools/extract/extract_similarity_search_report/test-data/blast/extraction_reports/simple_extraction/expected.txt
-tools/extract/extract_similarity_search_report/test-data/blast/extraction_reports/simple_constraint_on_pident/*
-!tools/extract/extract_similarity_search_report/test-data/blast/extraction_reports/simple_constraint_on_pident/expected.txt
-tools/extract/extract_similarity_search_report/test-data/blast/extraction_reports/double_constraint_on_pident/*
-!tools/extract/extract_similarity_search_report/test-data/blast/extraction_reports/double_constraint_on_pident/expected.txt
-tools/extract/extract_similarity_search_report/test-data/blast/extraction_reports/list_constraint_on_qseqid/*
-!tools/extract/extract_similarity_search_report/test-data/blast/extraction_reports/list_constraint_on_qseqid/expected.txt
-
 
