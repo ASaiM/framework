@@ -75,11 +75,6 @@ cp blastdb_p.loc.sample $galaxy_dir/tool-data
 wget https://raw.githubusercontent.com/peterjc/galaxy_blast/49f5fe70fdb24b284dcfc90cfcddc84942aca9ab/tool-data/blastdb.loc.sample
 cp blastdb.loc.sample $galaxy_dir/tool-data
 
-for i in $( ls $tool_data_dir )
-do 
-    create_symlink $galaxy_dir/tool-data/$i $PWD/$tool_data_dir/$i
-done
-
 # Dependencies
 if [ ! -d $galaxy_dir/dependency_dir ]; then
     mkdir $galaxy_dir/dependency_dir
