@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+. src/misc.sh
 
 echo "Install dependencies"
 echo "===================="
