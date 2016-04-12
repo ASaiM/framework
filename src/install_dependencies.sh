@@ -44,9 +44,3 @@ sudo make install
 cd ../
 rm -rf proftpd-1.3.5a/
 echo ""
-
-# Submodules
-echo "Update submodule..."
-echo "==================="
-git submodule init
-git submodule update
