@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 . src/misc.sh
 
 to_do=$1

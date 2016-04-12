@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 . src/misc.sh
 
 echo "Remove local galaxy dir..."

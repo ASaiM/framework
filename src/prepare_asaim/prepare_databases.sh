@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 . src/misc.sh
 
 source $galaxy_dir/.venv/bin/activate

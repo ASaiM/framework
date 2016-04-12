@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 . src/misc.sh
 
 current_dir=$PWD

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 . src/misc.sh
 
 $src_prepare/launch_galaxy.sh

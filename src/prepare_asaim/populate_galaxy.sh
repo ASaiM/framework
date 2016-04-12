@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 . src/misc.sh
 
 generate_tools_yml $tool_playbook_dir/tools.yml
