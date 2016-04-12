@@ -91,11 +91,11 @@ if [ ! -d $galaxy_dir/database/ftp ]; then
 fi
 
 # Web interface
-cp $PWD/static/welcome.html $galaxy_dir/static/
-cp $PWD/static/welcome.html $galaxy_dir/static/welcome.html.sample
-for i in $( ls static/images/ )
+cp $PWD/$data_dir/static/welcome.html $galaxy_dir/static/
+cp $PWD/$data_dir/static/welcome.html $galaxy_dir/static/welcome.html.sample
+for i in $( ls $PWD/$data_dir/ )
 do
-    create_symlink $galaxy_dir/static/images/$i $PWD/static/images/$i
+    cp $PWD/$data_dir/images/$i $galaxy_dir/static/images/$i 
 done
 
 rm -rf tmp
