@@ -28,6 +28,6 @@ install_mac_dependency postgres
 echo "Install wget..."
 install_mac_dependency wget
 
-echo "Install gcc48..."
-sudo port selfupdate
-sudo port install gcc48
+#echo "Install gcc48..."
+#sudo port selfupdate
+#sudo port install gcc48
