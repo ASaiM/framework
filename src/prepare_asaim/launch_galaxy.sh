@@ -19,17 +19,6 @@ echo ""
 
 echo "Prepare galaxy tools"
 echo "===================="
-function create_symlink {
-    if [ -e $1 ]; then
-        if [ ! -L $1 ]; then
-            rm -rf $1
-            ln -s $2 $1
-        fi
-    else
-        ln -s $2 $1
-    fi 
-}
-
 if [[ ! -d $tool_playbook_dir/files/ ]]; then
     mkdir $tool_playbook_dir/files/
 fi 
