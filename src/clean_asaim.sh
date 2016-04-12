@@ -13,4 +13,4 @@ echo ""
 
 echo "Drop database and user..."
 echo "========================="
-$src_postgresql/clean_postgres_db.sh
+$src_configure/clean_postgres_db.sh

@@ -17,8 +17,6 @@ workflow_dir: $data_dir/workflows
 src_dir: src
 src_install_dependencies: $src_dir/install_dependencies/
 src_configure: $src_dir/configure/
-src_postgresql: $src_configure/postgresql/
-src_proftpd: $src_configure/proftpd/
 src_prepare: $src_dir/prepare_asaim/
 
 db_dir: $data_dir/db/
