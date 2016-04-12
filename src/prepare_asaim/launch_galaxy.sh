@@ -108,8 +108,8 @@ echo "========================="
 cd $galaxy_dir
 echo ""
 
-#launch_virtual_env
-#pip install -r $current_dir/requirements.txt
+launch_virtual_env
+pip install -r $current_dir/requirements.txt
 
 echo "Launch Galaxy"
 echo "============="
