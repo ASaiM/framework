@@ -18,7 +18,7 @@ cd $lib_dir/
 if [[ ! -d $local_galaxy_dir ]]; then
     install_galaxy $local_galaxy_dir
 fi
-cd ../
+cd $current_dir
 echo ""
 
 echo "Prepare galaxy tools"
