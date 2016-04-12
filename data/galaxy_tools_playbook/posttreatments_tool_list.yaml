@@ -24,7 +24,7 @@ tools:
   install_tool_dependencies: True
   install_repository_dependencies: True
   revisions:
-  - '50f204c82159'
+  - 'f11a04ed443b'
 - name: 'plot_barplot'
   owner: 'bebatut'
   tool_panel_section_id: 'data_visualization'
