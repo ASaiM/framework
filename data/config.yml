@@ -15,7 +15,7 @@ chosen_tool_dir: $data_dir/chosen_tools/
 workflow_dir: $data_dir/workflows
 
 src_dir: src
-src_dependencies: $src_dir/dependencies/
+src_install_dependencies: $src_dir/install_dependencies/
 src_configure: $src_dir/configure/
 src_postgresql: $src_configure/postgresql/
 src_proftpd: $src_configure/proftpd/
