@@ -24,7 +24,7 @@ tools:
   install_tool_dependencies: True
   install_repository_dependencies: True
   revisions:
-  - '28d39af2dd06'
+  - '3fdc1a74d866'
 - name: 'prinseq'
   owner: 'bebatut'
   tool_panel_section_id: 'qualityControl'
