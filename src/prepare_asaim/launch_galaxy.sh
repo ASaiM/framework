@@ -6,6 +6,10 @@ current_dir=$PWD
 
 mkdir tmp
 
+if [[ ! -d $lib_dir ]]; then
+    mkdir -p $lib_dir 
+fi
+
 echo "Installing Galaxy"
 echo "================="
 # Getting the latest revision with wget from GitHub is faster than cloning it
