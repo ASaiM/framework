@@ -1,7 +1,7 @@
 api_key: <Admin user API key from galaxy_instance>
 galaxy_instance: <Galaxy instance IP>
 tools:
-- name: 'metaphlan_2'
+- name: 'metaphlan2'
   owner: 'bebatut'
   tool_panel_section_id: 'all_seq_taxonomic_assignation'
   tool_shed_url: 'https://testtoolshed.g2.bx.psu.edu'
