@@ -52,24 +52,24 @@ generate_galaxy_ini $galaxy_dir/config/galaxy.ini
 
 # Tool data
 wget https://raw.githubusercontent.com/bgruening/galaxytools/8b913a72a9f6ef1553859cc29a97943095010a2d/tools/rna_tools/sortmerna/tool-data/rRNA_databases.loc.sample 
-cp rRNA_databases.loc.sample $galaxy_dir/tool-data
+mv rRNA_databases.loc.sample $galaxy_dir/tool-data
 
-wget https://raw.githubusercontent.com/ASaiM/galaxytools/blob/7d55a32cde6151a393c3a43960f2f0afdef5182a/tools/metaphlan2/tool-data/metaphlan2_metadata.loc.sample
-cp metaphlan2_metadata.loc.sample $galaxy_dir/tool-data
-wget https://raw.githubusercontent.com/ASaiM/galaxytools/blob/7d55a32cde6151a393c3a43960f2f0afdef5182a/tools/metaphlan2/tool-data/metaphlan2_bowtie_db.loc.sample
-cp metaphlan2_bowtie_db.loc.sample $galaxy_dir/tool-data
+wget https://raw.githubusercontent.com/ASaiM/galaxytools/7d55a32cde6151a393c3a43960f2f0afdef5182a/tools/metaphlan2/tool-data/metaphlan2_metadata.loc.sample
+mv metaphlan2_metadata.loc.sample $galaxy_dir/tool-data
+wget https://raw.githubusercontent.com/ASaiM/galaxytools/7d55a32cde6151a393c3a43960f2f0afdef5182a/tools/metaphlan2/tool-data/metaphlan2_bowtie_db.loc.sample
+mv metaphlan2_bowtie_db.loc.sample $galaxy_dir/tool-data
 
-wget https://raw.githubusercontent.com/ASaiM/galaxytools/blob/ad6e42b47bab92dd9c25c263ce3da7625468985b/tools/humann2/tool-data/humann2_nucleotide_database.loc.sample
-cp humann2_nucleotide_database.loc.sample $galaxy_dir/tool-data
-wget https://raw.githubusercontent.com/ASaiM/galaxytools/blob/ad6e42b47bab92dd9c25c263ce3da7625468985b/tools/humann2/tool-data/humann2_protein_database.loc.sample
-cp humann2_protein_database.loc.sample $galaxy_dir/tool-data
+wget https://raw.githubusercontent.com/ASaiM/galaxytools/ad6e42b47bab92dd9c25c263ce3da7625468985b/tools/humann2/tool-data/humann2_nucleotide_database.loc.sample
+mv humann2_nucleotide_database.loc.sample $galaxy_dir/tool-data
+wget https://raw.githubusercontent.com/ASaiM/galaxytools/ad6e42b47bab92dd9c25c263ce3da7625468985b/tools/humann2/tool-data/humann2_protein_database.loc.sample
+mv humann2_protein_database.loc.sample $galaxy_dir/tool-data
 
 wget https://raw.githubusercontent.com/peterjc/galaxy_blast/49f5fe70fdb24b284dcfc90cfcddc84942aca9ab/tool-data/blastdb_d.loc.sample
-cp blastdb_d.loc.sample $galaxy_dir/tool-data
+mv blastdb_d.loc.sample $galaxy_dir/tool-data
 wget https://raw.githubusercontent.com/peterjc/galaxy_blast/49f5fe70fdb24b284dcfc90cfcddc84942aca9ab/tool-data/blastdb_p.loc.sample
-cp blastdb_p.loc.sample $galaxy_dir/tool-data
+mv blastdb_p.loc.sample $galaxy_dir/tool-data
 wget https://raw.githubusercontent.com/peterjc/galaxy_blast/49f5fe70fdb24b284dcfc90cfcddc84942aca9ab/tool-data/blastdb.loc.sample
-cp blastdb.loc.sample $galaxy_dir/tool-data
+mv blastdb.loc.sample $galaxy_dir/tool-data
 
 # Dependencies
 if [ ! -d $galaxy_dir/dependency_dir ]; then
