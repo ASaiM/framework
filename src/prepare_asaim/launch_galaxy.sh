@@ -82,11 +82,11 @@ if [ ! -d $galaxy_dir/database/ftp ]; then
 fi
 
 # Web interface
-cp $PWD/$data_dir/static/welcome.html $galaxy_dir/static/
-cp $PWD/$data_dir/static/welcome.html $galaxy_dir/static/welcome.html.sample
-for i in $( ls $PWD/$data_dir/ )
+cp $data_dir/static/welcome.html $galaxy_dir/static/
+cp $data_dir/static/welcome.html $galaxy_dir/static/welcome.html.sample
+for i in $( ls $data_dir/images/ )
 do
-    cp $PWD/$data_dir/images/$i $galaxy_dir/static/images/$i 
+    cp $data_dir/images/$i $galaxy_dir/static/images/$i 
 done
 
 rm -rf tmp
