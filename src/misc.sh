@@ -1,4 +1,12 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
+function install_mac_dependency {
+    dependency=$1
+    if brew ls --versions $dependency | grep -q 1; then
+        brew install $dependency
+        brew link --overwrite $dependency
+    fi
+}
 
 # From https://gist.github.com/pkuczynski/8665367
 parse_yaml() {

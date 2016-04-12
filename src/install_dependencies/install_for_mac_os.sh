@@ -1,39 +1,32 @@
-#!/bin/bash
-function install_dependency {
-    dependency=$1
-    if brew ls --versions $dependency | grep -q 1; then
-        brew install $dependency
-        brew link --overwrite $dependency
-    fi
-}
-
+#!/usr/bin/env bash
+. src/misc.sh
 
 echo "Update brew..."
 brew update
 
 echo "Install git..."
-install_dependency git
+install_mac_dependency git
 
 echo "Install mercurial..."
-install_dependency mercurial
+install_mac_dependency mercurial
 
 echo "Install python..."
-install_dependency python
+install_mac_dependency python
 
 echo "Install perl..."
-install_dependency perl
+install_mac_dependency perl
 
 echo "Install scons..."
-install_dependency scons
+install_mac_dependency scons
 
 echo "Install openssl..."
-install_dependency openssl
+install_mac_dependency openssl
 
 echo "Install postgres..."
-install_dependency postgres
+install_mac_dependency postgres
 
 echo "Install wget..."
-install_dependency wget
+install_mac_dependency wget
 
 echo "Install gcc48..."
 sudo port selfupdate
