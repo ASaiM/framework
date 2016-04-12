@@ -21,17 +21,20 @@ fi
 cd $current_dir
 echo ""
 
-echo "Prepare galaxy tools"
-echo "===================="
-if [[ ! -d $tool_playbook_dir/files/ ]]; then
-    mkdir $tool_playbook_dir/files/
-fi 
+echo "Prepare galaxy tools playbook"
+echo "============================="
+cd $lib_dir/
+wget https://github.com/galaxyproject/ansible-galaxy-tools/archive/v0.2.0.zip
+unzip v0.2.0.zip
+rm v0.2.0.zip
+cd $current_dir
 
-for i in $( ls ${tool_playbook_files_dir}/ )
-do
-    cp $chosen_tool_dir/$i $tool_playbook_dir/files/$i 
-done
-
+mv $lib_dir/ansible-galaxy-tools-0.2.0 $tool_playbook_dir
+cp $chosen_tool_dir/common_tool_list.yaml $tool_playbook_dir/files/
+cp $chosen_tool_dir/functional_assignation_tool_list.yaml $tool_playbook_dir/files/
+cp $chosen_tool_dir/posttreatments_tool_list.yaml $tool_playbook_dir/files/
+cp $chosen_tool_dir/pretreatments_tool_list.yaml $tool_playbook_dir/files/
+cp $chosen_tool_dir/taxonomic_assignation_tool_list.yaml $tool_playbook_dir/files/
 echo ""
 
 echo "Configure Galaxy"
