@@ -100,7 +100,7 @@ function generate_toolshed_ini {
     echo "use = egg:Paste#http" >> $1
     echo "port = $toolshed_port" >> $1
     echo "host = $host" >> $1
-    echo "use_threadpool = True" >> $1
+    echo "use_threadpool = true" >> $1
     echo "threadpool_workers = 10" >> $1
     echo "threadpool_kill_thread_limit = 10800" >> $1
     echo "" >> $1
@@ -110,7 +110,7 @@ function generate_toolshed_ini {
     echo "database_connection = postgres://$db_role:$db_password@$host:5432/$toolshed_db_name" >> $1
 
     echo "new_file_path = database/tmp" >> $1
-    echo "se_beaker_session = True" >> $1
+    echo "use_beaker_session = True" >> $1
     echo "session_type = memory" >> $1
     echo "session_data_dir = %(here)s/database/beaker_sessions" >> $1
     echo "session_key = galaxysessions" >> $1
