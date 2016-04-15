@@ -116,11 +116,11 @@ tools:
 - name: 'normalize_dataset'
   owner: 'bebatut'
   tool_panel_section_id: 'text_manipulation'
-  tool_shed_url: 'https://testtoolshed.g2.bx.psu.edu'
+  tool_shed_url: 'https://toolshed.g2.bx.psu.edu'
   install_tool_dependencies: True
   install_repository_dependencies: True
-  #revisions:
-  #- '7ce75adb93be'
+  revisions:
+  - '72633301cc0d'
 - name: 'extract_min_max_lines'
   owner: 'bebatut'
   tool_panel_section_id: 'text_manipulation'
