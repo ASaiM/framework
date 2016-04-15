@@ -180,8 +180,8 @@ tools:
 - name: 'fasta_add_barcode'
   owner: 'bebatut'
   tool_panel_section_id: 'seq_manipulation'
-  tool_shed_url: 'https://testtoolshed.g2.bx.psu.edu'
+  tool_shed_url: 'https://toolshed.g2.bx.psu.edu'
   install_tool_dependencies: True
   install_repository_dependencies: True
-  #revisions:
-  #- '832c1fd57852'
+  revisions:
+  - '04699558a38a'
