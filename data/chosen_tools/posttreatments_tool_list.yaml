@@ -44,11 +44,11 @@ tools:
 - name: 'plot_generic_x_y_plot'
   owner: 'bebatut'
   tool_panel_section_id: 'data_visualization'
-  tool_shed_url: 'http://testtoolshed.g2.bx.psu.edu/'
+  tool_shed_url: 'http://toolshed.g2.bx.psu.edu/'
   install_tool_dependencies: True
   install_repository_dependencies: True
-  #revisions:
-  #- 'd084f63fbf30'
+  revisions:
+  - '5118d839acae'
 - name: 'histogram'
   owner: 'devteam'
   tool_panel_section_id: 'data_visualization'
