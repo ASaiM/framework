@@ -12,11 +12,11 @@ tools:
 - name: 'format_metaphlan2_output'
   owner: 'bebatut'
   tool_panel_section_id: 'all_seq_taxonomic_assignation'
-  tool_shed_url: 'https://testtoolshed.g2.bx.psu.edu'
+  tool_shed_url: 'https://toolshed.g2.bx.psu.edu'
   install_tool_dependencies: True
   install_repository_dependencies: True
-  #revisions:
-  #- '8ec3dfde378b'
+  revisions:
+  - '2bfa9b200600'
 ##- name: 'qiime'
 #  owner: 'bebatut'
 #  tool_panel_section_id: 'qiime_rRNA_taxonomic_assignation'
