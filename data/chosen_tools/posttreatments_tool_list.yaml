@@ -4,11 +4,11 @@ tools:
 - name: 'export2graphlan'
   owner: 'bebatut'
   tool_panel_section_id: 'data_visualization'
-  tool_shed_url: 'https://testtoolshed.g2.bx.psu.edu/'
+  tool_shed_url: 'https://toolshed.g2.bx.psu.edu/'
   install_tool_dependencies: True
   install_repository_dependencies: True
-  #revisions:
-  #- '6a7f5da7c76d'
+  revisions:
+  - 'b344522045f3'
 - name: 'graphlan'
   owner: 'bebatut'
   tool_panel_section_id: 'data_visualization'
