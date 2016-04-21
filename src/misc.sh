@@ -191,3 +191,13 @@ function launch_virtual_env {
     #sudo pip install -r requirements.txt
     #echo ""
 }
+
+function uncomment_last_lines {
+    input_file=$1
+    output_file=$2
+    tail_line_nb=$3
+    lines=`wc -l < $input_file`
+    head_lines=`expr $lines - $tail_line_nb`
+    head -n $head_lines $input_file > $output_file
+    tail -n $tail_line_nb $input_file | sed 's/^#\{1\}//' >> $output_file
+}

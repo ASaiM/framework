@@ -56,17 +56,24 @@ generate_galaxy_ini $galaxy_dir/config/galaxy.ini
 
 # Tool data
 wget https://raw.githubusercontent.com/bgruening/galaxytools/8b913a72a9f6ef1553859cc29a97943095010a2d/tools/rna_tools/sortmerna/tool-data/rRNA_databases.loc.sample 
-mv rRNA_databases.loc.sample $galaxy_dir/tool-data
+uncomment_last_lines rRNA_databases.loc.sample $galaxy_dir/tool-data/rRNA_databases.loc.sample 8
+rm rRNA_databases.loc.sample
 
-wget https://raw.githubusercontent.com/ASaiM/galaxytools/7d55a32cde6151a393c3a43960f2f0afdef5182a/tools/metaphlan2/tool-data/metaphlan2_metadata.loc.sample
-mv metaphlan2_metadata.loc.sample $galaxy_dir/tool-data
-wget https://raw.githubusercontent.com/ASaiM/galaxytools/7d55a32cde6151a393c3a43960f2f0afdef5182a/tools/metaphlan2/tool-data/metaphlan2_bowtie_db.loc.sample
-mv metaphlan2_bowtie_db.loc.sample $galaxy_dir/tool-data
+wget https://raw.githubusercontent.com/ASaiM/galaxytools/450b58f2de19b05cd05c27ae77376fb1b71f5646/tools/metaphlan2/tool-data/metaphlan2_metadata.loc.sample
+uncomment_last_lines metaphlan2_metadata.loc.sample $galaxy_dir/tool-data/metaphlan2_metadata.loc.sample 1
+rm metaphlan2_metadata.loc.sample
 
-wget https://raw.githubusercontent.com/ASaiM/galaxytools/ad6e42b47bab92dd9c25c263ce3da7625468985b/tools/humann2/tool-data/humann2_nucleotide_database.loc.sample
-mv humann2_nucleotide_database.loc.sample $galaxy_dir/tool-data
-wget https://raw.githubusercontent.com/ASaiM/galaxytools/ad6e42b47bab92dd9c25c263ce3da7625468985b/tools/humann2/tool-data/humann2_protein_database.loc.sample
-mv humann2_protein_database.loc.sample $galaxy_dir/tool-data
+wget https://raw.githubusercontent.com/ASaiM/galaxytools/450b58f2de19b05cd05c27ae77376fb1b71f5646/tools/metaphlan2/tool-data/metaphlan2_bowtie_db.loc.sample
+uncomment_last_lines metaphlan2_bowtie_db.loc.sample $galaxy_dir/tool-data/metaphlan2_bowtie_db.loc.sample 1
+rm metaphlan2_bowtie_db.loc.sample
+
+wget https://raw.githubusercontent.com/ASaiM/galaxytools/450b58f2de19b05cd05c27ae77376fb1b71f5646/tools/humann2/tool-data/humann2_nucleotide_database.loc.sample
+uncomment_last_lines humann2_nucleotide_database.loc.sample $galaxy_dir/tool-data/humann2_nucleotide_database.loc.sample 1
+rm humann2_nucleotide_database.loc.sample
+
+wget https://raw.githubusercontent.com/ASaiM/galaxytools/450b58f2de19b05cd05c27ae77376fb1b71f5646/tools/humann2/tool-data/humann2_protein_database.loc.sample
+uncomment_last_lines humann2_protein_database.loc.sample $galaxy_dir/tool-data/humann2_protein_database.loc.sample 1
+rm humann2_protein_database.loc.sample
 
 wget https://raw.githubusercontent.com/peterjc/galaxy_blast/49f5fe70fdb24b284dcfc90cfcddc84942aca9ab/tool-data/blastdb_d.loc.sample
 mv blastdb_d.loc.sample $galaxy_dir/tool-data
