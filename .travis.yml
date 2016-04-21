@@ -1,16 +1,10 @@
-# We don't need sudo so can avoid slower legacy TravisCI infrastructure
-sudo: false
-
-# We need Python 2.6 or 2.7 to run Galaxy (and some of the wrappers)
-# but don't really care which. We also need Java to run Blast2GO,
-# which seems to be included even with TravisCI set to Python :)
 language: python
-python:
- - "2.7"
+python: 2.7
+os:
+  - linux
 
 script:
- - src/run_tests.sh
+ - src/launch_asaim.sh
 
-#The email defaults are too talkative while we're getting Travis working nicely.
 notifications:
   email: false
