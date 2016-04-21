@@ -19,8 +19,8 @@ for i in $( ls $workflow_dir/*.ga )
 do
     echo $i
     workflow_path=$workflow_dir"/"$i
-    python ./src/integrate_workflow_in_gi.py \
-        --workflow_path $i \
-        --gi_url "http://"$host":"$port \
-        --api_key $master_api_key
+    #python ./src/integrate_workflow_in_gi.py \
+    #    --workflow_path $i \
+    #    --gi_url "http://"$host":"$port \
+    #    --api_key $master_api_key
 done
