@@ -15,7 +15,7 @@ declare RESULT=($(python $src_prepare/get_installed_tool_info.py \
     --api_key $master_api_key))
 revision=${RESULT[0]}
 owner=${RESULT[1]}
-sortmerna_db_dir=$galaxy_dir/dependency_dir/sortmerna/2.0/$owner/sortmerna/$revision/rRNA_databases/
+sortmerna_db_dir=$galaxy_dir/dependency_dir/sortmerna/2.1b/$owner/sortmerna/$revision/rRNA_databases/
 
 if [[ -d $sortmerna_db_dir ]]; then
     echo "SortMeRNA databases"
@@ -61,7 +61,7 @@ echo ""
 # MetaPhlan2 db
 declare RESULT=($(python $src_prepare/get_installed_tool_info.py \
     --tool_name "package_metaphlan2_2_2_0" \
-    --tool_shed "172.21.23.6:9009" \
+    --tool_shed "testtoolshed.g2.bx.psu.edu" \
     --gi_url $gi_url \
     --api_key $master_api_key))
 revision=${RESULT[0]}
