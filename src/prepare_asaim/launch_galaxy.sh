@@ -63,7 +63,7 @@ wget https://raw.githubusercontent.com/ASaiM/galaxytools/450b58f2de19b05cd05c27a
 uncomment_last_lines metaphlan2_metadata.loc.sample $galaxy_dir/tool-data/metaphlan2_metadata.loc.sample 1
 rm metaphlan2_metadata.loc.sample
 
-wget https://raw.githubusercontent.com/ASaiM/galaxytools/450b58f2de19b05cd05c27ae77376fb1b71f5646/tools/metaphlan2/tool-data/metaphlan2_bowtie_db.loc.sample
+wget https://raw.githubusercontent.com/ASaiM/galaxytools/4f3db814be63a007668daf70be6c4f6aac1dc646/tools/metaphlan2/tool-data/metaphlan2_bowtie_db.loc.sample
 uncomment_last_lines metaphlan2_bowtie_db.loc.sample $galaxy_dir/tool-data/metaphlan2_bowtie_db.loc.sample 1
 rm metaphlan2_bowtie_db.loc.sample
 
