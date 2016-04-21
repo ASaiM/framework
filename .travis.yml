@@ -2,8 +2,10 @@ language: python
 python: 2.7
 os:
   - linux
+sudo: required 
 
 script:
+ - src/install_dependencies.sh
  - src/configure.sh
  - src/prepare_asaim/launch_galaxy.sh  
  - src/prepare_asaim/populate_galaxy.sh
