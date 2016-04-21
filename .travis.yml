@@ -7,9 +7,8 @@ sudo: required
 script:
  - src/install_dependencies.sh
  - src/configure.sh
- - src/prepare_asaim/launch_galaxy.sh  
- - src/prepare_asaim/populate_galaxy.sh
- - src/prepare_asaim/prepare_databases.sh
+ - src/launch_asaim.sh
+ - src/stop_asaim.sh
 
 notifications:
   email: false
