@@ -49,7 +49,7 @@ On the other hand, a FTP server with `proftpd` has to be configured and launched
 All the configuration tasks (postgresql and proftpd) can be done by running:
 
 ```
-./src/configure.sh
+$ ./src/configure.sh
 ```
 
 # Usage
@@ -61,7 +61,7 @@ The framework is based on a custom Galaxy instance with tools, workflows, databa
 To launch the custom Galaxy instance and populate it with dedicated tools, workflows and databases :
 
 ```
-./src/launch_asaim.sh
+$ ./src/launch_asaim.sh
 ```
 
 This task, particularly tool population, can take several hours.
@@ -74,13 +74,13 @@ follow tool installation in `Admin` -> `Manage installed tools`.
 The custom Galaxy instance runs as a background process. To stop it:
 
 ```
-./src/stop_asaim.sh
+$ ./src/stop_asaim.sh
 ```
 
 After, to clean Galaxy (tools, ...) and also databases:
 
 ```
-./src/clean_asaim.sh
+$ ./src/clean_asaim.sh
 ```
 
 ## Add tools from ToolShed to the custom Galaxy instance
@@ -88,7 +88,7 @@ After, to clean Galaxy (tools, ...) and also databases:
 To add tools from ToolShed, you can use the web interface but you can also add reference to this tool in files in `data/chosen_tools` and then launch:
 
 ```
-./src/prepare_asaim/populate_galaxy.sh
+$ ./src/prepare_asaim/populate_galaxy.sh
 ```
 
 # Documentation
