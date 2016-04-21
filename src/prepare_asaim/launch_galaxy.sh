@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 . src/misc.sh
 
-to_do=$1
+run_parameters=$1
 current_dir=$PWD
 
 mkdir tmp
@@ -113,7 +113,7 @@ pip install -r $current_dir/requirements.txt
 
 echo "Launch Galaxy"
 echo "============="
-sh run.sh --daemon
+sh run.sh $run_parameters
 
 cd $current_dir
 echo ""

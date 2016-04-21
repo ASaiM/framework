@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 . src/misc.sh
 
-$src_prepare/launch_galaxy.sh
+$src_prepare/launch_galaxy.sh --daemon
 
 wait_until_up $port $galaxy_dir/paster.log
 
