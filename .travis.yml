@@ -4,6 +4,7 @@ os:
   - linux
 
 script:
+ - src/configure.sh
  - src/prepare_asaim/launch_galaxy.sh  
  - src/prepare_asaim/populate_galaxy.sh
  - src/prepare_asaim/prepare_databases.sh
