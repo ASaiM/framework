@@ -1,25 +1,9 @@
 ASaiM framework
 ===============
 
-# Introduction
+ASaiM framework is an open-source opinionated Galaxy-based framework. It integrates tools, specifically chosen for metagenomic and metatranscriptomic studies and hierarchically organized to orient user choice toward the best tool for a given task. 
 
-The ASaiM framework is a Galaxy instance with a local server developed to
-process data from gut microbiota.
-
-# Folder structure
-
-Within the `src` folder, are scripts to configure and launch a Galaxy instance.
-The corresponding configuration files are in `config` folder and the local tools
-in `lib` directory.
-
-Within `data` are folders with data:
-
-- `tool-data` for Galaxy tools
-- `workflows` with predefined workflows
-- `db` with one folder for each database (data and configuration file)
-- `demo` with toy datasets
-
-Each folder contains a README file.
+Details about this framework is available on a dedicated documentation available at [http://asaim.readthedocs.org/](http://asaim.readthedocs.org/en/latest/framework/index.html).
 
 # Installation
 
@@ -48,17 +32,6 @@ Some tools must be installed:
 - `proftpd` (installed in `/usr/local`)
 - `postgresql`
 
-After installation, python dependencies have to be installed in a virtual environment
-with pip:
-
-```
-pip install --upgrade pip
-pip install virtualenv
-virtualenv --no-site-packages venv
-source venv/bin/activate
-(venv) pip install -r requirements.txt
-```
-
 For Debian, RHEL and MacOSX, all dependencies can be installed by running:
 
 ```
@@ -69,21 +42,11 @@ For Debian, RHEL and MacOSX, all dependencies can be installed by running:
 
 ## Configuration
 
-PostgreSQL is used to manage databases in Galaxy. It must be launched as a background 
-tasks. PostgreSQL database must be then setup for Galaxy (new database and user creation).
-Launch and setup of PostgreSQL is done by running:
+PostgreSQL is used to manage databases in Galaxy. It must be launched as a background task and setup for Galaxy (new database and user creation).
 
-```
-./src/postgresql/configure_postgres.sh
-```
+On the other hand, a FTP server with `proftpd` has to be configured and launched.
 
-The FTP server with `proftpd` has to be configured and launched, by running:
-
-```
-./src/proftpd/configure_proftpd.sh
-```
-
-All the configuration (postgresql and proftpd) can be done by running:
+All the configuration tasks (postgresql and proftpd) can be done by running:
 
 ```
 ./src/configure.sh
@@ -91,59 +54,54 @@ All the configuration (postgresql and proftpd) can be done by running:
 
 # Usage
 
-## Launch Galaxy
+## Launch ASaiM framework
 
-To launch the Galaxy instance :
+The framework is based on a custom Galaxy instance with tools, workflows, databases, ...
 
-```
-./src/launch_galaxy.sh
-```
-
-This script configure the Galaxy instance, populate it with tools, ... Check the 
-[documentation](http://asaim.readthedocs.org/en/latest/framework/use.html) for more 
-information about the configuration. The tool population is a long task.
-
-The Galaxy instance can be then browse on [http://127.0.0.1:8080/](http://127.0.0.1:8080/).
-After registration with admin account (email: `asaim-admin@asaim.com`), you can 
-follow the tool installation in Admin -> Manage installed tools.
-
-## Stop Galaxy
-
-Galaxy will run in background. To stop it:
+To launch the custom Galaxy instance and populate it with dedicated tools, workflows and databases :
 
 ```
-./src/stop_galaxy.sh
+./src/launch_asaim.sh
 ```
 
-To clean the virtual environment and Galaxy:
+This task, particularly tool population, can take several hours.
+
+However, once tool population has begun, the Galaxy instance can be then browse on [http://127.0.0.1:8080/](http://127.0.0.1:8080/). And after registration with admin account (email: `asaim-admin@asaim.com`), you can 
+follow tool installation in `Admin` -> `Manage installed tools`.
+
+## Stop ASaiM
+
+The custom Galaxy instance runs as a background process. To stop it:
 
 ```
-./src/clean_galaxy.sh
+./src/stop_asaim.sh
 ```
 
-## Add tools from ToolShed to Galaxy
-
-To add tools from ToolShed, you can use the web interface but you can also add the
-reference in one file in `lib/galaxy_tools_playbook/files/` and then launch:
+After, to clean Galaxy (tools, ...) and also databases:
 
 ```
-./src/populate_galaxy.sh
+./src/clean_asaim.sh
 ```
 
-# Tutorial
+## Add tools from ToolShed to the custom Galaxy instance
+
+To add tools from ToolShed, you can use the web interface but you can also add reference to this tool in files in `data/chosen_tools` and then launch:
+
+```
+./src/prepare_asaim/populate_galaxy.sh
+```
+
+# Documentation
+
+Available tools and workflows in ASaiM framework are described in the documentation available at [http://asaim.readthedocs.org/](http://asaim.readthedocs.org/en/latest/framework/index.html).
+
+Moreover, [a tutorial](http://asaim.readthedocs.org/en/latest/framework/tutorial/index.html) explains how to use ASaiM framework to analyze metagenomic sequences of microbiota to obtain taxonomic and functional assignations of sequences.
 
 # Testing
 
-The framework can be tested by running `src/run_tests.sh`. This script configure
- the Galaxy instance, launch Galaxy's `run_tests.sh` and then test the workflow 
-in `data/demo/metatranscriptomic_data` with the corresponding input files. 
-
-In addition the same functional tests are runned via TravisCI whenever this 
-GitHub repository is updated:
-
 [![Build Status](https://travis-ci.org/ASaiM/framework.svg)](https://travis-ci.org/ASaiM/framework)
 
-See the `.travis.yml` file for more technical details.
+Functional tests are runned via TravisCI whenever this GitHub repository is updated. See the `.travis.yml` file for more technical details.
 
 # Bug Reports
 
@@ -152,3 +110,7 @@ Any bug can be filed in an issue [here](https://github.com/ASaiM/framework/issue
 # License
 
 ASaiM framework is released under Apache 2 License. See the LICENSE file for details.
+
+# Citation
+
+To cite this tool, a DOI is generated for each release using Zenodo.
