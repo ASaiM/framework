@@ -7,7 +7,7 @@ sudo: required
 script:
  - src/install_dependencies.sh
  - src/configure.sh
- - travis_wait 40 src/launch_asaim.sh
+ - travis_wait 45 src/launch_asaim.sh
  - src/stop_asaim.sh
 
 notifications:
