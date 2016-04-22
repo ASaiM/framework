@@ -87,7 +87,7 @@ function generate_galaxy_ini {
     echo "" >> $1
     echo "admin_users = $admin_users" >> $1
     echo "ftp_upload_dir = database/ftp/" >> $1
-    echo "ftp_upload_site = ftp $host port 21" >> $1
+    echo "ftp_upload_site = $host port 21" >> $1
     echo "master_api_key = $master_api_key" >> $1
 }
 
