@@ -21,7 +21,10 @@ $src_configure/setup_postgre_db.sh
 echo "Configure proftpd"
 echo "================="
 
-echo "SQLNamedQuery LookupGalaxyUser SELECT \"email,password,512,512,'"$PWD"/"$galaxy_dir"/database/ftp/%U','/bin/bash' FROM galaxy_user WHERE email='%U'" \
-    >> $src_configure/proftpd.conf
+cp $PWD/$src_configure/template_proftpd.conf $PWD/$src_configure/proftpd.conf
+if ! cat $PWD/$src_configure/proftpd.conf | grep "SQLNamedQuery"; then 
+    echo "SQLNamedQuery                   LookupGalaxyUser SELECT \"email,password,"$UID","$GROUPS",'"$PWD"/"$galaxy_dir"/database/ftp/%U','/bin/bash' FROM galaxy_user WHERE email='%U'\"" >> $PWD/$src_configure/proftpd.conf
+fi
 
-sudo /usr/local/proftpd --config $PWD/$src_configure/proftpd.conf
+sudo $PWD/$lib_dir/proftpd/proftpd --config $PWD/$src_configure/proftpd.conf -t
+sudo $PWD/$lib_dir/proftpd/proftpd --config $PWD/src/configure/proftpd.conf
