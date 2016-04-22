@@ -32,6 +32,7 @@ wget https://github.com/proftpd/proftpd/archive/v1.3.5a.tar.gz
 tar -zxvf v1.3.5a.tar.gz
 rm v1.3.5a.tar.gz
 mv proftpd-1.3.5a/ proftpd/
+cd proftpd
 ./configure \
     --prefix=$PWD \
     --disable-auth-file \
