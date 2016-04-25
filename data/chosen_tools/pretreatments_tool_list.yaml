@@ -52,11 +52,11 @@ tools:
 - name: 'cdhit'
   owner: 'bebatut'
   tool_panel_section_id: 'sequence_clustering'
-  tool_shed_url: 'https://testtoolshed.g2.bx.psu.edu'
+  tool_shed_url: 'https://toolshed.g2.bx.psu.edu'
   install_tool_dependencies: True
   install_repository_dependencies: True
-  #revisions:
-  #- '233da82dc31c'
+  revisions:
+  - '54d811ad2b52'
 - name: 'format_cd_hit_output'
   owner: 'bebatut'
   tool_panel_section_id: 'sequence_clustering'
