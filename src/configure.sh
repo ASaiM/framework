@@ -18,8 +18,33 @@ fi
 
 $src_configure/setup_postgre_db.sh
 
-echo "Configure proftpd"
-echo "================="
+echo "Install and configure proftpd"
+echo "============================="
+
+if [[ ! -d $lib_dir ]]; then
+    mkdir -p $lib_dir 
+fi
+current_dir=$PWD
+
+cd $lib_dir
+
+wget https://github.com/proftpd/proftpd/archive/v1.3.5a.tar.gz
+tar -zxvf v1.3.5a.tar.gz
+rm v1.3.5a.tar.gz
+mv proftpd-1.3.5a/ proftpd/
+cd proftpd
+./configure \
+    --prefix=$PWD \
+    --disable-auth-file \
+    --disable-ncurses \
+    --disable-ident \
+    --disable-shadow \
+    --enable-openssl \
+    --with-modules=mod_sql:mod_sql_passwd:mod_sql_postgres
+make
+make install
+cd $current_dir
+echo ""
 
 cp $PWD/$src_configure/template_proftpd.conf $PWD/$src_configure/proftpd.conf
 if ! cat $PWD/$src_configure/proftpd.conf | grep "SQLNamedQuery"; then 
