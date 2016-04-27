@@ -35,10 +35,9 @@ fi
 
 git clone https://github.com/galaxyproject/ansible-galaxy-tools.git $tool_playbook_dir/roles/ansible-galaxy-tools
 cp $chosen_tool_dir/common_tool_list.yaml $tool_playbook_dir/roles/ansible-galaxy-tools/files/
-cp $chosen_tool_dir/functional_assignation_tool_list.yaml $tool_playbook_dir/roles/ansible-galaxy-tools/files/
+cp $chosen_tool_dir/seq_preparation_tool_list.yaml $tool_playbook_dir/roles/ansible-galaxy-tools/files/
+cp $chosen_tool_dir/metagenomic_tool_list.yaml $tool_playbook_dir/roles/ansible-galaxy-tools/files/
 cp $chosen_tool_dir/posttreatments_tool_list.yaml $tool_playbook_dir/roles/ansible-galaxy-tools/files/
-cp $chosen_tool_dir/pretreatments_tool_list.yaml $tool_playbook_dir/roles/ansible-galaxy-tools/files/
-cp $chosen_tool_dir/taxonomic_assignation_tool_list.yaml $tool_playbook_dir/roles/ansible-galaxy-tools/files/
 echo ""
 
 echo "Configure Galaxy"

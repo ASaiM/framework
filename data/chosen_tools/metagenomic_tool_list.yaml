@@ -1,6 +1,20 @@
-api_key: <Admin user API key from galaxy_instance>
-galaxy_instance: <Galaxy instance IP>
 tools:
+- name: 'metaphlan2'
+  owner: 'bebatut'
+  tool_panel_section_id: 'all_seq_taxonomic_assignation'
+  tool_shed_url: 'https://testtoolshed.g2.bx.psu.edu'
+  install_tool_dependencies: True
+  install_repository_dependencies: True
+  #revisions:
+  #- '8ec3dfde378b'
+- name: 'format_metaphlan2_output'
+  owner: 'bebatut'
+  tool_panel_section_id: 'all_seq_taxonomic_assignation'
+  tool_shed_url: 'https://toolshed.g2.bx.psu.edu'
+  install_tool_dependencies: True
+  install_repository_dependencies: True
+  revisions:
+  - '2bfa9b200600'
 - name: 'humann2'
   owner: 'bebatut'
   tool_panel_section_id: 'metabolic_analysis'
@@ -27,7 +41,7 @@ tools:
   - 'c1aca37cb1fc'
 - name: 'combine_metaphlan2_humann2'
   owner: 'bebatut'
-  tool_panel_section_id: 'metabolic_analysis'
+  tool_panel_section_id: 'combine_taxo_func'
   tool_shed_url: 'http://toolshed.g2.bx.psu.edu/'
   install_tool_dependencies: True
   install_repository_dependencies: True

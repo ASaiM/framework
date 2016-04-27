@@ -16,7 +16,7 @@
             <tool file="stats/grouping.xml" />
         </section>
         <section id="seq_manipulation" name="Manipulate sequence files" />-
-    <label text="PRETREATMENTS" id="pretreatments" />
+    <label text="SEQUENCE PREPARATION TOOLS" id="seq_preparation" />
         <section id="paired_end_assembly" name="Assemble paired-end sequences" />
         <section id="qualityControl" name="Control quality" />
         <section id="rdp" name="Frameshift detection, ... with RDP tools" />
@@ -25,14 +25,12 @@
         <section id="sequence_clustering" name="Cluster sequences" />
         <section id="rna_manipulation" name="Manipulate RNA" />
         <section id="similarity_search" name="Search similarity" />
-    <label text="TAXONOMIC ASSIGNATION" id="taxonomic" />
-        <section id="qiime_rRNA_taxonomic_assignation" 
-            name="Assign taxonomy on rRNA sequences with QIIME" />
+    <label text="METAGENOMIC TOOLS" id="metagenomic" />
         <section id="all_seq_taxonomic_assignation" 
             name="Assign taxonomy on all sequence type" />
-    <label text="FUNCTIONAL ASSIGNATION" id="functional" />
         <section id="metabolic_analysis" name="Analyze metabolism" />
-    <label text="POST TREATMENTS" id="posttreatments" />
+        <section id="combine_taxo_func" name="Combine functional and taxonomic results" />
+    <label text="STATISTICS AND VISUALIZATION TOOLS" id="posttreatments" />
         <section id="data_visualization" name="Visualize data" />
         <section id="statistical_tests" name="Compute statistics" />
 </toolbox>
