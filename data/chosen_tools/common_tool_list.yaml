@@ -174,7 +174,7 @@ tools:
   install_tool_dependencies: True
   install_repository_dependencies: True
   revisions:
-  - '01c2b74b3a21'
+  - '158642ce204f'
 - name: 'fasta_add_barcode'
   owner: 'bebatut'
   tool_panel_section_id: 'seq_manipulation'
