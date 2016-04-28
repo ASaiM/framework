@@ -78,31 +78,6 @@ if [[ -d $metaphlan2_db_dir ]]; then
 fi
 echo ""
 
-# HUMAnN2 db
-declare RESULT=($(python $src_prepare/get_installed_tool_info.py \
-    --tool_name "package_humann2_0_5_0" \
-    --tool_shed "testtoolshed.g2.bx.psu.edu" \
-    --gi_url $gi_url \
-    --api_key $master_api_key))
-revision=${RESULT[0]}
-owner=${RESULT[1]}
-humann2_db_dir=$galaxy_dir/dependency_dir/humann2/0.5.0/$owner/package_humann2_0_5_0/$revision/
-
-if [[ -d $humann2_db_dir ]]; then
-    echo "HUMAnN2 databases"
-    echo "  download"
-    cd $humann2_db_dir
-    if [ ! -d "databases/chocophlan" ]; then
-        ./humann2_databases --download chocophlan full databases/
-    fi
-    if [ ! -d "databases/uniref" ]; then
-        ./humann2_databases --download uniref diamond databases/
-    fi
-    cd $current_dir
-    echo "  done"
-fi
-echo ""
-
 ## QIIME db
 declare RESULT=($(python $src_prepare/get_installed_tool_info.py \
     --tool_name "qiime" \
