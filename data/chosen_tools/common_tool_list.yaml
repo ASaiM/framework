@@ -159,6 +159,14 @@ tools:
   install_repository_dependencies: True
   revisions:
   - '186b8d913e6c'
+- name: 'FASTA-to-Tabular converter'
+  owner: 'devteam'
+  tool_panel_section_id: 'seq_manipulation'
+  tool_shed_url: 'https://toolshed.g2.bx.psu.edu'
+  install_tool_dependencies: True
+  install_repository_dependencies: True
+  revisions:
+  - '7e801ab2b70e'
 - name: 'split_paired_reads'
   owner: 'devteam'
   tool_panel_section_id: 'seq_manipulation'
