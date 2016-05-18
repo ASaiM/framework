@@ -30,7 +30,7 @@ tools:
   install_tool_dependencies: True
   install_repository_dependencies: True
   revisions:
-  - 'a8e03ffaaedc'
+  - '7e3103db022d'
 - name: 'plot_grouped_barplot'
   owner: 'bebatut'
   tool_panel_section_id: 'data_visualization'
