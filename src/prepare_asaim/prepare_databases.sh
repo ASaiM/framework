@@ -60,20 +60,20 @@ echo ""
 
 # MetaPhlan2 db
 declare RESULT=($(python $src_prepare/get_installed_tool_info.py \
-    --tool_name "package_metaphlan2_2_2_0" \
+    --tool_name "package_metaphlan2_2_5_0" \
     --tool_shed "testtoolshed.g2.bx.psu.edu" \
     --gi_url $gi_url \
     --api_key $master_api_key))
 revision=${RESULT[0]}
 owner=${RESULT[1]}
-metaphlan2_db_dir=$galaxy_dir/dependency_dir/metaphlan2/2.2.0/$owner/package_metaphlan2_2_2_0/$revision/
+metaphlan2_db_dir=$galaxy_dir/dependency_dir/metaphlan2/2.2.0/$owner/package_metaphlan2_2_5_0/$revision/
 
 if [[ -d $metaphlan2_db_dir ]]; then
     echo "MetaPhlAn2 databases"
     echo "  download"
-    wget https://bitbucket.org/biobakery/metaphlan2/get/2.2.0.zip
-    unzip 2.2.0.zip
-    cp -r biobakery-metaphlan2-0ef29ae841f5/db_v20 $metaphlan2_db_dir/ 
+    wget https://bitbucket.org/biobakery/metaphlan2/get/2.5.0.zip
+    unzip 2.5.0.zip
+    cp -r biobakery-metaphlan2-6f2a1673af85/db_v20 $metaphlan2_db_dir/ 
     echo " done"
 fi
 echo ""
