@@ -1,4 +1,4 @@
 planemo
-ansible
+ansible==2.0.0
 bioblend
 psycopg2
