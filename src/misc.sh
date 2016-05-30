@@ -72,6 +72,10 @@ function generate_galaxy_ini {
     echo "new_file_path = database/tmp" >> $1
     echo "tool_config_file = config/tool_conf.xml,config/shed_tool_conf.xml" >> $1
     echo "tool_dependency_dir = dependency_dir" >> $1
+    echo "conda_prefix = dependency_dir/_conda" >> $1
+    echo "conda_ensure_channels = r,bioconda,iuc" >> $1
+    echo "conda_auto_install = True" >> $1
+    echo "conda_auto_init = True" >> $1
     echo "tool_sheds_config_file = config/tool_sheds_conf.xml" >> $1
     echo "tool_data_table_config_path = config/tool_data_table_conf.xml" >> $1
     echo "shed_tool_data_table_config = config/shed_tool_data_table_conf.xml" >> $1
