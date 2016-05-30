@@ -58,21 +58,11 @@ wget https://raw.githubusercontent.com/bgruening/galaxytools/8b913a72a9f6ef15538
 uncomment_last_lines rRNA_databases.loc.sample $galaxy_dir/tool-data/rRNA_databases.loc.sample 8
 rm rRNA_databases.loc.sample
 
-wget https://raw.githubusercontent.com/ASaiM/galaxytools/450b58f2de19b05cd05c27ae77376fb1b71f5646/tools/metaphlan2/tool-data/metaphlan2_metadata.loc.sample
-uncomment_last_lines metaphlan2_metadata.loc.sample $galaxy_dir/tool-data/metaphlan2_metadata.loc.sample 1
-rm metaphlan2_metadata.loc.sample
+https://raw.githubusercontent.com/ASaiM/galaxytools/master/tools/metaphlan2/tool-data/metaphlan2_db.loc.sample
 
-wget https://raw.githubusercontent.com/ASaiM/galaxytools/4f3db814be63a007668daf70be6c4f6aac1dc646/tools/metaphlan2/tool-data/metaphlan2_bowtie_db.loc.sample
-uncomment_last_lines metaphlan2_bowtie_db.loc.sample $galaxy_dir/tool-data/metaphlan2_bowtie_db.loc.sample 1
-rm metaphlan2_bowtie_db.loc.sample
-
-wget https://raw.githubusercontent.com/ASaiM/galaxytools/450b58f2de19b05cd05c27ae77376fb1b71f5646/tools/humann2/tool-data/humann2_nucleotide_database.loc.sample
-uncomment_last_lines humann2_nucleotide_database.loc.sample $galaxy_dir/tool-data/humann2_nucleotide_database.loc.sample 1
-rm humann2_nucleotide_database.loc.sample
-
-wget https://raw.githubusercontent.com/ASaiM/galaxytools/450b58f2de19b05cd05c27ae77376fb1b71f5646/tools/humann2/tool-data/humann2_protein_database.loc.sample
-uncomment_last_lines humann2_protein_database.loc.sample $galaxy_dir/tool-data/humann2_protein_database.loc.sample 1
-rm humann2_protein_database.loc.sample
+wget https://raw.githubusercontent.com/ASaiM/galaxytools/88ce150a6e2b37bbd4babe08b5b2bf0faed0a0e8/tools/metaphlan2/tool-data/metaphlan2_db.loc.sample
+uncomment_last_lines metaphlan2_db.loc.sample $galaxy_dir/tool-data/metaphlan2_db.loc.sample 1
+rm metaphlan2_db.loc.sample
 
 wget https://raw.githubusercontent.com/peterjc/galaxy_blast/49f5fe70fdb24b284dcfc90cfcddc84942aca9ab/tool-data/blastdb_d.loc.sample
 mv blastdb_d.loc.sample $galaxy_dir/tool-data
