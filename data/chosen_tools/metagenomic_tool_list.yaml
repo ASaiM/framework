@@ -21,16 +21,16 @@ tools:
   tool_shed_url: 'http://testtoolshed.g2.bx.psu.edu/'
   install_tool_dependencies: True
   install_repository_dependencies: True
-  #revisions:
-  #- 'd084f63fbf30'
+  revisions:
+  - '3d6f37e7e3a8'
 - name: 'group_humann2_uniref_abundances_to_go'
   owner: 'bebatut'
   tool_panel_section_id: 'metabolic_analysis'
   tool_shed_url: 'http://testtoolshed.g2.bx.psu.edu/'
   install_tool_dependencies: True
   install_repository_dependencies: True
-  #revisions:
-  #- 'd084f63fbf30'
+  revisions:
+  - 'cad28d7b49d2'
 - name: 'compare_humann2_output'
   owner: 'bebatut'
   tool_panel_section_id: 'metabolic_analysis'
