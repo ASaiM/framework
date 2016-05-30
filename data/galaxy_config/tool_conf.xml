@@ -15,7 +15,8 @@
             <tool file="filters/compare.xml" />
             <tool file="stats/grouping.xml" />
         </section>
-        <section id="seq_manipulation" name="Manipulate sequence files" />-
+        <section id="seq_manipulation" name="Manipulate sequence files" />
+        <section id="bam_sam_manipulation" name="Manipulate BAM/SAM files" />
     <label text="SEQUENCE PREPARATION TOOLS" id="seq_preparation" />
         <section id="paired_end_assembly" name="Assemble paired-end sequences" />
         <section id="qualityControl" name="Control quality" />
@@ -25,6 +26,7 @@
         <section id="sequence_clustering" name="Cluster sequences" />
         <section id="rna_manipulation" name="Manipulate RNA" />
         <section id="similarity_search" name="Search similarity" />
+        <section id="mapping" name="Map against reference genomes" />
     <label text="METAGENOMIC TOOLS" id="metagenomic" />
         <section id="all_seq_taxonomic_assignation" 
             name="Assign taxonomy on all sequence type" />
