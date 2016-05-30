@@ -95,3 +95,11 @@ tools:
   install_repository_dependencies: True
   revisions:
   - '98037ef3d2a9'
+- name: 'bwa'
+  owner: 'devteam'
+  tool_panel_section_id: 'mapping'
+  tool_shed_url: 'https://toolshed.g2.bx.psu.edu'
+  install_tool_dependencies: True
+  install_repository_dependencies: True
+  revisions:
+  - '546ada4a9f43'
