@@ -159,7 +159,7 @@ tools:
   install_repository_dependencies: True
   revisions:
   - '186b8d913e6c'
-- name: 'FASTA-to-Tabular converter'
+- name: 'fasta_to_tabular'
   owner: 'devteam'
   tool_panel_section_id: 'seq_manipulation'
   tool_shed_url: 'https://toolshed.g2.bx.psu.edu'
@@ -191,3 +191,11 @@ tools:
   install_repository_dependencies: True
   revisions:
   - '04699558a38a'
+- name: 'suite_samtools_1_2'
+  owner: 'devteam'
+  tool_panel_section_id: 'bam_sam_manipulation'
+  tool_shed_url: 'https://toolshed.g2.bx.psu.edu'
+  install_tool_dependencies: True
+  install_repository_dependencies: True
+  revisions:
+  - '5b673ccc8747'
