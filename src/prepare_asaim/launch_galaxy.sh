@@ -99,6 +99,7 @@ echo ""
 
 launch_virtual_env
 pip install -r $current_dir/requirements.txt
+pip install ansible==2.0.0
 
 echo "Launch Galaxy"
 echo "============="
