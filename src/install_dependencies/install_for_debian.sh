@@ -12,6 +12,7 @@ sudo apt-get install mercurial
 echo "Install python and pip..."
 sudo apt-get install python
 sudo apt-get install python-dev python-pip
+sudo apt-get install libffi-dev libssl-dev libxml2-dev libxslt1-dev
 
 echo "Install perl..."
 sudo apt-get install perl
