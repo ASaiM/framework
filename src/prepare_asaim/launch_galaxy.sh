@@ -55,14 +55,12 @@ generate_galaxy_ini $galaxy_dir/config/galaxy.ini
 
 # Tool data
 wget https://raw.githubusercontent.com/bgruening/galaxytools/8b913a72a9f6ef1553859cc29a97943095010a2d/tools/rna_tools/sortmerna/tool-data/rRNA_databases.loc.sample 
-uncomment_last_lines rRNA_databases.loc.sample $galaxy_dir/tool-data/rRNA_databases.loc.sample 8
-rm rRNA_databases.loc.sample
-
-https://raw.githubusercontent.com/ASaiM/galaxytools/master/tools/metaphlan2/tool-data/metaphlan2_db.loc.sample
+uncomment_last_lines rRNA_databases.loc.sample $galaxy_dir/tool-data/rRNA_databases.loc 8
+mv rRNA_databases.loc.sample $galaxy_dir/tool-data
 
 wget https://raw.githubusercontent.com/ASaiM/galaxytools/88ce150a6e2b37bbd4babe08b5b2bf0faed0a0e8/tools/metaphlan2/tool-data/metaphlan2_db.loc.sample
-uncomment_last_lines metaphlan2_db.loc.sample $galaxy_dir/tool-data/metaphlan2_db.loc.sample 1
-rm metaphlan2_db.loc.sample
+uncomment_last_lines metaphlan2_db.loc.sample $galaxy_dir/tool-data/metaphlan2_db.loc 1
+mv metaphlan2_db.loc.sample $galaxy_dir/tool-data
 
 wget https://raw.githubusercontent.com/peterjc/galaxy_blast/49f5fe70fdb24b284dcfc90cfcddc84942aca9ab/tool-data/blastdb_d.loc.sample
 mv blastdb_d.loc.sample $galaxy_dir/tool-data
