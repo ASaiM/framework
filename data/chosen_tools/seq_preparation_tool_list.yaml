@@ -24,7 +24,7 @@ tools:
   revisions:
   - '3fdc1a74d866'
 - name: 'prinseq'
-  owner: 'bebatut'
+  owner: 'iuc'
   tool_panel_section_id: 'qualityControl'
   tool_shed_url: 'https://toolshed.g2.bx.psu.edu'
   install_tool_dependencies: True
