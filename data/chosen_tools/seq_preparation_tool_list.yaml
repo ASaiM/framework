@@ -26,11 +26,11 @@ tools:
 - name: 'prinseq'
   owner: 'bebatut'
   tool_panel_section_id: 'qualityControl'
-  tool_shed_url: 'https://testtoolshed.g2.bx.psu.edu'
+  tool_shed_url: 'https://toolshed.g2.bx.psu.edu'
   install_tool_dependencies: True
   install_repository_dependencies: True
-  #revisions:
-  #- '233da82dc31c'
+  revisions:
+  - 'ba78b984a9eb'
 - name: 'vsearch'
   owner: 'iuc'
   tool_panel_section_id: 'vsearch'
