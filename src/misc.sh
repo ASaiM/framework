@@ -38,8 +38,9 @@ function generate_tools_yml {
     echo "  vars:" >> $1
     echo "      galaxy_tools_galaxy_instance_url: http://$host:$port/" >> $1
     echo "      galaxy_tools_api_key: $master_api_key" >> $1
-    echo "      galaxy_tools_tool_list_files: [ \"files/common_tool_list.yaml\", \"files/seq_preparation_tool_list.yaml\", \"files/metagenomic_tool_list.yaml\", \"files/posttreatments_tool_list.yaml\"]" >> $1 
+    echo "      galaxy_tools_tool_list_files: [ \"files/common_tool_list.yaml\", \"files/seq_preparation_tool_list.yaml\", \"files/metagenomic_tool_list.yaml\", \"files/posttreatments_tool_list.yaml\"]" >> $1
     echo "      galaxy_server_dir: $PWD/$galaxy_dir/" >> $1
+    echo "      galaxy_tools_workflows: [ \"files/asaim_main_workflow.ga\"]" >> $1
     echo "  roles:" >> $1
     echo "      - ansible-galaxy-tools" >> $1
 }
@@ -136,11 +137,11 @@ function install_galaxy {
         mv "galaxy-"$galaxy_release $local_toolshed_dir
     else
         mv "galaxy-"$galaxy_release $local_galaxy_dir
-    fi 
+    fi
 
     rm "v"$galaxy_release".tar.gz"
     #if [[ $2 == "toolshed" ]]; then
-        
+
         # --transform 's/'$local_galaxy_dir'/'$local_toolshed_dir'/' | tail
     #rm v15.10.1.tar.gz
     #else
@@ -148,10 +149,10 @@ function install_galaxy {
     #        git clone https://github.com/galaxyproject/galaxy.git $1
     #    else
     #        wget https://codeload.github.com/galaxyproject/galaxy/tar.gz/$galaxy_branch
-    #        
+    #
     #        if [[ $2 == "toolshed" ]]; then
     #            tar -zxvf master --transform 's/'$local_galaxy_dir'/'$local_toolshed_dir'/' | tail
-    #        else    
+    #        else
     #            tar -zxvf $galaxy_branch | tail
     #        fi
 #
@@ -172,7 +173,7 @@ function wait_until_up {
     echo "===================================="
     echo "Wait until http://$host:$1 is up"
     echo "------------------------------------"
-    echo "Warning: if more than 10 lines of points are written, there may be an issue with Galaxy." 
+    echo "Warning: if more than 10 lines of points are written, there may be an issue with Galaxy."
     echo "You can check $2 file to get more information about these errors"
     echo ""
     until $(curl --output /dev/null --silent --head --fail http://$host:$1); do
