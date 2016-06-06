@@ -2,11 +2,11 @@ tools:
 - name: 'metaphlan2'
   owner: 'bebatut'
   tool_panel_section_id: 'all_seq_taxonomic_assignation'
-  tool_shed_url: 'https://testtoolshed.g2.bx.psu.edu'
+  tool_shed_url: 'https://toolshed.g2.bx.psu.edu'
   install_tool_dependencies: True
   install_repository_dependencies: True
-  #revisions:
-  #- '8ec3dfde378b'
+  revisions:
+  - 'd2448d2bf1f8'
 - name: 'format_metaphlan2_output'
   owner: 'bebatut'
   tool_panel_section_id: 'all_seq_taxonomic_assignation'
