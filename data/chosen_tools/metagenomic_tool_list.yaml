@@ -22,7 +22,7 @@ tools:
   install_tool_dependencies: True
   install_repository_dependencies: True
   revisions:
-  - '3d6f37e7e3a8'
+  - 'bcd414bb721b'
 - name: 'group_humann2_uniref_abundances_to_go'
   owner: 'bebatut'
   tool_panel_section_id: 'metabolic_analysis'
