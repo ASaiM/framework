@@ -61,7 +61,7 @@ echo ""
 # MetaPhlan2 db
 declare RESULT=($(python $src_prepare/get_installed_tool_info.py \
     --tool_name "package_metaphlan2_2_5_0" \
-    --tool_shed "testtoolshed.g2.bx.psu.edu" \
+    --tool_shed "toolshed.g2.bx.psu.edu" \
     --gi_url $gi_url \
     --api_key $master_api_key))
 revision=${RESULT[0]}
@@ -74,6 +74,8 @@ if [[ -d $metaphlan2_db_dir ]]; then
     wget https://bitbucket.org/biobakery/metaphlan2/get/2.5.0.zip
     unzip 2.5.0.zip
     cp -r biobakery-metaphlan2-6f2a1673af85/db_v20 $metaphlan2_db_dir/ 
+    rm -rf 2.5.0.zip
+    rm -rf biobakery-metaphlan2-6f2a1673af85
     echo " done"
 fi
 echo ""
