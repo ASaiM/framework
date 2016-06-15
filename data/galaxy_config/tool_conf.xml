@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <toolbox>
-    <label text="COMMON TOOLS" id="common" />
+    <label text="MANIPULATION TOOLS" id="manipulation" />
         <section id="getext" name="Get Data">
             <tool file="data_source/upload.xml" />
         </section>
@@ -17,22 +17,20 @@
         </section>
         <section id="seq_manipulation" name="Manipulate sequence files" />
         <section id="bam_sam_manipulation" name="Manipulate BAM/SAM files" />
-    <label text="SEQUENCE PREPARATION TOOLS" id="seq_preparation" />
+    <label text="PREPROCESSING TOOLS" id="prepocessing" />
         <section id="paired_end_assembly" name="Assemble paired-end sequences" />
-        <section id="qualityControl" name="Control quality" />
-        <section id="rdp" name="Frameshift detection, ... with RDP tools" />
-        <section id="vsearch" 
-            name="Chimera detection, dereplication, clustering, ... with VSEARCH" />
+        <section id="quality_control" name="Control quality" />
+        <section id="vsearch" name="VSEARCH Tool Suite" />
         <section id="sequence_clustering" name="Cluster sequences" />
-        <section id="rna_manipulation" name="Manipulate RNA" />
+        <section id="rna_sorting" name="Sort rRNA/rDNA" />
+    <label text="STRUCTURAL AND FUNCTIONAL ANALYSIS TOOLS" id="structural_functional_analysis" />
         <section id="similarity_search" name="Search similarity" />
         <section id="mapping" name="Map against reference genomes" />
-    <label text="METAGENOMIC TOOLS" id="metagenomic" />
-        <section id="all_seq_taxonomic_assignation" 
-            name="Assign taxonomy on all sequence type" />
+        <section id="all_seq_taxonomic_assignation" name="Assign taxonomy on all sequence type" />
+        <section id="mothur" name="Mothur Tool Suite" />
         <section id="metabolic_analysis" name="Analyze metabolism" />
         <section id="combine_taxo_func" name="Combine functional and taxonomic results" />
-    <label text="STATISTICS AND VISUALIZATION TOOLS" id="posttreatments" />
+    <label text="VISUALIZATION, STATISTICS AND COMPARATIVE ANALYSIS TOOLS" id="posttreatments" />
         <section id="data_visualization" name="Visualize data" />
         <section id="statistical_tests" name="Compute statistics" />
 </toolbox>

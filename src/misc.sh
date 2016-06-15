@@ -38,7 +38,7 @@ function generate_tools_yml {
     echo "  vars:" >> $1
     echo "      galaxy_tools_galaxy_instance_url: http://$host:$port/" >> $1
     echo "      galaxy_tools_api_key: $master_api_key" >> $1
-    echo "      galaxy_tools_tool_list_files: [ \"files/common_tool_list.yaml\", \"files/seq_preparation_tool_list.yaml\", \"files/metagenomic_tool_list.yaml\", \"files/posttreatments_tool_list.yaml\"]" >> $1
+    echo "      galaxy_tools_tool_list_files: [ \"files/manipulation_tool_list.yaml\", \"files/preprocessing_tool_list.yaml\", \"files/stuctural_functional_analysis_tool_list.yaml\", \"files/visualization_stats_tool_list.yaml\"]" >> $1
     echo "      galaxy_server_dir: $PWD/$galaxy_dir/" >> $1
     echo "      galaxy_tools_workflows: [ \"files/asaim_main_workflow.ga\"]" >> $1
     echo "  roles:" >> $1

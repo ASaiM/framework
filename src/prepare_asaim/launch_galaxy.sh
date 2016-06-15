@@ -34,10 +34,8 @@ if [[ ! -d $tool_playbook_dir/files ]]; then
 fi
 
 git clone https://github.com/galaxyproject/ansible-galaxy-tools.git $tool_playbook_dir/roles/ansible-galaxy-tools
-cp $chosen_tool_dir/common_tool_list.yaml $tool_playbook_dir/roles/ansible-galaxy-tools/files/
-cp $chosen_tool_dir/seq_preparation_tool_list.yaml $tool_playbook_dir/roles/ansible-galaxy-tools/files/
-cp $chosen_tool_dir/metagenomic_tool_list.yaml $tool_playbook_dir/roles/ansible-galaxy-tools/files/
-cp $chosen_tool_dir/posttreatments_tool_list.yaml $tool_playbook_dir/roles/ansible-galaxy-tools/files/
+cp $chosen_tool_dir/*.yaml $tool_playbook_dir/roles/ansible-galaxy-tools/files/
+
 echo ""
 
 echo "Configure Galaxy"

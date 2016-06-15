@@ -17,7 +17,7 @@ tools:
   - '8ec3dfde378b'
 - name: 'fastqc'
   owner: 'devteam'
-  tool_panel_section_id: 'qualityControl'
+  tool_panel_section_id: 'quality_control'
   tool_shed_url: 'https://toolshed.g2.bx.psu.edu'
   install_tool_dependencies: True
   install_repository_dependencies: True
@@ -25,7 +25,7 @@ tools:
   - '3fdc1a74d866'
 - name: 'prinseq'
   owner: 'iuc'
-  tool_panel_section_id: 'qualityControl'
+  tool_panel_section_id: 'quality_control'
   tool_shed_url: 'https://toolshed.g2.bx.psu.edu'
   install_tool_dependencies: True
   install_repository_dependencies: True
@@ -39,14 +39,6 @@ tools:
   install_repository_dependencies: True
   revisions:
   - '4258854759ba'
-#- name: 'rdptools'
-#  owner: 'bebatut'
-#  tool_panel_section_id: 'rdp'
-#  tool_shed_url: 'https://testtoolshed.g2.bx.psu.edu'
-#  install_tool_dependencies: True
-#  install_repository_dependencies: True
-  #revisions:
-  #- '233da82dc31c'
 - name: 'cdhit'
   owner: 'bebatut'
   tool_panel_section_id: 'sequence_clustering'
@@ -65,41 +57,9 @@ tools:
   - '4015e9d6d277'
 - name: 'sortmerna'
   owner: 'rnateam'
-  tool_panel_section_id: 'rna_manipulation'
+  tool_panel_section_id: 'rna_sorting'
   tool_shed_url: 'https://toolshed.g2.bx.psu.edu'
   install_tool_dependencies: True
   install_repository_dependencies: True
   revisions:
-  - '3699b6b771e0'
-#- name: 'reago'
-#  owner: 'rnateam'
-#  tool_panel_section_id: 'rna_manipulation'
-#  tool_shed_url: 'https://testtoolshed.g2.bx.psu.edu'
-#  install_tool_dependencies: True
-#  install_repository_dependencies: True
-  #revisions:
-  #- '715b263db9f3'
-- name: 'ncbi_blast_plus'
-  owner: 'devteam'
-  tool_panel_section_id: 'similarity_search'
-  tool_shed_url: 'https://toolshed.g2.bx.psu.edu'
-  install_tool_dependencies: True
-  install_repository_dependencies: True
-  revisions:
-  - '7f3c448e119b'
-- name: 'diamond'
-  owner: 'bgruening'
-  tool_panel_section_id: 'similarity_search'
-  tool_shed_url: 'https://toolshed.g2.bx.psu.edu'
-  install_tool_dependencies: True
-  install_repository_dependencies: True
-  revisions:
-  - '98037ef3d2a9'
-- name: 'bwa'
-  owner: 'devteam'
-  tool_panel_section_id: 'mapping'
-  tool_shed_url: 'https://toolshed.g2.bx.psu.edu'
-  install_tool_dependencies: True
-  install_repository_dependencies: True
-  revisions:
-  - '546ada4a9f43'
+  - '59252ca85c74'
