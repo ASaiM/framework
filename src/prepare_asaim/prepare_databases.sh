@@ -66,7 +66,7 @@ declare RESULT=($(python $src_prepare/get_installed_tool_info.py \
     --api_key $master_api_key))
 revision=${RESULT[0]}
 owner=${RESULT[1]}
-metaphlan2_db_dir=$galaxy_dir/dependency_dir/metaphlan2/2.2.0/$owner/package_metaphlan2_2_5_0/$revision/
+metaphlan2_db_dir=$galaxy_dir/dependency_dir/metaphlan2/2.5.0/$owner/package_metaphlan2_2_5_0/$revision/
 
 if [[ -d $metaphlan2_db_dir ]]; then
     echo "MetaPhlAn2 databases"
