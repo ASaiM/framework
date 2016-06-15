@@ -1,9 +1,7 @@
 lib_dir: lib
 galaxy_branch: master
 local_galaxy_dir: galaxy-$galaxy_branch
-local_toolshed_dir: galaxy-toolshed
 galaxy_dir: $lib_dir/$local_galaxy_dir
-toolshed_dir: $lib_dir/$local_toolshed_dir
 galaxy_tool_dir: $galaxy_dir/tools/
 tool_dir: $lib_dir/galaxy_tools/
 tool_playbook_dir: $lib_dir/tools-playbook/
@@ -23,11 +21,9 @@ db_dir: $data_dir/db/
 
 master_api_key: "8a099e97b0a83c73ead9f5b0fe19f4be"
 port: "8080"
-toolshed_port: "9009"
 host: "0.0.0.0"
 admin_users: "asaim-admin@asaim.com"
 db_name: "asaim_galaxy"
-toolshed_db_name: "asaim_toolshed"
 db_role: "galaxy"
 db_password: "password"
 galaxy_release: "16.04"
