@@ -1,5 +1,4 @@
 tools:
-
 - name: 'ncbi_blast_plus'
   owner: 'devteam'
   tool_panel_section_id: 'similarity_search'
@@ -32,6 +31,14 @@ tools:
   install_repository_dependencies: True
   revisions:
   - 'd2448d2bf1f8'
+- name: 'suite_mothur'
+  owner: 'saskia-hiltemann'
+  tool_panel_section_id: 'mothur'
+  tool_shed_url: 'https://testtoolshed.g2.bx.psu.edu'
+  install_tool_dependencies: True
+  install_repository_dependencies: True
+  revisions:
+  #- 'd2448d2bf1f8'
 - name: 'format_metaphlan2_output'
   owner: 'bebatut'
   tool_panel_section_id: 'all_seq_taxonomic_assignation'
