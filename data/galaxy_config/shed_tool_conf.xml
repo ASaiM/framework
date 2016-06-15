@@ -1,5 +1,5 @@
-<?xml version='1.0' encoding='utf-8'?>
-<toolbox>
+<?xml version='1.0'?>
+<toolbox tool_path="../shed_tools">
     <label text="MANIPULATION TOOLS" id="manipulation" />
         <section id="getext" name="Get Data" />
         <section id="text_manipulation" name="Manipulate files" />
