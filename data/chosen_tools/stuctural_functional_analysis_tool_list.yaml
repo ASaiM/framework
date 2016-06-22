@@ -30,7 +30,7 @@ tools:
   install_tool_dependencies: True
   install_repository_dependencies: True
   revisions:
-  - 'd2448d2bf1f8'
+  - '8991e05c44e4'
 - name: 'suite_mothur'
   owner: 'saskia-hiltemann'
   tool_panel_section_id: 'mothur'
