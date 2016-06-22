@@ -70,6 +70,22 @@ However, once tool population starts, the Galaxy instance can be then browse on 
 
 After installation of the tools, HUMAnN2 databases have to be downloaded (once). It can be done using the dedicated tool available in `STRUCTURAL AND FUNCTIONAL ANALYSIS TOOLS` -> `Analyze metabolism` -> `Download HUMAnN2 databases`. This tool have to be executed twice: once for nucleotide (ChocoPhlAn) database and once for protein (UniRef50) database.
 
+## Add workflows
+
+Workflows are not automatically added to the Galaxy instance. To add them:
+
+- Go to `Workflow` menu (top panel)
+- Click on `Upload or import workflows` (on top right)
+    - Paste the following URL (one at a time) in "Galaxy workflow URL" field
+        - Main workflow: [https://raw.githubusercontent.com/ASaiM/galaxytools/master/workflows/asaim/asaim_main_workflow.ga](https://raw.githubusercontent.com/ASaiM/galaxytools/master/workflows/asaim/asaim_main_workflow.ga)
+        - Comparative analysis workflows:
+            - For taxonomic results: [https://raw.githubusercontent.com/ASaiM/galaxytools/master/workflows/asaim/asaim_taxonomic_result_comparative_analysis.ga](https://raw.githubusercontent.com/ASaiM/galaxytools/master/workflows/asaim/asaim_taxonomic_result_comparative_analysis.ga)
+            - For functional results (gene families or pathways): [https://raw.githubusercontent.com/ASaiM/galaxytools/master/workflows/asaim/asaim_functional_result_comparative_analysis.ga](https://raw.githubusercontent.com/ASaiM/galaxytools/master/workflows/asaim/asaim_functional_result_comparative_analysis.ga)
+            - For GO slim terms: [https://raw.githubusercontent.com/ASaiM/galaxytools/master/workflows/asaim/asaim_go_slim_terms_comparative_analysis.ga](https://raw.githubusercontent.com/ASaiM/galaxytools/master/workflows/asaim/asaim_go_slim_terms_comparative_analysis.ga)
+            - For taxonomically-related functional results: [https://raw.githubusercontent.com/ASaiM/galaxytools/master/workflows/asaim/asaim_taxonomically_related_functional_result_comparative_analysis.ga](https://raw.githubusercontent.com/ASaiM/galaxytools/master/workflows/asaim/asaim_taxonomically_related_functional_result_comparative_analysis.ga)
+    - Click on `Import`
+- Do it again with other workflows
+
 ## Stop ASaiM
 
 The custom Galaxy instance runs as a background process. To stop it:
