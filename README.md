@@ -66,8 +66,9 @@ $ ./src/launch_asaim.sh
 
 This task, particularly tool population, can take several hours.
 
-However, once tool population has begun, the Galaxy instance can be then browse on [http://127.0.0.1:8080/](http://127.0.0.1:8080/). And after registration with admin account (email: `asaim-admin@asaim.com`), you can 
-follow tool installation in `Admin` -> `Manage installed tools`.
+However, once tool population starts, the Galaxy instance can be then browse on [http://127.0.0.1:8080/](http://127.0.0.1:8080/). And after registration with admin account (email: `asaim-admin@asaim.com`), you can follow tool installation in `Admin` -> `Manage installed tools`.
+
+After installation of the tools, HUMAnN2 databases have to be downloaded (once). It can be done using the dedicated tool available in `STRUCTURAL AND FUNCTIONAL ANALYSIS TOOLS` -> `Analyze metabolism` -> `Download HUMAnN2 databases`. This tool have to be executed twice: once for nucleotide (ChocoPhlAn) database and once for protein (UniRef50) database.
 
 ## Stop ASaiM
 
