@@ -6,7 +6,7 @@ tools:
   install_tool_dependencies: True
   install_repository_dependencies: True
   revisions:
-  - 'b344522045f3'
+  - 'd7cf3b50a074'
 - name: 'graphlan'
   owner: 'bebatut'
   tool_panel_section_id: 'data_visualization'
