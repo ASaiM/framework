@@ -114,12 +114,6 @@ Available tools and workflows in ASaiM framework are described in the documentat
 
 Moreover, [a tutorial](http://asaim.readthedocs.org/en/latest/framework/tutorial/index.html) explains how to use ASaiM framework to analyze metagenomic sequences of microbiota to obtain taxonomic and functional assignations of sequences.
 
-# Testing
-
-[![Build Status](https://travis-ci.org/ASaiM/framework.svg)](https://travis-ci.org/ASaiM/framework)
-
-Functional tests are runned via TravisCI whenever this GitHub repository is updated. See the `.travis.yml` file for more technical details.
-
 # Bug Reports
 
 Any bug can be filed in an issue [here](https://github.com/ASaiM/framework/issues).
