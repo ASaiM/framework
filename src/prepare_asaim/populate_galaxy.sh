@@ -13,18 +13,6 @@ ansible-playbook tools.yml -i "localhost,"
 cd $current_dir
 echo ""
 
-
-echo "Populate with workflows..."
-for i in $( ls $workflow_dir/*.ga )
-do
-    echo $i
-    workflow_path=$workflow_dir"/"$i
-    #python ./src/integrate_workflow_in_gi.py \
-    #    --workflow_path $i \
-    #    --gi_url "http://"$host":"$port \
-    #    --api_key $master_api_key
-done
-
 declare RESULT=($(python $src_prepare/get_installed_tool_info.py \
     --tool_name "package_samtools_1_2" \
     --tool_shed "toolshed.g2.bx.psu.edu" \
