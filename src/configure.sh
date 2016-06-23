@@ -11,7 +11,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     initdb /usr/local/var/postgres -E utf8
     postgres -D /usr/local/var/postgres
 elif [[ "$OSTYPE" == "linux-gnu" ]]; then
-    echo "To do"
+    echo ""
 else
     echo "Unknow OS"
 fi
@@ -42,7 +42,6 @@ cd proftpd
     --enable-openssl \
     --with-modules=mod_sql:mod_sql_passwd:mod_sql_postgres
 make
-make install
 cd $current_dir
 echo ""
 
