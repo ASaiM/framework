@@ -120,8 +120,8 @@ Any bug can be filed in an issue [here](https://github.com/ASaiM/framework/issue
 
 # License
 
-ASaiM framework is released under Apache 2 License. See the LICENSE file for details.
+ASaiM framework is released under Apache 2 License. See the [LICENSE](LICENSE) file for details.
 
 # Citation
 
-To cite this tool, a DOI is generated for each release using Zenodo.
+To cite this tool, a DOI is generated for each release using Zenodo. Check the [CITATION](CITATION) file for details. 
