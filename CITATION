@@ -1,0 +1,21 @@
+If you use or extend ASaiM framework in your published work, please cite the following publications:
+
+- Bérénice Batut et al. (2016). ASaiM framework: an open-source Galaxy-based opinionated framework dedicated to microbiota sequence analyses. Zenodo. [10.5281/zenodo.56282](https://zenodo.org/record/56282)
+
+BibTeX format:
+
+@misc{berenice_batut_2016_56282,
+  author       = {Bérénice Batut and
+                  Clémence Defois and
+                  Kévin Gravouil and
+                  Jean-François Brugère and
+                  Eric Peyretaillade and
+                  Pierre Peyret},
+  title        = {{ASaiM framework: an open-source Galaxy-based
+                   opinionated framework dedicated to microbiota
+                   sequence analyses}},
+  month        = jun,
+  year         = 2016,
+  doi          = {10.5281/zenodo.56282},
+  url          = {http://dx.doi.org/10.5281/zenodo.56282}
+}
