@@ -5,8 +5,8 @@ $src_prepare/launch_galaxy.sh --daemon
 
 wait_until_up $port $galaxy_dir/paster.log
 
-echo "Populate with tools and workflows"
-echo "================================="
+echo "Populate with tools"
+echo "==================="
 $src_prepare/populate_galaxy.sh
 echo ""
 
