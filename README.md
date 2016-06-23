@@ -1,7 +1,9 @@
 ASaiM framework
 ===============
 
-ASaiM framework is an open-source opinionated Galaxy-based framework. It integrates tools, specifically chosen for metagenomic and metatranscriptomic studies and hierarchically organized to orient user choice toward the best tool for a given task. 
+[![DOI](https://zenodo.org/badge/doi/10.5281/zenodo.56282.svg)](http://dx.doi.org/10.5281/zenodo.56282)
+
+ASaiM framework is an open-source opinionated Galaxy-based framework. It integrates tools, specifically chosen for metagenomic and metatranscriptomic studies and hierarchically organized to orient user choice toward the best tool for a given task.
 
 Details about this framework is available on a dedicated documentation available at [http://asaim.readthedocs.org/](http://asaim.readthedocs.org/en/latest/framework/index.html).
 
