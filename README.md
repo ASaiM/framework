@@ -1,8 +1,6 @@
 ASaiM framework
 ===============
 
-[![v1.0.0 release DOI](https://zenodo.org/badge/doi/10.5281/zenodo.56282.svg)](http://dx.doi.org/10.5281/zenodo.56282)
-
 ASaiM framework is an open-source opinionated Galaxy-based framework. It integrates tools, specifically chosen for metagenomic and metatranscriptomic studies and hierarchically organized to orient user choice toward the best tool for a given task.
 
 Details about this framework is available on a dedicated documentation available at [http://asaim.readthedocs.org/](http://asaim.readthedocs.org/en/latest/framework/index.html).
@@ -28,7 +26,7 @@ Some tools must be installed:
 - `scons`
 - `mercurial`
 - `openssl`
-- `java` 
+- `java`
 - `wget`
 - `openssl`
 - `proftpd` (installed in `/usr/local`)
@@ -126,4 +124,4 @@ ASaiM framework is released under Apache 2 License. See the [LICENSE](LICENSE) f
 
 # Citation
 
-To cite this tool, a DOI is generated for each release using Zenodo. Check the [CITATION](CITATION) file for details. 
+To cite this tool, a DOI is generated for each release using Zenodo. Check the [CITATION](CITATION) file for details.
