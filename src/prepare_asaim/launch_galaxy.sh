@@ -41,8 +41,10 @@ mv ansible-galaxy-tools-0.2.1 ansible-galaxy-tools
 rm v0.2.1.tar.gz
 popd
 
-echo ""
+cp $chosen_tool_dir/*.yaml $tool_playbook_dir/roles/ansible-galaxy-tools/files/ # not sure if useful
+cp $chosen_tool_dir/*.yaml $tool_playbook_dir/files/
 
+echo ""
 echo "Configure Galaxy"
 echo "================"
 # Configuration files
