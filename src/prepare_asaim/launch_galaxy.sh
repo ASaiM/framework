@@ -48,15 +48,9 @@ echo ""
 echo "Configure Galaxy"
 echo "================"
 # Configuration files
-for i in $( ls $galaxy_conf_file_dir )
-do
-    if [[ $i != "galaxy.ini" ]]; then
-        cp $PWD/$galaxy_conf_file_dir/$i $galaxy_dir/config/$i 
-    fi
-done
-generate_galaxy_ini $galaxy_dir/config/galaxy.ini
+cp $galaxy_conf_file_dir/* $galaxy_dir/config/
 
-#cp data/text.py $galaxy_dir/lib/galaxy/datatypes/text.py
+generate_galaxy_ini $galaxy_dir/config/galaxy.ini
 
 # Tool data
 wget https://raw.githubusercontent.com/bgruening/galaxytools/8b913a72a9f6ef1553859cc29a97943095010a2d/tools/rna_tools/sortmerna/tool-data/rRNA_databases.loc.sample 
