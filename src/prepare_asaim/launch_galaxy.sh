@@ -33,8 +33,13 @@ if [[ ! -d $tool_playbook_dir/files ]]; then
     mkdir $tool_playbook_dir/files
 fi
 
-git clone https://github.com/galaxyproject/ansible-galaxy-tools.git $tool_playbook_dir/roles/ansible-galaxy-tools
-cp $chosen_tool_dir/*.yaml $tool_playbook_dir/roles/ansible-galaxy-tools/files/
+mkdir -p $tool_playbook_dir/roles
+pushd $tool_playbook_dir/roles
+wget https://github.com/galaxyproject/ansible-galaxy-tools/archive/v0.2.1.tar.gz
+tar zxvf v0.2.1.tar.gz
+mv ansible-galaxy-tools-0.2.1 ansible-galaxy-tools
+rm v0.2.1.tar.gz
+popd
 
 echo ""
 
