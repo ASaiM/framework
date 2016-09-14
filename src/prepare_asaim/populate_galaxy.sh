@@ -9,7 +9,7 @@ current_dir=$PWD
 
 echo "Populate with tools..."
 cd $tool_playbook_dir
-ansible-playbook tools.yml -i "localhost,"
+ansible-playbook tools.yml -vvv -i "localhost,"
 cd $current_dir
 echo ""
 
