@@ -22,4 +22,5 @@ declare RESULT=($(python $src_prepare/get_installed_tool_info.py \
     --api_key $master_api_key))
 revision=${RESULT[0]}
 owner=${RESULT[1]}
-ln -s $galaxy_dir/dependency_dir/samtools/1.2/$owner/package_samtools_1_2/$revision/bin/samtools $galaxy_dir/.venv/bin/samtools
+
+ln $galaxy_dir/dependency_dir/samtools/1.2/${owner}/package_samtools_1_2/${revision}/bin/samtools $galaxy_dir/.venv/bin/samtools
