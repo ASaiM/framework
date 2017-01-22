@@ -33,23 +33,24 @@ if [[ ! -d $tool_playbook_dir/files ]]; then
     mkdir $tool_playbook_dir/files
 fi
 
-git clone https://github.com/galaxyproject/ansible-galaxy-tools.git $tool_playbook_dir/roles/ansible-galaxy-tools
-cp $chosen_tool_dir/*.yaml $tool_playbook_dir/roles/ansible-galaxy-tools/files/
+mkdir -p $tool_playbook_dir/roles
+pushd $tool_playbook_dir/roles
+wget https://github.com/galaxyproject/ansible-galaxy-tools/archive/v0.2.1.tar.gz
+tar zxvf v0.2.1.tar.gz
+mv ansible-galaxy-tools-0.2.1 ansible-galaxy-tools
+rm v0.2.1.tar.gz
+popd
+
+cp $chosen_tool_dir/*.yaml $tool_playbook_dir/roles/ansible-galaxy-tools/files/ # not sure if useful
+cp $chosen_tool_dir/*.yaml $tool_playbook_dir/files/
 
 echo ""
-
 echo "Configure Galaxy"
 echo "================"
 # Configuration files
-for i in $( ls $galaxy_conf_file_dir )
-do
-    if [[ $i != "galaxy.ini" ]]; then
-        cp $PWD/$galaxy_conf_file_dir/$i $galaxy_dir/config/$i 
-    fi
-done
-generate_galaxy_ini $galaxy_dir/config/galaxy.ini
+cp $galaxy_conf_file_dir/* $galaxy_dir/config/
 
-#cp data/text.py $galaxy_dir/lib/galaxy/datatypes/text.py
+generate_galaxy_ini $galaxy_dir/config/galaxy.ini
 
 # Tool data
 wget https://raw.githubusercontent.com/bgruening/galaxytools/8b913a72a9f6ef1553859cc29a97943095010a2d/tools/rna_tools/sortmerna/tool-data/rRNA_databases.loc.sample 

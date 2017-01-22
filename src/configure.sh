@@ -50,5 +50,9 @@ if ! cat $PWD/$src_configure/proftpd.conf | grep "SQLNamedQuery"; then
     echo "SQLNamedQuery                   LookupGalaxyUser SELECT \"email,password,"$UID","$GROUPS",'"$PWD"/"$galaxy_dir"/database/ftp/%U','/bin/bash' FROM galaxy_user WHERE email='%U'\"" >> $PWD/$src_configure/proftpd.conf
 fi
 
+mkdir -p $PWD/$lib_dir/proftpd/var/proftpd/
+touch $PWD/$lib_dir/proftpd/var/proftpd/proftpd.delay
+chmod a+w $PWD/$lib_dir/proftpd/var/proftpd/proftpd.delay
+
 sudo $PWD/$lib_dir/proftpd/proftpd --config $PWD/$src_configure/proftpd.conf -t
-sudo $PWD/$lib_dir/proftpd/proftpd --config $PWD/src/configure/proftpd.conf
+sudo $PWD/$lib_dir/proftpd/proftpd --config $PWD/$src_configure/proftpd.conf
