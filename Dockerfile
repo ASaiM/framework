@@ -36,5 +36,5 @@ RUN startup_lite && \
     python $GALAXY_ROOT/import_workflows.py
 
 # Container Style
-ADD data/static/welcome.html $GALAXY_CONFIG_DIR/web/welcome.html
-ADD data/images/asaim_logo.svg $GALAXY_CONFIG_DIR/web/asaim_logo.svg
+COPY data/static/welcome.html $GALAXY_CONFIG_DIR/web/welcome.html
+COPY data/images/asaim_logo.svg $GALAXY_CONFIG_DIR/web/asaim_logo.svg
