@@ -10,9 +10,8 @@ MAINTAINER Bérénice Batut, berenice.batut@gmail.com
 ENV GALAXY_CONFIG_CONDA_AUTO_INSTALL=True \
     GALAXY_CONFIG_CONDA_AUTO_INIT=True \
     GALAXY_CONFIG_USE_CACHED_DEPENDENCY_MANAGER=True \
-    GALAXY_CONFIG_BRAND="ASaiM"
-
-#WORKDIR /galaxy-central
+    GALAXY_CONFIG_BRAND="ASaiM" \
+    ENABLE_TTS_INSTALL=True
 
 COPY data/galaxy_config/tool_conf.xml $GALAXY_ROOT/config/
 
