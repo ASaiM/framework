@@ -12,24 +12,16 @@ ENV GALAXY_CONFIG_CONDA_AUTO_INSTALL=True \
     GALAXY_CONFIG_USE_CACHED_DEPENDENCY_MANAGER=True \
     GALAXY_CONFIG_BRAND="ASaiM"
 
-WORKDIR /galaxy-central
+#WORKDIR /galaxy-central
 
 COPY data/galaxy_config/tool_conf.xml $GALAXY_ROOT/config/
-COPY data/galaxy_config/shed_tool_conf.xml $GALAXY_ROOT/config/
 
 RUN add-tool-shed --url 'http://testtoolshed.g2.bx.psu.edu/' --name 'Test Tool Shed'
 
 # Install tools
-COPY data/chosen_tools/manipulation_tool_list.yaml $GALAXY_ROOT/manipulation_tool_list.yaml
-COPY data/chosen_tools/preprocessing_tool_list.yaml $GALAXY_ROOT/preprocessing_tool_list.yaml
-COPY data/chosen_tools/stuctural_functional_analysis_tool_list.yaml $GALAXY_ROOT/stuctural_functional_analysis_tool_list.yaml
-COPY data/chosen_tools/visualization_stats_tool_list.yaml $GALAXY_ROOT/visualization_stats_tool_list.yaml
+COPY data/chosen_tools/asaim_tools.yml $GALAXY_ROOT/asaim_tools.yml
 
-RUN install-tools $GALAXY_ROOT/manipulation_tool_list.yaml && \
-    install-tools $GALAXY_ROOT/preprocessing_tool_list.yaml && \
-    install-tools $GALAXY_ROOT/stuctural_functional_analysis_tool_list.yaml && \
-    install-tools $GALAXY_ROOT/visualization_stats_tool_list.yaml && \
-    /tool_deps/_conda/bin/conda clean --tarballs
+RUN install-tools $GALAXY_ROOT/asaim_tools.yml
 
 # Import workflows
 
