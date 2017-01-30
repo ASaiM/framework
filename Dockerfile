@@ -35,6 +35,24 @@ RUN startup_lite && \
     . $GALAXY_VIRTUAL_ENV/bin/activate && \
     python $GALAXY_ROOT/import_workflows.py
 
+# Preparing the databases for the tools
+RUN mkdir $GALAXY_ROOT/databases && \
+    mkdir $GALAXY_ROOT/databases/rRNA_databases && \
+    sed -i.bak 's/#rfam/rfam/' $GALAXY_ROOT/tool-data/rRNA_databases.loc.sample && \
+    sed -i.bak 's/#silva/silva/' $GALAXY_ROOT/tool-data/rRNA_databases.loc.sample && \
+    sed -i.bak 's/SORTMERNADIR/GALAXY_ROOT\/databases/' $GALAXY_ROOT/tool-data/rRNA_databases.loc.sample && \
+    mkdir $GALAXY_ROOT/databases/db_v20 && \
+    sed -i.bak 's/#mpa_v20_m200/mpa_v20_m200/' $GALAXY_ROOT/tool-data/metaphlan2_db.loc.sample && \
+    sed -i.bak 's/METAPHLAN2_DIR/GALAXY_ROOT\/databases/' $GALAXY_ROOT/tool-data/metaphlan2_db.loc.sample
+ADD https://github.com/biocore/sortmerna/archive/2.1b.tar.gz
+RUN mv sortmerna-2.1b/rRNA_databases/* $GALAXY_ROOT/databases/rRNA_databases && \
+    rm 2.1b.tar.gz && \
+    rm -rf sortmerna-2.1b/
+ADD https://bitbucket.org/biobakery/metaphlan2/get/2.5.0.zip
+RUN mv biobakery-metaphlan2-6f2a1673af85/db_v20/* $GALAXY_ROOT/databases/ && \
+    rm 2.5.0.zip && \
+    rm -rf biobakery-metaphlan2-6f2a1673af85 && \
+
 # Container Style
 COPY data/static/welcome.html $GALAXY_CONFIG_DIR/web/welcome.html
 COPY data/images/asaim_logo.svg $GALAXY_CONFIG_DIR/web/asaim_logo.svg
