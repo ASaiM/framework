@@ -4,6 +4,14 @@ api_key: admin
 galaxy_instance: http://localhost:8080
 tools:
 
+- name: 'suite_ebi_tools'
+  owner: 'iuc'
+  tool_panel_section_label: 'getext'
+  tool_shed_url: 'https://toolshed.g2.bx.psu.edu'
+  install_tool_dependencies: false
+  install_resolver_dependencies: true
+  revisions:
+  - 'f7f464887ffd'
 - name: 'add_value'
   owner: 'devteam'
   tool_panel_section_label: 'text_manipulation'
@@ -300,12 +308,12 @@ tools:
   install_resolver_dependencies: true
   revisions:
   - '8991e05c44e4'
-#- name: 'suite_mothur'
-#  owner: 'iuc'
-#  tool_panel_section_label: 'mothur'
-#  tool_shed_url: 'https://testtoolshed.g2.bx.psu.edu'
-#  install_tool_dependencies: false
-#  install_resolver_dependencies: true
+- name: 'suite_mothur'
+  owner: 'iuc'
+  tool_panel_section_label: 'mothur'
+  tool_shed_url: 'https://testtoolshed.g2.bx.psu.edu'
+  install_tool_dependencies: false
+  install_resolver_dependencies: true
   #revisions:
   #- 'd2448d2bf1f8'
 - name: 'format_metaphlan2_output'
