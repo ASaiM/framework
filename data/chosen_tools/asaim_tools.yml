@@ -1,0 +1,430 @@
+---
+
+api_key: admin
+galaxy_instance: http://localhost:8080
+tools:
+
+- name: 'suite_ebi_tools'
+  owner: 'iuc'
+  tool_panel_section_label: 'getext'
+  tool_shed_url: 'https://toolshed.g2.bx.psu.edu'
+  install_tool_dependencies: false
+  install_resolver_dependencies: true
+  revisions:
+  - 'f7f464887ffd'
+- name: 'add_value'
+  owner: 'devteam'
+  tool_panel_section_label: 'text_manipulation'
+  tool_shed_url: 'https://toolshed.g2.bx.psu.edu'
+  install_tool_dependencies: false
+  install_resolver_dependencies: true
+  revisions:
+  - '745871c0b055'
+- name: 'change_case'
+  owner: 'devteam'
+  tool_panel_section_label: 'text_manipulation'
+  tool_shed_url: 'https://toolshed.g2.bx.psu.edu'
+  install_tool_dependencies: false
+  install_resolver_dependencies: true
+  revisions:
+  - 'ecf91530d461'
+- name: 'column_join'
+  owner: 'jjohnson'
+  tool_panel_section_label: 'text_manipulation'
+  tool_shed_url: 'https://toolshed.g2.bx.psu.edu'
+  install_tool_dependencies: false
+  install_resolver_dependencies: true
+  revisions:
+  - '6bb6c0a30c67'
+- name: 'column_maker'
+  owner: 'devteam'
+  tool_panel_section_label: 'text_manipulation'
+  tool_shed_url: 'https://toolshed.g2.bx.psu.edu'
+  install_tool_dependencies: false
+  install_resolver_dependencies: true
+  revisions:
+  - '626658afe4cb'
+- name: 'concatenate_multiple_datasets'
+  owner: 'mvdbeek'
+  tool_panel_section_label: 'text_manipulation'
+  tool_shed_url: 'https://toolshed.g2.bx.psu.edu'
+  install_tool_dependencies: false
+  install_resolver_dependencies: true
+  revisions:
+  - '1e06fa2771f9'
+- name: 'convert_characters'
+  owner: 'devteam'
+  tool_panel_section_label: 'text_manipulation'
+  tool_shed_url: 'https://toolshed.g2.bx.psu.edu'
+  install_tool_dependencies: false
+  install_resolver_dependencies: true
+  revisions:
+  - '8a53d7f02ce4'
+- name: 'cut_columns'
+  owner: 'devteam'
+  tool_panel_section_label: 'text_manipulation'
+  tool_shed_url: 'https://toolshed.g2.bx.psu.edu'
+  install_tool_dependencies: false
+  install_resolver_dependencies: true
+  revisions:
+  - '842fab69c940'
+- name: 'merge_cols'
+  owner: 'devteam'
+  tool_panel_section_label: 'text_manipulation'
+  tool_shed_url: 'https://toolshed.g2.bx.psu.edu'
+  install_tool_dependencies: false
+  install_resolver_dependencies: true
+  revisions:
+  - 'f2aac0c5c60d'
+- name: 'regex_find_replace'
+  owner: 'jjohnson'
+  tool_panel_section_label: 'text_manipulation'
+  tool_shed_url: 'https://toolshed.g2.bx.psu.edu'
+  install_tool_dependencies: false
+  install_resolver_dependencies: true
+  revisions:
+  - '9ea374bb0350'
+- name: 'remove_beginning'
+  owner: 'devteam'
+  tool_panel_section_label: 'text_manipulation'
+  tool_shed_url: 'https://toolshed.g2.bx.psu.edu'
+  install_tool_dependencies: false
+  install_resolver_dependencies: true
+  revisions:
+  - 'b3d762515db4'
+- name: 'show_beginning'
+  owner: 'devteam'
+  tool_panel_section_label: 'text_manipulation'
+  tool_shed_url: 'https://toolshed.g2.bx.psu.edu'
+  install_tool_dependencies: false
+  install_resolver_dependencies: true
+  revisions:
+  - 'b5af46a99f6e'
+- name: 'show_tail'
+  owner: 'devteam'
+  tool_panel_section_label: 'text_manipulation'
+  tool_shed_url: 'https://toolshed.g2.bx.psu.edu'
+  install_tool_dependencies: false
+  install_resolver_dependencies: true
+  revisions:
+  - 'ae45155543e1'
+- name: 'split_file_on_column'
+  owner: 'bgruening'
+  tool_panel_section_label: 'text_manipulation'
+  tool_shed_url: 'https://toolshed.g2.bx.psu.edu'
+  install_tool_dependencies: false
+  install_resolver_dependencies: true
+  revisions:
+  - 'b60f2452580e'
+- name: 'unique'
+  owner: 'bgruening'
+  tool_panel_section_label: 'text_manipulation'
+  tool_shed_url: 'https://toolshed.g2.bx.psu.edu'
+  install_tool_dependencies: false
+  install_resolver_dependencies: true
+  revisions:
+  - '7ce75adb93be'
+- name: 'normalize_dataset'
+  owner: 'bebatut'
+  tool_panel_section_label: 'text_manipulation'
+  tool_shed_url: 'https://toolshed.g2.bx.psu.edu'
+  install_tool_dependencies: false
+  install_resolver_dependencies: true
+  revisions:
+  - '72633301cc0d'
+- name: 'extract_min_max_lines'
+  owner: 'bebatut'
+  tool_panel_section_label: 'text_manipulation'
+  tool_shed_url: 'https://toolshed.g2.bx.psu.edu'
+  install_tool_dependencies: false
+  install_resolver_dependencies: true
+  revisions:
+  - '90fc00b34716'
+- name: 'seq_filter_by_id'
+  owner: 'peterjc'
+  tool_panel_section_label: 'seq_manipulation'
+  tool_shed_url: 'https://toolshed.g2.bx.psu.edu'
+  install_tool_dependencies: false
+  install_resolver_dependencies: true
+  revisions:
+  - '832c1fd57852'
+- name: 'seq_rename'
+  owner: 'peterjc'
+  tool_panel_section_label: 'seq_manipulation'
+  tool_shed_url: 'https://toolshed.g2.bx.psu.edu'
+  install_tool_dependencies: false
+  install_resolver_dependencies: true
+  revisions:
+  - '7c0642fc57ad'
+- name: 'seq_select_by_id'
+  owner: 'peterjc'
+  tool_panel_section_label: 'seq_manipulation'
+  tool_shed_url: 'https://toolshed.g2.bx.psu.edu'
+  install_tool_dependencies: false
+  install_resolver_dependencies: true
+  revisions:
+  - '91f55ee8fea5'
+- name: 'fastq_to_fasta'
+  owner: 'devteam'
+  tool_panel_section_label: 'seq_manipulation'
+  tool_shed_url: 'https://toolshed.g2.bx.psu.edu'
+  install_tool_dependencies: false
+  install_resolver_dependencies: true
+  revisions:
+  - '186b8d913e6c'
+- name: 'fasta_to_tabular'
+  owner: 'devteam'
+  tool_panel_section_label: 'seq_manipulation'
+  tool_shed_url: 'https://toolshed.g2.bx.psu.edu'
+  install_tool_dependencies: false
+  install_resolver_dependencies: true
+  revisions:
+  - '7e801ab2b70e'
+- name: 'split_paired_reads'
+  owner: 'devteam'
+  tool_panel_section_label: 'seq_manipulation'
+  tool_shed_url: 'https://toolshed.g2.bx.psu.edu'
+  install_tool_dependencies: false
+  install_resolver_dependencies: true
+  revisions:
+  - '36163bff76cc'
+- name: 'convert_extract_sequence_file'
+  owner: 'bebatut'
+  tool_panel_section_label: 'seq_manipulation'
+  tool_shed_url: 'https://toolshed.g2.bx.psu.edu'
+  install_tool_dependencies: false
+  install_resolver_dependencies: true
+  revisions:
+  - '158642ce204f'
+- name: 'fasta_add_barcode'
+  owner: 'bebatut'
+  tool_panel_section_label: 'seq_manipulation'
+  tool_shed_url: 'https://toolshed.g2.bx.psu.edu'
+  install_tool_dependencies: false
+  install_resolver_dependencies: true
+  revisions:
+  - '04699558a38a'
+- name: 'suite_samtools_1_2'
+  owner: 'devteam'
+  tool_panel_section_label: 'bam_sam_manipulation'
+  tool_shed_url: 'https://toolshed.g2.bx.psu.edu'
+  install_tool_dependencies: false
+  install_resolver_dependencies: true
+  revisions:
+  - '5b673ccc8747'
+- name: 'fastq_paired_end_joiner'
+  owner: 'devteam'
+  tool_panel_section_label: 'paired_end_assembly'
+  tool_shed_url: 'https://toolshed.g2.bx.psu.edu'
+  install_tool_dependencies: false
+  install_resolver_dependencies: true
+  revisions:
+  - '6a7f5da7c76d'
+- name: 'fastq_join'
+  owner: 'lparsons'
+  tool_panel_section_label: 'paired_end_assembly'
+  tool_shed_url: 'https://toolshed.g2.bx.psu.edu'
+  install_tool_dependencies: false
+  install_resolver_dependencies: true
+  revisions:
+  - '8ec3dfde378b'
+- name: 'fastqc'
+  owner: 'devteam'
+  tool_panel_section_label: 'quality_control'
+  tool_shed_url: 'https://toolshed.g2.bx.psu.edu'
+  install_tool_dependencies: false
+  install_resolver_dependencies: true
+  revisions:
+  - '3fdc1a74d866'
+- name: 'prinseq'
+  owner: 'iuc'
+  tool_panel_section_label: 'quality_control'
+  tool_shed_url: 'https://toolshed.g2.bx.psu.edu'
+  install_tool_dependencies: false
+  install_resolver_dependencies: true
+  revisions:
+  - 'ba78b984a9eb'
+- name: 'vsearch'
+  owner: 'iuc'
+  tool_panel_section_label: 'vsearch'
+  tool_shed_url: 'https://toolshed.g2.bx.psu.edu'
+  install_tool_dependencies: false
+  install_resolver_dependencies: true
+  revisions:
+  - '4258854759ba'
+- name: 'cdhit'
+  owner: 'bebatut'
+  tool_panel_section_label: 'sequence_clustering'
+  tool_shed_url: 'https://toolshed.g2.bx.psu.edu'
+  install_tool_dependencies: false
+  install_resolver_dependencies: true
+  revisions:
+  - '54d811ad2b52'
+- name: 'format_cd_hit_output'
+  owner: 'bebatut'
+  tool_panel_section_label: 'sequence_clustering'
+  tool_shed_url: 'https://toolshed.g2.bx.psu.edu'
+  install_tool_dependencies: false
+  install_resolver_dependencies: true
+  revisions:
+  - '4015e9d6d277'
+- name: 'sortmerna'
+  owner: 'rnateam'
+  tool_panel_section_label: 'rna_sorting'
+  tool_shed_url: 'https://toolshed.g2.bx.psu.edu'
+  install_tool_dependencies: false
+  install_resolver_dependencies: true
+  revisions:
+  - '59252ca85c74'
+- name: 'ncbi_blast_plus'
+  owner: 'devteam'
+  tool_panel_section_label: 'similarity_search'
+  tool_shed_url: 'https://toolshed.g2.bx.psu.edu'
+  install_tool_dependencies: false
+  install_resolver_dependencies: true
+  revisions:
+  - '7f3c448e119b'
+- name: 'diamond'
+  owner: 'bgruening'
+  tool_panel_section_label: 'similarity_search'
+  tool_shed_url: 'https://toolshed.g2.bx.psu.edu'
+  install_tool_dependencies: false
+  install_resolver_dependencies: true
+  revisions:
+  - '98037ef3d2a9'
+- name: 'bwa'
+  owner: 'devteam'
+  tool_panel_section_label: 'mapping'
+  tool_shed_url: 'https://toolshed.g2.bx.psu.edu'
+  install_tool_dependencies: false
+  install_resolver_dependencies: true
+  revisions:
+  - '546ada4a9f43'
+- name: 'metaphlan2'
+  owner: 'bebatut'
+  tool_panel_section_label: 'all_seq_taxonomic_assignation'
+  tool_shed_url: 'https://toolshed.g2.bx.psu.edu'
+  install_tool_dependencies: false
+  install_resolver_dependencies: true
+  revisions:
+  - '8991e05c44e4'
+- name: 'suite_mothur'
+  owner: 'saskia-hiltemann'
+  tool_panel_section_label: 'mothur'
+  tool_shed_url: 'http://testtoolshed.g2.bx.psu.edu'
+  install_tool_dependencies: false
+  install_resolver_dependencies: true
+  #revisions:
+  #- 'd2448d2bf1f8'
+- name: 'format_metaphlan2_output'
+  owner: 'bebatut'
+  tool_panel_section_label: 'all_seq_taxonomic_assignation'
+  tool_shed_url: 'https://toolshed.g2.bx.psu.edu'
+  install_tool_dependencies: false
+  install_resolver_dependencies: true
+  revisions:
+  - '2bfa9b200600'
+- name: 'humann2'
+  owner: 'bebatut'
+  tool_panel_section_label: 'metabolic_analysis'
+  tool_shed_url: 'http://toolshed.g2.bx.psu.edu/'
+  install_tool_dependencies: false
+  install_resolver_dependencies: true
+  revisions:
+  - 'bcd414bb721b'
+- name: 'group_humann2_uniref_abundances_to_go'
+  owner: 'bebatut'
+  tool_panel_section_label: 'metabolic_analysis'
+  tool_shed_url: 'http://toolshed.g2.bx.psu.edu/'
+  install_tool_dependencies: false
+  install_resolver_dependencies: true
+  revisions:
+  - 'cad28d7b49d2'
+- name: 'compare_humann2_output'
+  owner: 'bebatut'
+  tool_panel_section_label: 'metabolic_analysis'
+  tool_shed_url: 'http://toolshed.g2.bx.psu.edu/'
+  install_tool_dependencies: false
+  install_resolver_dependencies: true
+  revisions:
+  - 'c1aca37cb1fc'
+- name: 'combine_metaphlan2_humann2'
+  owner: 'bebatut'
+  tool_panel_section_label: 'combine_taxo_func'
+  tool_shed_url: 'http://toolshed.g2.bx.psu.edu/'
+  install_tool_dependencies: false
+  install_resolver_dependencies: true
+  revisions:
+  - '31394a0c0242'
+- name: 'export2graphlan'
+  owner: 'bebatut'
+  tool_panel_section_label: 'data_visualization'
+  tool_shed_url: 'https://toolshed.g2.bx.psu.edu/'
+  install_tool_dependencies: false
+  install_resolver_dependencies: true
+  revisions:
+  - 'd7cf3b50a074'
+- name: 'graphlan'
+  owner: 'bebatut'
+  tool_panel_section_label: 'data_visualization'
+  tool_shed_url: 'https://toolshed.g2.bx.psu.edu/'
+  install_tool_dependencies: false
+  install_resolver_dependencies: true
+  revisions:
+  - '83baf73b0e79'
+- name: 'taxonomy_krona_chart'
+  owner: 'crs4'
+  tool_panel_section_label: 'data_visualization'
+  tool_shed_url: 'https://toolshed.g2.bx.psu.edu/'
+  install_tool_dependencies: false
+  install_resolver_dependencies: true
+  revisions:
+  - 'f11a04ed443b'
+- name: 'plot_barplot'
+  owner: 'bebatut'
+  tool_panel_section_label: 'data_visualization'
+  tool_shed_url: 'http://toolshed.g2.bx.psu.edu/'
+  install_tool_dependencies: false
+  install_resolver_dependencies: true
+  revisions:
+  - '7e3103db022d'
+- name: 'plot_grouped_barplot'
+  owner: 'bebatut'
+  tool_panel_section_label: 'data_visualization'
+  tool_shed_url: 'http://toolshed.g2.bx.psu.edu/'
+  install_tool_dependencies: false
+  install_resolver_dependencies: true
+  revisions:
+  - '6c9aac0d6ca2'
+- name: 'plot_generic_x_y_plot'
+  owner: 'bebatut'
+  tool_panel_section_label: 'data_visualization'
+  tool_shed_url: 'http://toolshed.g2.bx.psu.edu/'
+  install_tool_dependencies: false
+  install_resolver_dependencies: true
+  revisions:
+  - '5118d839acae'
+- name: 'histogram'
+  owner: 'devteam'
+  tool_panel_section_label: 'data_visualization'
+  tool_shed_url: 'http://toolshed.g2.bx.psu.edu/'
+  install_tool_dependencies: false
+  install_resolver_dependencies: true
+  revisions:
+  - 'cdb9e89e2970'
+- name: 'correlation'
+  owner: 'devteam'
+  tool_panel_section_label: 'statistical_tests'
+  tool_shed_url: 'http://toolshed.g2.bx.psu.edu/'
+  install_tool_dependencies: false
+  install_resolver_dependencies: true
+  revisions:
+  - '24e01abf9e34'
+- name: 'compute_wilcoxon_test'
+  owner: 'bebatut'
+  tool_panel_section_label: 'statistical_tests'
+  tool_shed_url: 'http://toolshed.g2.bx.psu.edu/'
+  install_tool_dependencies: false
+  install_resolver_dependencies: true
+  revisions:
+  - '2a8acb4c0afc'
