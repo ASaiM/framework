@@ -49,14 +49,14 @@ RUN tar xzf 2.1b.tar.gz && \
     mv sortmerna-2.1b/rRNA_databases/* /databases/rRNA_databases && \
     rm 2.1b.tar.gz && \
     rm -rf sortmerna-2.1b/ && \
-    /tool_deps/_conda/envs/__sortmerna\@2.1b/bin/indexdb_rna --ref /databases/rRNA_databases/rfam-5.8s-database-id98.fasta,$GALAXY_ROOT/databases/rRNA_databases/rfam-5.8s-database-id98 && \
-    /tool_deps/_conda/envs/__sortmerna\@2.1b/bin/indexdb_rna --ref /databases/rRNA_databases/rfam-5s-database-id98.fasta,$GALAXY_ROOT/databases/rRNA_databases/rfam-5s-database-id98 && \
-    /tool_deps/_conda/envs/__sortmerna\@2.1b/bin/indexdb_rna --ref /databases/rRNA_databases/silva-arc-16s-id95.fasta,$GALAXY_ROOT/databases/rRNA_databases/silva-arc-16s-id95 && \
-    /tool_deps/_conda/envs/__sortmerna\@2.1b/bin/indexdb_rna --ref /databases/rRNA_databases/silva-arc-23s-id98.fasta,$GALAXY_ROOT/databases/rRNA_databases/silva-arc-23s-id98 && \
-    /tool_deps/_conda/envs/__sortmerna\@2.1b/bin/indexdb_rna --ref /databases/rRNA_databases/silva-bac-16s-id90.fasta,$GALAXY_ROOT/databases/rRNA_databases/silva-bac-16s-id90 && \
-    /tool_deps/_conda/envs/__sortmerna\@2.1b/bin/indexdb_rna --ref /databases/rRNA_databases/silva-bac-23s-id98.fasta,$GALAXY_ROOT/databases/rRNA_databases/silva-bac-23s-id98 && \
-    /tool_deps/_conda/envs/__sortmerna\@2.1b/bin/indexdb_rna --ref /databases/rRNA_databases/silva-euk-18s-id95.fasta,$GALAXY_ROOT/databases/rRNA_databases/silva-euk-18s-id95 && \
-    /tool_deps/_conda/envs/__sortmerna\@2.1b/bin/indexdb_rna --ref /databases/rRNA_databases/silva-euk-28s-id98.fasta,$GALAXY_ROOT/databases/rRNA_databases/silva-euk-28s-id98
+    /tool_deps/_conda/envs/__sortmerna\@2.1b/bin/indexdb_rna --ref /databases/rRNA_databases/rfam-5.8s-database-id98.fasta,/databases/rRNA_databases/rfam-5.8s-database-id98 && \
+    /tool_deps/_conda/envs/__sortmerna\@2.1b/bin/indexdb_rna --ref /databases/rRNA_databases/rfam-5s-database-id98.fasta,/databases/rRNA_databases/rfam-5s-database-id98 && \
+    /tool_deps/_conda/envs/__sortmerna\@2.1b/bin/indexdb_rna --ref /databases/rRNA_databases/silva-arc-16s-id95.fasta,/databases/rRNA_databases/silva-arc-16s-id95 && \
+    /tool_deps/_conda/envs/__sortmerna\@2.1b/bin/indexdb_rna --ref /databases/rRNA_databases/silva-arc-23s-id98.fasta,/databases/rRNA_databases/silva-arc-23s-id98 && \
+    /tool_deps/_conda/envs/__sortmerna\@2.1b/bin/indexdb_rna --ref /databases/rRNA_databases/silva-bac-16s-id90.fasta,/databases/rRNA_databases/silva-bac-16s-id90 && \
+    /tool_deps/_conda/envs/__sortmerna\@2.1b/bin/indexdb_rna --ref /databases/rRNA_databases/silva-bac-23s-id98.fasta,/databases/rRNA_databases/silva-bac-23s-id98 && \
+    /tool_deps/_conda/envs/__sortmerna\@2.1b/bin/indexdb_rna --ref /databases/rRNA_databases/silva-euk-18s-id95.fasta,/databases/rRNA_databases/silva-euk-18s-id95 && \
+    /tool_deps/_conda/envs/__sortmerna\@2.1b/bin/indexdb_rna --ref /databases/rRNA_databases/silva-euk-28s-id98.fasta,/databases/rRNA_databases/silva-euk-28s-id98
 ADD https://bitbucket.org/biobakery/metaphlan2/get/2.5.0.zip 2.5.0.zip
 RUN unzip 2.5.0.zip && \
     mv biobakery-metaphlan2-6f2a1673af85/db_v20/* /databases/db_v20/ && \
