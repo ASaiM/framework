@@ -67,7 +67,7 @@ tools:
   install_tool_dependencies: false
   install_resolver_dependencies: true
   revisions:
-  - '842fab69c940'
+  - 'cec635fab700'
 - name: 'merge_cols'
   owner: 'devteam'
   tool_panel_section_label: 'text_manipulation'
@@ -77,13 +77,13 @@ tools:
   revisions:
   - 'f2aac0c5c60d'
 - name: 'regex_find_replace'
-  owner: 'jjohnson'
+  owner: 'galaxyp'
   tool_panel_section_label: 'text_manipulation'
   tool_shed_url: 'https://toolshed.g2.bx.psu.edu'
   install_tool_dependencies: false
   install_resolver_dependencies: true
   revisions:
-  - '9ea374bb0350'
+  - '209b7c5ee9d7'
 - name: 'remove_beginning'
   owner: 'devteam'
   tool_panel_section_label: 'text_manipulation'
@@ -162,7 +162,8 @@ tools:
   tool_shed_url: 'https://toolshed.g2.bx.psu.edu'
   install_tool_dependencies: false
   install_resolver_dependencies: true
-  revisions:
+  revisions:  
+  - 'fb1313d79396'
   - '91f55ee8fea5'
 - name: 'fastq_to_fasta'
   owner: 'devteam'
@@ -235,6 +236,7 @@ tools:
   install_tool_dependencies: false
   install_resolver_dependencies: true
   revisions:
+  - '3a458e268066'
   - '3fdc1a74d866'
 - name: 'prinseq'
   owner: 'iuc'
@@ -243,6 +245,7 @@ tools:
   install_tool_dependencies: false
   install_resolver_dependencies: true
   revisions:
+  - '6b865dde1baa'
   - 'ba78b984a9eb'
 - name: 'vsearch'
   owner: 'iuc'
@@ -251,6 +254,7 @@ tools:
   install_tool_dependencies: false
   install_resolver_dependencies: true
   revisions:
+  - '576963db5f1b'
   - '4258854759ba'
 - name: 'cdhit'
   owner: 'bebatut'
@@ -284,6 +288,7 @@ tools:
   install_resolver_dependencies: true
   revisions:
   - '7f3c448e119b'
+  - '3034ce97dd33'
 - name: 'diamond'
   owner: 'bgruening'
   tool_panel_section_label: 'similarity_search'
@@ -291,7 +296,7 @@ tools:
   install_tool_dependencies: false
   install_resolver_dependencies: true
   revisions:
-  - '98037ef3d2a9'
+  - 'df7738595640'
 - name: 'bwa'
   owner: 'devteam'
   tool_panel_section_label: 'mapping'
@@ -299,6 +304,7 @@ tools:
   install_tool_dependencies: false
   install_resolver_dependencies: true
   revisions:
+  - '53646aaaafef'
   - '546ada4a9f43'
 - name: 'metaphlan2'
   owner: 'bebatut'
