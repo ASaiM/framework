@@ -17,6 +17,7 @@
         </section>
         <section id="seq_manipulation" name="Manipulate sequence files" />
         <section id="bam_sam_manipulation" name="Manipulate BAM/SAM files" />
+        <section id="biom_manipulation" name="Manipulate biom files" />
     <label text="PREPROCESSING TOOLS" id="prepocessing" />
         <section id="paired_end_assembly" name="Assemble paired-end sequences" />
         <section id="quality_control" name="Control quality" />

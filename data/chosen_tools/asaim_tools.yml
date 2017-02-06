@@ -36,6 +36,14 @@ tools:
   install_resolver_dependencies: true
   revisions:
   - '6bb6c0a30c67'
+- name: 'collection_column_join'
+  owner: 'iuc'
+  tool_panel_section_label: 'text_manipulation'
+  tool_shed_url: 'https://toolshed.g2.bx.psu.edu'
+  install_tool_dependencies: false
+  install_resolver_dependencies: true
+  revisions:
+  - '9c8536c7ed42'
 - name: 'column_maker'
   owner: 'devteam'
   tool_panel_section_label: 'text_manipulation'
@@ -213,6 +221,14 @@ tools:
   install_resolver_dependencies: true
   revisions:
   - '5b673ccc8747'
+- name: 'suite_biom_format'
+  owner: 'iuc'
+  tool_panel_section_label: 'biom_manipulation'
+  tool_shed_url: 'https://toolshed.g2.bx.psu.edu'
+  install_tool_dependencies: false
+  install_resolver_dependencies: true
+  revisions:
+  - '8eda049e45c2'
 - name: 'fastq_paired_end_joiner'
   owner: 'devteam'
   tool_panel_section_label: 'paired_end_assembly'
@@ -330,6 +346,14 @@ tools:
   install_resolver_dependencies: true
   revisions:
   - '2bfa9b200600'
+- name: 'suite_kraken_0_10_5'
+  owner: 'devteam'
+  tool_panel_section_label: 'all_seq_taxonomic_assignation'
+  tool_shed_url: 'https://toolshed.g2.bx.psu.edu'
+  install_tool_dependencies: false
+  install_resolver_dependencies: true
+  revisions:
+  - '1bcf0e168661'
 - name: 'humann2'
   owner: 'bebatut'
   tool_panel_section_label: 'metabolic_analysis'
@@ -354,6 +378,14 @@ tools:
   install_resolver_dependencies: true
   revisions:
   - 'c1aca37cb1fc'
+- name: 'suite_picrust'
+  owner: 'iuc'
+  tool_panel_section_label: 'metabolic_analysis'
+  tool_shed_url: 'http://toolshed.g2.bx.psu.edu/'
+  install_tool_dependencies: false
+  install_resolver_dependencies: true
+  revisions:
+  - '9f03d5b781fd'
 - name: 'combine_metaphlan2_humann2'
   owner: 'bebatut'
   tool_panel_section_label: 'combine_taxo_func'
