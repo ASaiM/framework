@@ -62,8 +62,8 @@ RUN unzip 2.5.0.zip && \
     mv biobakery-metaphlan2-6f2a1673af85/db_v20/* /databases/db_v20/ && \
     rm 2.5.0.zip && \
     rm -rf biobakery-metaphlan2-6f2a1673af85
-RUN /tool_deps/_conda/envs/__humann2@0.6.1/bin/humann2_databases --download chocophlan full /databases/chocophlan && \
-    /tool_deps/_conda/envs/__humann2@0.6.1/bin/humann2_databases --download uniref diamond /databases/uniref
+RUN /tool_deps/_conda/envs/__humann2@0.6.1/bin/humann2_databases --download chocophlan full /databases && \
+    /tool_deps/_conda/envs/__humann2@0.6.1/bin/humann2_databases --download uniref diamond /databases
 
 # Container Style
 COPY data/static/welcome.html $GALAXY_CONFIG_DIR/web/welcome.html
