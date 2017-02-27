@@ -3,7 +3,7 @@ ASaiM framework
 
 ASaiM framework is an open-source opinionated Galaxy-based framework. It integrates tools, specifically chosen for metagenomic and metatranscriptomic studies and hierarchically organized to orient user choice toward the best tool for a given task.
 
-Details about this framework is available on a dedicated documentation available at [http://asaim.readthedocs.org/](http://asaim.readthedocs.org/en/latest/framework/index.html).
+Details about this framework is available on a dedicated documentation available at [http://asaim.readthedocs.org/](http://asaim.readthedocs.org/).
 
 This framework is using the [Galaxy Docker](http://bgruening.github.io/docker-galaxy-stable/) to ease the deployment the Galaxy instance. If you do not want to use Docker, we also provide [documentation to setup and run the framework](#installation-and-use-without-using-docker) without using Docker.
 
@@ -20,7 +20,7 @@ For Linux users and people familiar with the command line, please follow the [ve
 Starting the ASaiM Docker container is analogous to starting the generic Galaxy Docker image: 
 
 ```
-$ docker run -d -p 8080:80 bebatut/asaim-framework
+$ docker run -d -p 8080:80 quay.io/bebatut/asaim-framework
 ```
 
 Nevertheless, here is a quick rundown: 
@@ -34,7 +34,7 @@ Nevertheless, here is a quick rundown:
     Inside the container a Apache web server is running on port 80 and that port can be bound to a local port on your host computer. 
     With this parameter you can access your Galaxy instance via `http://localhost:8080` immediately after executing the command above
     
-- `bebatut/asaim-framework` is the Image/Container name, that directs Docker to the correct path in the [Docker index](https://index.docker.io/u/bgruening/galaxy-rna-workbench/)
+- `quay.io/bebatut/asaim-framework` is the Image/Container name, that directs Docker to the correct path in the [Docker index](https://index.docker.io/u/bgruening/galaxy-rna-workbench/)
 - `-d` will start the Docker container in Daemon mode. 
 
 > A detailed discussion of Docker's parameters is given in the [Docker manual](http://docs.docker.io/). It is really worth reading.
@@ -42,7 +42,7 @@ Nevertheless, here is a quick rundown:
 For an interactive session, you can execute:
 
 ```
-$ docker run -i -t -p 8080:80 bebatut/asaim-framework /bin/bash
+$ docker run -i -t -p 8080:80 quay.io/bebatut/asaim-framework /bin/bash
 ```
 
 and manually invokes the `startup` script to start PostgreSQL, Apache and Galaxy.
@@ -56,7 +56,7 @@ Docker images are "read-only". All changes during one session are lost after res
 To install Tool Shed repositories or to save your data, you need to export the computed data to the host computer. Fortunately, this is as easy as:
 
 ```
-$ docker run -d -p 8080:80 -v /home/user/galaxy_storage/:/export/ bebatut/asaim-framework
+$ docker run -d -p 8080:80 -v /home/user/galaxy_storage/:/export/ quay.io/bebatut/asaim-framework
 ```
 
 Given the additional `-v /home/user/galaxy_storage/:/export/` parameter, Docker will mount the folder `/home/user/galaxy_storage` into the Container under `/export/`. A `startup.sh` script, that is usually starting Apache, PostgreSQL and Galaxy, will recognize the export directory with one of the following outcomes:
