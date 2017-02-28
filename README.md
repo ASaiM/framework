@@ -39,13 +39,25 @@ Nevertheless, here is a quick rundown:
 
 > A detailed discussion of Docker's parameters is given in the [Docker manual](http://docs.docker.io/). It is really worth reading.
 
+### ASaiM use
+
+The previous commands will start the ASaiM framework with the configuration and launch of a Galaxy instance and its population with the needed tools, workflows and databases. The instance will be accessible at [http://localhost:8080](http://localhost:8080).
+
+> Starting the Docker container is long process. You can inspect the state of the starting using:
+> ```
+> $ docker ps # to obtain the id of the container
+> $ docker logs <container_id>
+> ```
+
+### Interactive session
+
 For an interactive session, you can execute:
 
 ```
 $ docker run -i -t -p 8080:80 quay.io/bebatut/asaim-framework /bin/bash
 ```
 
-and manually invokes the `startup` script to start PostgreSQL, Apache and Galaxy.
+and manually invokes the `/usr/bin/launch_galaxy_instance` script to start PostgreSQL, Apache and Galaxy and download the need databases.
 
 > For a more specific configuration, you can have a look at the [documentation of the Galaxy Docker Image](http://bgruening.github.io/docker-galaxy-stable/).
 
@@ -66,16 +78,23 @@ Given the additional `-v /home/user/galaxy_storage/:/export/` parameter, Docker 
 
 This enables you to have different export folders for different sessions - meaning real separation of your different projects.
 
-### ASaiM use
-
-The previous commands will start the ASaiM framework with the configuration and launch of a Galaxy instance and its population with the needed tools, workflows and databases. The instance will be accessible at [http://localhost:8080](http://localhost:8080).
-
 ### Users & Passwords
 
 The Galaxy Admin User has the username `admin@galaxy.org` and the password `admin`.
 
 The PostgreSQL username is `galaxy`, the password `galaxy` and the database name `galaxy`.
 If you want to create new users, please make sure to use the `/export/` volume. Otherwise your user will be removed after your Docker session is finished.
+
+### Stoping ASaiM
+
+Once you are done with the ASaiM framework, you can kill the container:
+
+```
+$ docker ps # to obtain the id of the container
+$ docker kill <container_id>
+```
+
+> The image corresponding to the container will stay in memory. If you want to clean fully your Docker engine, you can follow the [Docker Cleanup Commands](https://www.calazan.com/docker-cleanup-commands/).
 
 # Installation and use without using Docker
 
