@@ -19,7 +19,8 @@ RUN add-tool-shed --url 'http://testtoolshed.g2.bx.psu.edu/' --name 'Test Tool S
 
 # Install tools
 COPY data/chosen_tools/asaim_tools.yml $GALAXY_ROOT/asaim_tools.yml
-RUN install-tools $GALAXY_ROOT/asaim_tools.yml
+RUN install-tools $GALAXY_ROOT/asaim_tools.yml && \
+    /tool_deps/_conda/bin/conda clean --tarballs
 
 # Import workflows
 ADD https://raw.githubusercontent.com/ASaiM/galaxytools/master/workflows/asaim/asaim_main_workflow.ga $GALAXY_ROOT/asaim_main_workflow.ga
