@@ -2,7 +2,7 @@
 #
 # VERSION 0.2
 
-FROM bgruening/galaxy-stable:16.10
+FROM bgruening/galaxy-stable:17.01
 
 MAINTAINER Bérénice Batut, berenice.batut@gmail.com
 
