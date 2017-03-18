@@ -38,6 +38,7 @@ RUN startup_lite && \
 # Add more scripts to prepare and launch Galaxy
 COPY src/prepare_asaim/download_databases.sh /usr/bin/download_databases
 COPY src/prepare_asaim/launch_galaxy_instance.sh /usr/bin/launch_galaxy_instance
+COPY src/prepare_asaim/launch_data_managers.py /usr/bin/launch_data_managers.py
 RUN chmod +x /usr/bin/download_databases
 RUN chmod +x /usr/bin/launch_galaxy_instance
 
