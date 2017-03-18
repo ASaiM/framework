@@ -410,14 +410,6 @@ tools:
   revisions:
   - '31394a0c0242'
 - name: 'export2graphlan'
-  owner: 'bebatut'
-  tool_panel_section_label: 'data_visualization'
-  tool_shed_url: 'https://toolshed.g2.bx.psu.edu/'
-  install_tool_dependencies: false
-  install_resolver_dependencies: true
-  revisions:
-  - 'd7cf3b50a074'
-- name: 'export2graphlan'
   owner: 'iuc'
   tool_panel_section_label: 'data_visualization'
   tool_shed_url: 'https://toolshed.g2.bx.psu.edu/'
