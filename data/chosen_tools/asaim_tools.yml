@@ -311,7 +311,7 @@ tools:
   install_tool_dependencies: false
   install_resolver_dependencies: true
   revisions:
-  - 'df7738595640'
+  - 'fd14bf35c9fd'
 - name: 'bwa'
   owner: 'devteam'
   tool_panel_section_label: 'mapping'
@@ -329,6 +329,14 @@ tools:
   install_resolver_dependencies: true
   revisions:
   - '8991e05c44e4'
+- name: 'suite_metaphlan2'
+  owner: 'iuc'
+  tool_panel_section_label: 'all_seq_taxonomic_assignation'
+  tool_shed_url: 'https://toolshed.g2.bx.psu.edu'
+  install_tool_dependencies: false
+  install_resolver_dependencies: true
+  revisions:
+  - 'ae46e4116c61'
 - name: 'suite_mothur'
   owner: 'saskia-hiltemann'
   tool_panel_section_label: 'mothur'
@@ -361,6 +369,14 @@ tools:
   install_resolver_dependencies: true
   revisions:
   - 'bcd414bb721b'
+- name: 'suite_humann2'
+  owner: 'iuc'
+  tool_panel_section_label: 'metabolic_analysis'
+  tool_shed_url: 'http://toolshed.g2.bx.psu.edu/'
+  install_tool_dependencies: false
+  install_resolver_dependencies: true
+  revisions:
+  - 'da331d1291ed'
 - name: 'group_humann2_uniref_abundances_to_go'
   owner: 'bebatut'
   tool_panel_section_label: 'metabolic_analysis'
@@ -393,14 +409,22 @@ tools:
   install_resolver_dependencies: true
   revisions:
   - '31394a0c0242'
-#- name: 'export2graphlan'
-#  owner: 'bebatut'
-#  tool_panel_section_label: 'data_visualization'
-#  tool_shed_url: 'https://toolshed.g2.bx.psu.edu/'
-#  install_tool_dependencies: false
-#  install_resolver_dependencies: true
-#  revisions:
-#  - 'd7cf3b50a074'
+- name: 'export2graphlan'
+  owner: 'bebatut'
+  tool_panel_section_label: 'data_visualization'
+  tool_shed_url: 'https://toolshed.g2.bx.psu.edu/'
+  install_tool_dependencies: false
+  install_resolver_dependencies: true
+  revisions:
+  - 'd7cf3b50a074'
+- name: 'export2graphlan'
+  owner: 'iuc'
+  tool_panel_section_label: 'data_visualization'
+  tool_shed_url: 'https://toolshed.g2.bx.psu.edu/'
+  install_tool_dependencies: false
+  install_resolver_dependencies: true
+  revisions:
+  - 'ed1becc01910'
 - name: 'graphlan'
   owner: 'bebatut'
   tool_panel_section_label: 'data_visualization'
@@ -409,6 +433,14 @@ tools:
   install_resolver_dependencies: true
   revisions:
   - '83baf73b0e79'
+- name: 'suite_graphlan'
+  owner: 'iuc'
+  tool_panel_section_label: 'data_visualization'
+  tool_shed_url: 'https://toolshed.g2.bx.psu.edu/'
+  install_tool_dependencies: false
+  install_resolver_dependencies: true
+  revisions:
+  - '0e3b8782641c'
 - name: 'taxonomy_krona_chart'
   owner: 'crs4'
   tool_panel_section_label: 'data_visualization'
