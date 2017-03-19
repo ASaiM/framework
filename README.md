@@ -21,6 +21,7 @@ Starting the ASaiM Docker container is analogous to starting the generic Galaxy 
 
 ```
 $ docker run -d -p 8080:80 quay.io/bebatut/asaim-framework
+*container_id*
 ```
 
 Nevertheless, here is a quick rundown: 
@@ -38,6 +39,14 @@ Nevertheless, here is a quick rundown:
 - `-d` will start the Docker container in Daemon mode. 
 
 > A detailed discussion of Docker's parameters is given in the [Docker manual](http://docs.docker.io/). It is really worth reading.
+
+The Docker container is run: Galaxy will be launched. Setting up Galaxy and its components can take several minutes. You can check the status of Galaxy deployment with `$ docker logs *container_id*`
+
+Once Galaxy is running, the databases for tools must be installed:
+
+```
+$ docker exec *container_id* /usr/bin/download_tool_db
+```
 
 ### ASaiM use
 
