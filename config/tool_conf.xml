@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='utf-8'?>
+<toolbox>
+    <label text="MANIPULATION TOOLS" id="manipulation" />
+        <section id="getext" name="Get Data">
+            <tool file="data_source/upload.xml" />
+        </section>
+        <section id="text_manipulation" name="Manipulate files">
+            <tool file="filters/pasteWrapper.xml" />
+            <tool file="filters/randomlines.xml" />
+            <tool file="filters/wc_gnu.xml" />
+            <tool file="stats/filtering.xml" />
+            <tool file="filters/sorter.xml" />
+            <tool file="filters/grep.xml" />
+            <tool file="filters/joiner.xml" />
+            <tool file="filters/compare.xml" />
+            <tool file="stats/grouping.xml" />
+        </section>
+        <section id="seq_manipulation" name="Manipulate sequence files" />
+        <section id="bam_sam_manipulation" name="Manipulate BAM/SAM files" />
+        <section id="biom_manipulation" name="Manipulate biom files" />
+    <label text="PREPROCESSING TOOLS" id="prepocessing" />
+        <section id="paired_end_assembly" name="Assemble paired-end sequences" />
+        <section id="quality_control" name="Control quality" />
+        <section id="vsearch" name="VSEARCH Tool Suite" />
+        <section id="sequence_clustering" name="Cluster sequences" />
+        <section id="rna_sorting" name="Sort rRNA/rDNA" />
+    <label text="STRUCTURAL AND FUNCTIONAL ANALYSIS TOOLS" id="structural_functional_analysis" />
+        <section id="similarity_search" name="Search similarity" />
+        <section id="mapping" name="Map against reference genomes" />
+        <section id="all_seq_taxonomic_assignation" name="Assign taxonomy on all sequence type" />
+        <section id="mothur" name="Mothur Tool Suite" />
+        <section id="metabolic_analysis" name="Analyze metabolism" />
+        <section id="combine_taxo_func" name="Combine functional and taxonomic results" />
+    <label text="VISUALIZATION, STATISTICS AND COMPARATIVE ANALYSIS TOOLS" id="posttreatments" />
+        <section id="data_visualization" name="Visualize data" />
+        <section id="statistical_tests" name="Compute statistics" />
+</toolbox>

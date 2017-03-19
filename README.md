@@ -107,7 +107,13 @@ Sometimes Docker can not be used for some system configuration. We then provided
 Clone the repository
 
 ```
-git clone https://github.com/ASaiM/framework.git
+$ git clone https://github.com/ASaiM/framework.git
+```
+
+Move to the `installation_without_docker` directory
+
+```
+$ cd installation_without_docker
 ```
 
 ### Requirements
@@ -130,7 +136,7 @@ Some tools must be installed:
 For Debian, RHEL and MacOSX, all dependencies can be installed by running:
 
 ```
-./src/install_dependencies.sh
+$ ./src/install_dependencies.sh
 ```
 
 **Note:** `apt-get` is required for Debian, `yum` for RHEL and `homebrew` and `MacPorts` for MacOSX.
