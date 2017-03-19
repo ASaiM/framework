@@ -29,19 +29,15 @@ def check_job_state(gi, job_id):
 
 
 if __name__ == '__main__':
-    admin_email = os.environ.get(
-        'GALAXY_DEFAULT_ADMIN_USER',
-        'admin@galaxy.org')
-    admin_pass = os.environ.get(
-        'GALAXY_DEFAULT_ADMIN_PASSWORD',
-        'admin')
-    url = "http://localhost:8080"
-    gi = galaxy.GalaxyInstance(url=url, email=admin_email, password=admin_pass)
+    url = "http://localhost:80"
+    key = "admin"
+    gi = galaxy.GalaxyInstance(url=url, key=key)
     #gi = galaxy.GalaxyInstance(url="http://132.230.153.43:8080/", key="admin")
 
     hist = gi.histories.create_history("Download from data managers")
 
     # Download database for metaphlan2
+    print("Install MetaPhlAn2 database")
     metaphlan2_dm = gi.tools.get_tools(name="MetaPhlAn2 download")[0]
     tool_inputs = {
         "database": "db_v20"
@@ -55,6 +51,7 @@ if __name__ == '__main__':
     # Download databases for humann2
     humann2_dm = gi.tools.get_tools(name="HUMAnN2 download")[0]
     ## Nucleotide database: full chocophlan
+    print("Install HUMAnN2 nucleotide database")
     tool_inputs = {
         "database": "chocophlan",
         "build": "full"
@@ -65,6 +62,7 @@ if __name__ == '__main__':
         tool_inputs)
     check_job_state(gi, humann2_full_chocophlan_dm_exect["jobs"][0]["id"])
     ## Protein database: full uniref90
+    print("Install HUMAnN2 protein databases")
     tool_inputs = {
         "database": "uniref",
         "build": "uniref90_diamond"
