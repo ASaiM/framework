@@ -44,6 +44,3 @@ RUN chmod +x /usr/bin/download_tool_db
 COPY config/welcome.html $GALAXY_CONFIG_DIR/web/welcome.html
 COPY config/asaim_logo.svg $GALAXY_CONFIG_DIR/web/asaim_logo.svg
 RUN sed -i.bak 's/images\/asaim_logo/asaim_logo/' $GALAXY_CONFIG_DIR/web/welcome.html 
-
-# To launch during container start
-CMD ["/usr/bin/launch_galaxy_instance"]
