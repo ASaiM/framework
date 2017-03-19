@@ -29,7 +29,7 @@ echo ""
 echo ""
 echo "Prepare MetaPhlan2 and HUMAnN2 db"
 echo ""
-"src/prepare_asaim/download_databases.sh"
+python launch_data_manangers.py
 
 # Prepare MetaPhlAn db
 #mkdir /databases/db_v20
