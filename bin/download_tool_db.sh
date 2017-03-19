@@ -29,7 +29,7 @@ echo ""
 echo ""
 echo "Prepare MetaPhlan2 and HUMAnN2 db"
 echo ""
-python /usr/bin/launch_data_manangers.py
+python /usr/bin/launch_data_managers.py
 
 # Prepare MetaPhlAn db
 #mkdir /databases/db_v20
