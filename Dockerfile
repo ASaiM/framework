@@ -36,7 +36,7 @@ RUN startup_lite && \
     python $GALAXY_ROOT/import_workflows.py
 
 # Add more scripts to prepare and launch Galaxy
-COPY bin/download_tool_db.sh /usr/bin/download_databases
+COPY bin/download_tool_db.sh /usr/bin/download_tool_db
 COPY src/launch_data_managers.py /usr/bin/launch_data_managers.py
 RUN chmod +x /usr/bin/download_tool_db
 
