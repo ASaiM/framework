@@ -40,12 +40,12 @@ Nevertheless, here is a quick rundown:
 
 > A detailed discussion of Docker's parameters is given in the [Docker manual](http://docs.docker.io/). It is really worth reading.
 
-The Docker container is run: Galaxy will be launched. Setting up Galaxy and its components can take several minutes. You can check the status of Galaxy deployment with `$ docker logs *container_id*`
+The Docker container is run: Galaxy will be launched. Setting up Galaxy and its components can take several minutes. You can check the status of Galaxy deployment with `$ docker logs <container_id>`
 
 Once Galaxy is running, the databases for tools must be installed:
 
 ```
-$ docker exec *container_id* /usr/bin/download_tool_db
+$ docker exec <container_id> /usr/bin/download_tool_db
 ```
 
 ### ASaiM use
@@ -57,6 +57,34 @@ The previous commands will start the ASaiM framework with the configuration and 
 > $ docker ps # to obtain the id of the container
 > $ docker logs <container_id>
 > ```
+
+#### Workflows
+
+To access to the workflows, you need to connect with the admin user (username: `admin@galaxy.org`, password: `admin`). And you will have access to the workflows in the 'Workflow' section (Top panel)
+
+#### Databases
+
+1 database and 3 databases are automatically added to the Galaxy instance for MetaPhlAn2 and HUMAnN2 (if you ran the `docker exec <container_id> /usr/bin/download_tool_db` command). 
+Sometimes the databases are not correctly seen by the tools. If it is the case, you need to force the connection between the tool and the database:
+
+- Connect with the admin user: 
+    - username `admin@galaxy.org` 
+    - password `admin`
+- Go to the 'Admin' section (Top panel)
+- Go to 'Local data' section (Left panel)
+- Click on `humann2_nucleotide_database`, `humann2_protein_database` or `metaphlan2_database` (depending on the database)
+- Click on the 'Reload button' on the top
+    
+    The table must be filled
+
+If you want other databases for HUMAnN2, you can install them "manually":
+
+- Connect with the admin user: 
+    - username `admin@galaxy.org` 
+    - password `admin`
+- Go to the 'Admin' section (Top panel)
+- Go to 'Local data' section (Left panel)
+- Click on 'HUMAnN2 download' and choose the database you want to import
 
 ### Interactive session
 
