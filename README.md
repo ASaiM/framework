@@ -222,7 +222,7 @@ $ ./src/prepare_asaim/populate_galaxy.sh
 
 Available tools and workflows in ASaiM framework are described in the documentation available at [http://asaim.readthedocs.org/](http://asaim.readthedocs.org/en/latest/framework/index.html).
 
-Moreover, [a tutorial](http://asaim.readthedocs.org/en/latest/framework/tutorial/index.html) explains how to use ASaiM framework to analyze metagenomic sequences of microbiota to obtain taxonomic and functional assignations of sequences.
+Moreover, [a tutorial](https://asaim.readthedocs.io/en/latest/tutorial/index.html) explains how to use ASaiM framework to analyze metagenomic sequences of microbiota to obtain taxonomic and functional assignations of sequences.
 
 # Bug Reports
 
