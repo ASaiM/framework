@@ -19,21 +19,22 @@ RUN add-tool-shed --url 'http://testtoolshed.g2.bx.psu.edu/' --name 'Test Tool S
 
 # Install tools
 COPY config/asaim_tools.yml $GALAXY_ROOT/asaim_tools.yml
-RUN install-tools $GALAXY_ROOT/asaim_tools.yml && \
-    /tool_deps/_conda/bin/conda clean --tarballs
+RUN install-tools $GALAXY_ROOT/asaim_tools.yaml && \
+    /tool_deps/_conda/bin/conda clean --tarballs --yes > /dev/null && \
+    rm /export/galaxy-central/ -rf && \
+    mkdir -p $GALAXY_HOME/workflows
 
 # Import workflows
-ADD https://raw.githubusercontent.com/ASaiM/galaxytools/master/workflows/asaim/asaim_main_workflow.ga $GALAXY_ROOT/asaim_main_workflow.ga
-ADD https://raw.githubusercontent.com/ASaiM/galaxytools/master/workflows/asaim/asaim_taxonomic_result_comparative_analysis.ga $GALAXY_ROOT/asaim_taxonomic_result_comparative_analysis.ga
-ADD https://raw.githubusercontent.com/ASaiM/galaxytools/master/workflows/asaim/asaim_functional_result_comparative_analysis.ga $GALAXY_ROOT/asaim_functional_result_comparative_analysis.ga
-ADD https://raw.githubusercontent.com/ASaiM/galaxytools/master/workflows/asaim/asaim_go_slim_terms_comparative_analysis.ga $GALAXY_ROOT/asaim_go_slim_terms_comparative_analysis.ga
-ADD https://raw.githubusercontent.com/ASaiM/galaxytools/master/workflows/asaim/asaim_taxonomically_related_functional_result_comparative_analysis.ga $GALAXY_ROOT/asaim_taxonomically_related_functional_result_comparative_analysis.ga
-COPY src/import_workflows.py $GALAXY_ROOT/import_workflows.py
+ADD https://raw.githubusercontent.com/ASaiM/galaxytools/master/workflows/asaim/asaim_main_workflow.ga $GALAXY_ROOT/workflows/asaim_main_workflow.ga
+ADD https://raw.githubusercontent.com/ASaiM/galaxytools/master/workflows/asaim/asaim_taxonomic_result_comparative_analysis.ga $GALAXY_ROOT/workflows/asaim_taxonomic_result_comparative_analysis.ga
+ADD https://raw.githubusercontent.com/ASaiM/galaxytools/master/workflows/asaim/asaim_functional_result_comparative_analysis.ga $GALAXY_ROOT/workflows/asaim_functional_result_comparative_analysis.ga
+ADD https://raw.githubusercontent.com/ASaiM/galaxytools/master/workflows/asaim/asaim_go_slim_terms_comparative_analysis.ga $GALAXY_ROOT/workflows/asaim_go_slim_terms_comparative_analysis.ga
+ADD https://raw.githubusercontent.com/ASaiM/galaxytools/master/workflows/asaim/asaim_taxonomically_related_functional_result_comparative_analysis.ga $GALAXY_ROOT/workflows/asaim_taxonomically_related_functional_result_comparative_analysis.ga
 
 RUN startup_lite && \
     sleep 30 && \
-    . $GALAXY_VIRTUAL_ENV/bin/activate && \
-    python $GALAXY_ROOT/import_workflows.py
+    pip install ephemeris -U && \
+    workflow-install --workflow_path $GALAXY_HOME/workflows/ -g http://localhost:8080 -u $GALAXY_DEFAULT_ADMIN_USER -p $GALAXY_DEFAULT_ADMIN_PASSWORD
 
 # Add more scripts to prepare and launch Galaxy
 COPY bin/download_tool_db.sh /usr/bin/download_tool_db
