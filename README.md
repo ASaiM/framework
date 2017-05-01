@@ -66,7 +66,7 @@ For an interactive session, you can execute:
 $ docker run -i -t -p 8080:80 quay.io/bebatut/asaim-framework /bin/bash
 ```
 
-and manually invokes the `/usr/bin/launch_galaxy_instance` script to start PostgreSQL, Apache and Galaxy and download the need databases.
+and manually invokes the `startup` script to start PostgreSQL, Apache and Galaxy and download the need databases.
 
 > For a more specific configuration, you can have a look at the [documentation of the Galaxy Docker Image](http://bgruening.github.io/docker-galaxy-stable/).
 
