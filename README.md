@@ -94,7 +94,7 @@ For an interactive session, you can execute:
 $ docker run -i -t -p 8080:80 quay.io/bebatut/asaim-framework /bin/bash
 ```
 
-and manually invokes the `/usr/bin/launch_galaxy_instance` script to start PostgreSQL, Apache and Galaxy and download the need databases.
+and manually invokes the `startup` script to start PostgreSQL, Apache and Galaxy and download the need databases.
 
 > For a more specific configuration, you can have a look at the [documentation of the Galaxy Docker Image](http://bgruening.github.io/docker-galaxy-stable/).
 
@@ -250,7 +250,7 @@ $ ./src/prepare_asaim/populate_galaxy.sh
 
 Available tools and workflows in ASaiM framework are described in the documentation available at [http://asaim.readthedocs.org/](http://asaim.readthedocs.org/en/latest/framework/index.html).
 
-Moreover, [a tutorial](http://asaim.readthedocs.org/en/latest/framework/tutorial/index.html) explains how to use ASaiM framework to analyze metagenomic sequences of microbiota to obtain taxonomic and functional assignations of sequences.
+Moreover, [a tutorial](https://asaim.readthedocs.io/en/latest/tutorial/index.html) explains how to use ASaiM framework to analyze metagenomic sequences of microbiota to obtain taxonomic and functional assignations of sequences.
 
 # Bug Reports
 
