@@ -66,7 +66,8 @@ To access to the workflows, you need to connect with the admin user (username: `
 
 #### Databases
 
-1 database and 3 databases are automatically added to the Galaxy instance for MetaPhlAn2 and HUMAnN2 (if you ran the `docker exec <container_id> /usr/bin/download_tool_db` command). 
+Databases are automatically added to the Galaxy instance for MetaPhlAn2, HUMAnN2 and QIIME.
+
 Sometimes the databases are not correctly seen by the tools. If it is the case, you need to force the connection between the tool and the database:
 
 - Connect with the admin user: 
@@ -79,14 +80,14 @@ Sometimes the databases are not correctly seen by the tools. If it is the case, 
     
     The table must be filled
 
-If you want other databases for HUMAnN2, you can install them "manually":
+If you want other databases for HUMAnN2 or QIIME, you can install them "manually":
 
 - Connect with the admin user: 
     - username `admin@galaxy.org` 
     - password `admin`
 - Go to the 'Admin' section (Top panel)
 - Go to 'Local data' section (Left panel)
-- Click on 'HUMAnN2 download' and choose the database you want to import
+- Click on 'HUMAnN2 download' (or 'Download QIIME') and choose the database you want to import
 
 ### Interactive session
 
