@@ -1,14 +1,2 @@
-# Virtual env
-.venv/*
-
-# Config 
-proftpd.conf
-
-# Lib (galaxy, ansible playbook, ...)
-lib/*
-
-# Data/db
-data/db/cog/raw_data/*
-data/db/cog/extracted_data/*
-data/db/cog/humann_formated_data/*
+.DS_Store
 
