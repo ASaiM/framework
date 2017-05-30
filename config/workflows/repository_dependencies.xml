@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<repositories description="This workflow requires a number of different repositories.">
+    <repository name="normalize_dataset" owner="bebatut" />
+    <repository name="column_maker" owner="devteam" />
+    <repository name="extract_min_max_lines" owner="bebatut" />
+    <repository name="cut_columns" owner="devteam" />
+    <repository name="remove_beginning" owner="devteam" />
+    <repository name="convert_extract_sequence_file" owner="bebatut" />
+
+    <repository name="prinseq" owner="iuc" />
+    <repository name="vsearch" owner="iuc" />
+    <repository name="sortmerna" owner="rnateam" />
+
+    <repository name="metaphlan2" owner="bebatut" />
+    <repository name="format_metaphlan2_output" owner="bebatut" />
+    <repository name="humann2" owner="bebatut" />
+    <repository name="compare_humann2_output" owner="bebatut" />
+    <repository name="combine_metaphlan2_humann2" owner="bebatut" />
+    <repository name="group_humann2_uniref_abundances_to_go" owner="bebatut" />
+
+    <repository name="export2graphlan" owner="bebatut" />
+    <repository name="graphlan" owner="bebatut" />
+    <repository name="taxonomy_krona_chart" owner="crs4" />
+    <repository name="plot_barplot" owner="bebatut" />
+    <repository name="plot_grouped_barplot" owner="bebatut" />
+    <repository name="plot_generic_x_y_plot" owner="bebatut" />
+    <repository name="histogram" owner="devteam" />
+
+</repositories>

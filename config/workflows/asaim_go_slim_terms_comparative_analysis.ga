@@ -1,0 +1,367 @@
+{
+    "a_galaxy_workflow": "true",
+    "annotation": "",
+    "format-version": "0.1",
+    "name": "Compare GO slim terms between two datasets", 
+    "steps": {
+        "0": {
+            "annotation": "",
+            "content_id": null,
+            "id": 0,
+            "input_connections": {},
+            "inputs": [
+                {
+                    "description": "",
+                    "name": "First dataset"
+                }
+            ],
+            "label": null,
+            "name": "Input dataset",
+            "outputs": [],
+            "position": {
+                "left": 200,
+                "top": 376
+            },
+            "tool_errors": null,
+            "tool_id": null,
+            "tool_state": "{\"name\": \"First dataset\"}",
+            "tool_version": null,
+            "type": "data_input",
+            "uuid": "cbc40831-26c7-45b7-9198-008dc60906d0",
+            "workflow_outputs": []
+        },
+        "1": {
+            "annotation": "",
+            "content_id": null,
+            "id": 1,
+            "input_connections": {},
+            "inputs": [
+                {
+                    "description": "",
+                    "name": "Second dataset"
+                }
+            ],
+            "label": null,
+            "name": "Input dataset",
+            "outputs": [],
+            "position": {
+                "left": 245,
+                "top": 493
+            },
+            "tool_errors": null,
+            "tool_id": null,
+            "tool_state": "{\"name\": \"Second dataset\"}",
+            "tool_version": null,
+            "type": "data_input",
+            "uuid": "11467b9a-e69d-4746-9f3c-3f2b8d54a577",
+            "workflow_outputs": []
+        },
+        "2": {
+            "annotation": "",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/devteam/remove_beginning/Remove beginning1/1.0.0",
+            "id": 2,
+            "input_connections": {
+                "input": {
+                    "id": 0,
+                    "output_name": "output"
+                }
+            },
+            "inputs": [],
+            "label": null,
+            "name": "Remove beginning",
+            "outputs": [
+                {
+                    "name": "out_file1",
+                    "type": "input"
+                }
+            ],
+            "position": {
+                "left": 471,
+                "top": 372
+            },
+            "post_job_actions": {},
+            "tool_errors": null,
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/devteam/remove_beginning/Remove beginning1/1.0.0",
+            "tool_shed_repository": {
+                "changeset_revision": "b3d762515db4",
+                "name": "remove_beginning",
+                "owner": "devteam",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"__page__\": 0, \"num_lines\": \"\\\"1\\\"\", \"__rerun_remap_job_id__\": null, \"__workflow_invocation_uuid__\": \"\\\"a034d4e2eac411e588e4549f3523f2a6\\\"\", \"input\": \"null\", \"chromInfo\": \"\\\"/home/cidam/Berenice/asaim/framework/lib/galaxy-dev/tool-data/shared/ucsc/chrom/?.len\\\"\"}",
+            "tool_version": "1.0.0",
+            "type": "tool",
+            "uuid": "aef8bca3-f03a-4316-afcb-154d23555320",
+            "workflow_outputs": []
+        },
+        "3": {
+            "annotation": "",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/devteam/remove_beginning/Remove beginning1/1.0.0",
+            "id": 3,
+            "input_connections": {
+                "input": {
+                    "id": 1,
+                    "output_name": "output"
+                }
+            },
+            "inputs": [],
+            "label": null,
+            "name": "Remove beginning",
+            "outputs": [
+                {
+                    "name": "out_file1",
+                    "type": "input"
+                }
+            ],
+            "position": {
+                "left": 467,
+                "top": 493
+            },
+            "post_job_actions": {},
+            "tool_errors": null,
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/devteam/remove_beginning/Remove beginning1/1.0.0",
+            "tool_shed_repository": {
+                "changeset_revision": "b3d762515db4",
+                "name": "remove_beginning",
+                "owner": "devteam",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"__page__\": 0, \"num_lines\": \"\\\"1\\\"\", \"__rerun_remap_job_id__\": null, \"__workflow_invocation_uuid__\": \"\\\"a034d4e2eac411e588e4549f3523f2a6\\\"\", \"input\": \"null\", \"chromInfo\": \"\\\"/home/cidam/Berenice/asaim/framework/lib/galaxy-dev/tool-data/shared/ucsc/chrom/?.len\\\"\"}",
+            "tool_version": "1.0.0",
+            "type": "tool",
+            "uuid": "1a2744d5-c246-4d1c-a77c-7c407894db14",
+            "workflow_outputs": []
+        },
+        "4": {
+            "annotation": "",
+            "content_id": "comp1",
+            "id": 4,
+            "input_connections": {
+                "input1": {
+                    "id": 2,
+                    "output_name": "out_file1"
+                },
+                "input2": {
+                    "id": 3,
+                    "output_name": "out_file1"
+                }
+            },
+            "inputs": [],
+            "label": null,
+            "name": "Compare two Datasets",
+            "outputs": [
+                {
+                    "name": "out_file1",
+                    "type": "input"
+                }
+            ],
+            "position": {
+                "left": 833,
+                "top": 200
+            },
+            "post_job_actions": {},
+            "tool_errors": null,
+            "tool_id": "comp1",
+            "tool_state": "{\"input2\": \"null\", \"__page__\": 0, \"input1\": \"null\", \"field2\": \"\\\"1\\\"\", \"__rerun_remap_job_id__\": null, \"field1\": \"\\\"1\\\"\", \"__workflow_invocation_uuid__\": \"\\\"a034d4e2eac411e588e4549f3523f2a6\\\"\", \"mode\": \"\\\"V\\\"\", \"chromInfo\": \"\\\"/home/cidam/Berenice/asaim/framework/lib/galaxy-dev/tool-data/shared/ucsc/chrom/?.len\\\"\"}",
+            "tool_version": "1.0.2",
+            "type": "tool",
+            "uuid": "f7edc1d9-73a3-466d-94f7-226be0468fc5",
+            "workflow_outputs": []
+        },
+        "5": {
+            "annotation": "",
+            "content_id": "comp1",
+            "id": 5,
+            "input_connections": {
+                "input1": {
+                    "id": 3,
+                    "output_name": "out_file1"
+                },
+                "input2": {
+                    "id": 2,
+                    "output_name": "out_file1"
+                }
+            },
+            "inputs": [],
+            "label": null,
+            "name": "Compare two Datasets",
+            "outputs": [
+                {
+                    "name": "out_file1",
+                    "type": "input"
+                }
+            ],
+            "position": {
+                "left": 864,
+                "top": 483
+            },
+            "post_job_actions": {},
+            "tool_errors": null,
+            "tool_id": "comp1",
+            "tool_state": "{\"input2\": \"null\", \"__page__\": 0, \"input1\": \"null\", \"field2\": \"\\\"1\\\"\", \"__rerun_remap_job_id__\": null, \"field1\": \"\\\"1\\\"\", \"__workflow_invocation_uuid__\": \"\\\"a034d4e2eac411e588e4549f3523f2a6\\\"\", \"mode\": \"\\\"V\\\"\", \"chromInfo\": \"\\\"/home/cidam/Berenice/asaim/framework/lib/galaxy-dev/tool-data/shared/ucsc/chrom/?.len\\\"\"}",
+            "tool_version": "1.0.2",
+            "type": "tool",
+            "uuid": "12de840c-4fd2-43bb-ac2b-a414f971cd5d",
+            "workflow_outputs": []
+        },
+        "6": {
+            "annotation": "",
+            "content_id": "join1",
+            "id": 6,
+            "input_connections": {
+                "input1": {
+                    "id": 2,
+                    "output_name": "out_file1"
+                },
+                "input2": {
+                    "id": 3,
+                    "output_name": "out_file1"
+                }
+            },
+            "inputs": [],
+            "label": null,
+            "name": "Join two Datasets",
+            "outputs": [
+                {
+                    "name": "out_file1",
+                    "type": "input"
+                }
+            ],
+            "position": {
+                "left": 977,
+                "top": 796
+            },
+            "post_job_actions": {},
+            "tool_errors": null,
+            "tool_id": "join1",
+            "tool_state": "{\"input2\": \"null\", \"__page__\": 0, \"field1\": \"\\\"1\\\"\", \"partial\": \"\\\"\\\"\", \"field2\": \"\\\"1\\\"\", \"__rerun_remap_job_id__\": null, \"fill_empty_columns\": \"{\\\"fill_empty_columns_switch\\\": \\\"no_fill\\\", \\\"__current_case__\\\": 0}\", \"__workflow_invocation_uuid__\": \"\\\"a034d4e2eac411e588e4549f3523f2a6\\\"\", \"input1\": \"null\", \"unmatched\": \"\\\"\\\"\", \"chromInfo\": \"\\\"/home/cidam/Berenice/asaim/framework/lib/galaxy-dev/tool-data/shared/ucsc/chrom/?.len\\\"\"}",
+            "tool_version": "2.0.2",
+            "type": "tool",
+            "uuid": "6360f3a6-b40d-4e5d-ac5d-f03ec7ab5bae",
+            "workflow_outputs": []
+        },
+        "7": {
+            "annotation": "",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/devteam/cut_columns/Cut1/1.0.1",
+            "id": 7,
+            "input_connections": {
+                "input": {
+                    "id": 6,
+                    "output_name": "out_file1"
+                }
+            },
+            "inputs": [],
+            "label": null,
+            "name": "Cut",
+            "outputs": [
+                {
+                    "name": "out_file1",
+                    "type": "tabular"
+                }
+            ],
+            "position": {
+                "left": 1246,
+                "top": 931
+            },
+            "post_job_actions": {},
+            "tool_errors": null,
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/devteam/cut_columns/Cut1/1.0.1",
+            "tool_shed_repository": {
+                "changeset_revision": "842fab69c940",
+                "name": "cut_columns",
+                "owner": "devteam",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"__page__\": 0, \"__rerun_remap_job_id__\": null, \"__workflow_invocation_uuid__\": \"\\\"a034d4e2eac411e588e4549f3523f2a6\\\"\", \"delimiter\": \"\\\"T\\\"\", \"columnList\": \"\\\"c1,c2,c3,c6\\\"\", \"input\": \"null\", \"chromInfo\": \"\\\"/home/cidam/Berenice/asaim/framework/lib/galaxy-dev/tool-data/shared/ucsc/chrom/?.len\\\"\"}",
+            "tool_version": "1.0.1",
+            "type": "tool",
+            "uuid": "e0ccb0a3-b82a-4f6e-ba16-8e1283f61bd4",
+            "workflow_outputs": []
+        },
+        "8": {
+            "annotation": "",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/bebatut/normalize_dataset/normalize_dataset/0.1.0",
+            "id": 8,
+            "input_connections": {
+                "input_file": {
+                    "id": 7,
+                    "output_name": "out_file1"
+                }
+            },
+            "inputs": [],
+            "label": null,
+            "name": "Normalize a dataset by",
+            "outputs": [
+                {
+                    "name": "output_file",
+                    "type": "tabular"
+                }
+            ],
+            "position": {
+                "left": 1448,
+                "top": 1045.5
+            },
+            "post_job_actions": {},
+            "tool_errors": null,
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/bebatut/normalize_dataset/normalize_dataset/0.1.0",
+            "tool_shed_repository": {
+                "changeset_revision": "72633301cc0d",
+                "name": "normalize_dataset",
+                "owner": "bebatut",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"__page__\": 0, \"__rerun_remap_job_id__\": null, \"format\": \"\\\"percentage\\\"\", \"normalization\": \"\\\"column\\\"\", \"input_file\": \"null\"}",
+            "tool_version": "0.1.0",
+            "type": "tool",
+            "uuid": "08f94ce8-e8b8-4225-86ba-d90a55c24451",
+            "workflow_outputs": []
+        },
+        "9": {
+            "annotation": "",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/bebatut/plot_grouped_barplot/plot_grouped_barplot/0.1.0",
+            "id": 9,
+            "input_connections": {
+                "input_file": {
+                    "id": 8,
+                    "output_name": "output_file"
+                }
+            },
+            "inputs": [],
+            "label": null,
+            "name": "Plot grouped barplot",
+            "outputs": [
+                {
+                    "name": "output_pdf_file",
+                    "type": "pdf"
+                },
+                {
+                    "name": "output_png_file",
+                    "type": "png"
+                },
+                {
+                    "name": "output_svg_file",
+                    "type": "svg"
+                }
+            ],
+            "position": {
+                "left": 1694.5,
+                "top": 1133.5
+            },
+            "post_job_actions": {},
+            "tool_errors": null,
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/bebatut/plot_grouped_barplot/plot_grouped_barplot/0.1.0",
+            "tool_shed_repository": {
+                "changeset_revision": "6c9aac0d6ca2",
+                "name": "plot_grouped_barplot",
+                "owner": "bebatut",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"replace_null\": \"\\\"true\\\"\", \"xlab\": \"\\\"Abundance in percentage\\\"\", \"bottom_margin\": \"\\\"5\\\"\", \"log\": \"\\\"false\\\"\", \"input_file\": \"null\", \"__page__\": 0, \"names_column\": \"\\\"2\\\"\", \"output_format\": \"\\\"pdf\\\"\", \"right_margin\": \"\\\"1\\\"\", \"top_margin\": \"\\\"1\\\"\", \"left_margin\": \"\\\"19\\\"\", \"header\": \"\\\"false\\\"\", \"__rerun_remap_job_id__\": null, \"samples\": \"[{\\\"color\\\": \\\"blue\\\", \\\"__index__\\\": 0, \\\"name\\\": \\\"First dataset\\\", \\\"column_id\\\": \\\"3\\\"}, {\\\"color\\\": \\\"green\\\", \\\"__index__\\\": 1, \\\"name\\\": \\\"Second dataset\\\", \\\"column_id\\\": \\\"4\\\"}]\", \"legend_pos\": \"\\\"topright\\\"\", \"order\": \"\\\"true\\\"\"}",
+            "tool_version": "0.1.0",
+            "type": "tool",
+            "uuid": "38e3a8ec-ca9d-41ab-b156-86424a8d01c8",
+            "workflow_outputs": []
+        }
+    },
+    "uuid": "6d227b9f-c5ee-48e9-9f5c-141c2ccfaa6c"
+}
