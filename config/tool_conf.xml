@@ -1,10 +1,10 @@
 <?xml version='1.0' encoding='utf-8'?>
 <toolbox>
-    <label text="MANIPULATION TOOLS" id="manipulation" />
-        <section id="getext" name="Get Data">
+    <label text="FILE AND META TOOLS" id="file_meta_tools" />
+        <section id="data_retrieval" name="Data retrieval">
             <tool file="data_source/upload.xml" />
         </section>
-        <section id="text_manipulation" name="Manipulate files">
+        <section id="text_manipulation" name="Text manipulation">
             <tool file="filters/pasteWrapper.xml" />
             <tool file="filters/randomlines.xml" />
             <tool file="filters/wc_gnu.xml" />
@@ -15,23 +15,21 @@
             <tool file="filters/compare.xml" />
             <tool file="stats/grouping.xml" />
         </section>
-        <section id="seq_manipulation" name="Manipulate sequence files" />
-        <section id="bam_sam_manipulation" name="Manipulate BAM/SAM files" />
-        <section id="biom_manipulation" name="Manipulate biom files" />
-    <label text="PREPROCESSING TOOLS" id="prepocessing" />
-        <section id="paired_end_assembly" name="Assemble paired-end sequences" />
-        <section id="quality_control" name="Control quality" />
-        <section id="vsearch" name="VSEARCH Tool Suite" />
-        <section id="sequence_clustering" name="Cluster sequences" />
-        <section id="rna_sorting" name="Sort rRNA/rDNA" />
-    <label text="STRUCTURAL AND FUNCTIONAL ANALYSIS TOOLS" id="structural_functional_analysis" />
-        <section id="similarity_search" name="Search similarity" />
-        <section id="mapping" name="Map against reference genomes" />
-        <section id="all_seq_taxonomic_assignation" name="Assign taxonomy on all sequence type" />
-        <section id="mothur" name="Mothur Tool Suite" />
-        <section id="metabolic_analysis" name="Analyze metabolism" />
-        <section id="combine_taxo_func" name="Combine functional and taxonomic results" />
-    <label text="VISUALIZATION, STATISTICS AND COMPARATIVE ANALYSIS TOOLS" id="posttreatments" />
-        <section id="data_visualization" name="Visualize data" />
-        <section id="statistical_tests" name="Compute statistics" />
+        <section id="seq_manipulation" name="Sequence file manipulation" />
+        <section id="bam_sam_manipulation" name="BAM/SAM file manipulation" />
+        <section id="biom_manipulation" name="BIOM file manipulation" />
+    <label text="GENOMICS TOOLS" id="genomics_tools" />
+        <section id="assembly" name="Assembly" />
+        <section id="quality_control" name="Quality control" />
+        <section id="clustering" name="Clustering" />
+        <section id="sorting" name="Sorting" />
+        <section id="similarity_search" name="Similarity search" />
+        <section id="mapping" name="Mapping" />
+    <label text="STRUCTURAL AND FUNCTIONAL ANALYSIS TOOLS" id="structural_functional_analysis_tools" />
+        <section id="metagenomics_manipulation" name="Metagenomics data manipulation" />
+        <section id="amplicon_sequence_processing" name="Amplicon sequence processing" />
+        <section id="wgs_taxonomic_assignations" name="Taxonomy assignation on WGS sequences" />
+        <section id="metabolism_assignation" name="Metabolism assignation" />
+        <section id="combination_taxo_func" name="Combination of functional and taxonomic results" />
+        <section id="visualization" name="Visualization" />
 </toolbox>
