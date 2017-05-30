@@ -1,6 +1,8 @@
 ASaiM framework
 ===============
 
+[![Docker Repository on Quay](https://quay.io/repository/bebatut/asaim-framework/status "Docker Repository on Quay")](https://quay.io/repository/bebatut/asaim-framework)
+
 ASaiM framework is an open-source opinionated Galaxy-based framework. It integrates tools, specifically chosen for metagenomic and metatranscriptomic studies and hierarchically organized to orient user choice toward the best tool for a given task.
 
 Details about this framework is available on a dedicated documentation available at [http://asaim.readthedocs.org/](http://asaim.readthedocs.org/).
