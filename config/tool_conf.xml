@@ -25,6 +25,7 @@
         <section id="sorting" name="Sorting" />
         <section id="similarity_search" name="Similarity search" />
         <section id="mapping" name="Mapping" />
+        <section id="alignment" name="Alignment" />
     <label text="STRUCTURAL AND FUNCTIONAL ANALYSIS TOOLS" id="structural_functional_analysis_tools" />
         <section id="metagenomics_manipulation" name="Metagenomics data manipulation" />
         <section id="amplicon_sequence_processing" name="Amplicon sequence processing" />

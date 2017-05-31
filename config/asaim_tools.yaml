@@ -143,6 +143,10 @@ tools:
   owner: 'bgruening'
   tool_panel_section_label: 'quality_control'
 
+- name: 'trimmomatic'
+  owner: 'pjbriggs'
+  tool_panel_section_label: 'quality_control'
+
 # clustering
 - name: 'cdhit'
   owner: 'bebatut'
@@ -174,6 +178,11 @@ tools:
 - name: 'bowtie2'
   owner: 'devteam'
   tool_panel_section_label: 'mapping'
+
+# alignment
+- name: 'hmmer3'
+  owner: 'iuc'
+  tool_panel_section_label: 'alignment'
 
 # metagenomics_manipulation
 - name: 'vsearch'
@@ -217,6 +226,10 @@ tools:
 
 - name: 'compare_humann2_output'
   owner: 'bebatut'
+  tool_panel_section_label: 'metabolism_assignation'
+
+- name: 'interproscan5'
+  owner: 'bgruening'
   tool_panel_section_label: 'metabolism_assignation'
 
 - name: 'suite_picrust'
