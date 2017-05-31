@@ -26,17 +26,14 @@ RUN install-tools $GALAXY_ROOT/asaim_tools.yaml && \
     rm /export/galaxy-central/ -rf && \
     mkdir -p $GALAXY_HOME/workflows
 
-# Import workflows
+# Import workflows, install the tool databases and start the data managers
 COPY config/workflows/* $GALAXY_ROOT/workflows/
-RUN startup_lite && \
-    sleep 30 && \
-    workflow-install --workflow_path $GALAXY_HOME/workflows/ -g http://localhost:8080 -u $GALAXY_DEFAULT_ADMIN_USER -p $GALAXY_DEFAULT_ADMIN_PASSWORD
-
-# Install the tool databases and start the data managers
 COPY config/data_managers.yaml $GALAXY_ROOT/data_managers.yaml
 COPY bin/download_tool_db.sh /usr/bin/download_tool_db
 RUN startup_lite && \
     sleep 30 && \
+    workflow-install --workflow_path $GALAXY_HOME/workflows/ -g http://localhost:8080 -u $GALAXY_DEFAULT_ADMIN_USER -p $GALAXY_DEFAULT_ADMIN_PASSWORD && \
     bash /usr/bin/download_tool_db && \
     run-data-managers --config $GALAXY_HOME/data_managers.yaml -g http://localhost:8080 -u $GALAXY_DEFAULT_ADMIN_USER -p $GALAXY_DEFAULT_ADMIN_PASSWORD
+    
 
