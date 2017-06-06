@@ -9,6 +9,14 @@ tools:
   owner: 'iuc'
   tool_panel_section_label: 'data_retrieval'
 
+- name: 'suite_ncbi_entrez'
+  owner: 'iuc'
+  tool_panel_section_label: 'data_retrieval'
+
+- name: 'sra_tools'
+  owner: 'iuc'
+  tool_panel_section_label: 'data_retrieval'
+
 # text_manipulation 
 - name: 'add_value'
   owner: 'devteam'
