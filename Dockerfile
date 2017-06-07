@@ -9,13 +9,6 @@ MAINTAINER Bérénice Batut, berenice.batut@gmail.com
 # Enable Conda dependency resolution
 ENV GALAXY_CONFIG_BRAND="ASaiM"
 
-# Add Container Style
-COPY config/welcome.html $GALAXY_CONFIG_DIR/web/welcome.html
-COPY config/asaim_logo.svg $GALAXY_CONFIG_DIR/web/asaim_logo.svg
-
-# Install prerequisites
-RUN pip install ephemeris -U
-
 # Change the tool_conf to get different tool sections and labels
 COPY config/tool_conf.xml $GALAXY_ROOT/config/
 
@@ -34,4 +27,7 @@ RUN startup_lite && \
     workflow-install --workflow_path $GALAXY_ROOT/workflows/ -g http://localhost:8080 -u $GALAXY_DEFAULT_ADMIN_USER -p $GALAXY_DEFAULT_ADMIN_PASSWORD && \
     run-data-managers --config $GALAXY_ROOT/data_managers.yaml -g http://localhost:8080 -u $GALAXY_DEFAULT_ADMIN_USER -p $GALAXY_DEFAULT_ADMIN_PASSWORD
     
+# Add Container Style
+COPY config/welcome.html $GALAXY_CONFIG_DIR/web/welcome.html
+COPY config/asaim_logo.svg $GALAXY_CONFIG_DIR/web/asaim_logo.svg
 
