@@ -9,7 +9,7 @@ data_managers:
       data_table_reload:
         - metaphlan2_database
 
-    - id: toolshed.g2.bx.psu.edu/repos/devteam/data_manager_humann2_database_downloader/data_manager_humann2_download/0.9.9
+    - id: toolshed.g2.bx.psu.edu/repos/iuc/data_manager_humann2_database_downloader/data_manager_humann2_download/0.9.9
       # HUMAnN2 database: Nucleotide database: full chocophlan
       params:
         - 'db|database': 'chocophlan'
@@ -19,7 +19,7 @@ data_managers:
       data_table_reload:
         - humann2_nucleotide_database
 
-    - id: toolshed.g2.bx.psu.edu/repos/devteam/data_manager_humann2_database_downloader/data_manager_humann2_download/0.9.9
+    - id: toolshed.g2.bx.psu.edu/repos/iuc/data_manager_humann2_database_downloader/data_manager_humann2_download/0.9.9
       # HUMAnN2 database: Protein database: full uniref90
       params:
         - 'db|database': 'uniref'
@@ -29,7 +29,7 @@ data_managers:
       data_table_reload:
         - humann2_protein_database
 
-    - id: toolshed.g2.bx.psu.edu/repos/devteam/data_manager_humann2_database_downloader/data_manager_humann2_download/0.9.9
+    - id: toolshed.g2.bx.psu.edu/repos/iuc/data_manager_humann2_database_downloader/data_manager_humann2_download/0.9.9
       # HUMAnN2 database: Protein database: full uniref50
       params:
         - 'db|database': 'uniref'
@@ -39,7 +39,7 @@ data_managers:
       data_table_reload:
         - humann2_protein_database
 
-    - id: toolshed.g2.bx.psu.edu/repos/devteam/data_manager_qiime_database_downloader/data_manager_qiime_download/1.9.1
+    - id: toolshed.g2.bx.psu.edu/repos/iuc/data_manager_qiime_database_downloader/data_manager_qiime_download/1.9.1
       # HUMAnN2 database: Protein database: full uniref50
       params:
         - 'db|database': 'greengenes'
@@ -52,7 +52,7 @@ data_managers:
         - qiime_taxonomy
         - qiime_trees
 
-    - id: toolshed.g2.bx.psu.edu/repos/devteam/data_manager_sortmerna_database_downloader/data_manager_sortmerna_download/2.1b.0
+    - id: toolshed.g2.bx.psu.edu/repos/rnateam/data_manager_sortmerna_database_downloader/data_manager_sortmerna_download/2.1b.0
       params:
       items:
       data_table_reload:
