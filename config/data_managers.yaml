@@ -39,13 +39,13 @@ data_managers:
       data_table_reload:
         - humann2_protein_database
 
-    - id: toolshed.g2.bx.psu.edu/repos/devteam/data_manager_qiime_database_downloader/data_manager_qiime_download/0.9.9
+    - id: toolshed.g2.bx.psu.edu/repos/devteam/data_manager_qiime_database_downloader/data_manager_qiime_download/1.9.1
       # HUMAnN2 database: Protein database: full uniref50
       params:
         - 'db|database': 'greengenes'
         - 'db|version': '{{ item }}'
       items:
-        - 13_8
+        - '13_8'
       data_table_reload:
         - qiime_rep_set
         - qiime_rep_set_aligned
