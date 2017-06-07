@@ -25,7 +25,7 @@ data_managers:
         - 'db|database': 'uniref'
         - 'db|build': '{{ item }}'
       items:
-        - uniref
+        - uniref90_diamond
       data_table_reload:
         - humann2_protein_database
 
