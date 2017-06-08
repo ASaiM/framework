@@ -24,8 +24,7 @@ COPY config/workflows/* $GALAXY_ROOT/workflows/
 COPY config/data_managers.yaml $GALAXY_ROOT/data_managers.yaml
 RUN startup_lite && \
     sleep 30 && \
-    workflow-install --workflow_path $GALAXY_ROOT/workflows/ -g http://localhost:8080 -u $GALAXY_DEFAULT_ADMIN_USER -p $GALAXY_DEFAULT_ADMIN_PASSWORD && \
-    run-data-managers --config $GALAXY_ROOT/data_managers.yaml -g http://localhost:8080 -u $GALAXY_DEFAULT_ADMIN_USER -p $GALAXY_DEFAULT_ADMIN_PASSWORD
+    workflow-install --workflow_path $GALAXY_ROOT/workflows/ -g http://localhost:8080 -u $GALAXY_DEFAULT_ADMIN_USER -p $GALAXY_DEFAULT_ADMIN_PASSWORD
     
 # Add Container Style
 COPY config/welcome.html $GALAXY_CONFIG_DIR/web/welcome.html
