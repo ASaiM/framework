@@ -54,7 +54,9 @@ data_managers:
 
     - id: toolshed.g2.bx.psu.edu/repos/rnateam/data_manager_sortmerna_database_downloader/data_manager_sortmerna_download/2.1b.0
       params:
+        - '': '{{ item }}'
       items:
+        - ''
       data_table_reload:
         - rRNA_databases
 
