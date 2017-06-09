@@ -13,12 +13,12 @@ ENV GALAXY_CONFIG_BRAND="ASaiM"
 COPY config/tool_conf.xml $GALAXY_ROOT/config/
 
 # Install tools (split in 2 layers)
-COPY config/asaim_tools.yaml $GALAXY_ROOT/asaim_tools_1.yaml
+COPY config/asaim_tools_1.yaml $GALAXY_ROOT/asaim_tools_1.yaml
 RUN install-tools $GALAXY_ROOT/asaim_tools_1.yaml && \
     /tool_deps/_conda/bin/conda clean --tarballs --yes > /dev/null && \
     rm /export/galaxy-central/ -rf && \
     mkdir -p $GALAXY_ROOT/workflows
-COPY config/asaim_tools.yaml $GALAXY_ROOT/asaim_tools_2.yaml
+COPY config/asaim_tools_2.yaml $GALAXY_ROOT/asaim_tools_2.yaml
 RUN install-tools $GALAXY_ROOT/asaim_tools_2.yaml && \
     /tool_deps/_conda/bin/conda clean --tarballs --yes > /dev/null && \
     rm /export/galaxy-central/ -rf && \
