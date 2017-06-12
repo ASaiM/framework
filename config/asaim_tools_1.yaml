@@ -86,6 +86,10 @@ tools:
   owner: 'bebatut'
   tool_panel_section_label: 'text_manipulation'
 
+- name: 'text_processing'
+  owner: 'bgruening'
+  tool_panel_section_label: 'text_manipulation'
+
 # seq_manipulation 
 - name: 'seq_filter_by_id'
   owner: 'peterjc'
