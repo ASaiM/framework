@@ -2,10 +2,15 @@
 
 # Launch the data managers to install the databases
 
+# Retrieve the IP adress inside the Docker
 ip=`route | awk 'NR==3 {print $2}'`
 
+# Launch the data managers
 run-data-managers \
     --config $GALAXY_ROOT/data_managers.yaml \
     -g "http://$ip:8080" \
     -u $GALAXY_DEFAULT_ADMIN_USER \
     -p $GALAXY_DEFAULT_ADMIN_PASSWORD
+
+# Restart Galaxy
+supervisorctl restart galaxy:
