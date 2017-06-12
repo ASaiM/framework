@@ -49,15 +49,15 @@ data_managers:
       data_table_reload:
         - humann2_protein_database
 
-    - id: toolshed.g2.bx.psu.edu/repos/iuc/data_manager_humann2_database_downloader/data_manager_humann2_download/0.9.9
-      # HUMAnN2 database: Protein database: full uniref90
-      params:
-        - 'db|database': 'uniref'
-        - 'db|build': '{{ item }}'
-      items:
-        - uniref90_diamond
-      data_table_reload:
-        - humann2_protein_database
+    #- id: toolshed.g2.bx.psu.edu/repos/iuc/data_manager_humann2_database_downloader/data_manager_humann2_download/0.9.9
+    #  # HUMAnN2 database: Protein database: full uniref90
+    #  params:
+    #    - 'db|database': 'uniref'
+    #    - 'db|build': '{{ item }}'
+    #  items:
+    #    - uniref90_diamond
+    #  data_table_reload:
+    #    - humann2_protein_database
 
     
 
