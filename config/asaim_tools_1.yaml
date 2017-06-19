@@ -90,6 +90,10 @@ tools:
   owner: 'bgruening'
   tool_panel_section_label: 'text_manipulation'
 
+- name: 'suite_datamash'
+  owner: 'iuc'
+  tool_panel_section_label: 'text_manipulation'
+
 # seq_manipulation 
 - name: 'seq_filter_by_id'
   owner: 'peterjc'
