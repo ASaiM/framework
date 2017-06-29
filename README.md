@@ -1,11 +1,13 @@
 ASaiM framework
 ===============
 
+[![Docker Repository on Quay](https://quay.io/repository/bebatut/asaim-framework/status "Docker Repository on Quay")](https://quay.io/repository/bebatut/asaim-framework)
+
 ASaiM framework is an open-source opinionated Galaxy-based framework. It integrates tools, specifically chosen for metagenomic and metatranscriptomic studies and hierarchically organized to orient user choice toward the best tool for a given task.
 
 Details about this framework is available on a dedicated documentation available at [http://asaim.readthedocs.org/](http://asaim.readthedocs.org/).
 
-This framework is using the [Galaxy Docker](http://bgruening.github.io/docker-galaxy-stable/) to ease the deployment the Galaxy instance. If you do not want to use Docker, we also provide [documentation to setup and run the framework](#installation-and-use-without-using-docker) without using Docker.
+This framework is using the [Galaxy Docker](http://bgruening.github.io/docker-galaxy-stable/) to ease the deployment the Galaxy instance.
 
 # Usage
 
@@ -17,46 +19,73 @@ For Linux users and people familiar with the command line, please follow the [ve
 
 ## ASaiM launch
 
-Starting the ASaiM Docker container is analogous to starting the generic Galaxy Docker image: 
+1. Starting the ASaiM Docker container: analogous to starting the generic Galaxy Docker image: 
 
-```
-$ docker run -d -p 8080:80 quay.io/bebatut/asaim-framework
-*container_id*
-```
+    ```
+    $ docker run -d -p 8080:80 quay.io/bebatut/asaim-framework
+    ```
 
-Nevertheless, here is a quick rundown: 
+    Nevertheless, here is a quick rundown: 
 
-- `docker run` starts the Image/Container
+    - `docker run` starts the Image/Container
 
-    In case the Container is not already stored locally, Docker downloads it automatically
-   
-- The argument `-p 8080:80` makes the port 80 (inside of the container) available on port 8080 on your host
+        In case the Container is not already stored locally, Docker downloads it automatically
+       
+    - The argument `-p 8080:80` makes the port 80 (inside of the container) available on port 8080 on your host
 
-    Inside the container a Apache web server is running on port 80 and that port can be bound to a local port on your host computer. 
-    With this parameter you can access your Galaxy instance via `http://localhost:8080` immediately after executing the command above
+        Inside the container a Apache web server is running on port 80 and that port can be bound to a local port on your host computer. 
+        With this parameter you can access your Galaxy instance via `http://localhost:8080` immediately after executing the command above
+        
+    - `quay.io/bebatut/asaim-framework` is the Image/Container name, that directs Docker to the correct path in the [Docker index](https://index.docker.io/u/bgruening/galaxy-rna-workbench/)
+    - `-d` will start the Docker container in Daemon mode. 
+
+    > A detailed discussion of Docker's parameters is given in the [Docker manual](http://docs.docker.io/). It is really worth reading.
+
+    The Docker container is run: Galaxy will be launched!
+
+    > Setting up Galaxy and its components can take several minutes. You can inspect the state of the starting using:
+    > ```
+    > $ docker ps # to obtain the id of the container
+    > $ docker logs <container_id>
+    > ```
+
+    The previous commands will start the ASaiM framework with the configuration and launch of a Galaxy instance and its population with the needed tools, workflows and databases. The instance will be accessible at [http://localhost:8080](http://localhost:8080).
+
+2. Installation of the databases once Galaxy is running
+
+    ```
+    $ docker exec <container_id> run_data_managers
+    ```
+
+
+#### Workflows
+
+To access to the workflows, you need to connect with the admin user (username: `admin@galaxy.org`, password: `admin`). And you will have access to the workflows in the 'Workflow' section (Top panel)
+
+#### Databases
+
+Databases are automatically added to the Galaxy instance for MetaPhlAn2, HUMAnN2 and QIIME.
+
+Sometimes the databases are not correctly seen by the tools. If it is the case, you need to force the connection between the tool and the database:
+
+- Connect with the admin user: 
+    - username `admin@galaxy.org` 
+    - password `admin`
+- Go to the 'Admin' section (Top panel)
+- Go to 'Local data' section (Left panel)
+- Click on `humann2_nucleotide_database`, `humann2_protein_database` or `metaphlan2_database` (depending on the database)
+- Click on the 'Reload button' on the top
     
-- `quay.io/bebatut/asaim-framework` is the Image/Container name, that directs Docker to the correct path in the [Docker index](https://index.docker.io/u/bgruening/galaxy-rna-workbench/)
-- `-d` will start the Docker container in Daemon mode. 
+    The table must be filled
 
-> A detailed discussion of Docker's parameters is given in the [Docker manual](http://docs.docker.io/). It is really worth reading.
+If you want other databases for HUMAnN2 or QIIME, you can install them "manually":
 
-The Docker container is run: Galaxy will be launched. Setting up Galaxy and its components can take several minutes. You can check the status of Galaxy deployment with `$ docker logs *container_id*`
-
-Once Galaxy is running, the databases for tools must be installed:
-
-```
-$ docker exec *container_id* /usr/bin/download_tool_db
-```
-
-### ASaiM use
-
-The previous commands will start the ASaiM framework with the configuration and launch of a Galaxy instance and its population with the needed tools, workflows and databases. The instance will be accessible at [http://localhost:8080](http://localhost:8080).
-
-> Starting the Docker container is long process. You can inspect the state of the starting using:
-> ```
-> $ docker ps # to obtain the id of the container
-> $ docker logs <container_id>
-> ```
+- Connect with the admin user: 
+    - username `admin@galaxy.org` 
+    - password `admin`
+- Go to the 'Admin' section (Top panel)
+- Go to 'Local data' section (Left panel)
+- Click on 'HUMAnN2 download' (or 'Download QIIME') and choose the database you want to import
 
 ### Interactive session
 
@@ -104,119 +133,6 @@ $ docker kill <container_id>
 ```
 
 > The image corresponding to the container will stay in memory. If you want to clean fully your Docker engine, you can follow the [Docker Cleanup Commands](https://www.calazan.com/docker-cleanup-commands/).
-
-# Installation and use without using Docker
-
-Sometimes Docker can not be used for some system configuration. We then provided the scripts and documentation to deploy and use ASaiM outside Docker.
-
-## Installation
-
-### Get the code
-
-Clone the repository
-
-```
-$ git clone https://github.com/ASaiM/framework.git
-```
-
-Move to the `installation_without_docker` directory
-
-```
-$ cd installation_without_docker
-```
-
-### Requirements
-
-Some tools must be installed:
-
-- `git`
-- `python`
-- `pip`
-- `perl`
-- `scons`
-- `mercurial`
-- `openssl`
-- `java`
-- `wget`
-- `openssl`
-- `proftpd` (installed in `/usr/local`)
-- `postgresql`
-
-For Debian, RHEL and MacOSX, all dependencies can be installed by running:
-
-```
-$ ./src/install_dependencies.sh
-```
-
-**Note:** `apt-get` is required for Debian, `yum` for RHEL and `homebrew` and `MacPorts` for MacOSX.
-
-### Configuration
-
-PostgreSQL is used to manage databases in Galaxy. It must be launched as a background task and setup for Galaxy (new database and user creation).
-
-On the other hand, a FTP server with `proftpd` has to be configured and launched.
-
-All the configuration tasks (postgresql and proftpd) can be done by running:
-
-```
-$ ./src/configure.sh
-```
-
-## Usage
-
-### Launch ASaiM framework
-
-The framework is based on a custom Galaxy instance with tools, workflows, databases, ...
-
-To launch the custom Galaxy instance and populate it with dedicated tools, workflows and databases :
-
-```
-$ ./src/launch_asaim.sh
-```
-
-This task, particularly tool population, can take several hours.
-
-However, once tool population starts, the Galaxy instance can be then browse on [http://127.0.0.1:8080/](http://127.0.0.1:8080/). And after registration with admin account (email: `asaim-admin@asaim.com`), you can follow tool installation in `Admin` -> `Manage installed tools`.
-
-After installation of the tools, HUMAnN2 databases have to be downloaded (once). It can be done using the dedicated tool available in `STRUCTURAL AND FUNCTIONAL ANALYSIS TOOLS` -> `Analyze metabolism` -> `Download HUMAnN2 databases`. This tool have to be executed twice: once for nucleotide (ChocoPhlAn) database and once for protein (UniRef50) database.
-
-### Add workflows
-
-Workflows are not automatically added to the Galaxy instance. To add them:
-
-- Go to `Workflow` menu (top panel)
-- Click on `Upload or import workflows` (on top right)
-    - Paste the following URL (one at a time) in "Galaxy workflow URL" field
-        - Main workflow: [https://raw.githubusercontent.com/ASaiM/galaxytools/master/workflows/asaim/asaim_main_workflow.ga](https://raw.githubusercontent.com/ASaiM/galaxytools/master/workflows/asaim/asaim_main_workflow.ga)
-        - Comparative analysis workflows:
-            - For taxonomic results: [https://raw.githubusercontent.com/ASaiM/galaxytools/master/workflows/asaim/asaim_taxonomic_result_comparative_analysis.ga](https://raw.githubusercontent.com/ASaiM/galaxytools/master/workflows/asaim/asaim_taxonomic_result_comparative_analysis.ga)
-            - For functional results (gene families or pathways): [https://raw.githubusercontent.com/ASaiM/galaxytools/master/workflows/asaim/asaim_functional_result_comparative_analysis.ga](https://raw.githubusercontent.com/ASaiM/galaxytools/master/workflows/asaim/asaim_functional_result_comparative_analysis.ga)
-            - For GO slim terms: [https://raw.githubusercontent.com/ASaiM/galaxytools/master/workflows/asaim/asaim_go_slim_terms_comparative_analysis.ga](https://raw.githubusercontent.com/ASaiM/galaxytools/master/workflows/asaim/asaim_go_slim_terms_comparative_analysis.ga)
-            - For taxonomically-related functional results: [https://raw.githubusercontent.com/ASaiM/galaxytools/master/workflows/asaim/asaim_taxonomically_related_functional_result_comparative_analysis.ga](https://raw.githubusercontent.com/ASaiM/galaxytools/master/workflows/asaim/asaim_taxonomically_related_functional_result_comparative_analysis.ga)
-    - Click on `Import`
-- Do it again with other workflows
-
-### Stop ASaiM
-
-The custom Galaxy instance runs as a background process. To stop it:
-
-```
-$ ./src/stop_asaim.sh
-```
-
-After, to clean Galaxy (tools, ...) and also databases:
-
-```
-$ ./src/clean_asaim.sh
-```
-
-### Add tools from ToolShed to the custom Galaxy instance
-
-To add tools from ToolShed, you can use the web interface but you can also add reference to this tool in files in `data/chosen_tools` and then launch:
-
-```
-$ ./src/prepare_asaim/populate_galaxy.sh
-```
 
 # Documentation
 
