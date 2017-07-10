@@ -163,6 +163,10 @@ tools:
   owner: 'pjbriggs'
   tool_panel_section_label: 'quality_control'
 
+- name: 'multiqc'
+  owner: 'engineson'
+  tool_panel_section_label: 'quality_control'
+
 # clustering
 - name: 'cdhit'
   owner: 'bebatut'
