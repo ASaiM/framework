@@ -126,7 +126,63 @@ tools:
 - name: 'fasta_add_barcode'
   owner: 'bebatut'
   tool_panel_section_label: 'seq_manipulation'
+ 
+- name: 'fastq_combiner'
+  owner: 'devteam'
+  tool_panel_section_label: 'seq_manipulation'
+  
+- name: 'fastq_filter'
+  owner: 'devteam'
+  tool_panel_section_label: 'seq_manipulation'
 
+- name: 'fastq_groomer'
+  owner: 'devteam'
+  tool_panel_section_label: 'seq_manipulation'
+  
+- name: 'fastq_manipulation'
+  owner: 'devteam'
+  tool_panel_section_label: 'seq_manipulation'
+  
+- name: 'fastq_masker_by_quality'
+  owner: 'devteam'
+  tool_panel_section_label: 'seq_manipulation'
+  
+- name: 'fastq_paired_end_deinterlacer'
+  owner: 'devteam'
+  tool_panel_section_label: 'seq_manipulation'
+  
+- name: 'fastq_paired_end_interlacer'
+  owner: 'devteam'
+  tool_panel_section_label: 'seq_manipulation'
+  
+- name: 'fastq_paired_end_joiner'
+  owner: 'devteam'
+  tool_panel_section_label: 'seq_manipulation'
+  
+- name: 'fastq_paired_end_splitter'
+  owner: 'devteam'
+  tool_panel_section_label: 'seq_manipulation'
+  
+- name: 'fastq_stats'
+  owner: 'devteam'
+  tool_panel_section_label: 'seq_manipulation'
+  
+- name: 'fastq_to_tabular'
+  owner: 'devteam'
+  tool_panel_section_label: 'seq_manipulation'
+  
+- name: 'fastq_trimmer'
+  owner: 'devteam'
+  tool_panel_section_label: 'seq_manipulation'
+  
+- name: 'fastqtofasta'
+  owner: 'devteam'
+  tool_panel_section_label: 'seq_manipulation'
+  
+- name: 'tabular_to_fastq'
+  owner: 'devteam'
+  tool_panel_section_label: 'seq_manipulation'   
+ 
 # bam_sam_manipulation
 - name: 'suite_samtools_1_2'
   owner: 'devteam'
