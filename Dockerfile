@@ -23,6 +23,11 @@ RUN install-tools $GALAXY_ROOT/asaim_tools_2.yaml && \
     /tool_deps/_conda/bin/conda clean --tarballs --yes > /dev/null && \
     rm /export/galaxy-central/ -rf && \
     mkdir -p $GALAXY_ROOT/workflows
+COPY config/asaim_tools_3.yaml $GALAXY_ROOT/asaim_tools_3.yaml
+RUN install-tools $GALAXY_ROOT/asaim_tools_3.yaml && \
+    /tool_deps/_conda/bin/conda clean --tarballs --yes > /dev/null && \
+    rm /export/galaxy-central/ -rf && \
+    mkdir -p $GALAXY_ROOT/workflows
 
 # Import workflows, install the tool databases and start the data managers
 COPY config/workflows/* $GALAXY_ROOT/workflows/
