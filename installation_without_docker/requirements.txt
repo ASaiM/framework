@@ -1,4 +1,0 @@
-planemo
-ansible
-bioblend
-ephemeris
