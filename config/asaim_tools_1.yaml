@@ -8,6 +8,10 @@ tools:
 - name: 'suite_ebi_tools'
   owner: 'iuc'
   tool_panel_section_label: 'data_retrieval'
+  
+- name: 'suite_enasearch'
+  owner: 'iuc'
+  tool_panel_section_label: 'data_retrieval'
 
 - name: 'suite_ncbi_entrez'
   owner: 'iuc'
