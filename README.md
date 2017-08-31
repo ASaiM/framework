@@ -54,7 +54,7 @@ For Linux users and people familiar with the command line, please follow the [ve
 2. Installation of the databases once Galaxy is running
 
     ```
-    $ docker exec <container_id> run_data_managers
+    $ docker exec <container_id> ./run_data_managers
     ```
 
 
