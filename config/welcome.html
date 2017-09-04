@@ -4,43 +4,81 @@
 <head>
     <title>ASaiM</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link rel="stylesheet" href="/static/style/base.css" type="text/css" />
+    <link rel="stylesheet" href="https://rawgit.com/jxtx/galaxy-bootstrap/master/dist/galaxy_bootstrap.css" type="text/css" />
 </head>
-<body>
+<body style="margin: 0">
     <div class="document">
-        <body style="margin: 0">
-        <div class="jumbotron">
-            <div class="container">
-                <img src="asaim_logo.svg" alt="ASaiM" style="padding:0;margin:0;width:20%;min-width:350px; vertical-align:top;"/>
-                <br>
-                <h2>Hello, your <strong>ASaiM</strong> instance is running to analyze your microbiota and environmental data!</h2>
-            </div>
-            <br>
-            <div class="container">
-                <p>Check out our
-                    <a target="_parent" href="../../../workflows/" class="btn btn-default btn-xs">Workflows</a>
-                    <a target="_parent" href="../../../tours/" class="btn btn-default btn-xs">Interactive Tours</a>
-                    <a target="_parent" href="http://asaim.readthedocs.io" class="btn btn-default btn-xs">Documentation</a>
-                    <a target="_parent" href="http://asaim.readthedocs.io" class="btn btn-default btn-xs">Tutorials</a>
-                </p>
-            </div>
-        </div>
         <div class="container">
-            <p class="lead">
-            ASaiM (<i>Auvergne Sequence analysis of intestinal Microbiota</i>) is an framework to analyze microbiota and environmental samples. <a href="http://asaim.readthedocs.io/en/latest/context.html">Read more about ASaiM context</a></p>
+            <div class="row">
+                    <img src="asaim_logo.svg" alt="ASaiM" style="padding:0;margin:0;width:20%;min-width:350px; vertical-align:top;"/>
+                    <br>
+                    <h2>Hello, your <strong>ASaiM</strong> instance is running to analyze your microbiota data!</h2>
+                </div>
+            <div class="jumbotron" style="padding-bottom: 30px; margin-bottom: 0px;">
+                <p><a href="http://asaim.readthedocs.io/en/latest/context.html">ASaiM</a> is an framework to analyze microbiota and environmental samples. This open-source opiniated framework is based on a custom Galaxy instance. It integrates numerous tools for microbiota and environmental data processing, taxonomic analyses and functional analyses. Several standard but customizable workflows are also proposed to help the analysis of microbial data</p>
 
-            <p>This open-source opiniated framework is based on a custom Galaxy instance. It integrates numerous tools for microbiota and environmental data processing, taxonomic analyses and functional analyses. Several standard but customizable workflows are also proposed to help the analysis of microbial data</p>
+                <p>For more information about the tools, workflows and ASaiM in general, please read the <a href="http://asaim.readthedocs.io/en/latest/">online documentation</a>. 
+            </div>
+            <div class>
+                <div class="row">
+                    <h2>Check out our</h2>
+                    <div class="col-lg-10">
+                        <div class style="margin-bottom: 15px;">
+                            <div class="btn-toolbar" style="margin: 0;">
+                                <div class="btn-group">
+                                    <a href="http://asaim.readthedocs.io"><button type="button" class="btn btn-default">Documentation</button></a>
+                                </div>
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-default">Workflows</button>
+                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="../../../workflows/">Shotgun workflow</a></li>
+                                    </ul>
+                                </div>
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-default">Tutorials</button>
+                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="https://galaxyproject.github.io/training-material/topics/metagenomics/tutorials/general-tutorial/tutorial.html">Analyses of metagenomics data - The global picture</a></li>
+                                        <li><a href="https://galaxyproject.github.io/training-material/topics/metagenomics/tutorials/general-tutorial/tutorial.html">16S Microbial Analysis with Mothur</a></li>
+                                    </ul>
+                                </div>
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-default">Interactive Tours</button>
+                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="../../../tours/core.galaxy_ui">Introduction to the Galaxy User Interface</a></li>
+                                        <li><a href="../../../tours/core.history">Introduction to the Galaxy History</a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="../../../tours/metagenomics-general-tutorial-shotgun">Shotgun metagenomics data analyses</a></li>
+                                        <li><a href="../../../tours/metagenomics-general-tutorial-amplicon">Amplicon data analyses</a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="../../../tours/">More interactive tours</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <footer>
+                    <a target="_blank" class="reference" href="http://galaxyproject.org/">
+                    Galaxy</a> is an open platform for supporting data intensive
+                    research. Galaxy is developed by <a target="_blank" class="reference" href="http://wiki.galaxyproject.org/GalaxyTeam">The Galaxy Team</a>
+                    with the support of  <a target="_blank" class="reference" href="https://github.com/galaxyproject/galaxy/blob/dev/CONTRIBUTORS.md">many contributors</a>.
+                </footer>
+            </div>
 
-            <p>For more information about the tools, workflows and ASaiM in general, please read the <a href="http://asaim.readthedocs.io/en/latest/">online documentation</a>. You can also follow our <a href="http://asaim.readthedocs.io/en/latest/tutorial/index.html">Tutorial</a> to learn how to use the ASaiM framework to analyze microbiota data.</p>
-            </p>
-
-            <footer>
-                <a target="_blank" class="reference" href="http://galaxyproject.org/">
-                Galaxy</a> is an open platform for supporting data intensive
-                research. Galaxy is developed by <a target="_blank" class="reference" href="http://wiki.galaxyproject.org/GalaxyTeam">The Galaxy Team</a>
-                with the support of  <a target="_blank" class="reference" href="https://github.com/galaxyproject/galaxy/blob/dev/CONTRIBUTORS.md">many contributors</a>.
-            </footer>
         </div>
+        <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </div>
 </body>
 </html>
