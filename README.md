@@ -85,7 +85,7 @@ If you want other databases for HUMAnN2 or QIIME, you can install them "manually
     - password `admin`
 - Go to the 'Admin' section (Top panel)
 - Go to 'Local data' section (Left panel)
-- Click on 'HUMAnN2 download' (or 'Download QIIME') and choose the database you want to import
+- Choose the database you want to import
 
 ### Interactive session
 
