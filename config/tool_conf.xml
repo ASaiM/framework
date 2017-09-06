@@ -22,7 +22,7 @@
         <section id="assembly" name="Assembly" />
         <section id="quality_control" name="Quality control" />
         <section id="clustering" name="Clustering" />
-        <section id="sorting" name="Sorting" />
+        <section id="sorting_prediction" name="Sorting and prediction" />
         <section id="similarity_search" name="Similarity search" />
         <section id="mapping" name="Mapping" />
         <section id="alignment" name="Alignment" />

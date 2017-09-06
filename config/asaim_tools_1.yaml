@@ -236,14 +236,18 @@ tools:
   owner: 'bebatut'
   tool_panel_section_label: 'clustering'
 
-# sorting
+# sorting and prediction
 - name: 'sortmerna'
   owner: 'rnateam'
   tool_panel_section_label: 'sorting'
 
 - name: 'data_manager_sortmerna_database_downloader'
   owner: 'rnateam'
-  tool_panel_section_label: 'sorting'
+  tool_panel_section_label: 'sorting_prediction'
+
+- name: 'fraggenescan'
+  owner: 'iuc'
+  tool_panel_section_label: 'sorting_prediction'
 
 # similarity_search
 - name: 'ncbi_blast_plus'
