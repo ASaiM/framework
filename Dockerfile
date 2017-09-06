@@ -31,7 +31,7 @@ RUN install-tools $GALAXY_ROOT/asaim_tools_3.yaml && \
 
 # Import workflows (local and from training), install the tool databases and start the data managers
 COPY config/workflows/* $GALAXY_ROOT/workflows/
-ADD https://raw.githubusercontent.comgalaxyproject/training-material/blob/master/topics/metagenomics/tutorials/general-tutorial/workflows/wgs-worklow.ga $GALAXY_ROOT/workflows/
+ADD https://raw.githubusercontent.com/galaxyproject/training-material/master/topics/metagenomics/tutorials/general-tutorial/workflows/wgs-worklow.ga $GALAXY_ROOT/workflows/
 ADD https://raw.githubusercontent.com/galaxyproject/training-material/master/topics/metagenomics/tutorials/general-tutorial/workflows/wgs-worklow.ga $GALAXY_ROOT/workflows/
 ADD https://raw.githubusercontent.com/galaxyproject/training-material/master/topics/metagenomics/tutorials/mothur-miseq-sop/workflows/mothur-miseq-sop.ga $GALAXY_ROOT/workflows/
 COPY config/data_managers.yaml $GALAXY_ROOT/data_managers.yaml
