@@ -11,11 +11,11 @@
             "id": 0, 
             "input_connections": {}, 
             "inputs": [], 
-            "label": null, 
+            "label": "Raw reads", 
             "name": "Input dataset", 
             "outputs": [], 
             "position": {
-                "left": 129, 
+                "left": 207, 
                 "top": 689
             }, 
             "tool_id": null, 
@@ -36,8 +36,21 @@
                     "output_name": "output"
                 }
             }, 
-            "inputs": [], 
-            "label": null, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool FastQC", 
+                    "name": "contaminants"
+                }, 
+                {
+                    "description": "runtime parameter for tool FastQC", 
+                    "name": "limits"
+                }, 
+                {
+                    "description": "runtime parameter for tool FastQC", 
+                    "name": "input_file"
+                }
+            ], 
+            "label": "Quality control", 
             "name": "FastQC", 
             "outputs": [
                 {
@@ -50,7 +63,7 @@
                 }
             ], 
             "position": {
-                "left": 326, 
+                "left": 404, 
                 "top": 609
             }, 
             "post_job_actions": {}, 
@@ -61,7 +74,7 @@
                 "owner": "devteam", 
                 "tool_shed": "toolshed.g2.bx.psu.edu"
             }, 
-            "tool_state": "{\"__page__\": null, \"contaminants\": \"null\", \"__rerun_remap_job_id__\": null, \"limits\": \"null\", \"input_file\": \"null\"}", 
+            "tool_state": "{\"__page__\": null, \"contaminants\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"__rerun_remap_job_id__\": null, \"limits\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"input_file\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\"}", 
             "tool_version": "0.69", 
             "type": "tool", 
             "uuid": "f9aa307f-2e7c-4ebd-948d-011ffcfd5f26", 
@@ -78,8 +91,13 @@
                     "output_name": "output"
                 }
             }, 
-            "inputs": [], 
-            "label": null, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Trim Galore!", 
+                    "name": "singlePaired"
+                }
+            ], 
+            "label": "Trimming", 
             "name": "Trim Galore!", 
             "outputs": [
                 {
@@ -116,7 +134,7 @@
                 }
             ], 
             "position": {
-                "left": 333, 
+                "left": 411, 
                 "top": 831
             }, 
             "post_job_actions": {}, 
@@ -127,7 +145,7 @@
                 "owner": "bgruening", 
                 "tool_shed": "toolshed.g2.bx.psu.edu"
             }, 
-            "tool_state": "{\"__page__\": null, \"__rerun_remap_job_id__\": null, \"params\": \"{\\\"settingsType\\\": \\\"default\\\", \\\"__current_case__\\\": 0}\", \"rrbs\": \"{\\\"settingsType\\\": \\\"default\\\", \\\"__current_case__\\\": 0}\", \"singlePaired\": \"{\\\"three_prime_clip_R1\\\": \\\"\\\", \\\"trimming\\\": {\\\"trimming_select\\\": \\\"\\\", \\\"__current_case__\\\": 0}, \\\"sPaired\\\": \\\"single\\\", \\\"__current_case__\\\": 0, \\\"input_singles\\\": null}\"}", 
+            "tool_state": "{\"__page__\": null, \"__rerun_remap_job_id__\": null, \"params\": \"{\\\"settingsType\\\": \\\"default\\\", \\\"__current_case__\\\": 0}\", \"rrbs\": \"{\\\"settingsType\\\": \\\"default\\\", \\\"__current_case__\\\": 0}\", \"singlePaired\": \"{\\\"three_prime_clip_R1\\\": \\\"\\\", \\\"trimming\\\": {\\\"trimming_select\\\": \\\"\\\", \\\"__current_case__\\\": 0}, \\\"sPaired\\\": \\\"single\\\", \\\"__current_case__\\\": 0, \\\"input_singles\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}}\"}", 
             "tool_version": "0.4.3.1", 
             "type": "tool", 
             "uuid": "0533b5d9-7a59-438c-a74b-0b7687f481ea", 
@@ -144,8 +162,13 @@
                     "output_name": "trimmed_reads_single"
                 }
             }, 
-            "inputs": [], 
-            "label": null, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool VSearch dereplication", 
+                    "name": "infile"
+                }
+            ], 
+            "label": "Dereplication", 
             "name": "VSearch dereplication", 
             "outputs": [
                 {
@@ -158,7 +181,7 @@
                 }
             ], 
             "position": {
-                "left": 628, 
+                "left": 706, 
                 "top": 913
             }, 
             "post_job_actions": {}, 
@@ -169,7 +192,7 @@
                 "owner": "iuc", 
                 "tool_shed": "toolshed.g2.bx.psu.edu"
             }, 
-            "tool_state": "{\"sizein\": \"\\\"false\\\"\", \"__page__\": null, \"maxuniquesize\": \"\\\"\\\"\", \"__rerun_remap_job_id__\": null, \"minuniquesize\": \"\\\"\\\"\", \"topn\": \"\\\"\\\"\", \"strand\": \"\\\"plus\\\"\", \"infile\": \"null\", \"sizeout\": \"\\\"false\\\"\", \"uc\": \"\\\"false\\\"\"}", 
+            "tool_state": "{\"sizein\": \"\\\"false\\\"\", \"__page__\": null, \"maxuniquesize\": \"\\\"\\\"\", \"__rerun_remap_job_id__\": null, \"minuniquesize\": \"\\\"\\\"\", \"topn\": \"\\\"\\\"\", \"strand\": \"\\\"plus\\\"\", \"infile\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"sizeout\": \"\\\"false\\\"\", \"uc\": \"\\\"false\\\"\"}", 
             "tool_version": "1.9.7.0", 
             "type": "tool", 
             "uuid": "98dc5416-f149-4e69-874c-48c4a8a67b09", 
@@ -186,8 +209,13 @@
                     "output_name": "outfile"
                 }
             }, 
-            "inputs": [], 
-            "label": null, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool MetaPhlAn2", 
+                    "name": "input_file"
+                }
+            ], 
+            "label": "Taxonomic assignation", 
             "name": "MetaPhlAn2", 
             "outputs": [
                 {
@@ -204,7 +232,7 @@
                 }
             ], 
             "position": {
-                "left": 904, 
+                "left": 982, 
                 "top": 698
             }, 
             "post_job_actions": {}, 
@@ -215,7 +243,7 @@
                 "owner": "iuc", 
                 "tool_shed": "toolshed.g2.bx.psu.edu"
             }, 
-            "tool_state": "{\"min_cu_len\": \"\\\"2000\\\"\", \"min_alignment_len\": \"\\\"0\\\"\", \"input_file\": \"null\", \"__page__\": null, \"ignore_eukaryotes\": \"\\\"true\\\"\", \"__rerun_remap_job_id__\": null, \"db\": \"{\\\"db_selector\\\": \\\"cached\\\", \\\"cached_db\\\": null, \\\"__current_case__\\\": 0}\", \"stat_q\": \"\\\"0.1\\\"\", \"ignore_viruses\": \"\\\"true\\\"\", \"ignore_archaea\": \"\\\"true\\\"\", \"analysis_type\": \"{\\\"tax_lev\\\": \\\"a\\\", \\\"analysis_type_select\\\": \\\"rel_ab\\\", \\\"__current_case__\\\": 0}\", \"ignore_bacteria\": \"\\\"true\\\"\"}", 
+            "tool_state": "{\"min_cu_len\": \"\\\"2000\\\"\", \"min_alignment_len\": \"\\\"0\\\"\", \"input_file\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"__page__\": null, \"ignore_eukaryotes\": \"\\\"true\\\"\", \"__rerun_remap_job_id__\": null, \"db\": \"{\\\"db_selector\\\": \\\"cached\\\", \\\"cached_db\\\": \\\"mpa_v20_m200\\\", \\\"__current_case__\\\": 0}\", \"stat_q\": \"\\\"0.1\\\"\", \"ignore_viruses\": \"\\\"true\\\"\", \"ignore_archaea\": \"\\\"true\\\"\", \"analysis_type\": \"{\\\"tax_lev\\\": \\\"a\\\", \\\"analysis_type_select\\\": \\\"rel_ab\\\", \\\"__current_case__\\\": 0}\", \"ignore_bacteria\": \"\\\"true\\\"\"}", 
             "tool_version": "2.6.0.0", 
             "type": "tool", 
             "uuid": "7281de8c-c5df-48dd-841a-80c468b5fe75", 
@@ -238,7 +266,7 @@
                     "name": "input_reads"
                 }
             ], 
-            "label": null, 
+            "label": "rRNA/rDNA selection", 
             "name": "Filter with SortMeRNA", 
             "outputs": [
                 {
@@ -263,7 +291,7 @@
                 }
             ], 
             "position": {
-                "left": 886.5, 
+                "left": 964.5, 
                 "top": 998
             }, 
             "post_job_actions": {}, 
@@ -274,7 +302,7 @@
                 "owner": "rnateam", 
                 "tool_shed": "toolshed.g2.bx.psu.edu"
             }, 
-            "tool_state": "{\"__page__\": null, \"strand_search\": \"\\\"\\\"\", \"aligned_sam\": \"{\\\"aligned_sam_selector\\\": \\\"--sam\\\", \\\"sq\\\": \\\"false\\\", \\\"__current_case__\\\": 0}\", \"log\": \"\\\"false\\\"\", \"input_reads\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"__rerun_remap_job_id__\": null, \"mismatch\": \"\\\"-3\\\"\", \"sequencing_type\": \"{\\\"sequencing_type_selector\\\": \\\"not_paired\\\", \\\"__current_case__\\\": 0}\", \"ambiguous_letter\": \"\\\"-3\\\"\", \"aligned_blast\": \"{\\\"__current_case__\\\": 1, \\\"aligned_blast_selector\\\": \\\"\\\"}\", \"databases_type\": \"{\\\"databases_selector\\\": \\\"cached\\\", \\\"input_databases\\\": \\\"\\\", \\\"__current_case__\\\": 0}\", \"match\": \"\\\"2\\\"\", \"gap_open\": \"\\\"5\\\"\", \"report\": \"{\\\"report_best\\\": {\\\"report_best_min_lis\\\": \\\"2\\\", \\\"__current_case__\\\": 0, \\\"report_best_type\\\": \\\"1\\\"}, \\\"__current_case__\\\": 0, \\\"report_type\\\": \\\"best\\\"}\", \"e_value\": \"\\\"1.0\\\"\", \"aligned_fastx\": \"{\\\"aligned_fastx_selector\\\": \\\"--fastx\\\", \\\"other\\\": \\\"true\\\", \\\"__current_case__\\\": 0}\", \"gap_ext\": \"\\\"2\\\"\"}", 
+            "tool_state": "{\"__page__\": null, \"strand_search\": \"\\\"\\\"\", \"aligned_sam\": \"{\\\"aligned_sam_selector\\\": \\\"--sam\\\", \\\"sq\\\": \\\"false\\\", \\\"__current_case__\\\": 0}\", \"log\": \"\\\"false\\\"\", \"input_reads\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"__rerun_remap_job_id__\": null, \"mismatch\": \"\\\"-3\\\"\", \"sequencing_type\": \"{\\\"sequencing_type_selector\\\": \\\"not_paired\\\", \\\"__current_case__\\\": 0}\", \"ambiguous_letter\": \"\\\"-3\\\"\", \"aligned_blast\": \"{\\\"__current_case__\\\": 1, \\\"aligned_blast_selector\\\": \\\"\\\"}\", \"databases_type\": \"{\\\"databases_selector\\\": \\\"cached\\\", \\\"input_databases\\\": [\\\"2.1b-silva-bac-23s-id98\\\", \\\"2.1b-silva-bac-16s-id90\\\", \\\"2.1b-silva-euk-28s-id98\\\", \\\"2.1b-rfam-5.8s-database-id98\\\", \\\"2.1b-silva-euk-18s-id95\\\", \\\"2.1b-silva-arc-16s-id95\\\", \\\"2.1b-silva-arc-23s-id98\\\", \\\"2.1b-rfam-5s-database-id98\\\"], \\\"__current_case__\\\": 0}\", \"match\": \"\\\"2\\\"\", \"gap_open\": \"\\\"5\\\"\", \"report\": \"{\\\"report_best\\\": {\\\"report_best_min_lis\\\": \\\"2\\\", \\\"__current_case__\\\": 0, \\\"report_best_type\\\": \\\"1\\\"}, \\\"__current_case__\\\": 0, \\\"report_type\\\": \\\"best\\\"}\", \"e_value\": \"\\\"1.0\\\"\", \"aligned_fastx\": \"{\\\"aligned_fastx_selector\\\": \\\"--fastx\\\", \\\"other\\\": \\\"true\\\", \\\"__current_case__\\\": 0}\", \"gap_ext\": \"\\\"2\\\"\"}", 
             "tool_version": "2.1b.4", 
             "type": "tool", 
             "uuid": "dfaecd0c-620e-4ff0-89ca-cd1af49795c6", 
@@ -291,8 +319,13 @@
                     "output_name": "output_file"
                 }
             }, 
-            "inputs": [], 
-            "label": null, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Format MetaPhlAn2", 
+                    "name": "input_file"
+                }
+            ], 
+            "label": "Formatting for the different taxonomic levels", 
             "name": "Format MetaPhlAn2", 
             "outputs": [
                 {
@@ -333,7 +366,7 @@
                 }
             ], 
             "position": {
-                "left": 1185, 
+                "left": 1263, 
                 "top": 100
             }, 
             "post_job_actions": {}, 
@@ -344,7 +377,7 @@
                 "owner": "bebatut", 
                 "tool_shed": "toolshed.g2.bx.psu.edu"
             }, 
-            "tool_state": "{\"__page__\": null, \"__rerun_remap_job_id__\": null, \"input_file\": \"null\"}", 
+            "tool_state": "{\"__page__\": null, \"__rerun_remap_job_id__\": null, \"input_file\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\"}", 
             "tool_version": "0.1.0", 
             "type": "tool", 
             "uuid": "be78f650-b4ec-4373-8e3a-d677aaed5e22", 
@@ -361,7 +394,12 @@
                     "output_name": "output_file"
                 }
             }, 
-            "inputs": [], 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Format MetaPhlAn2", 
+                    "name": "profile"
+                }
+            ], 
             "label": null, 
             "name": "Format MetaPhlAn2", 
             "outputs": [
@@ -371,7 +409,7 @@
                 }
             ], 
             "position": {
-                "left": 1253, 
+                "left": 1331, 
                 "top": 431
             }, 
             "post_job_actions": {}, 
@@ -382,7 +420,7 @@
                 "owner": "iuc", 
                 "tool_shed": "toolshed.g2.bx.psu.edu"
             }, 
-            "tool_state": "{\"profile\": \"null\", \"__page__\": null, \"__rerun_remap_job_id__\": null}", 
+            "tool_state": "{\"profile\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"__page__\": null, \"__rerun_remap_job_id__\": null}", 
             "tool_version": "2.6.0.0", 
             "type": "tool", 
             "uuid": "5993071a-004b-4a52-8499-5705a6c26742", 
@@ -399,7 +437,12 @@
                     "output_name": "output_file"
                 }
             }, 
-            "inputs": [], 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Export to GraPhlAn", 
+                    "name": "lefse_input"
+                }
+            ], 
             "label": null, 
             "name": "Export to GraPhlAn", 
             "outputs": [
@@ -413,7 +456,7 @@
                 }
             ], 
             "position": {
-                "left": 1248, 
+                "left": 1326, 
                 "top": 545
             }, 
             "post_job_actions": {}, 
@@ -424,7 +467,7 @@
                 "owner": "iuc", 
                 "tool_shed": "toolshed.g2.bx.psu.edu"
             }, 
-            "tool_state": "{\"ftop\": \"\\\"\\\"\", \"background_clades\": \"\\\"\\\"\", \"max_clade_size\": \"\\\"200\\\"\", \"def_font_size\": \"\\\"10\\\"\", \"external_annotations\": \"\\\"\\\"\", \"annotation_legend_font_size\": \"\\\"10\\\"\", \"__page__\": null, \"skip_rows\": \"\\\"\\\"\", \"title\": \"\\\"\\\"\", \"__rerun_remap_job_id__\": null, \"metadata_rows\": \"\\\"\\\"\", \"least_biomarkers\": \"\\\"\\\"\", \"min_clade_size\": \"\\\"20\\\"\", \"sperc\": \"\\\"\\\"\", \"fperc\": \"\\\"\\\"\", \"annotations\": \"\\\"\\\"\", \"lefse_input\": \"null\", \"background_colors\": \"\\\"\\\"\", \"def_clade_size\": \"\\\"10\\\"\", \"stop\": \"\\\"\\\"\", \"sname_row\": \"\\\"0\\\"\", \"max_font_size\": \"\\\"12\\\"\", \"fname_row\": \"\\\"0\\\"\", \"abundance_threshold\": \"\\\"20.0\\\"\", \"title_font_size\": \"\\\"15\\\"\", \"input_lefse_output\": \"{\\\"input_lefse_output_test\\\": \\\"false\\\", \\\"__current_case__\\\": 1}\", \"background_levels\": \"\\\"\\\"\", \"min_font_size\": \"\\\"8\\\"\", \"most_abundant\": \"\\\"\\\"\"}", 
+            "tool_state": "{\"ftop\": \"\\\"\\\"\", \"background_clades\": \"\\\"\\\"\", \"max_clade_size\": \"\\\"200\\\"\", \"def_font_size\": \"\\\"10\\\"\", \"external_annotations\": \"\\\"\\\"\", \"annotation_legend_font_size\": \"\\\"10\\\"\", \"__page__\": null, \"skip_rows\": \"\\\"\\\"\", \"title\": \"\\\"\\\"\", \"__rerun_remap_job_id__\": null, \"metadata_rows\": \"\\\"\\\"\", \"least_biomarkers\": \"\\\"\\\"\", \"min_clade_size\": \"\\\"20\\\"\", \"sperc\": \"\\\"\\\"\", \"fperc\": \"\\\"\\\"\", \"annotations\": \"\\\"\\\"\", \"lefse_input\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"background_colors\": \"\\\"\\\"\", \"def_clade_size\": \"\\\"10\\\"\", \"stop\": \"\\\"\\\"\", \"sname_row\": \"\\\"0\\\"\", \"max_font_size\": \"\\\"12\\\"\", \"fname_row\": \"\\\"0\\\"\", \"abundance_threshold\": \"\\\"20.0\\\"\", \"title_font_size\": \"\\\"15\\\"\", \"input_lefse_output\": \"{\\\"input_lefse_output_test\\\": \\\"false\\\", \\\"__current_case__\\\": 1}\", \"background_levels\": \"\\\"\\\"\", \"min_font_size\": \"\\\"8\\\"\", \"most_abundant\": \"\\\"\\\"\"}", 
             "tool_version": "0.19", 
             "type": "tool", 
             "uuid": "2b184419-ebe1-40d0-b404-9048e3cfd20c", 
@@ -459,7 +502,7 @@
                     "name": "input"
                 }
             ], 
-            "label": null, 
+            "label": "Metabolic assignation", 
             "name": "HUMAnN2", 
             "outputs": [
                 {
@@ -488,7 +531,7 @@
                 }
             ], 
             "position": {
-                "left": 1159, 
+                "left": 1237, 
                 "top": 918
             }, 
             "post_job_actions": {}, 
@@ -499,7 +542,7 @@
                 "owner": "iuc", 
                 "tool_shed": "toolshed.g2.bx.psu.edu"
             }, 
-            "tool_state": "{\"adv\": \"{\\\"translated_query_coverage_threshold\\\": \\\"50.0\\\", \\\"translated_subject_coverage_threshold\\\": \\\"50.0\\\", \\\"prescreen_threshold\\\": \\\"0.01\\\", \\\"evalue\\\": \\\"1.0\\\", \\\"annotation_gene_index\\\": \\\"8\\\", \\\"minpath\\\": \\\"true\\\", \\\"id_mapping\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"identity_threshold\\\": \\\"50.0\\\", \\\"remove_statified_output\\\": \\\"false\\\", \\\"xipe\\\": \\\"false\\\", \\\"pick_frames\\\": \\\"true\\\", \\\"gap_fill\\\": \\\"true\\\", \\\"output_format\\\": \\\"tsv\\\", \\\"remove_column_description_output\\\": \\\"false\\\", \\\"output_max_dec\\\": \\\"10\\\"}\", \"__page__\": null, \"bypass\": \"{\\\"bypass_translated_search\\\": \\\"false\\\", \\\"bypass_nucleotide_search\\\": \\\"false\\\", \\\"bypass_prescreen\\\": \\\"false\\\", \\\"bypass_nucleotide_index\\\": \\\"false\\\"}\", \"translated_alignment\": \"\\\"diamond\\\"\", \"__rerun_remap_job_id__\": null, \"taxo_profile\": \"{\\\"taxonomic_profile_test\\\": \\\"true\\\", \\\"taxonomic_profile\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 0}\", \"pathways\": \"\\\"metacyc\\\"\", \"nucleotide_db\": \"{\\\"nucleotide_db_selector\\\": \\\"cached\\\", \\\"nucleotide_database\\\": \\\"\\\", \\\"__current_case__\\\": 0}\", \"search_mode\": \"\\\"uniref50\\\"\", \"input\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"protein_db\": \"{\\\"protein_db_selector\\\": \\\"cached\\\", \\\"__current_case__\\\": 0, \\\"protein_database\\\": \\\"\\\"}\"}", 
+            "tool_state": "{\"adv\": \"{\\\"translated_query_coverage_threshold\\\": \\\"50.0\\\", \\\"translated_subject_coverage_threshold\\\": \\\"50.0\\\", \\\"prescreen_threshold\\\": \\\"0.01\\\", \\\"evalue\\\": \\\"1.0\\\", \\\"annotation_gene_index\\\": \\\"8\\\", \\\"minpath\\\": \\\"true\\\", \\\"id_mapping\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"identity_threshold\\\": \\\"50.0\\\", \\\"remove_statified_output\\\": \\\"false\\\", \\\"xipe\\\": \\\"false\\\", \\\"pick_frames\\\": \\\"true\\\", \\\"gap_fill\\\": \\\"true\\\", \\\"output_format\\\": \\\"tsv\\\", \\\"remove_column_description_output\\\": \\\"false\\\", \\\"output_max_dec\\\": \\\"10\\\"}\", \"__page__\": null, \"bypass\": \"{\\\"bypass_translated_search\\\": \\\"false\\\", \\\"bypass_nucleotide_search\\\": \\\"false\\\", \\\"bypass_prescreen\\\": \\\"false\\\", \\\"bypass_nucleotide_index\\\": \\\"false\\\"}\", \"translated_alignment\": \"\\\"diamond\\\"\", \"__rerun_remap_job_id__\": null, \"taxo_profile\": \"{\\\"taxonomic_profile_test\\\": \\\"true\\\", \\\"taxonomic_profile\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 0}\", \"pathways\": \"\\\"metacyc\\\"\", \"nucleotide_db\": \"{\\\"nucleotide_db_selector\\\": \\\"cached\\\", \\\"nucleotide_database\\\": \\\"chocophlan-full-2017-09-04\\\", \\\"__current_case__\\\": 0}\", \"search_mode\": \"\\\"uniref50\\\"\", \"input\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"protein_db\": \"{\\\"protein_db_selector\\\": \\\"cached\\\", \\\"__current_case__\\\": 0, \\\"protein_database\\\": \\\"uniref-uniref50_diamond-2017-09-04\\\"}\"}", 
             "tool_version": "0.11.1.0", 
             "type": "tool", 
             "uuid": "51a8b591-8fe0-43f7-ad38-0d2ea2c217d6", 
@@ -522,7 +565,7 @@
                     "name": "type_of_data"
                 }
             ], 
-            "label": null, 
+            "label": "Visualisation (KRONA)", 
             "name": "Krona pie chart", 
             "outputs": [
                 {
@@ -531,8 +574,8 @@
                 }
             ], 
             "position": {
-                "left": 1533, 
-                "top": 427
+                "left": 1606, 
+                "top": 406
             }, 
             "post_job_actions": {}, 
             "tool_id": "toolshed.g2.bx.psu.edu/repos/crs4/taxonomy_krona_chart/taxonomy_krona_chart/2.6.1", 
@@ -563,7 +606,16 @@
                     "output_name": "tree"
                 }
             }, 
-            "inputs": [], 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Generation, personalization and annotation of tree", 
+                    "name": "input_tree"
+                }, 
+                {
+                    "description": "runtime parameter for tool Generation, personalization and annotation of tree", 
+                    "name": "annot"
+                }
+            ], 
             "label": null, 
             "name": "Generation, personalization and annotation of tree", 
             "outputs": [
@@ -573,7 +625,7 @@
                 }
             ], 
             "position": {
-                "left": 1504, 
+                "left": 1582, 
                 "top": 539
             }, 
             "post_job_actions": {}, 
@@ -584,7 +636,7 @@
                 "owner": "iuc", 
                 "tool_shed": "toolshed.g2.bx.psu.edu"
             }, 
-            "tool_state": "{\"input_tree\": \"null\", \"__rerun_remap_job_id__\": null, \"annot\": \"null\", \"__page__\": null}", 
+            "tool_state": "{\"input_tree\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"__rerun_remap_job_id__\": null, \"annot\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"__page__\": null}", 
             "tool_version": "1.0.0.0", 
             "type": "tool", 
             "uuid": "17c154d8-fbb8-4745-a5f6-62a5b653d0bf", 
@@ -605,8 +657,17 @@
                     "output_name": "output_file"
                 }
             }, 
-            "inputs": [], 
-            "label": null, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Combine MetaPhlAn2 and HUMAnN2 outputs", 
+                    "name": "metaphlan2_file"
+                }, 
+                {
+                    "description": "runtime parameter for tool Combine MetaPhlAn2 and HUMAnN2 outputs", 
+                    "name": "humann2_file"
+                }
+            ], 
+            "label": "Combination of taxonomic and metabolic assignations for gene families", 
             "name": "Combine MetaPhlAn2 and HUMAnN2 outputs", 
             "outputs": [
                 {
@@ -619,7 +680,7 @@
                 }
             ], 
             "position": {
-                "left": 1482.5, 
+                "left": 1560.5, 
                 "top": 686
             }, 
             "post_job_actions": {}, 
@@ -630,7 +691,7 @@
                 "owner": "bebatut", 
                 "tool_shed": "toolshed.g2.bx.psu.edu"
             }, 
-            "tool_state": "{\"metaphlan2_file\": \"null\", \"humann2_file\": \"null\", \"__rerun_remap_job_id__\": null, \"type\": \"\\\"gene_families\\\"\", \"__page__\": null}", 
+            "tool_state": "{\"metaphlan2_file\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"humann2_file\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"__rerun_remap_job_id__\": null, \"type\": \"\\\"gene_families\\\"\", \"__page__\": null}", 
             "tool_version": "0.1.0", 
             "type": "tool", 
             "uuid": "ee12a2ef-1d55-43f1-b0a2-cbe005539b0d", 
@@ -638,17 +699,120 @@
         }, 
         "13": {
             "annotation": "", 
-            "content_id": "toolshed.g2.bx.psu.edu/repos/bebatut/group_humann2_uniref_abundances_to_go/group_humann2_uniref_abundances_to_go/1.2.0", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/bebatut/combine_metaphlan2_humann2/combine_metaphlan2_humann2/0.1.0", 
             "errors": null, 
             "id": 13, 
+            "input_connections": {
+                "humann2_file": {
+                    "id": 9, 
+                    "output_name": "pathabundance_tsv"
+                }, 
+                "metaphlan2_file": {
+                    "id": 4, 
+                    "output_name": "output_file"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Combine MetaPhlAn2 and HUMAnN2 outputs", 
+                    "name": "metaphlan2_file"
+                }, 
+                {
+                    "description": "runtime parameter for tool Combine MetaPhlAn2 and HUMAnN2 outputs", 
+                    "name": "humann2_file"
+                }
+            ], 
+            "label": "Combination of taxonomic and metabolic assignations for pathways", 
+            "name": "Combine MetaPhlAn2 and HUMAnN2 outputs", 
+            "outputs": [
+                {
+                    "name": "gene_families_output_file", 
+                    "type": "tabular"
+                }, 
+                {
+                    "name": "pathway_output_file", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 1640.5, 
+                "top": 1137
+            }, 
+            "post_job_actions": {}, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/bebatut/combine_metaphlan2_humann2/combine_metaphlan2_humann2/0.1.0", 
+            "tool_shed_repository": {
+                "changeset_revision": "31394a0c0242", 
+                "name": "combine_metaphlan2_humann2", 
+                "owner": "bebatut", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"metaphlan2_file\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"humann2_file\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"__rerun_remap_job_id__\": null, \"type\": \"\\\"gene_families\\\"\", \"__page__\": null}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "uuid": "5d19d8f9-2e6c-4506-a62a-636c242277a9", 
+            "workflow_outputs": []
+        }, 
+        "14": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/humann2_genefamilies_genus_level/humann2_genefamilies_genus_level/0.11.1.0", 
+            "errors": null, 
+            "id": 14, 
+            "input_connections": {
+                "input": {
+                    "id": 9, 
+                    "output_name": "gene_families_tsv"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Create a genus level gene families file", 
+                    "name": "input"
+                }
+            ], 
+            "label": null, 
+            "name": "Create a genus level gene families file", 
+            "outputs": [
+                {
+                    "name": "output", 
+                    "type": "tsv"
+                }
+            ], 
+            "position": {
+                "left": 1866.5, 
+                "top": 785
+            }, 
+            "post_job_actions": {}, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/humann2_genefamilies_genus_level/humann2_genefamilies_genus_level/0.11.1.0", 
+            "tool_shed_repository": {
+                "changeset_revision": "c7ac7103023d", 
+                "name": "humann2_genefamilies_genus_level", 
+                "owner": "iuc", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"input\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"__rerun_remap_job_id__\": null, \"__page__\": null}", 
+            "tool_version": "0.11.1.0", 
+            "type": "tool", 
+            "uuid": "5a93decf-fca2-419e-a979-c5ab7d51d362", 
+            "workflow_outputs": []
+        }, 
+        "15": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/bebatut/group_humann2_uniref_abundances_to_go/group_humann2_uniref_abundances_to_go/1.2.0", 
+            "errors": null, 
+            "id": 15, 
             "input_connections": {
                 "humann2_gene_families_abundance": {
                     "id": 9, 
                     "output_name": "gene_families_tsv"
                 }
             }, 
-            "inputs": [], 
-            "label": null, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Group abundances", 
+                    "name": "humann2_gene_families_abundance"
+                }
+            ], 
+            "label": "Grouping to high level GO Slim terms", 
             "name": "Group abundances", 
             "outputs": [
                 {
@@ -665,8 +829,8 @@
                 }
             ], 
             "position": {
-                "left": 1696, 
-                "top": 918
+                "left": 1868, 
+                "top": 906
             }, 
             "post_job_actions": {}, 
             "tool_id": "toolshed.g2.bx.psu.edu/repos/bebatut/group_humann2_uniref_abundances_to_go/group_humann2_uniref_abundances_to_go/1.2.0", 
@@ -676,94 +840,10 @@
                 "owner": "bebatut", 
                 "tool_shed": "toolshed.g2.bx.psu.edu"
             }, 
-            "tool_state": "{\"__page__\": null, \"gene_ontology\": \"{\\\"gene_ontology_test\\\": \\\"false\\\", \\\"__current_case__\\\": 1}\", \"slim_gene_ontology\": \"{\\\"slim_gene_ontology_test\\\": \\\"false\\\", \\\"__current_case__\\\": 1}\", \"humann2_gene_families_abundance\": \"null\", \"__rerun_remap_job_id__\": null, \"uniref50_go\": \"{\\\"uniref50_go_test\\\": \\\"false\\\", \\\"__current_case__\\\": 1}\"}", 
+            "tool_state": "{\"__page__\": null, \"gene_ontology\": \"{\\\"gene_ontology_test\\\": \\\"false\\\", \\\"__current_case__\\\": 1}\", \"slim_gene_ontology\": \"{\\\"slim_gene_ontology_test\\\": \\\"false\\\", \\\"__current_case__\\\": 1}\", \"humann2_gene_families_abundance\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"__rerun_remap_job_id__\": null, \"uniref50_go\": \"{\\\"uniref50_go_test\\\": \\\"false\\\", \\\"__current_case__\\\": 1}\"}", 
             "tool_version": "1.2.0", 
             "type": "tool", 
             "uuid": "c5c483ec-a212-4742-9da3-544ad53108b7", 
-            "workflow_outputs": []
-        }, 
-        "14": {
-            "annotation": "", 
-            "content_id": "toolshed.g2.bx.psu.edu/repos/bebatut/combine_metaphlan2_humann2/combine_metaphlan2_humann2/0.1.0", 
-            "errors": null, 
-            "id": 14, 
-            "input_connections": {
-                "humann2_file": {
-                    "id": 9, 
-                    "output_name": "gene_families_tsv"
-                }, 
-                "metaphlan2_file": {
-                    "id": 4, 
-                    "output_name": "output_file"
-                }
-            }, 
-            "inputs": [], 
-            "label": null, 
-            "name": "Combine MetaPhlAn2 and HUMAnN2 outputs", 
-            "outputs": [
-                {
-                    "name": "gene_families_output_file", 
-                    "type": "tabular"
-                }, 
-                {
-                    "name": "pathway_output_file", 
-                    "type": "tabular"
-                }
-            ], 
-            "position": {
-                "left": 1562.5, 
-                "top": 1137
-            }, 
-            "post_job_actions": {}, 
-            "tool_id": "toolshed.g2.bx.psu.edu/repos/bebatut/combine_metaphlan2_humann2/combine_metaphlan2_humann2/0.1.0", 
-            "tool_shed_repository": {
-                "changeset_revision": "31394a0c0242", 
-                "name": "combine_metaphlan2_humann2", 
-                "owner": "bebatut", 
-                "tool_shed": "toolshed.g2.bx.psu.edu"
-            }, 
-            "tool_state": "{\"metaphlan2_file\": \"null\", \"humann2_file\": \"null\", \"__rerun_remap_job_id__\": null, \"type\": \"\\\"gene_families\\\"\", \"__page__\": null}", 
-            "tool_version": "0.1.0", 
-            "type": "tool", 
-            "uuid": "5d19d8f9-2e6c-4506-a62a-636c242277a9", 
-            "workflow_outputs": []
-        }, 
-        "15": {
-            "annotation": "", 
-            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/humann2_genefamilies_genus_level/humann2_genefamilies_genus_level/0.11.1.0", 
-            "errors": null, 
-            "id": 15, 
-            "input_connections": {
-                "input": {
-                    "id": 9, 
-                    "output_name": "gene_families_tsv"
-                }
-            }, 
-            "inputs": [], 
-            "label": null, 
-            "name": "Create a genus level gene families file", 
-            "outputs": [
-                {
-                    "name": "output", 
-                    "type": "tsv"
-                }
-            ], 
-            "position": {
-                "left": 1804.5, 
-                "top": 784
-            }, 
-            "post_job_actions": {}, 
-            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/humann2_genefamilies_genus_level/humann2_genefamilies_genus_level/0.11.1.0", 
-            "tool_shed_repository": {
-                "changeset_revision": "c7ac7103023d", 
-                "name": "humann2_genefamilies_genus_level", 
-                "owner": "iuc", 
-                "tool_shed": "toolshed.g2.bx.psu.edu"
-            }, 
-            "tool_state": "{\"input\": \"null\", \"__rerun_remap_job_id__\": null, \"__page__\": null}", 
-            "tool_version": "0.11.1.0", 
-            "type": "tool", 
-            "uuid": "5a93decf-fca2-419e-a979-c5ab7d51d362", 
             "workflow_outputs": []
         }, 
         "16": {
@@ -777,8 +857,13 @@
                     "output_name": "output_tree"
                 }
             }, 
-            "inputs": [], 
-            "label": null, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool GraPhlAn", 
+                    "name": "input_tree"
+                }
+            ], 
+            "label": "Visualisation (GraPhlAn)", 
             "name": "GraPhlAn", 
             "outputs": [
                 {
@@ -803,7 +888,7 @@
                 }
             ], 
             "position": {
-                "left": 1850, 
+                "left": 1928, 
                 "top": 510
             }, 
             "post_job_actions": {}, 
@@ -814,12 +899,12 @@
                 "owner": "iuc", 
                 "tool_shed": "toolshed.g2.bx.psu.edu"
             }, 
-            "tool_state": "{\"__page__\": null, \"input_tree\": \"null\", \"__rerun_remap_job_id__\": null, \"pad\": \"\\\"\\\"\", \"image_format\": \"{\\\"dpi\\\": \\\"\\\", \\\"__current_case__\\\": 0, \\\"format\\\": \\\"png\\\"}\", \"size\": \"\\\"7\\\"\"}", 
+            "tool_state": "{\"__page__\": null, \"input_tree\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"__rerun_remap_job_id__\": null, \"pad\": \"\\\"\\\"\", \"image_format\": \"{\\\"dpi\\\": \\\"\\\", \\\"__current_case__\\\": 0, \\\"format\\\": \\\"png\\\"}\", \"size\": \"\\\"7\\\"\"}", 
             "tool_version": "1.0.0.0", 
             "type": "tool", 
             "uuid": "324857c9-bfd9-4fcb-8183-f7dcab4651a3", 
             "workflow_outputs": []
         }
     }, 
-    "uuid": "5413af1e-be25-4cb5-8da2-9b6e4fb0d3b6"
+    "uuid": "86396fb7-274c-40d8-96ef-10117d176156"
 }
