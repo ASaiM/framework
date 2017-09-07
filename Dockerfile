@@ -7,7 +7,8 @@ FROM bgruening/galaxy-stable:17.05
 MAINTAINER Bérénice Batut, berenice.batut@gmail.com
 
 # Enable Conda dependency resolution
-ENV GALAXY_CONFIG_BRAND="ASaiM"
+ENV GALAXY_CONFIG_BRAND="ASaiM" \
+    GALAXY_CONFIG_CONDA_AUTO_INSTALL="True"
 
 # Change the tool_conf to get different tool sections and labels
 COPY config/tool_conf.xml $GALAXY_ROOT/config/

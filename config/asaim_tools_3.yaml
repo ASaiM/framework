@@ -31,6 +31,7 @@ tools:
 
 - name: 'interproscan5'
   owner: 'bgruening'
+  install_resolver_dependencies: False
   tool_panel_section_label: 'metabolism_assignation'
 
 - name: 'suite_picrust'
