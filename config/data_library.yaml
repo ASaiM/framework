@@ -1,0 +1,11 @@
+libraries:
+    - name: "RFAM family multiple alignment"
+      files:
+          - url: http://rfam.xfam.org/family/RF00005/alignment?acc=RF00005&amp;format=stockholm&amp;download=1
+            file_type: stockholm
+          - url: http://rfam.xfam.org/family/RF01960/alignment?acc=RF01960&amp;format=stockholm&amp;download=1
+            file_type: stockholm
+          - url: http://rfam.xfam.org/family/RF00177/alignment?acc=RF00177&amp;format=stockholm&amp;download=1
+            file_type: stockholm
+          - url: http://rfam.xfam.org/family/RF01959/alignment?acc=RF01959&amp;format=stockholm&amp;download=1
+            file_type: stockholm

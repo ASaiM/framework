@@ -30,15 +30,18 @@ RUN install-tools $GALAXY_ROOT/asaim_tools_3.yaml && \
     rm /export/galaxy-central/ -rf && \
     mkdir -p $GALAXY_ROOT/workflows
 
-# Import workflows (local and from training), install the tool databases and start the data managers
+# Import workflows (local and from training) and data manager description, install the data libraries and the workflows
 COPY config/workflows/* $GALAXY_ROOT/workflows/
 ADD https://raw.githubusercontent.com/galaxyproject/training-material/master/topics/metagenomics/tutorials/general-tutorial/workflows/wgs-worklow.ga $GALAXY_ROOT/workflows/
 ADD https://raw.githubusercontent.com/galaxyproject/training-material/master/topics/metagenomics/tutorials/general-tutorial/workflows/wgs-worklow.ga $GALAXY_ROOT/workflows/
 ADD https://raw.githubusercontent.com/galaxyproject/training-material/master/topics/metagenomics/tutorials/mothur-miseq-sop/workflows/mothur-miseq-sop.ga $GALAXY_ROOT/workflows/
 COPY config/data_managers.yaml $GALAXY_ROOT/data_managers.yaml
+COPY config/data_library.yaml $GALAXY_ROOT/data_library.yaml
 RUN startup_lite && \
     sleep 30 && \
+    setup-data-libraries -i $GALAXY_ROOT/data_library.yaml -g http://localhost:8080 -u $GALAXY_DEFAULT_ADMIN_USER -p $GALAXY_DEFAULT_ADMIN_PASSWORD && \
     workflow-install --workflow_path $GALAXY_ROOT/workflows/ -g http://localhost:8080 -u $GALAXY_DEFAULT_ADMIN_USER -p $GALAXY_DEFAULT_ADMIN_PASSWORD
+
 COPY bin/run_data_managers run_data_managers
 
 # Install the tours
