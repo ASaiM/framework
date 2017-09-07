@@ -1,0 +1,1549 @@
+{
+    "a_galaxy_workflow": "true", 
+    "annotation": "", 
+    "format-version": "0.1", 
+    "name": "EBI Metagenomics workflow (3.0)", 
+    "steps": {
+        "0": {
+            "annotation": "", 
+            "content_id": null, 
+            "errors": null, 
+            "id": 0, 
+            "input_connections": {}, 
+            "inputs": [], 
+            "label": "Raw reads", 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 201, 
+                "top": 244
+            }, 
+            "tool_id": null, 
+            "tool_state": "{}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "uuid": "aeced281-19a5-4272-a09e-7e7c5c058946", 
+            "workflow_outputs": [
+                {
+                    "label": null, 
+                    "output_name": "output", 
+                    "uuid": "8de30316-26a3-4815-af6d-6216e0059db8"
+                }
+            ]
+        }, 
+        "1": {
+            "annotation": "http://rfam.xfam.org/family/RF00005/alignment?acc=RF00005&amp;format=stockholm&amp;download=1", 
+            "content_id": null, 
+            "errors": null, 
+            "id": 1, 
+            "input_connections": {}, 
+            "inputs": [], 
+            "label": "Multiple alignment for tRNA family (RFAM RF00005)", 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 207, 
+                "top": 552
+            }, 
+            "tool_id": null, 
+            "tool_state": "{}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "uuid": "ea4622fe-246d-49e1-b41f-a2e548042356", 
+            "workflow_outputs": [
+                {
+                    "label": null, 
+                    "output_name": "output", 
+                    "uuid": "de643d13-da0f-4532-a982-fdd9d07254d3"
+                }
+            ]
+        }, 
+        "2": {
+            "annotation": "", 
+            "content_id": null, 
+            "errors": null, 
+            "id": 2, 
+            "input_connections": {}, 
+            "inputs": [], 
+            "label": "Multiple alignment for 18S family (RFAM RF01960)", 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 1179, 
+                "top": 807
+            }, 
+            "tool_id": null, 
+            "tool_state": "{}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "uuid": "c00fdc2f-b4e0-4f49-8704-02640a70033b", 
+            "workflow_outputs": [
+                {
+                    "label": null, 
+                    "output_name": "output", 
+                    "uuid": "fcf790f5-35d5-4a3a-8289-4055e2f2fafb"
+                }
+            ]
+        }, 
+        "3": {
+            "annotation": "", 
+            "content_id": null, 
+            "errors": null, 
+            "id": 3, 
+            "input_connections": {}, 
+            "inputs": [], 
+            "label": "Multiple alignment for bacteria 16S family (RFAM RF01959) ", 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 2071, 
+                "top": 1025
+            }, 
+            "tool_id": null, 
+            "tool_state": "{}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "uuid": "ffc734b5-2237-49aa-bfb1-aebb88a7f42e", 
+            "workflow_outputs": [
+                {
+                    "label": null, 
+                    "output_name": "output", 
+                    "uuid": "b0ee0a06-79c2-470a-b559-64d04e99c41c"
+                }
+            ]
+        }, 
+        "4": {
+            "annotation": "", 
+            "content_id": null, 
+            "errors": null, 
+            "id": 4, 
+            "input_connections": {}, 
+            "inputs": [], 
+            "label": "Multiple alignment for archea 16S family (RFAM RF01959)", 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 2852, 
+                "top": 1281
+            }, 
+            "tool_id": null, 
+            "tool_state": "{}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "uuid": "4f4695d3-62b5-499f-b114-8eb3ba6bf4c5", 
+            "workflow_outputs": [
+                {
+                    "label": null, 
+                    "output_name": "output", 
+                    "uuid": "e4686b23-7cbe-4106-bb81-c1e1987cf293"
+                }
+            ]
+        }, 
+        "5": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/pjbriggs/trimmomatic/trimmomatic/0.36.4", 
+            "errors": null, 
+            "id": 5, 
+            "input_connections": {
+                "readtype|fastq_in": {
+                    "id": 0, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Trimmomatic", 
+                    "name": "readtype"
+                }
+            ], 
+            "label": "QC", 
+            "name": "Trimmomatic", 
+            "outputs": [
+                {
+                    "name": "fastq_out_paired", 
+                    "type": "input"
+                }, 
+                {
+                    "name": "fastq_out_unpaired", 
+                    "type": "input"
+                }, 
+                {
+                    "name": "fastq_out_r1_paired", 
+                    "type": "input"
+                }, 
+                {
+                    "name": "fastq_out_r2_paired", 
+                    "type": "input"
+                }, 
+                {
+                    "name": "fastq_out_r1_unpaired", 
+                    "type": "input"
+                }, 
+                {
+                    "name": "fastq_out_r2_unpaired", 
+                    "type": "input"
+                }, 
+                {
+                    "name": "fastq_out", 
+                    "type": "input"
+                }
+            ], 
+            "position": {
+                "left": 397, 
+                "top": 292
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionfastq_out": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "fastq_out"
+                }, 
+                "HideDatasetActionfastq_out_paired": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "fastq_out_paired"
+                }, 
+                "HideDatasetActionfastq_out_r1_paired": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "fastq_out_r1_paired"
+                }, 
+                "HideDatasetActionfastq_out_r1_unpaired": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "fastq_out_r1_unpaired"
+                }, 
+                "HideDatasetActionfastq_out_r2_paired": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "fastq_out_r2_paired"
+                }, 
+                "HideDatasetActionfastq_out_r2_unpaired": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "fastq_out_r2_unpaired"
+                }, 
+                "HideDatasetActionfastq_out_unpaired": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "fastq_out_unpaired"
+                }
+            }, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/pjbriggs/trimmomatic/trimmomatic/0.36.4", 
+            "tool_shed_repository": {
+                "changeset_revision": "53af7b5b1b56", 
+                "name": "trimmomatic", 
+                "owner": "pjbriggs", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"operations\": \"[{\\\"__index__\\\": 0, \\\"operation\\\": {\\\"window_size\\\": \\\"4\\\", \\\"name\\\": \\\"SLIDINGWINDOW\\\", \\\"__current_case__\\\": 0, \\\"required_quality\\\": \\\"20\\\"}}]\", \"__page__\": null, \"__rerun_remap_job_id__\": null, \"readtype\": \"{\\\"single_or_paired\\\": \\\"se\\\", \\\"fastq_in\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 0}\", \"illuminaclip\": \"{\\\"do_illuminaclip\\\": \\\"false\\\", \\\"__current_case__\\\": 1}\"}", 
+            "tool_version": "0.36.4", 
+            "type": "tool", 
+            "uuid": "830687e1-9358-4044-83e1-c6630219d7a1", 
+            "workflow_outputs": []
+        }, 
+        "6": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/hmmer3/hmmer_hmmbuild/0.1.0", 
+            "errors": null, 
+            "id": 6, 
+            "input_connections": {
+                "msafile": {
+                    "id": 1, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool hmmbuild", 
+                    "name": "msafile"
+                }
+            ], 
+            "label": "tRNA removal (covariance model building)", 
+            "name": "hmmbuild", 
+            "outputs": [
+                {
+                    "name": "hmmout", 
+                    "type": "hmm3"
+                }
+            ], 
+            "position": {
+                "left": 443, 
+                "top": 551
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionhmmout": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "hmmout"
+                }
+            }, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/hmmer3/hmmer_hmmbuild/0.1.0", 
+            "tool_shed_repository": {
+                "changeset_revision": "54b6b4d0613a", 
+                "name": "hmmer3", 
+                "owner": "iuc", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"aeews\": \"{\\\"aeews_select\\\": \\\"\\\", \\\"__current_case__\\\": 0}\", \"msafile\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"Eft\": \"\\\"0.04\\\"\", \"seed\": \"\\\"42\\\"\", \"hssi\": \"{\\\"hssi_select\\\": \\\"false\\\", \\\"__current_case__\\\": 1}\", \"__page__\": null, \"input_format_select\": \"\\\"--amino\\\"\", \"mcs\": \"{\\\"symfrac\\\": \\\"0.5\\\", \\\"model_construction_strategy_select\\\": \\\"fast\\\", \\\"__current_case__\\\": 0}\", \"__rerun_remap_job_id__\": null, \"EfL\": \"\\\"100\\\"\", \"EfN\": \"\\\"200\\\"\", \"aps_select\": \"\\\"\\\"\", \"w_beta\": \"\\\"\\\"\", \"w_length\": \"\\\"\\\"\", \"arsws\": \"{\\\"arsws_select\\\": \\\"--wpb\\\", \\\"__current_case__\\\": 0}\", \"fragthresh\": \"\\\"0.5\\\"\", \"hmmname\": \"\\\"\\\"\", \"EvL\": \"\\\"200\\\"\", \"EvN\": \"\\\"200\\\"\", \"EmL\": \"\\\"200\\\"\", \"EmN\": \"\\\"200\\\"\", \"maxinsertlen\": \"\\\"\\\"\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "uuid": "2ca6a2dd-4599-4bd4-b47f-f3868c38a5a9", 
+            "workflow_outputs": []
+        }, 
+        "7": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/hmmer3/hmmer_hmmbuild/0.1.0", 
+            "errors": null, 
+            "id": 7, 
+            "input_connections": {
+                "msafile": {
+                    "id": 2, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool hmmbuild", 
+                    "name": "msafile"
+                }
+            ], 
+            "label": "18S removal (covariance model building)", 
+            "name": "hmmbuild", 
+            "outputs": [
+                {
+                    "name": "hmmout", 
+                    "type": "hmm3"
+                }
+            ], 
+            "position": {
+                "left": 1410, 
+                "top": 773
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionhmmout": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "hmmout"
+                }
+            }, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/hmmer3/hmmer_hmmbuild/0.1.0", 
+            "tool_shed_repository": {
+                "changeset_revision": "54b6b4d0613a", 
+                "name": "hmmer3", 
+                "owner": "iuc", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"aeews\": \"{\\\"aeews_select\\\": \\\"\\\", \\\"__current_case__\\\": 0}\", \"msafile\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"Eft\": \"\\\"0.04\\\"\", \"seed\": \"\\\"42\\\"\", \"hssi\": \"{\\\"hssi_select\\\": \\\"false\\\", \\\"__current_case__\\\": 1}\", \"__page__\": null, \"input_format_select\": \"\\\"--amino\\\"\", \"mcs\": \"{\\\"symfrac\\\": \\\"0.5\\\", \\\"model_construction_strategy_select\\\": \\\"fast\\\", \\\"__current_case__\\\": 0}\", \"__rerun_remap_job_id__\": null, \"EfL\": \"\\\"100\\\"\", \"EfN\": \"\\\"200\\\"\", \"aps_select\": \"\\\"\\\"\", \"w_beta\": \"\\\"\\\"\", \"w_length\": \"\\\"\\\"\", \"arsws\": \"{\\\"arsws_select\\\": \\\"--wpb\\\", \\\"__current_case__\\\": 0}\", \"fragthresh\": \"\\\"0.5\\\"\", \"hmmname\": \"\\\"\\\"\", \"EvL\": \"\\\"200\\\"\", \"EvN\": \"\\\"200\\\"\", \"EmL\": \"\\\"200\\\"\", \"EmN\": \"\\\"200\\\"\", \"maxinsertlen\": \"\\\"\\\"\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "uuid": "81a4f9dd-fb3a-4d87-b57c-d24b67238d47", 
+            "workflow_outputs": []
+        }, 
+        "8": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/hmmer3/hmmer_hmmbuild/0.1.0", 
+            "errors": null, 
+            "id": 8, 
+            "input_connections": {
+                "msafile": {
+                    "id": 3, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool hmmbuild", 
+                    "name": "msafile"
+                }
+            ], 
+            "label": "16S sorting (covariance model building for bacteria)", 
+            "name": "hmmbuild", 
+            "outputs": [
+                {
+                    "name": "hmmout", 
+                    "type": "hmm3"
+                }
+            ], 
+            "position": {
+                "left": 2274, 
+                "top": 1031
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionhmmout": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "hmmout"
+                }
+            }, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/hmmer3/hmmer_hmmbuild/0.1.0", 
+            "tool_shed_repository": {
+                "changeset_revision": "54b6b4d0613a", 
+                "name": "hmmer3", 
+                "owner": "iuc", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"aeews\": \"{\\\"aeews_select\\\": \\\"\\\", \\\"__current_case__\\\": 0}\", \"msafile\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"Eft\": \"\\\"0.04\\\"\", \"seed\": \"\\\"42\\\"\", \"hssi\": \"{\\\"hssi_select\\\": \\\"false\\\", \\\"__current_case__\\\": 1}\", \"__page__\": null, \"input_format_select\": \"\\\"--amino\\\"\", \"mcs\": \"{\\\"symfrac\\\": \\\"0.5\\\", \\\"model_construction_strategy_select\\\": \\\"fast\\\", \\\"__current_case__\\\": 0}\", \"__rerun_remap_job_id__\": null, \"EfL\": \"\\\"100\\\"\", \"EfN\": \"\\\"200\\\"\", \"aps_select\": \"\\\"\\\"\", \"w_beta\": \"\\\"\\\"\", \"w_length\": \"\\\"\\\"\", \"arsws\": \"{\\\"arsws_select\\\": \\\"--wpb\\\", \\\"__current_case__\\\": 0}\", \"fragthresh\": \"\\\"0.5\\\"\", \"hmmname\": \"\\\"\\\"\", \"EvL\": \"\\\"200\\\"\", \"EvN\": \"\\\"200\\\"\", \"EmL\": \"\\\"200\\\"\", \"EmN\": \"\\\"200\\\"\", \"maxinsertlen\": \"\\\"\\\"\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "uuid": "71edade8-4095-4d2f-b10c-3cdaa891132c", 
+            "workflow_outputs": []
+        }, 
+        "9": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/hmmer3/hmmer_hmmbuild/0.1.0", 
+            "errors": null, 
+            "id": 9, 
+            "input_connections": {
+                "msafile": {
+                    "id": 4, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool hmmbuild", 
+                    "name": "msafile"
+                }
+            ], 
+            "label": "16S sorting (covariance model building for archaea)", 
+            "name": "hmmbuild", 
+            "outputs": [
+                {
+                    "name": "hmmout", 
+                    "type": "hmm3"
+                }
+            ], 
+            "position": {
+                "left": 3042, 
+                "top": 1289
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionhmmout": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "hmmout"
+                }
+            }, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/hmmer3/hmmer_hmmbuild/0.1.0", 
+            "tool_shed_repository": {
+                "changeset_revision": "54b6b4d0613a", 
+                "name": "hmmer3", 
+                "owner": "iuc", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"aeews\": \"{\\\"aeews_select\\\": \\\"\\\", \\\"__current_case__\\\": 0}\", \"msafile\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"Eft\": \"\\\"0.04\\\"\", \"seed\": \"\\\"42\\\"\", \"hssi\": \"{\\\"hssi_select\\\": \\\"false\\\", \\\"__current_case__\\\": 1}\", \"__page__\": null, \"input_format_select\": \"\\\"--amino\\\"\", \"mcs\": \"{\\\"symfrac\\\": \\\"0.5\\\", \\\"model_construction_strategy_select\\\": \\\"fast\\\", \\\"__current_case__\\\": 0}\", \"__rerun_remap_job_id__\": null, \"EfL\": \"\\\"100\\\"\", \"EfN\": \"\\\"200\\\"\", \"aps_select\": \"\\\"\\\"\", \"w_beta\": \"\\\"\\\"\", \"w_length\": \"\\\"\\\"\", \"arsws\": \"{\\\"arsws_select\\\": \\\"--wpb\\\", \\\"__current_case__\\\": 0}\", \"fragthresh\": \"\\\"0.5\\\"\", \"hmmname\": \"\\\"\\\"\", \"EvL\": \"\\\"200\\\"\", \"EvN\": \"\\\"200\\\"\", \"EmL\": \"\\\"200\\\"\", \"EmN\": \"\\\"200\\\"\", \"maxinsertlen\": \"\\\"\\\"\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "uuid": "2be28637-fbe7-4e5d-ac6d-a8ef1f56b86c", 
+            "workflow_outputs": []
+        }, 
+        "10": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/devteam/fastq_to_fasta/cshl_fastq_to_fasta/1.0.0", 
+            "errors": null, 
+            "id": 10, 
+            "input_connections": {
+                "input": {
+                    "id": 5, 
+                    "output_name": "fastq_out"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool FASTQ to FASTA", 
+                    "name": "input"
+                }
+            ], 
+            "label": null, 
+            "name": "FASTQ to FASTA", 
+            "outputs": [
+                {
+                    "name": "output", 
+                    "type": "fasta"
+                }
+            ], 
+            "position": {
+                "left": 664.5, 
+                "top": 441
+            }, 
+            "post_job_actions": {}, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/devteam/fastq_to_fasta/cshl_fastq_to_fasta/1.0.0", 
+            "tool_shed_repository": {
+                "changeset_revision": "186b8d913e6c", 
+                "name": "fastq_to_fasta", 
+                "owner": "devteam", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"input\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"RENAMESEQ\": \"\\\"-r\\\"\", \"SKIPN\": \"\\\"\\\"\", \"__rerun_remap_job_id__\": null, \"__page__\": null}", 
+            "tool_version": "1.0.0", 
+            "type": "tool", 
+            "uuid": "ed233b82-0bbc-47b3-837d-9d506f6756e5", 
+            "workflow_outputs": [
+                {
+                    "label": "Controlled reads", 
+                    "output_name": "output", 
+                    "uuid": "dd6724ed-36c4-4497-bbc0-8814ff700672"
+                }
+            ]
+        }, 
+        "11": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/hmmer3/hmmer_hmmsearch/0.1.0", 
+            "errors": null, 
+            "id": 11, 
+            "input_connections": {
+                "hmmfile": {
+                    "id": 6, 
+                    "output_name": "hmmout"
+                }, 
+                "seqdb": {
+                    "id": 10, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool hmmsearch", 
+                    "name": "seqdb"
+                }, 
+                {
+                    "description": "runtime parameter for tool hmmsearch", 
+                    "name": "hmmfile"
+                }
+            ], 
+            "label": "tRNA removal (sequence search)", 
+            "name": "hmmsearch", 
+            "outputs": [
+                {
+                    "name": "output", 
+                    "type": "txt"
+                }, 
+                {
+                    "name": "tblout", 
+                    "type": "txt"
+                }, 
+                {
+                    "name": "domtblout", 
+                    "type": "txt"
+                }, 
+                {
+                    "name": "pfamtblout", 
+                    "type": "txt"
+                }
+            ], 
+            "position": {
+                "left": 888.734375, 
+                "top": 565.21875
+            }, 
+            "post_job_actions": {
+                "HideDatasetActiondomtblout": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "domtblout"
+                }, 
+                "HideDatasetActionoutput": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output"
+                }, 
+                "HideDatasetActionpfamtblout": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "pfamtblout"
+                }, 
+                "HideDatasetActiontblout": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "tblout"
+                }
+            }, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/hmmer3/hmmer_hmmsearch/0.1.0", 
+            "tool_shed_repository": {
+                "changeset_revision": "54b6b4d0613a", 
+                "name": "hmmer3", 
+                "owner": "iuc", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"incT\": \"\\\"\\\"\", \"seed\": \"\\\"42\\\"\", \"nobias\": \"\\\"false\\\"\", \"incE\": \"\\\"\\\"\", \"cut_nc\": \"\\\"false\\\"\", \"__page__\": null, \"incdomT\": \"\\\"\\\"\", \"seqdb\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"cut_ga\": \"\\\"false\\\"\", \"__rerun_remap_job_id__\": null, \"incdomE\": \"\\\"\\\"\", \"oformat\": \"[\\\"tblout\\\"]\", \"cut_tc\": \"\\\"false\\\"\", \"E\": \"\\\"10.0\\\"\", \"max\": \"\\\"false\\\"\", \"T\": \"\\\"\\\"\", \"hmmfile\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"Z\": \"\\\"\\\"\", \"acc\": \"\\\"false\\\"\", \"F1\": \"\\\"0.02\\\"\", \"F2\": \"\\\"0.001\\\"\", \"F3\": \"\\\"1e-05\\\"\", \"nonull2\": \"\\\"false\\\"\", \"domE\": \"\\\"10.0\\\"\", \"domZ\": \"\\\"\\\"\", \"notextw\": \"\\\"false\\\"\", \"domT\": \"\\\"\\\"\", \"noali\": \"\\\"false\\\"\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "uuid": "66161b23-52e6-4c44-834b-02175f94df64", 
+            "workflow_outputs": []
+        }, 
+        "12": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_awk_tool/1.1.0", 
+            "errors": null, 
+            "id": 12, 
+            "input_connections": {
+                "infile": {
+                    "id": 11, 
+                    "output_name": "tblout"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Text reformatting", 
+                    "name": "infile"
+                }
+            ], 
+            "label": "tRNA removal (extraction of ids of sequences to conserve)", 
+            "name": "Text reformatting", 
+            "outputs": [
+                {
+                    "name": "outfile", 
+                    "type": "input"
+                }
+            ], 
+            "position": {
+                "left": 1178.484375, 
+                "top": 596.234375
+            }, 
+            "post_job_actions": {
+                "ChangeDatatypeActionoutfile": {
+                    "action_arguments": {
+                        "newtype": "tabular"
+                    }, 
+                    "action_type": "ChangeDatatypeAction", 
+                    "output_name": "outfile"
+                }, 
+                "HideDatasetActionoutfile": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "outfile"
+                }
+            }, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_awk_tool/1.1.0", 
+            "tool_shed_repository": {
+                "changeset_revision": "4c752559b236", 
+                "name": "text_processing", 
+                "owner": "bgruening", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"__page__\": null, \"__rerun_remap_job_id__\": null, \"code\": \"\\\"BEGIN{FS=\\\\\\\" \\\\\\\"} !/^ *#/ {print $1}\\\"\", \"infile\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\"}", 
+            "tool_version": "1.1.0", 
+            "type": "tool", 
+            "uuid": "3a731cab-8c87-47b7-abde-0f6e49792e70", 
+            "workflow_outputs": []
+        }, 
+        "13": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/peterjc/seq_filter_by_id/seq_filter_by_id/0.2.7", 
+            "errors": null, 
+            "id": 13, 
+            "input_connections": {
+                "id_opts|input_tabular": {
+                    "id": 12, 
+                    "output_name": "outfile"
+                }, 
+                "input_file": {
+                    "id": 10, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Filter sequences by ID", 
+                    "name": "id_opts"
+                }, 
+                {
+                    "description": "runtime parameter for tool Filter sequences by ID", 
+                    "name": "input_file"
+                }
+            ], 
+            "label": "tRNA removal (extraction of sequences to conserve)", 
+            "name": "Filter sequences by ID", 
+            "outputs": [
+                {
+                    "name": "output_pos", 
+                    "type": "input"
+                }, 
+                {
+                    "name": "output_neg", 
+                    "type": "input"
+                }
+            ], 
+            "position": {
+                "left": 1461.5, 
+                "top": 541
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionoutput_neg": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_neg"
+                }, 
+                "HideDatasetActionoutput_pos": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_pos"
+                }
+            }, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/peterjc/seq_filter_by_id/seq_filter_by_id/0.2.7", 
+            "tool_shed_repository": {
+                "changeset_revision": "141612f8c3e3", 
+                "name": "seq_filter_by_id", 
+                "owner": "peterjc", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"__page__\": null, \"output_choice_cond\": \"{\\\"output_choice\\\": \\\"both\\\", \\\"__current_case__\\\": 0}\", \"input_file\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"adv_opts\": \"{\\\"adv_opts_selector\\\": \\\"basic\\\", \\\"__current_case__\\\": 0}\", \"__rerun_remap_job_id__\": null, \"id_opts\": \"{\\\"id_opts_selector\\\": \\\"tabular\\\", \\\"columns\\\": \\\"c1\\\", \\\"__current_case__\\\": 0, \\\"input_tabular\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}}\"}", 
+            "tool_version": "0.2.7", 
+            "type": "tool", 
+            "uuid": "6e5b3435-6867-47aa-825c-3635141586db", 
+            "workflow_outputs": []
+        }, 
+        "14": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/hmmer3/hmmer_hmmsearch/0.1.0", 
+            "errors": null, 
+            "id": 14, 
+            "input_connections": {
+                "hmmfile": {
+                    "id": 7, 
+                    "output_name": "hmmout"
+                }, 
+                "seqdb": {
+                    "id": 13, 
+                    "output_name": "output_neg"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool hmmsearch", 
+                    "name": "seqdb"
+                }, 
+                {
+                    "description": "runtime parameter for tool hmmsearch", 
+                    "name": "hmmfile"
+                }
+            ], 
+            "label": "18S removal (sequence search)", 
+            "name": "hmmsearch", 
+            "outputs": [
+                {
+                    "name": "output", 
+                    "type": "txt"
+                }, 
+                {
+                    "name": "tblout", 
+                    "type": "txt"
+                }, 
+                {
+                    "name": "domtblout", 
+                    "type": "txt"
+                }, 
+                {
+                    "name": "pfamtblout", 
+                    "type": "txt"
+                }
+            ], 
+            "position": {
+                "left": 1735.625, 
+                "top": 724.453125
+            }, 
+            "post_job_actions": {
+                "HideDatasetActiondomtblout": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "domtblout"
+                }, 
+                "HideDatasetActionoutput": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output"
+                }, 
+                "HideDatasetActionpfamtblout": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "pfamtblout"
+                }, 
+                "HideDatasetActiontblout": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "tblout"
+                }
+            }, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/hmmer3/hmmer_hmmsearch/0.1.0", 
+            "tool_shed_repository": {
+                "changeset_revision": "54b6b4d0613a", 
+                "name": "hmmer3", 
+                "owner": "iuc", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"incT\": \"\\\"\\\"\", \"seed\": \"\\\"42\\\"\", \"nobias\": \"\\\"false\\\"\", \"incE\": \"\\\"\\\"\", \"cut_nc\": \"\\\"false\\\"\", \"__page__\": null, \"incdomT\": \"\\\"\\\"\", \"seqdb\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"cut_ga\": \"\\\"false\\\"\", \"__rerun_remap_job_id__\": null, \"incdomE\": \"\\\"\\\"\", \"oformat\": \"[\\\"tblout\\\"]\", \"cut_tc\": \"\\\"false\\\"\", \"E\": \"\\\"10.0\\\"\", \"max\": \"\\\"false\\\"\", \"T\": \"\\\"\\\"\", \"hmmfile\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"Z\": \"\\\"\\\"\", \"acc\": \"\\\"false\\\"\", \"F1\": \"\\\"0.02\\\"\", \"F2\": \"\\\"0.001\\\"\", \"F3\": \"\\\"1e-05\\\"\", \"nonull2\": \"\\\"false\\\"\", \"domE\": \"\\\"10.0\\\"\", \"domZ\": \"\\\"\\\"\", \"notextw\": \"\\\"false\\\"\", \"domT\": \"\\\"\\\"\", \"noali\": \"\\\"false\\\"\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "uuid": "87f6b833-40f9-49b2-be16-ad741e6fecd8", 
+            "workflow_outputs": []
+        }, 
+        "15": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_awk_tool/1.1.0", 
+            "errors": null, 
+            "id": 15, 
+            "input_connections": {
+                "infile": {
+                    "id": 14, 
+                    "output_name": "tblout"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Text reformatting", 
+                    "name": "infile"
+                }
+            ], 
+            "label": "18S removal (extraction of ids of sequences to conserve)", 
+            "name": "Text reformatting", 
+            "outputs": [
+                {
+                    "name": "outfile", 
+                    "type": "input"
+                }
+            ], 
+            "position": {
+                "left": 2029.625, 
+                "top": 826.453125
+            }, 
+            "post_job_actions": {
+                "ChangeDatatypeActionoutfile": {
+                    "action_arguments": {
+                        "newtype": "tabular"
+                    }, 
+                    "action_type": "ChangeDatatypeAction", 
+                    "output_name": "outfile"
+                }, 
+                "HideDatasetActionoutfile": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "outfile"
+                }
+            }, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_awk_tool/1.1.0", 
+            "tool_shed_repository": {
+                "changeset_revision": "4c752559b236", 
+                "name": "text_processing", 
+                "owner": "bgruening", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"__page__\": null, \"__rerun_remap_job_id__\": null, \"code\": \"\\\"BEGIN{FS=\\\\\\\" \\\\\\\"} !/^ *#/ {print $1}\\\"\", \"infile\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\"}", 
+            "tool_version": "1.1.0", 
+            "type": "tool", 
+            "uuid": "26a2a0db-8deb-4a18-a4a2-27fd0dbc1f34", 
+            "workflow_outputs": []
+        }, 
+        "16": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/peterjc/seq_filter_by_id/seq_filter_by_id/0.2.7", 
+            "errors": null, 
+            "id": 16, 
+            "input_connections": {
+                "id_opts|input_tabular": {
+                    "id": 15, 
+                    "output_name": "outfile"
+                }, 
+                "input_file": {
+                    "id": 13, 
+                    "output_name": "output_neg"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Filter sequences by ID", 
+                    "name": "id_opts"
+                }, 
+                {
+                    "description": "runtime parameter for tool Filter sequences by ID", 
+                    "name": "input_file"
+                }
+            ], 
+            "label": "18S removal (extraction of sequences to conserve)", 
+            "name": "Filter sequences by ID", 
+            "outputs": [
+                {
+                    "name": "output_pos", 
+                    "type": "input"
+                }, 
+                {
+                    "name": "output_neg", 
+                    "type": "input"
+                }
+            ], 
+            "position": {
+                "left": 2281.125, 
+                "top": 779.453125
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionoutput_neg": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_neg"
+                }, 
+                "HideDatasetActionoutput_pos": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_pos"
+                }
+            }, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/peterjc/seq_filter_by_id/seq_filter_by_id/0.2.7", 
+            "tool_shed_repository": {
+                "changeset_revision": "141612f8c3e3", 
+                "name": "seq_filter_by_id", 
+                "owner": "peterjc", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"__page__\": null, \"output_choice_cond\": \"{\\\"output_choice\\\": \\\"both\\\", \\\"__current_case__\\\": 0}\", \"input_file\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"adv_opts\": \"{\\\"adv_opts_selector\\\": \\\"basic\\\", \\\"__current_case__\\\": 0}\", \"__rerun_remap_job_id__\": null, \"id_opts\": \"{\\\"id_opts_selector\\\": \\\"tabular\\\", \\\"columns\\\": \\\"c1\\\", \\\"__current_case__\\\": 0, \\\"input_tabular\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}}\"}", 
+            "tool_version": "0.2.7", 
+            "type": "tool", 
+            "uuid": "7bb904d1-ea0d-4a64-9899-cbd77e49e944", 
+            "workflow_outputs": []
+        }, 
+        "17": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/hmmer3/hmmer_hmmsearch/0.1.0", 
+            "errors": null, 
+            "id": 17, 
+            "input_connections": {
+                "hmmfile": {
+                    "id": 8, 
+                    "output_name": "hmmout"
+                }, 
+                "seqdb": {
+                    "id": 16, 
+                    "output_name": "output_neg"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool hmmsearch", 
+                    "name": "seqdb"
+                }, 
+                {
+                    "description": "runtime parameter for tool hmmsearch", 
+                    "name": "hmmfile"
+                }
+            ], 
+            "label": "16S (bacteria) sorting (sequence search)", 
+            "name": "hmmsearch", 
+            "outputs": [
+                {
+                    "name": "output", 
+                    "type": "txt"
+                }, 
+                {
+                    "name": "tblout", 
+                    "type": "txt"
+                }, 
+                {
+                    "name": "domtblout", 
+                    "type": "txt"
+                }, 
+                {
+                    "name": "pfamtblout", 
+                    "type": "txt"
+                }
+            ], 
+            "position": {
+                "left": 2580.625, 
+                "top": 957.453125
+            }, 
+            "post_job_actions": {
+                "HideDatasetActiondomtblout": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "domtblout"
+                }, 
+                "HideDatasetActionoutput": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output"
+                }, 
+                "HideDatasetActionpfamtblout": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "pfamtblout"
+                }, 
+                "HideDatasetActiontblout": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "tblout"
+                }
+            }, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/hmmer3/hmmer_hmmsearch/0.1.0", 
+            "tool_shed_repository": {
+                "changeset_revision": "54b6b4d0613a", 
+                "name": "hmmer3", 
+                "owner": "iuc", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"incT\": \"\\\"\\\"\", \"seed\": \"\\\"42\\\"\", \"nobias\": \"\\\"false\\\"\", \"incE\": \"\\\"\\\"\", \"cut_nc\": \"\\\"false\\\"\", \"__page__\": null, \"incdomT\": \"\\\"\\\"\", \"seqdb\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"cut_ga\": \"\\\"false\\\"\", \"__rerun_remap_job_id__\": null, \"incdomE\": \"\\\"\\\"\", \"oformat\": \"[\\\"tblout\\\"]\", \"cut_tc\": \"\\\"false\\\"\", \"E\": \"\\\"10.0\\\"\", \"max\": \"\\\"false\\\"\", \"T\": \"\\\"\\\"\", \"hmmfile\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"Z\": \"\\\"\\\"\", \"acc\": \"\\\"false\\\"\", \"F1\": \"\\\"0.02\\\"\", \"F2\": \"\\\"0.001\\\"\", \"F3\": \"\\\"1e-05\\\"\", \"nonull2\": \"\\\"false\\\"\", \"domE\": \"\\\"10.0\\\"\", \"domZ\": \"\\\"\\\"\", \"notextw\": \"\\\"false\\\"\", \"domT\": \"\\\"\\\"\", \"noali\": \"\\\"false\\\"\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "uuid": "4cbdb662-c236-4f5d-b5e4-538e495488e0", 
+            "workflow_outputs": []
+        }, 
+        "18": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_awk_tool/1.1.0", 
+            "errors": null, 
+            "id": 18, 
+            "input_connections": {
+                "infile": {
+                    "id": 17, 
+                    "output_name": "tblout"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Text reformatting", 
+                    "name": "infile"
+                }
+            ], 
+            "label": "16S (bacteria) sorting (extraction of ids of sequences to conserve)", 
+            "name": "Text reformatting", 
+            "outputs": [
+                {
+                    "name": "outfile", 
+                    "type": "input"
+                }
+            ], 
+            "position": {
+                "left": 2867.625, 
+                "top": 1021.453125
+            }, 
+            "post_job_actions": {
+                "ChangeDatatypeActionoutfile": {
+                    "action_arguments": {
+                        "newtype": "tabular"
+                    }, 
+                    "action_type": "ChangeDatatypeAction", 
+                    "output_name": "outfile"
+                }, 
+                "HideDatasetActionoutfile": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "outfile"
+                }
+            }, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_awk_tool/1.1.0", 
+            "tool_shed_repository": {
+                "changeset_revision": "4c752559b236", 
+                "name": "text_processing", 
+                "owner": "bgruening", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"__page__\": null, \"__rerun_remap_job_id__\": null, \"code\": \"\\\"BEGIN{FS=\\\\\\\" \\\\\\\"} !/^ *#/ {print $1}\\\"\", \"infile\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\"}", 
+            "tool_version": "1.1.0", 
+            "type": "tool", 
+            "uuid": "b5ea631f-d32c-47b7-bf1e-c1e6fe79a389", 
+            "workflow_outputs": []
+        }, 
+        "19": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/peterjc/seq_filter_by_id/seq_filter_by_id/0.2.7", 
+            "errors": null, 
+            "id": 19, 
+            "input_connections": {
+                "id_opts|input_tabular": {
+                    "id": 18, 
+                    "output_name": "outfile"
+                }, 
+                "input_file": {
+                    "id": 16, 
+                    "output_name": "output_neg"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Filter sequences by ID", 
+                    "name": "id_opts"
+                }, 
+                {
+                    "description": "runtime parameter for tool Filter sequences by ID", 
+                    "name": "input_file"
+                }
+            ], 
+            "label": "16S (bacteria) sorting (extraction of sequences to conserve)", 
+            "name": "Filter sequences by ID", 
+            "outputs": [
+                {
+                    "name": "output_pos", 
+                    "type": "input"
+                }, 
+                {
+                    "name": "output_neg", 
+                    "type": "input"
+                }
+            ], 
+            "position": {
+                "left": 3068.125, 
+                "top": 1047.453125
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionoutput_neg": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_neg"
+                }, 
+                "HideDatasetActionoutput_pos": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_pos"
+                }
+            }, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/peterjc/seq_filter_by_id/seq_filter_by_id/0.2.7", 
+            "tool_shed_repository": {
+                "changeset_revision": "141612f8c3e3", 
+                "name": "seq_filter_by_id", 
+                "owner": "peterjc", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"__page__\": null, \"output_choice_cond\": \"{\\\"output_choice\\\": \\\"both\\\", \\\"__current_case__\\\": 0}\", \"input_file\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"adv_opts\": \"{\\\"adv_opts_selector\\\": \\\"basic\\\", \\\"__current_case__\\\": 0}\", \"__rerun_remap_job_id__\": null, \"id_opts\": \"{\\\"id_opts_selector\\\": \\\"tabular\\\", \\\"columns\\\": \\\"c1\\\", \\\"__current_case__\\\": 0, \\\"input_tabular\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}}\"}", 
+            "tool_version": "0.2.7", 
+            "type": "tool", 
+            "uuid": "30c45bad-f485-41b5-a55f-561a66219d8d", 
+            "workflow_outputs": []
+        }, 
+        "20": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/hmmer3/hmmer_hmmsearch/0.1.0", 
+            "errors": null, 
+            "id": 20, 
+            "input_connections": {
+                "hmmfile": {
+                    "id": 9, 
+                    "output_name": "hmmout"
+                }, 
+                "seqdb": {
+                    "id": 19, 
+                    "output_name": "output_neg"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool hmmsearch", 
+                    "name": "seqdb"
+                }, 
+                {
+                    "description": "runtime parameter for tool hmmsearch", 
+                    "name": "hmmfile"
+                }
+            ], 
+            "label": "16S (archaea) sorting (sequence search)", 
+            "name": "hmmsearch", 
+            "outputs": [
+                {
+                    "name": "output", 
+                    "type": "txt"
+                }, 
+                {
+                    "name": "tblout", 
+                    "type": "txt"
+                }, 
+                {
+                    "name": "domtblout", 
+                    "type": "txt"
+                }, 
+                {
+                    "name": "pfamtblout", 
+                    "type": "txt"
+                }
+            ], 
+            "position": {
+                "left": 3384.625, 
+                "top": 1235.453125
+            }, 
+            "post_job_actions": {
+                "HideDatasetActiondomtblout": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "domtblout"
+                }, 
+                "HideDatasetActionoutput": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output"
+                }, 
+                "HideDatasetActionpfamtblout": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "pfamtblout"
+                }, 
+                "HideDatasetActiontblout": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "tblout"
+                }
+            }, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/hmmer3/hmmer_hmmsearch/0.1.0", 
+            "tool_shed_repository": {
+                "changeset_revision": "54b6b4d0613a", 
+                "name": "hmmer3", 
+                "owner": "iuc", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"incT\": \"\\\"\\\"\", \"seed\": \"\\\"42\\\"\", \"nobias\": \"\\\"false\\\"\", \"incE\": \"\\\"\\\"\", \"cut_nc\": \"\\\"false\\\"\", \"__page__\": null, \"incdomT\": \"\\\"\\\"\", \"seqdb\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"cut_ga\": \"\\\"false\\\"\", \"__rerun_remap_job_id__\": null, \"incdomE\": \"\\\"\\\"\", \"oformat\": \"[\\\"tblout\\\"]\", \"cut_tc\": \"\\\"false\\\"\", \"E\": \"\\\"10.0\\\"\", \"max\": \"\\\"false\\\"\", \"T\": \"\\\"\\\"\", \"hmmfile\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"Z\": \"\\\"\\\"\", \"acc\": \"\\\"false\\\"\", \"F1\": \"\\\"0.02\\\"\", \"F2\": \"\\\"0.001\\\"\", \"F3\": \"\\\"1e-05\\\"\", \"nonull2\": \"\\\"false\\\"\", \"domE\": \"\\\"10.0\\\"\", \"domZ\": \"\\\"\\\"\", \"notextw\": \"\\\"false\\\"\", \"domT\": \"\\\"\\\"\", \"noali\": \"\\\"false\\\"\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "uuid": "28d41894-867d-4a33-bc9c-dd299501493b", 
+            "workflow_outputs": []
+        }, 
+        "21": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_awk_tool/1.1.0", 
+            "errors": null, 
+            "id": 21, 
+            "input_connections": {
+                "infile": {
+                    "id": 20, 
+                    "output_name": "tblout"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Text reformatting", 
+                    "name": "infile"
+                }
+            ], 
+            "label": "16S (archaea) sorting (extraction of ids of sequences to conserve)", 
+            "name": "Text reformatting", 
+            "outputs": [
+                {
+                    "name": "outfile", 
+                    "type": "input"
+                }
+            ], 
+            "position": {
+                "left": 3646.625, 
+                "top": 1301.453125
+            }, 
+            "post_job_actions": {
+                "ChangeDatatypeActionoutfile": {
+                    "action_arguments": {
+                        "newtype": "tabular"
+                    }, 
+                    "action_type": "ChangeDatatypeAction", 
+                    "output_name": "outfile"
+                }, 
+                "HideDatasetActionoutfile": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "outfile"
+                }
+            }, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_awk_tool/1.1.0", 
+            "tool_shed_repository": {
+                "changeset_revision": "4c752559b236", 
+                "name": "text_processing", 
+                "owner": "bgruening", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"__page__\": null, \"__rerun_remap_job_id__\": null, \"code\": \"\\\"BEGIN{FS=\\\\\\\" \\\\\\\"} !/^ *#/ {print $1}\\\"\", \"infile\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\"}", 
+            "tool_version": "1.1.0", 
+            "type": "tool", 
+            "uuid": "3bafc75e-7ad2-4061-826b-06b30f49c968", 
+            "workflow_outputs": []
+        }, 
+        "22": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/peterjc/seq_filter_by_id/seq_filter_by_id/0.2.7", 
+            "errors": null, 
+            "id": 22, 
+            "input_connections": {
+                "id_opts|input_tabular": {
+                    "id": 21, 
+                    "output_name": "outfile"
+                }, 
+                "input_file": {
+                    "id": 19, 
+                    "output_name": "output_neg"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Filter sequences by ID", 
+                    "name": "id_opts"
+                }, 
+                {
+                    "description": "runtime parameter for tool Filter sequences by ID", 
+                    "name": "input_file"
+                }
+            ], 
+            "label": "16S (archaea) sorting (extraction of sequences to conserve)", 
+            "name": "Filter sequences by ID", 
+            "outputs": [
+                {
+                    "name": "output_pos", 
+                    "type": "input"
+                }, 
+                {
+                    "name": "output_neg", 
+                    "type": "input"
+                }
+            ], 
+            "position": {
+                "left": 3857.125, 
+                "top": 1328.453125
+            }, 
+            "post_job_actions": {
+                "HideDatasetActionoutput_pos": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "output_pos"
+                }
+            }, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/peterjc/seq_filter_by_id/seq_filter_by_id/0.2.7", 
+            "tool_shed_repository": {
+                "changeset_revision": "141612f8c3e3", 
+                "name": "seq_filter_by_id", 
+                "owner": "peterjc", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"__page__\": null, \"output_choice_cond\": \"{\\\"output_choice\\\": \\\"both\\\", \\\"__current_case__\\\": 0}\", \"input_file\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"adv_opts\": \"{\\\"adv_opts_selector\\\": \\\"basic\\\", \\\"__current_case__\\\": 0}\", \"__rerun_remap_job_id__\": null, \"id_opts\": \"{\\\"id_opts_selector\\\": \\\"tabular\\\", \\\"columns\\\": \\\"c1\\\", \\\"__current_case__\\\": 0, \\\"input_tabular\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}}\"}", 
+            "tool_version": "0.2.7", 
+            "type": "tool", 
+            "uuid": "730aa4f5-26c5-45da-bd30-fbb74da2ffac", 
+            "workflow_outputs": [
+                {
+                    "label": "Reads without rRNA and tRNA", 
+                    "output_name": "output_neg", 
+                    "uuid": "984fb773-7be2-4370-88b8-cc0020058c8e"
+                }
+            ]
+        }, 
+        "23": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_cat/0.1.0", 
+            "errors": null, 
+            "id": 23, 
+            "input_connections": {
+                "inputs": {
+                    "id": 22, 
+                    "output_name": "output_pos"
+                }, 
+                "queries_0|inputs2": {
+                    "id": 19, 
+                    "output_name": "output_pos"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Concatenate datasets", 
+                    "name": "inputs"
+                }
+            ], 
+            "label": "16S sorting (archea and bacteria combining)", 
+            "name": "Concatenate datasets", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "input"
+                }
+            ], 
+            "position": {
+                "left": 4147.125, 
+                "top": 1053.453125
+            }, 
+            "post_job_actions": {}, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_cat/0.1.0", 
+            "tool_shed_repository": {
+                "changeset_revision": "4c752559b236", 
+                "name": "text_processing", 
+                "owner": "bgruening", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"__page__\": null, \"inputs\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"__rerun_remap_job_id__\": null, \"queries\": \"[{\\\"inputs2\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__index__\\\": 0}]\"}", 
+            "tool_version": "0.1.0", 
+            "type": "tool", 
+            "uuid": "baed1c1d-ff91-4be6-bd04-3a3f0737b826", 
+            "workflow_outputs": [
+                {
+                    "label": "16S reads", 
+                    "output_name": "out_file1", 
+                    "uuid": "348bbcf5-14e4-449a-a340-1f288449b7a6"
+                }
+            ]
+        }, 
+        "24": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/fraggenescan/fraggenescan/1.30.0", 
+            "errors": null, 
+            "id": 24, 
+            "input_connections": {
+                "genome": {
+                    "id": 22, 
+                    "output_name": "output_neg"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool FragGeneScan", 
+                    "name": "genome"
+                }
+            ], 
+            "label": "ORF prediction", 
+            "name": "FragGeneScan", 
+            "outputs": [
+                {
+                    "name": "coord", 
+                    "type": "tabular"
+                }, 
+                {
+                    "name": "nt_seq", 
+                    "type": "fasta"
+                }, 
+                {
+                    "name": "prot_seq", 
+                    "type": "fasta"
+                }, 
+                {
+                    "name": "gff", 
+                    "type": "gff"
+                }
+            ], 
+            "position": {
+                "left": 4276.625, 
+                "top": 1437.453125
+            }, 
+            "post_job_actions": {
+                "HideDatasetActioncoord": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "coord"
+                }, 
+                "HideDatasetActiongff": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "gff"
+                }, 
+                "HideDatasetActionprot_seq": {
+                    "action_arguments": {}, 
+                    "action_type": "HideDatasetAction", 
+                    "output_name": "prot_seq"
+                }
+            }, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/fraggenescan/fraggenescan/1.30.0", 
+            "tool_shed_repository": {
+                "changeset_revision": "1f0a3e4497d4", 
+                "name": "fraggenescan", 
+                "owner": "iuc", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"__page__\": null, \"__rerun_remap_job_id__\": null, \"train\": \"\\\"454_5\\\"\", \"complete\": \"\\\"false\\\"\", \"genome\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\"}", 
+            "tool_version": "1.30.0", 
+            "type": "tool", 
+            "uuid": "aa5d179c-176b-4893-b028-004f921deee3", 
+            "workflow_outputs": [
+                {
+                    "label": "Predicted CDS", 
+                    "output_name": "nt_seq", 
+                    "uuid": "cbfcd580-f571-4c37-af12-e1b567aaa4b7"
+                }
+            ]
+        }, 
+        "25": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/qiime_pick_closed_reference_otus/qiime_pick_closed_reference_otus/1.9.1.0", 
+            "errors": null, 
+            "id": 25, 
+            "input_connections": {
+                "input_fp": {
+                    "id": 23, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Closed-reference OTU picking", 
+                    "name": "input_fp"
+                }, 
+                {
+                    "description": "runtime parameter for tool Closed-reference OTU picking", 
+                    "name": "parameter_fp"
+                }
+            ], 
+            "label": null, 
+            "name": "Closed-reference OTU picking", 
+            "outputs": [
+                {
+                    "name": "otu_table", 
+                    "type": "biom1"
+                }
+            ], 
+            "position": {
+                "left": 4513.5, 
+                "top": 1121.5
+            }, 
+            "post_job_actions": {}, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/qiime_pick_closed_reference_otus/qiime_pick_closed_reference_otus/1.9.1.0", 
+            "tool_shed_repository": {
+                "changeset_revision": "935abbf93f99", 
+                "name": "qiime_pick_closed_reference_otus", 
+                "owner": "iuc", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"__page__\": null, \"taxonomy\": \"{\\\"taxo_map\\\": {\\\"taxonomy_fp\\\": \\\"greengenes_13_8_99_otu_taxonomy\\\", \\\"__current_case__\\\": 0, \\\"selector\\\": \\\"cached\\\"}, \\\"__current_case__\\\": 0, \\\"selector\\\": \\\"taxonomy_map\\\"}\", \"__rerun_remap_job_id__\": null, \"input_fp\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"parameter_fp\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"ref_seq\": \"{\\\"reference_fp\\\": \\\"greengenes_13_8_99_otus\\\", \\\"__current_case__\\\": 0, \\\"selector\\\": \\\"cached\\\"}\", \"parallel\": \"\\\"true\\\"\"}", 
+            "tool_version": "1.9.1.0", 
+            "type": "tool", 
+            "uuid": "a296ae70-a0fa-4dc3-a03d-24d217d93ee0", 
+            "workflow_outputs": [
+                {
+                    "label": null, 
+                    "output_name": "otu_table", 
+                    "uuid": "66e671a1-7042-41ae-80d9-da166e738c33"
+                }
+            ]
+        }, 
+        "26": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/bgruening/interproscan5/interproscan/5.0.0", 
+            "errors": null, 
+            "id": 26, 
+            "input_connections": {
+                "infile": {
+                    "id": 24, 
+                    "output_name": "nt_seq"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Interproscan functional predictions of ORFs", 
+                    "name": "infile"
+                }
+            ], 
+            "label": "Functional analysis", 
+            "name": "Interproscan functional predictions of ORFs", 
+            "outputs": [
+                {
+                    "name": "outfile", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 4518.625, 
+                "top": 1556.453125
+            }, 
+            "post_job_actions": {}, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/bgruening/interproscan5/interproscan/5.0.0", 
+            "tool_shed_repository": {
+                "changeset_revision": "e32f2ea6a139", 
+                "name": "interproscan5", 
+                "owner": "bgruening", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"__page__\": null, \"goterms\": \"\\\"true\\\"\", \"__rerun_remap_job_id__\": null, \"appl\": \"[\\\"TIGRFAM\\\", \\\"PIRSF\\\", \\\"ProDom\\\", \\\"Panther\\\", \\\"SMART\\\", \\\"PrositeProfiles\\\", \\\"PrositePatterns\\\", \\\"HAMAP\\\", \\\"PfamA\\\", \\\"PRINTS\\\", \\\"SuperFamily\\\", \\\"Coils\\\", \\\"Gene3d\\\", \\\"SignalP-EUK\\\", \\\"Phobius\\\", \\\"TMHMM\\\"]\", \"pathways\": \"\\\"true\\\"\", \"oformat\": \"\\\"TSV\\\"\", \"seqtype\": \"\\\"n\\\"\", \"iprlookup\": \"\\\"false\\\"\", \"infile\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\"}", 
+            "tool_version": "5.0.0", 
+            "type": "tool", 
+            "uuid": "71a4cbc0-8ae0-4939-a0d7-87412cf5b668", 
+            "workflow_outputs": [
+                {
+                    "label": null, 
+                    "output_name": "outfile", 
+                    "uuid": "505e1071-217b-4d37-8c8d-e0b0fbae8c94"
+                }
+            ]
+        }
+    }, 
+    "uuid": "2bcd1994-aec6-4a42-a119-abe5ad6c3334"
+}
