@@ -2,7 +2,7 @@
     "a_galaxy_workflow": "true", 
     "annotation": "", 
     "format-version": "0.1", 
-    "name": "Shotgun workflow", 
+    "name": "Shotgun workflow (imported from API)", 
     "steps": {
         "0": {
             "annotation": "", 
@@ -499,7 +499,15 @@
                 }, 
                 {
                     "description": "runtime parameter for tool HUMAnN2", 
+                    "name": "nucleotide_db"
+                }, 
+                {
+                    "description": "runtime parameter for tool HUMAnN2", 
                     "name": "input"
+                }, 
+                {
+                    "description": "runtime parameter for tool HUMAnN2", 
+                    "name": "protein_db"
                 }
             ], 
             "label": "Metabolic assignation", 
@@ -542,7 +550,7 @@
                 "owner": "iuc", 
                 "tool_shed": "toolshed.g2.bx.psu.edu"
             }, 
-            "tool_state": "{\"adv\": \"{\\\"translated_query_coverage_threshold\\\": \\\"50.0\\\", \\\"translated_subject_coverage_threshold\\\": \\\"50.0\\\", \\\"prescreen_threshold\\\": \\\"0.01\\\", \\\"evalue\\\": \\\"1.0\\\", \\\"annotation_gene_index\\\": \\\"8\\\", \\\"minpath\\\": \\\"true\\\", \\\"id_mapping\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"identity_threshold\\\": \\\"50.0\\\", \\\"remove_statified_output\\\": \\\"false\\\", \\\"xipe\\\": \\\"false\\\", \\\"pick_frames\\\": \\\"true\\\", \\\"gap_fill\\\": \\\"true\\\", \\\"output_format\\\": \\\"tsv\\\", \\\"remove_column_description_output\\\": \\\"false\\\", \\\"output_max_dec\\\": \\\"10\\\"}\", \"__page__\": null, \"bypass\": \"{\\\"bypass_translated_search\\\": \\\"false\\\", \\\"bypass_nucleotide_search\\\": \\\"false\\\", \\\"bypass_prescreen\\\": \\\"false\\\", \\\"bypass_nucleotide_index\\\": \\\"false\\\"}\", \"translated_alignment\": \"\\\"diamond\\\"\", \"__rerun_remap_job_id__\": null, \"taxo_profile\": \"{\\\"taxonomic_profile_test\\\": \\\"true\\\", \\\"taxonomic_profile\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 0}\", \"pathways\": \"\\\"metacyc\\\"\", \"nucleotide_db\": \"{\\\"nucleotide_db_selector\\\": \\\"cached\\\", \\\"nucleotide_database\\\": \\\"chocophlan-full-2017-09-04\\\", \\\"__current_case__\\\": 0}\", \"search_mode\": \"\\\"uniref50\\\"\", \"input\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"protein_db\": \"{\\\"protein_db_selector\\\": \\\"cached\\\", \\\"__current_case__\\\": 0, \\\"protein_database\\\": \\\"uniref-uniref50_diamond-2017-09-04\\\"}\"}", 
+            "tool_state": "{\"adv\": \"{\\\"translated_query_coverage_threshold\\\": \\\"50.0\\\", \\\"translated_subject_coverage_threshold\\\": \\\"50.0\\\", \\\"prescreen_threshold\\\": \\\"0.01\\\", \\\"evalue\\\": \\\"1.0\\\", \\\"annotation_gene_index\\\": \\\"8\\\", \\\"minpath\\\": \\\"true\\\", \\\"id_mapping\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"identity_threshold\\\": \\\"50.0\\\", \\\"remove_statified_output\\\": \\\"false\\\", \\\"xipe\\\": \\\"false\\\", \\\"pick_frames\\\": \\\"true\\\", \\\"gap_fill\\\": \\\"true\\\", \\\"output_format\\\": \\\"tsv\\\", \\\"remove_column_description_output\\\": \\\"false\\\", \\\"output_max_dec\\\": \\\"10\\\"}\", \"__page__\": null, \"bypass\": \"{\\\"bypass_translated_search\\\": \\\"false\\\", \\\"bypass_nucleotide_search\\\": \\\"false\\\", \\\"bypass_prescreen\\\": \\\"false\\\", \\\"bypass_nucleotide_index\\\": \\\"false\\\"}\", \"translated_alignment\": \"\\\"diamond\\\"\", \"__rerun_remap_job_id__\": null, \"taxo_profile\": \"{\\\"taxonomic_profile_test\\\": \\\"true\\\", \\\"taxonomic_profile\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 0}\", \"pathways\": \"\\\"metacyc\\\"\", \"nucleotide_db\": \"{\\\"nucleotide_db_selector\\\": \\\"cached\\\", \\\"nucleotide_database\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 0}\", \"search_mode\": \"\\\"uniref50\\\"\", \"input\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"protein_db\": \"{\\\"protein_db_selector\\\": \\\"cached\\\", \\\"__current_case__\\\": 0, \\\"protein_database\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}}\"}", 
             "tool_version": "0.11.1.0", 
             "type": "tool", 
             "uuid": "51a8b591-8fe0-43f7-ad38-0d2ea2c217d6", 
@@ -906,5 +914,5 @@
             "workflow_outputs": []
         }
     }, 
-    "uuid": "86396fb7-274c-40d8-96ef-10117d176156"
+    "uuid": "27a07942-3349-44e1-bbca-69bfa4841f26"
 }
