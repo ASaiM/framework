@@ -92,7 +92,7 @@
             "id": 3, 
             "input_connections": {}, 
             "inputs": [], 
-            "label": "Multiple alignment for bacteria 16S family (RFAM RF01959) ", 
+            "label": "Multiple alignment for bacteria 16S family (RFAM RF00177) ", 
             "name": "Input dataset", 
             "outputs": [], 
             "position": {
