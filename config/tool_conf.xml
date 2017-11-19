@@ -19,7 +19,6 @@
         <section id="bam_sam_manipulation" name="BAM/SAM file manipulation" />
         <section id="biom_manipulation" name="BIOM file manipulation" />
     <label text="GENOMICS TOOLS" id="genomics_tools" />
-        <section id="assembly" name="Assembly" />
         <section id="quality_control" name="Quality control" />
         <section id="clustering" name="Clustering" />
         <section id="sorting_prediction" name="Sorting and prediction" />
@@ -28,6 +27,7 @@
         <section id="alignment" name="Alignment" />
     <label text="MICROBIOTA DEDICATED TOOLS" id="structural_functional_analysis_tools" />
         <section id="metagenomics_manipulation" name="Metagenomics data manipulation" />
+        <section id="assembly" name="Assembly" />
         <section id="amplicon_sequence_processing" name="Amplicon sequence processing" />
         <section id="wgs_taxonomic_assignations" name="Taxonomy assignation on WGS sequences" />
         <section id="metabolism_assignation" name="Metabolism assignation" />
