@@ -1,8 +1,8 @@
 # Galaxy - ASaiM
 #
-# VERSION 0.2
+# VERSION 0.3
 
-FROM bgruening/galaxy-stable:17.05
+FROM bgruening/galaxy-stable:17.09
 
 MAINTAINER Bérénice Batut, berenice.batut@gmail.com
 
@@ -47,8 +47,7 @@ COPY bin/run_data_managers run_data_managers
 # Install the tours
 ADD https://raw.githubusercontent.com/galaxyproject/training-material/master/topics/metagenomics/tutorials/general-tutorial/tours/metagenomics-general-tutorial-amplicon.yml $GALAXY_ROOT/config/plugins/tours/
 ADD https://raw.githubusercontent.com/galaxyproject/training-material/master/topics/metagenomics/tutorials/general-tutorial/tours/metagenomics-general-tutorial-shotgun.yml $GALAXY_ROOT/config/plugins/tours/
-    
+
 # Add Container Style
 COPY config/welcome.html $GALAXY_CONFIG_DIR/web/welcome.html
 COPY config/asaim_logo.svg $GALAXY_CONFIG_DIR/web/asaim_logo.svg
-
