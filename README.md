@@ -13,7 +13,7 @@ This framework is using the [Galaxy Docker](http://bgruening.github.io/docker-ga
 
 ## Requirements
 
-To use the ASaiM framework, [Docker](https://www.docker.com/products/overview#h_installation) is required (except if you want to [setup and run the framework without using Docker](#installation-and-use-without-using-docker)). 
+To use the ASaiM framework, [Docker](https://www.docker.com/products/overview#h_installation) is required
 
 For Linux users and people familiar with the command line, please follow the [very good instructions](https://docs.docker.com/installation/) from the Docker project. Non-Linux users are encouraged to use [Kitematic](https://kitematic.com), a graphical User-Interface for managing Docker containers.
 
