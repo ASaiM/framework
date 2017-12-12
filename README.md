@@ -65,9 +65,7 @@ More details about the installation of ASaiM and its usage can be found on the [
 
 # Documentation
 
-Available tools and workflows in ASaiM framework are described in the documentation available at [http://asaim.readthedocs.org/](http://asaim.readthedocs.org/en/latest/framework/index.html).
-
-Moreover, [a tutorial](https://asaim.readthedocs.io/en/latest/tutorial/index.html) explains how to use ASaiM framework to analyze metagenomic sequences of microbiota to obtain taxonomic and functional assignations of sequences.
+Available tools and workflows in ASaiM framework are described in the documentation available at [http://asaim.readthedocs.org/](http://asaim.readthedocs.org/en/latest/framework/index.html). It comes also with tutorials.
 
 # Bug Reports
 
@@ -77,6 +75,22 @@ Any bug can be filed in an issue [here](https://github.com/ASaiM/framework/issue
 
 ASaiM framework is released under Apache 2 License. See the [LICENSE](LICENSE) file for details.
 
+# Contributing
+
+How to Contribute:
+
+- Make sure you have a [GitHub account](https://github.com/signup/free)
+- Make sure you have git [installed](https://help.github.com/articles/set-up-git)
+- Fork the repository on [GitHub](https://github.com/galaxyproject/tools-iuc/fork)
+- Make the desired modifications - consider using a [feature branch](https://github.com/Kunena/Kunena-Forum/wiki/Create-a-new-branch-with-git-and-manage-branches)
+- Open a [pull request](https://help.github.com/articles/using-pull-requests) with these changes.
+
+Thanks!
+
 # Citation
 
-To cite this tool, a DOI is generated for each release using Zenodo. Check the [CITATION](CITATION) file for details.
+If you use this tool, please cite:
+
+    ASaiM: a Galaxy-based framework to analyze raw shotgun data from microbiota
+    Bérénice Batut, Kévin Gravouil, Clémence Defois, Saskia Hiltemann, Jean-François Brugère, Eric Peyretaillade, Pierre Peyret
+    bioRxiv 183970; doi: https://doi.org/10.1101/183970
