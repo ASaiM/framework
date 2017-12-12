@@ -45,9 +45,10 @@ ADD https://raw.githubusercontent.com/galaxyproject/training-material/master/top
 COPY config/data_managers.yaml $GALAXY_ROOT/data_managers.yaml
 COPY config/data_library.yaml $GALAXY_ROOT/data_library.yaml
 RUN startup_lite && \
-    sleep 30 && \
-    setup-data-libraries -i $GALAXY_ROOT/data_library.yaml -g http://localhost:8080 -u $GALAXY_DEFAULT_ADMIN_USER -p $GALAXY_DEFAULT_ADMIN_PASSWORD && \
+    galaxy-wait -g http://localhost:8080 && \
     workflow-install --workflow_path $GALAXY_ROOT/workflows/ -g http://localhost:8080 -u $GALAXY_DEFAULT_ADMIN_USER -p $GALAXY_DEFAULT_ADMIN_PASSWORD
+# && \
+#    setup-data-libraries -i $GALAXY_ROOT/data_library.yaml -g http://localhost:8080 -u $GALAXY_DEFAULT_ADMIN_USER -p $GALAXY_DEFAULT_ADMIN_PASSWORD
 
 # Copy the script to launch the data managers
 COPY bin/run_data_managers run_data_managers
