@@ -189,11 +189,11 @@ tools:
 
 - name: 'fastq_paired_end_joiner'
   owner: 'devteam'
-  tool_panel_section_label: 'assembly'
+  tool_panel_section_label: 'seq_manipulation'
 
 - name: 'fastq_join'
   owner: 'lparsons'
-  tool_panel_section_label: 'assembly'
+  tool_panel_section_label: 'seq_manipulation'
 
 # bam_sam_manipulation
 - name: 'suite_samtools_1_2'
@@ -251,11 +251,15 @@ tools:
 # similarity_search
 - name: 'ncbi_blast_plus'
   owner: 'devteam'
-  tool_panel_section_label: 'similarity_search'
+  tool_panel_section_label: 'similarity_search_alignment'
 
 - name: 'diamond'
   owner: 'bgruening'
-  tool_panel_section_label: 'similarity_search'
+  tool_panel_section_label: 'similarity_search_alignment'
+
+- name: 'hmmer3'
+  owner: 'iuc'
+  tool_panel_section_label: 'similarity_search_alignment'
 
 # mapping
 - name: 'bwa'
@@ -266,7 +270,15 @@ tools:
   owner: 'devteam'
   tool_panel_section_label: 'mapping'
 
-# alignment
-- name: 'hmmer3'
-  owner: 'iuc'
-  tool_panel_section_label: 'alignment'
+ # visualization
+ - name: 'export2graphlan'
+   owner: 'iuc'
+   tool_panel_section_label: 'visualization'
+
+ - name: 'suite_graphlan'
+   owner: 'iuc'
+   tool_panel_section_label: 'visualization'
+
+ - name: 'taxonomy_krona_chart'
+   owner: 'crs4'
+   tool_panel_section_label: 'visualization'

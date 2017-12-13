@@ -22,13 +22,12 @@
         <section id="quality_control" name="Quality control" />
         <section id="clustering" name="Clustering" />
         <section id="sorting_prediction" name="Sorting and prediction" />
-        <section id="similarity_search" name="Similarity search" />
+        <section id="similarity_search_alignment" name="Similarity search and alignment" />
         <section id="mapping" name="Mapping" />
-        <section id="alignment" name="Alignment" />
     <label text="MICROBIOTA DEDICATED TOOLS" id="structural_functional_analysis_tools" />
         <section id="metagenomics_manipulation" name="Metagenomics data manipulation" />
         <section id="assembly" name="Assembly" />
-        <section id="amplicon_sequence_processing" name="Amplicon sequence processing" />
+        <section id="amplicon_sequence_processing" name="Metataxonomic sequence analysis" />
         <section id="wgs_taxonomic_assignations" name="Taxonomy assignation on WGS sequences" />
         <section id="metabolism_assignation" name="Metabolism assignation" />
         <section id="combination_taxo_func" name="Combination of functional and taxonomic results" />

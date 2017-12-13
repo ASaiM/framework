@@ -25,3 +25,33 @@ tools:
 - name: 'nonpareil'
   owner: 'iuc'
   tool_panel_section_label: 'metagenomics_manipulation'
+
+# assembly
+- name: 'megahit'
+  owner: 'iuc'
+  tool_panel_section_label: 'assembly'
+
+- name: 'metaspades'
+  owner: 'nml'
+  tool_panel_section_label: 'assembly'
+
+- name: 'quast'
+  owner: 'iuc'
+  tool_panel_section_label: 'assembly'
+
+- name: 'valet'
+  owner: 'iuc'
+  tool_panel_section_label: 'assembly'
+
+# wgs_taxonomic_assignations
+- name: 'suite_metaphlan2'
+  owner: 'iuc'
+  tool_panel_section_label: 'wgs_taxonomic_assignations'
+
+- name: 'format_metaphlan2_output'
+  owner: 'bebatut'
+  tool_panel_section_label: 'wgs_taxonomic_assignations'
+
+- name: 'suite_kraken_0_10_5'
+  owner: 'devteam'
+  tool_panel_section_label: 'wgs_taxonomic_assignations'
