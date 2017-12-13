@@ -5,15 +5,6 @@ galaxy_instance: http://localhost:8080
 tools:
 
 # metagenomics_manipulation
-- name: 'vsearch'
-  owner: 'iuc'
-  tool_panel_section_label: 'metagenomics_manipulation'
-
-- name: 'nonpareil'
-  owner: 'iuc'
-  tool_panel_section_label: 'metagenomics_manipulation'
-
-# metagenomics_manipulation
 - name: 'megahit'
   owner: 'iuc'
   tool_panel_section_label: 'assembly'

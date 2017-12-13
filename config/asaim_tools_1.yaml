@@ -16,3 +16,12 @@ tools:
 - name: 'data_manager_qiime_database_downloader'
   owner: 'iuc'
   tool_panel_section_label: 'amplicon_sequence_processing'
+
+# metagenomics_manipulation
+- name: 'vsearch'
+  owner: 'iuc'
+  tool_panel_section_label: 'metagenomics_manipulation'
+
+- name: 'nonpareil'
+  owner: 'iuc'
+  tool_panel_section_label: 'metagenomics_manipulation'
