@@ -4,6 +4,20 @@ api_key: admin
 galaxy_instance: http://localhost:8080
 tools:
 
+- name: 'interproscan5'
+  owner: 'bgruening'
+  install_resolver_dependencies: False
+  tool_panel_section_label: 'metabolism_assignation'
+
+- name: 'suite_picrust'
+  owner: 'iuc'
+  tool_panel_section_label: 'metabolism_assignation'
+
+# combination_taxo_func
+- name: 'combine_metaphlan2_humann2'
+  owner: 'bebatut'
+  tool_panel_section_label: 'combination_taxo_func'
+
 # data_retrieval
 - name: 'suite_ebi_tools'
   owner: 'iuc'
