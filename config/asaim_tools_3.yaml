@@ -273,14 +273,14 @@ tools:
   tool_panel_section_label: 'mapping'
 
  # visualization
- - name: 'export2graphlan'
-   owner: 'iuc'
-   tool_panel_section_label: 'visualization'
+- name: 'export2graphlan'
+  owner: 'iuc'
+  tool_panel_section_label: 'visualization'
 
- - name: 'suite_graphlan'
-   owner: 'iuc'
-   tool_panel_section_label: 'visualization'
+- name: 'suite_graphlan'
+  owner: 'iuc'
+  tool_panel_section_label: 'visualization'
 
- - name: 'taxonomy_krona_chart'
-   owner: 'crs4'
-   tool_panel_section_label: 'visualization'
+- name: 'taxonomy_krona_chart'
+  owner: 'crs4'
+  tool_panel_section_label: 'visualization'
