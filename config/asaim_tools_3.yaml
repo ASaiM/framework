@@ -96,14 +96,6 @@ tools:
   owner: 'bgruening'
   tool_panel_section_label: 'text_manipulation'
 
-- name: 'normalize_dataset'
-  owner: 'bebatut'
-  tool_panel_section_label: 'text_manipulation'
-
-- name: 'extract_min_max_lines'
-  owner: 'bebatut'
-  tool_panel_section_label: 'text_manipulation'
-
 - name: 'text_processing'
   owner: 'bgruening'
   tool_panel_section_label: 'text_manipulation'
@@ -135,10 +127,6 @@ tools:
 
 - name: 'split_paired_reads'
   owner: 'devteam'
-  tool_panel_section_label: 'seq_manipulation'
-
-- name: 'convert_extract_sequence_file'
-  owner: 'bebatut'
   tool_panel_section_label: 'seq_manipulation'
 
 - name: 'fasta_add_barcode'
@@ -237,7 +225,7 @@ tools:
   tool_panel_section_label: 'quality_control'
 
 - name: 'multiqc'
-  owner: 'engineson'
+  owner: 'iuc'
   tool_panel_section_label: 'quality_control'
 
 # clustering
