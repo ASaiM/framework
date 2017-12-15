@@ -9,9 +9,9 @@ tools:
   owner: 'iuc'
   tool_panel_section_label: 'metabolism_assignation'
 
-- name: 'group_humann2_uniref_abundances_to_go'
-  owner: 'bebatut'
-  tool_panel_section_label: 'metabolism_assignation'
+#- name: 'group_humann2_uniref_abundances_to_go'
+#  owner: 'bebatut'
+#  tool_panel_section_label: 'metabolism_assignation'
 
 - name: 'compare_humann2_output'
   owner: 'bebatut'
