@@ -22,18 +22,15 @@ COPY config/asaim_tools_2.yaml $GALAXY_ROOT/asaim_tools_2.yaml
 COPY config/asaim_tools_3.yaml $GALAXY_ROOT/asaim_tools_3.yaml
 RUN df -h && \
     install-tools $GALAXY_ROOT/asaim_tools_1.yaml && \
-    /tool_deps/_conda/bin/conda clean --tarballs --yes > /dev/null && \
-    rm /export/galaxy-central/ -rf && \
+    /tool_deps/_conda/bin/conda clean --tarballs && \
     df -h
 RUN df -h && \
     install-tools $GALAXY_ROOT/asaim_tools_2.yaml && \
-    /tool_deps/_conda/bin/conda clean --tarballs --yes > /dev/null && \
-    rm /export/galaxy-central/ -rf && \
+    /tool_deps/_conda/bin/conda clean --tarballs && \
     df -h
 RUN df -h && \
     install-tools $GALAXY_ROOT/asaim_tools_3.yaml && \
-    /tool_deps/_conda/bin/conda clean --tarballs --yes > /dev/null && \
-    rm /export/galaxy-central/ -rf && \
+    /tool_deps/_conda/bin/conda clean --tarballs && \
     df -h && \
     mkdir -p $GALAXY_ROOT/workflows
 
