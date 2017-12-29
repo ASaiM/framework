@@ -2,16 +2,19 @@
 
 api_key: admin
 galaxy_instance: http://localhost:8080
+install_resolver_dependencies: true
+install_tool_dependencies: false
 tools:
 
 - name: 'interproscan5'
   owner: 'bgruening'
-  install_resolver_dependencies: False
   tool_panel_section_label: 'metabolism_assignation'
+  install_resolver_dependencies: false
 
 - name: 'suite_picrust'
   owner: 'iuc'
   tool_panel_section_label: 'metabolism_assignation'
+  install_resolver_dependencies: false
 
 # combination_taxo_func
 - name: 'combine_metaphlan2_humann2'
@@ -206,6 +209,7 @@ tools:
 - name: 'suite_biom_format'
   owner: 'iuc'
   tool_panel_section_label: 'biom_manipulation'
+  install_resolver_dependencies: false
 
 # quality_control
 - name: 'fastqc'
@@ -232,6 +236,7 @@ tools:
 - name: 'cdhit'
   owner: 'bebatut'
   tool_panel_section_label: 'clustering'
+  install_resolver_dependencies: false
 
 - name: 'format_cd_hit_output'
   owner: 'bebatut'
@@ -249,28 +254,34 @@ tools:
 - name: 'fraggenescan'
   owner: 'iuc'
   tool_panel_section_label: 'sorting_prediction'
+  install_resolver_dependencies: false
 
 # similarity_search
 - name: 'ncbi_blast_plus'
   owner: 'devteam'
   tool_panel_section_label: 'similarity_search_alignment'
+  install_resolver_dependencies: false
 
 - name: 'diamond'
   owner: 'bgruening'
   tool_panel_section_label: 'similarity_search_alignment'
+  install_resolver_dependencies: false
 
 - name: 'hmmer3'
   owner: 'iuc'
   tool_panel_section_label: 'similarity_search_alignment'
+  install_resolver_dependencies: false
 
 # mapping
 - name: 'bwa'
   owner: 'devteam'
   tool_panel_section_label: 'mapping'
+  install_resolver_dependencies: false
 
 - name: 'bowtie2'
   owner: 'devteam'
   tool_panel_section_label: 'mapping'
+  install_resolver_dependencies: false
 
  # visualization
 - name: 'export2graphlan'
