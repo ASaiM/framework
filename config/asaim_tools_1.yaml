@@ -9,60 +9,60 @@ tools:
 # amplicon_sequence_processing
 - name: 'suite_mothur'
   owner: 'iuc'
-  tool_panel_section_label: 'amplicon_sequence_processing'
+  tool_panel_section_id: 'amplicon_sequence_processing'
   install_resolver_dependencies: false
 
 - name: 'suite_qiime'
   owner: 'iuc'
-  tool_panel_section_label: 'amplicon_sequence_processing'
+  tool_panel_section_id: 'amplicon_sequence_processing'
   install_resolver_dependencies: false
 
 - name: 'data_manager_qiime_database_downloader'
   owner: 'iuc'
-  tool_panel_section_label: 'amplicon_sequence_processing'
+  tool_panel_section_id: 'amplicon_sequence_processing'
   install_resolver_dependencies: false
 
 # metagenomics_manipulation
 - name: 'vsearch'
   owner: 'iuc'
-  tool_panel_section_label: 'metagenomics_manipulation'
+  tool_panel_section_id: 'metagenomics_manipulation'
 
 - name: 'nonpareil'
   owner: 'iuc'
-  tool_panel_section_label: 'metagenomics_manipulation'
+  tool_panel_section_id: 'metagenomics_manipulation'
   install_resolver_dependencies: false
 
 # assembly
 - name: 'megahit'
   owner: 'iuc'
-  tool_panel_section_label: 'assembly'
+  tool_panel_section_id: 'assembly'
   install_resolver_dependencies: false
 
 - name: 'metaspades'
   owner: 'nml'
-  tool_panel_section_label: 'assembly'
+  tool_panel_section_id: 'assembly'
   install_resolver_dependencies: false
 
 - name: 'quast'
   owner: 'iuc'
-  tool_panel_section_label: 'assembly'
+  tool_panel_section_id: 'assembly'
   install_resolver_dependencies: false
 
 - name: 'valet'
   owner: 'iuc'
-  tool_panel_section_label: 'assembly'
+  tool_panel_section_id: 'assembly'
   install_resolver_dependencies: false
 
 # wgs_taxonomic_assignations
 - name: 'suite_metaphlan2'
   owner: 'iuc'
-  tool_panel_section_label: 'wgs_taxonomic_assignations'
+  tool_panel_section_id: 'wgs_taxonomic_assignations'
 
 - name: 'format_metaphlan2_output'
   owner: 'bebatut'
-  tool_panel_section_label: 'wgs_taxonomic_assignations'
+  tool_panel_section_id: 'wgs_taxonomic_assignations'
 
 - name: 'suite_kraken_0_10_5'
   owner: 'devteam'
-  tool_panel_section_label: 'wgs_taxonomic_assignations'
+  tool_panel_section_id: 'wgs_taxonomic_assignations'
   install_resolver_dependencies: false
