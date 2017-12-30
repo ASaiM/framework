@@ -20,6 +20,7 @@ COPY config/tool_conf.xml $GALAXY_ROOT/config/
 COPY config/asaim_tools_1.yaml $GALAXY_ROOT/asaim_tools_1.yaml
 COPY config/asaim_tools_2.yaml $GALAXY_ROOT/asaim_tools_2.yaml
 COPY config/asaim_tools_3.yaml $GALAXY_ROOT/asaim_tools_3.yaml
+COPY config/asaim_tools_4.yaml $GALAXY_ROOT/asaim_tools_4.yaml
 RUN df -h && \
     install-tools $GALAXY_ROOT/asaim_tools_1.yaml && \
     /tool_deps/_conda/bin/conda clean --tarballs --yes && \
@@ -32,6 +33,11 @@ RUN df -h && \
     df -h
 RUN df -h && \
     install-tools $GALAXY_ROOT/asaim_tools_3.yaml && \
+    /tool_deps/_conda/bin/conda clean --tarballs --yes && \
+    rm -rf /tool_deps/_conda/pkgs && \
+    df -h
+RUN df -h && \
+    install-tools $GALAXY_ROOT/asaim_tools_4.yaml && \
     /tool_deps/_conda/bin/conda clean --tarballs --yes && \
     rm -rf /tool_deps/_conda/pkgs && \
     df -h && \
@@ -58,5 +64,6 @@ ADD https://raw.githubusercontent.com/galaxyproject/training-material/master/top
 ADD https://raw.githubusercontent.com/galaxyproject/training-material/master/topics/metagenomics/tutorials/general-tutorial/tours/metagenomics-general-tutorial-shotgun.yml $GALAXY_ROOT/config/plugins/tours/
 
 # Add Container Style
+ENV GALAXY_CONFIG_WELCOME_URL=$GALAXY_CONFIG_DIR/web/welcome.html
 COPY config/welcome.html $GALAXY_CONFIG_DIR/web/welcome.html
-COPY config/asaim_logo.svg $GALAXY_CONFIG_DIR/web/asaim_logo.svg
+COPY config/asaim_logo.svg $GALAXY_CONFIG_DIR/web/welcome_asaim_logo.svg
