@@ -2,21 +2,20 @@
 
 api_key: admin
 galaxy_instance: http://localhost:8080
+install_resolver_dependencies: true
+install_tool_dependencies: false
 tools:
-# metagenomics_manipulation
-- name: 'vsearch'
-  owner: 'iuc'
-  tool_panel_section_label: 'metagenomics_manipulation'
 
-# amplicon_sequence_processing
-- name: 'suite_mothur'
+# metabolism_assignation
+- name: 'suite_humann2'
   owner: 'iuc'
-  tool_panel_section_label: 'amplicon_sequence_processing'
+  tool_panel_section_id: 'metabolism_assignation'
 
-- name: 'suite_qiime'
-  owner: 'iuc'
-  tool_panel_section_label: 'amplicon_sequence_processing'
+- name: 'group_humann2_uniref_abundances_to_go'
+  owner: 'bebatut'
+  tool_panel_section_id: 'metabolism_assignation'
 
-- name: 'data_manager_qiime_database_downloader'
-  owner: 'iuc'
-  tool_panel_section_label: 'amplicon_sequence_processing'
+- name: 'compare_humann2_output'
+  owner: 'bebatut'
+  tool_panel_section_id: 'metabolism_assignation'
+  install_resolver_dependencies: false

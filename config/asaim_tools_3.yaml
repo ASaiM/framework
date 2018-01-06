@@ -2,56 +2,106 @@
 
 api_key: admin
 galaxy_instance: http://localhost:8080
+install_resolver_dependencies: true
+install_tool_dependencies: false
 tools:
-# wgs_taxonomic_assignations
-- name: 'suite_metaphlan2'
-  owner: 'iuc'
-  tool_panel_section_label: 'wgs_taxonomic_assignations'
 
-- name: 'format_metaphlan2_output'
-  owner: 'bebatut'
-  tool_panel_section_label: 'wgs_taxonomic_assignations'
-
-- name: 'suite_kraken_0_10_5'
+# quality_control
+- name: 'fastqc'
   owner: 'devteam'
-  tool_panel_section_label: 'wgs_taxonomic_assignations'
+  tool_panel_section_id: 'quality_control'
 
-# metabolism_assignation
-- name: 'suite_humann2'
+- name: 'prinseq'
   owner: 'iuc'
-  tool_panel_section_label: 'metabolism_assignation'
+  tool_panel_section_id: 'quality_control'
 
-- name: 'group_humann2_uniref_abundances_to_go'
-  owner: 'bebatut'
-  tool_panel_section_label: 'metabolism_assignation'
+- name: 'trim_galore'
+  owner: 'bgruening'
+  tool_panel_section_id: 'quality_control'
 
-- name: 'compare_humann2_output'
+- name: 'trimmomatic'
+  owner: 'pjbriggs'
+  tool_panel_section_id: 'quality_control'
+
+- name: 'multiqc'
+  owner: 'iuc'
+  tool_panel_section_id: 'quality_control'
+
+# clustering
+- name: 'cdhit'
   owner: 'bebatut'
-  tool_panel_section_label: 'metabolism_assignation'
+  tool_panel_section_id: 'clustering'
+  install_resolver_dependencies: false
+
+- name: 'format_cd_hit_output'
+  owner: 'bebatut'
+  tool_panel_section_id: 'clustering'
+
+# sorting and prediction
+- name: 'sortmerna'
+  owner: 'rnateam'
+  tool_panel_section_id: 'sorting_prediction'
+
+- name: 'data_manager_sortmerna_database_downloader'
+  owner: 'rnateam'
+  tool_panel_section_id: 'sorting_prediction'
+
+- name: 'fraggenescan'
+  owner: 'iuc'
+  tool_panel_section_id: 'sorting_prediction'
+  install_resolver_dependencies: false
+
+# similarity_search
+- name: 'ncbi_blast_plus'
+  owner: 'devteam'
+  tool_panel_section_id: 'similarity_search_alignment'
+  install_resolver_dependencies: false
+
+- name: 'diamond'
+  owner: 'bgruening'
+  tool_panel_section_id: 'similarity_search_alignment'
+  install_resolver_dependencies: false
+
+- name: 'hmmer3'
+  owner: 'iuc'
+  tool_panel_section_id: 'similarity_search_alignment'
+  install_resolver_dependencies: false
+
+# mapping
+- name: 'bwa'
+  owner: 'devteam'
+  tool_panel_section_id: 'mapping'
+  install_resolver_dependencies: false
+
+- name: 'bowtie2'
+  owner: 'devteam'
+  tool_panel_section_id: 'mapping'
+  install_resolver_dependencies: false
+
+ # visualization
+- name: 'export2graphlan'
+  owner: 'iuc'
+  tool_panel_section_id: 'visualization'
+
+- name: 'suite_graphlan'
+  owner: 'iuc'
+  tool_panel_section_id: 'visualization'
+
+- name: 'taxonomy_krona_chart'
+  owner: 'crs4'
+  tool_panel_section_id: 'visualization'
 
 - name: 'interproscan5'
   owner: 'bgruening'
-  install_resolver_dependencies: False
-  tool_panel_section_label: 'metabolism_assignation'
+  tool_panel_section_id: 'metabolism_assignation'
+  install_resolver_dependencies: false
 
 - name: 'suite_picrust'
   owner: 'iuc'
-  tool_panel_section_label: 'metabolism_assignation'
+  tool_panel_section_id: 'metabolism_assignation'
+  install_resolver_dependencies: false
 
 # combination_taxo_func
 - name: 'combine_metaphlan2_humann2'
   owner: 'bebatut'
-  tool_panel_section_label: 'combination_taxo_func'
-
-# visualization
-- name: 'export2graphlan'
-  owner: 'iuc'
-  tool_panel_section_label: 'visualization'
-
-- name: 'suite_graphlan'
-  owner: 'iuc'
-  tool_panel_section_label: 'visualization'
-
-- name: 'taxonomy_krona_chart'
-  owner: 'crs4'
-  tool_panel_section_label: 'visualization'
+  tool_panel_section_id: 'combination_taxo_func'

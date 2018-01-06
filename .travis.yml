@@ -6,17 +6,24 @@ services:
   - docker
 
 env:
-  matrix:
   - TOX_ENV=py27
 
+git:
+  submodules: false
+
 before_install:
-  - wget https://raw.githubusercontent.com/galaxyproject/galaxy-flavor-testing/d443915a43f3632708afbcdb1e97a7adaf5b5c77/Makefile
+  - set -e
+  - rm -rf /home/travis/perl5/ /home/travis/.phpenv /home/travis/gopath /home/travis/otp /home/travis/.gimme/ /home/travis/.rvm /home/travis/.nvm
+  - sudo rm -rf /usr/local/clang*
+  - wget https://raw.githubusercontent.com/bgruening/galaxy-flavor-testing/master/Makefile
+  # As Travis VM is limited to 30Go, we remove all conda envs once they are installed successfully to free some disk space (see #23)
+  - sed -i 's|\(install-tools.*&&\) \\|\1 rm \-rf /tool_deps/_conda/envs/* \&\& \\|g' Dockerfile
   - make docker_install
-  - sudo apt-get -qq update
-  - sudo apt-get install -y python-dev
-  - travis_wait 75 make docker_build
+  # Next line is an alternative to travis_wait that allows to keep the logs from make docker_build
+  - while sleep 9m; do echo "[TRAVIS] Still running..."; done &
+  - make docker_build
   - make docker_run
-  - sleep 60
+  - sleep 300
 
 install:
   - make install
@@ -25,3 +32,4 @@ script:
   - make test_api
   - make test_ftp
   - make test_bioblend
+  #- make test_docker_in_docker

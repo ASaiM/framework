@@ -1,0 +1,220 @@
+---
+
+api_key: admin
+galaxy_instance: http://localhost:8080
+install_resolver_dependencies: true
+install_tool_dependencies: false
+tools:
+
+# data_retrieval
+- name: 'suite_ebi_tools'
+  owner: 'iuc'
+  tool_panel_section_id: 'data_retrieval'
+
+- name: 'suite_enasearch'
+  owner: 'iuc'
+  tool_panel_section_id: 'data_retrieval'
+
+- name: 'suite_ncbi_entrez'
+  owner: 'iuc'
+  tool_panel_section_id: 'data_retrieval'
+
+- name: 'sra_tools'
+  owner: 'iuc'
+  tool_panel_section_id: 'data_retrieval'
+
+# text_manipulation
+- name: 'add_value'
+  owner: 'devteam'
+  tool_panel_section_id: 'text_manipulation'
+
+- name: 'change_case'
+  owner: 'devteam'
+  tool_panel_section_id: 'text_manipulation'
+
+- name: 'column_join'
+  owner: 'jjohnson'
+  tool_panel_section_id: 'text_manipulation'
+
+- name: 'collection_column_join'
+  owner: 'iuc'
+  tool_panel_section_id: 'text_manipulation'
+
+- name: 'column_maker'
+  owner: 'devteam'
+  tool_panel_section_id: 'text_manipulation'
+
+- name: 'concatenate_multiple_datasets'
+  owner: 'mvdbeek'
+  tool_panel_section_id: 'text_manipulation'
+
+- name: 'convert_characters'
+  owner: 'devteam'
+  tool_panel_section_id: 'text_manipulation'
+
+- name: 'cut_columns'
+  owner: 'devteam'
+  tool_panel_section_id: 'text_manipulation'
+
+- name: 'merge_cols'
+  owner: 'devteam'
+  tool_panel_section_id: 'text_manipulation'
+
+- name: 'regex_find_replace'
+  owner: 'galaxyp'
+  tool_panel_section_id: 'text_manipulation'
+
+- name: 'remove_beginning'
+  owner: 'devteam'
+  tool_panel_section_id: 'text_manipulation'
+
+- name: 'show_beginning'
+  owner: 'devteam'
+  tool_panel_section_id: 'text_manipulation'
+
+- name: 'show_tail'
+  owner: 'devteam'
+  tool_panel_section_id: 'text_manipulation'
+
+- name: 'split_file_on_column'
+  owner: 'bgruening'
+  tool_panel_section_id: 'text_manipulation'
+
+- name: 'unique'
+  owner: 'bgruening'
+  tool_panel_section_id: 'text_manipulation'
+
+- name: 'text_processing'
+  owner: 'bgruening'
+  tool_panel_section_id: 'text_manipulation'
+
+- name: 'suite_datamash'
+  owner: 'iuc'
+  tool_panel_section_id: 'text_manipulation'
+
+# seq_manipulation
+- name: 'seq_filter_by_id'
+  owner: 'peterjc'
+  tool_panel_section_id: 'seq_manipulation'
+  install_resolver_dependencies: false
+
+- name: 'seq_rename'
+  owner: 'peterjc'
+  tool_panel_section_id: 'seq_manipulation'
+  install_resolver_dependencies: false
+
+- name: 'seq_select_by_id'
+  owner: 'peterjc'
+  tool_panel_section_id: 'seq_manipulation'
+  install_resolver_dependencies: false
+
+- name: 'fastq_to_fasta'
+  owner: 'devteam'
+  tool_panel_section_id: 'seq_manipulation'
+  install_resolver_dependencies: false
+
+- name: 'fasta_to_tabular'
+  owner: 'devteam'
+  tool_panel_section_id: 'seq_manipulation'
+  install_resolver_dependencies: false
+
+- name: 'split_paired_reads'
+  owner: 'devteam'
+  tool_panel_section_id: 'seq_manipulation'
+  install_resolver_dependencies: false
+
+- name: 'fasta_add_barcode'
+  owner: 'bebatut'
+  tool_panel_section_id: 'seq_manipulation'
+  install_resolver_dependencies: false
+
+- name: 'fastq_combiner'
+  owner: 'devteam'
+  tool_panel_section_id: 'seq_manipulation'
+  install_resolver_dependencies: false
+
+- name: 'fastq_filter'
+  owner: 'devteam'
+  tool_panel_section_id: 'seq_manipulation'
+  install_resolver_dependencies: false
+
+- name: 'fastq_groomer'
+  owner: 'devteam'
+  tool_panel_section_id: 'seq_manipulation'
+  install_resolver_dependencies: false
+
+- name: 'fastq_manipulation'
+  owner: 'devteam'
+  tool_panel_section_id: 'seq_manipulation'
+  install_resolver_dependencies: false
+
+- name: 'fastq_masker_by_quality'
+  owner: 'devteam'
+  tool_panel_section_id: 'seq_manipulation'
+  install_resolver_dependencies: false
+
+- name: 'fastq_paired_end_deinterlacer'
+  owner: 'devteam'
+  tool_panel_section_id: 'seq_manipulation'
+  install_resolver_dependencies: false
+
+- name: 'fastq_paired_end_interlacer'
+  owner: 'devteam'
+  tool_panel_section_id: 'seq_manipulation'
+  install_resolver_dependencies: false
+
+- name: 'fastq_paired_end_joiner'
+  owner: 'devteam'
+  tool_panel_section_id: 'seq_manipulation'
+  install_resolver_dependencies: false
+
+- name: 'fastq_paired_end_splitter'
+  owner: 'devteam'
+  tool_panel_section_id: 'seq_manipulation'
+  install_resolver_dependencies: false
+
+- name: 'fastq_stats'
+  owner: 'devteam'
+  tool_panel_section_id: 'seq_manipulation'
+  install_resolver_dependencies: false
+
+- name: 'fastq_to_tabular'
+  owner: 'devteam'
+  tool_panel_section_id: 'seq_manipulation'
+  install_resolver_dependencies: false
+
+- name: 'fastq_trimmer'
+  owner: 'devteam'
+  tool_panel_section_id: 'seq_manipulation'
+  install_resolver_dependencies: false
+
+- name: 'fastqtofasta'
+  owner: 'devteam'
+  tool_panel_section_id: 'seq_manipulation'
+  install_resolver_dependencies: false
+
+- name: 'tabular_to_fastq'
+  owner: 'devteam'
+  tool_panel_section_id: 'seq_manipulation'
+  install_resolver_dependencies: false
+
+- name: 'fastq_paired_end_joiner'
+  owner: 'devteam'
+  tool_panel_section_id: 'seq_manipulation'
+  install_resolver_dependencies: false
+
+- name: 'fastq_join'
+  owner: 'lparsons'
+  tool_panel_section_id: 'seq_manipulation'
+  install_resolver_dependencies: false
+
+# bam_sam_manipulation
+- name: 'suite_samtools_1_2'
+  owner: 'devteam'
+  tool_panel_section_id: 'bam_sam_manipulation'
+
+# biom_manipulation
+- name: 'suite_biom_format'
+  owner: 'iuc'
+  tool_panel_section_id: 'biom_manipulation'
+  install_resolver_dependencies: false
