@@ -96,94 +96,117 @@ tools:
 - name: 'seq_filter_by_id'
   owner: 'peterjc'
   tool_panel_section_id: 'seq_manipulation'
+  install_resolver_dependencies: false
 
 - name: 'seq_rename'
   owner: 'peterjc'
   tool_panel_section_id: 'seq_manipulation'
+  install_resolver_dependencies: false
 
 - name: 'seq_select_by_id'
   owner: 'peterjc'
   tool_panel_section_id: 'seq_manipulation'
+  install_resolver_dependencies: false
 
 - name: 'fastq_to_fasta'
   owner: 'devteam'
   tool_panel_section_id: 'seq_manipulation'
+  install_resolver_dependencies: false
 
 - name: 'fasta_to_tabular'
   owner: 'devteam'
   tool_panel_section_id: 'seq_manipulation'
+  install_resolver_dependencies: false
 
 - name: 'split_paired_reads'
   owner: 'devteam'
   tool_panel_section_id: 'seq_manipulation'
+  install_resolver_dependencies: false
 
 - name: 'fasta_add_barcode'
   owner: 'bebatut'
   tool_panel_section_id: 'seq_manipulation'
+  install_resolver_dependencies: false
 
 - name: 'fastq_combiner'
   owner: 'devteam'
   tool_panel_section_id: 'seq_manipulation'
+  install_resolver_dependencies: false
 
 - name: 'fastq_filter'
   owner: 'devteam'
   tool_panel_section_id: 'seq_manipulation'
+  install_resolver_dependencies: false
 
 - name: 'fastq_groomer'
   owner: 'devteam'
   tool_panel_section_id: 'seq_manipulation'
+  install_resolver_dependencies: false
 
 - name: 'fastq_manipulation'
   owner: 'devteam'
   tool_panel_section_id: 'seq_manipulation'
+  install_resolver_dependencies: false
 
 - name: 'fastq_masker_by_quality'
   owner: 'devteam'
   tool_panel_section_id: 'seq_manipulation'
+  install_resolver_dependencies: false
 
 - name: 'fastq_paired_end_deinterlacer'
   owner: 'devteam'
   tool_panel_section_id: 'seq_manipulation'
+  install_resolver_dependencies: false
 
 - name: 'fastq_paired_end_interlacer'
   owner: 'devteam'
   tool_panel_section_id: 'seq_manipulation'
+  install_resolver_dependencies: false
 
 - name: 'fastq_paired_end_joiner'
   owner: 'devteam'
   tool_panel_section_id: 'seq_manipulation'
+  install_resolver_dependencies: false
 
 - name: 'fastq_paired_end_splitter'
   owner: 'devteam'
   tool_panel_section_id: 'seq_manipulation'
+  install_resolver_dependencies: false
 
 - name: 'fastq_stats'
   owner: 'devteam'
   tool_panel_section_id: 'seq_manipulation'
+  install_resolver_dependencies: false
 
 - name: 'fastq_to_tabular'
   owner: 'devteam'
   tool_panel_section_id: 'seq_manipulation'
+  install_resolver_dependencies: false
 
 - name: 'fastq_trimmer'
   owner: 'devteam'
   tool_panel_section_id: 'seq_manipulation'
+  install_resolver_dependencies: false
 
 - name: 'fastqtofasta'
   owner: 'devteam'
   tool_panel_section_id: 'seq_manipulation'
+  install_resolver_dependencies: false
 
 - name: 'tabular_to_fastq'
   owner: 'devteam'
   tool_panel_section_id: 'seq_manipulation'
+  install_resolver_dependencies: false
 
 - name: 'fastq_paired_end_joiner'
   owner: 'devteam'
   tool_panel_section_id: 'seq_manipulation'
+  install_resolver_dependencies: false
 
 - name: 'fastq_join'
   owner: 'lparsons'
   tool_panel_section_id: 'seq_manipulation'
+  install_resolver_dependencies: false
 
 # bam_sam_manipulation
 - name: 'suite_samtools_1_2'
