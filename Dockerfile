@@ -1,5 +1,5 @@
 # Galaxy - ASaiM
-FROM quay.io/bgruening/galaxy:17.09
+FROM quay.io/bgruening/galaxy:19.01
 
 MAINTAINER Bérénice Batut, berenice.batut@gmail.com
 
