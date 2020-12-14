@@ -40,6 +40,11 @@ RUN df -h && \
     install-tools $GALAXY_ROOT/asaim_tools_4.yaml && \
     /tool_deps/_conda/bin/conda clean --tarballs --yes && \
     rm -rf /tool_deps/_conda/pkgs && \
+    df -h
+RUN df -h && \
+    install-tools $GALAXY_ROOT/asaim-mt_tools.yaml && \
+    /tool_deps/_conda/bin/conda clean --tarballs --yes && \
+    rm -rf /tool_deps/_conda/pkgs && \
     df -h && \
     mkdir -p $GALAXY_ROOT/workflows
 
