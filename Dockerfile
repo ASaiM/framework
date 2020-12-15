@@ -41,6 +41,7 @@ RUN df -h && \
     /tool_deps/_conda/bin/conda clean --tarballs --yes && \
     rm -rf /tool_deps/_conda/pkgs && \
     df -h
+COPY config/asaim-mt_tools.yaml $GALAXY_ROOT/asaim-mt_tools.yaml
 RUN df -h && \
     install-tools $GALAXY_ROOT/asaim-mt_tools.yaml && \
     /tool_deps/_conda/bin/conda clean --tarballs --yes && \
