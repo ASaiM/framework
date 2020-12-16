@@ -7,6 +7,7 @@ MAINTAINER Bérénice Batut, berenice.batut@gmail.com
 ENV GALAXY_CONFIG_BRAND="ASaiM" \
     GALAXY_CONFIG_CONDA_AUTO_INSTALL=True
 
+RUN apt install -y netcat
 # Change the tool_conf to get different tool sections and labels
 COPY config/tool_conf.xml $GALAXY_ROOT/config/
 
@@ -21,6 +22,7 @@ COPY config/asaim_tools_1.yaml $GALAXY_ROOT/asaim_tools_1.yaml
 COPY config/asaim_tools_2.yaml $GALAXY_ROOT/asaim_tools_2.yaml
 COPY config/asaim_tools_3.yaml $GALAXY_ROOT/asaim_tools_3.yaml
 COPY config/asaim_tools_4.yaml $GALAXY_ROOT/asaim_tools_4.yaml
+COPY config/data_library.yaml $GALAXY_ROOT/data_library.yaml
 RUN df -h && \
     install-tools $GALAXY_ROOT/asaim_tools_1.yaml && \
     /tool_deps/_conda/bin/conda clean --tarballs --yes && \
@@ -55,7 +57,7 @@ ADD https://raw.githubusercontent.com/galaxyproject/training-material/master/top
 ADD https://raw.githubusercontent.com/galaxyproject/training-material/master/topics/metagenomics/tutorials/general-tutorial/workflows/wgs-worklow.ga $GALAXY_ROOT/workflows/
 ADD https://raw.githubusercontent.com/galaxyproject/training-material/master/topics/metagenomics/tutorials/mothur-miseq-sop/workflows/mothur-miseq-sop.ga $GALAXY_ROOT/workflows/
 COPY config/data_managers.yaml $GALAXY_ROOT/data_managers.yaml
-COPY config/data_library.yaml $GALAXY_ROOT/data_library.yaml
+
 ENV GALAXY_CONFIG_TOOL_PATH=/galaxy-central/tools/
 RUN startup_lite && \
     galaxy-wait && \
