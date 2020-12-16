@@ -7,7 +7,7 @@ MAINTAINER Bérénice Batut, berenice.batut@gmail.com
 ENV GALAXY_CONFIG_BRAND="ASaiM" \
     GALAXY_CONFIG_CONDA_AUTO_INSTALL=True
 
-RUN apt install -y netcat
+RUN apt update && apt install -y netcat-openbsd
 # Change the tool_conf to get different tool sections and labels
 COPY config/tool_conf.xml $GALAXY_ROOT/config/
 
