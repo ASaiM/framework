@@ -22,6 +22,7 @@ COPY config/asaim_tools_1.yaml $GALAXY_ROOT/asaim_tools_1.yaml
 COPY config/asaim_tools_2.yaml $GALAXY_ROOT/asaim_tools_2.yaml
 COPY config/asaim_tools_3.yaml $GALAXY_ROOT/asaim_tools_3.yaml
 COPY config/asaim_tools_4.yaml $GALAXY_ROOT/asaim_tools_4.yaml
+COPY config/asaim-mt_tools.yaml $GALAXY_ROOT/asaim-mt_tools.yaml
 COPY config/data_library.yaml $GALAXY_ROOT/data_library.yaml
 RUN df -h && \
     install-tools $GALAXY_ROOT/asaim_tools_1.yaml && \
@@ -43,7 +44,6 @@ RUN df -h && \
     /tool_deps/_conda/bin/conda clean --tarballs --yes && \
     rm -rf /tool_deps/_conda/pkgs && \
     df -h
-COPY config/asaim-mt_tools.yaml $GALAXY_ROOT/asaim-mt_tools.yaml
 RUN df -h && \
     install-tools $GALAXY_ROOT/asaim-mt_tools.yaml && \
     /tool_deps/_conda/bin/conda clean --tarballs --yes && \
@@ -59,6 +59,7 @@ ADD https://raw.githubusercontent.com/galaxyproject/training-material/master/top
 COPY config/data_managers.yaml $GALAXY_ROOT/data_managers.yaml
 
 ENV GALAXY_CONFIG_TOOL_PATH=/galaxy-central/tools/
+ENV PATH="${PATH}:/tool_deps/_conda/bin"
 RUN startup_lite && \
     galaxy-wait && \
     workflow-install --workflow_path $GALAXY_ROOT/workflows/ -g http://localhost:8080 -u $GALAXY_DEFAULT_ADMIN_USER -p $GALAXY_DEFAULT_ADMIN_PASSWORD
