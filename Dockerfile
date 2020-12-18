@@ -58,11 +58,14 @@ ADD https://raw.githubusercontent.com/galaxyproject/training-material/master/top
 ADD https://raw.githubusercontent.com/galaxyproject/training-material/master/topics/metagenomics/tutorials/mothur-miseq-sop/workflows/mothur-miseq-sop.ga $GALAXY_ROOT/workflows/
 COPY config/data_managers.yaml $GALAXY_ROOT/data_managers.yaml
 
+COPY create_admin_user.sh $GALAXY_ROOT/create_admin_user.sh
+
 ENV GALAXY_CONFIG_TOOL_PATH=/galaxy-central/tools/
 ENV PATH="${PATH}:/tool_deps/_conda/bin"
 RUN startup_lite && \
     galaxy-wait && \
-    workflow-install --workflow_path $GALAXY_ROOT/workflows/ -g http://localhost:8080 -u $GALAXY_DEFAULT_ADMIN_USER -p $GALAXY_DEFAULT_ADMIN_PASSWORD
+    $GALAXY_ROOT/create_admin_user.sh  && \
+    workflow-install --workflow_path $GALAXY_ROOT/workflows/ -g http://localhost:8080 -u $GALAXY_DEFAULT_ADMIN_EMAIL -p $GALAXY_DEFAULT_ADMIN_PASSWORD
 #RUN startup_lite && \
 #    galaxy-wait && \
 #    setup-data-libraries -i $GALAXY_ROOT/data_library.yaml -g http://localhost:8080 -u $GALAXY_DEFAULT_ADMIN_USER -p $GALAXY_DEFAULT_ADMIN_PASSWORD
