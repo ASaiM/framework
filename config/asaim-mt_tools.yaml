@@ -1,0 +1,119 @@
+install_tool_dependencies: True
+install_repository_dependencies: True
+install_resolver_dependencies: True
+
+tools:
+- name: fastqc
+  owner: devteam
+  revisions:
+  - e7b2202befea
+  tool_panel_section_label: Tools from workflows
+  tool_shed_url: https://toolshed.g2.bx.psu.edu/
+- name: cutadapt
+  owner: lparsons
+  revisions:
+  - 49370cb85f0f
+  tool_panel_section_label: Tools from workflows
+  tool_shed_url: https://toolshed.g2.bx.psu.edu/
+- name: sortmerna
+  owner: rnateam
+  revisions:
+  - eb35257d2e29
+  tool_panel_section_label: Tools from workflows
+  tool_shed_url: https://toolshed.g2.bx.psu.edu/
+- name: fastq_paired_end_interlacer
+  owner: devteam
+  revisions:
+  - 3e396e702cea
+  tool_panel_section_label: Tools from workflows
+  tool_shed_url: https://toolshed.g2.bx.psu.edu/
+- name: multiqc
+  owner: iuc
+  revisions:
+  - b2f1f75d49c4
+  tool_panel_section_label: Tools from workflows
+  tool_shed_url: https://toolshed.g2.bx.psu.edu/
+- name: metaphlan2
+  owner: iuc
+  revisions:
+  - 8c82c4d90cc6
+  tool_panel_section_label: Tools from workflows
+  tool_shed_url: https://toolshed.g2.bx.psu.edu/
+- name: humann2
+  owner: iuc
+  revisions:
+  - b168c0ef3c14
+  tool_panel_section_label: Tools from workflows
+  tool_shed_url: https://toolshed.g2.bx.psu.edu/
+- name: metaphlan2krona
+  owner: iuc
+  revisions:
+  - fdbd63e92b01
+  tool_panel_section_label: Tools from workflows
+  tool_shed_url: https://toolshed.g2.bx.psu.edu/
+- name: export2graphlan
+  owner: iuc
+  revisions:
+  - ed1becc01910
+  tool_panel_section_label: Tools from workflows
+  tool_shed_url: https://toolshed.g2.bx.psu.edu/
+- name: format_metaphlan2_output
+  owner: bebatut
+  revisions:
+  - 2bfa9b200600
+  tool_panel_section_label: Tools from workflows
+  tool_shed_url: https://toolshed.g2.bx.psu.edu/
+- name: humann2_renorm_table
+  owner: iuc
+  revisions:
+  - d77397f09da1
+  tool_panel_section_label: Tools from workflows
+  tool_shed_url: https://toolshed.g2.bx.psu.edu/
+- name: group_humann2_uniref_abundances_to_go
+  owner: bebatut
+  revisions:
+  - fd2cf7c9d3ec
+  tool_panel_section_label: Tools from workflows
+  tool_shed_url: https://toolshed.g2.bx.psu.edu/
+- name: taxonomy_krona_chart
+  owner: crs4
+  revisions:
+  - c9f8fef1df74
+  tool_panel_section_label: Tools from workflows
+  tool_shed_url: https://toolshed.g2.bx.psu.edu/
+- name: graphlan_annotate
+  owner: iuc
+  revisions:
+  - 5d6f8f0bef7c
+  tool_panel_section_label: Tools from workflows
+  tool_shed_url: https://toolshed.g2.bx.psu.edu/
+- name: humann2_genefamilies_genus_level
+  owner: iuc
+  revisions:
+  - 6d364c65c946
+  tool_panel_section_label: Tools from workflows
+  tool_shed_url: https://toolshed.g2.bx.psu.edu/
+- name: combine_metaphlan2_humann2
+  owner: bebatut
+  revisions:
+  - 31394a0c0242
+  tool_panel_section_label: Tools from workflows
+  tool_shed_url: https://toolshed.g2.bx.psu.edu/
+- name: humann2_unpack_pathways
+  owner: iuc
+  revisions:
+  - 7f208f1eb64f
+  tool_panel_section_label: Tools from workflows
+  tool_shed_url: https://toolshed.g2.bx.psu.edu/
+- name: text_processing
+  owner: bgruening
+  revisions:
+  - 9ff72e942410
+  tool_panel_section_label: Tools from workflows
+  tool_shed_url: https://toolshed.g2.bx.psu.edu/
+- name: graphlan
+  owner: iuc
+  revisions:
+  - 8f62f666dcb6
+  tool_panel_section_label: Tools from workflows
+  tool_shed_url: https://toolshed.g2.bx.psu.edu/
